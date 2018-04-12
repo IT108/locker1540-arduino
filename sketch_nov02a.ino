@@ -375,7 +375,7 @@ void loop(){
                             if(ok){
                                 setLocked(0);
                                 led(0, 255, 0);
-                               delay(5000);
+                                delay(5000);
                                 setLocked(1);
                                 led(0, 0, 0);
                                 break;
