@@ -28,7 +28,9 @@ const int INSIDE_SENSOR_1_0 = 4;
 const int INSIDE_SENSOR_1_1 = 5;
 
 int Num;
+int Num1;
 int w[8];
+int w1[8];
 int R;
 int G;
 int B;
@@ -263,6 +265,25 @@ void reColor(){
         R++;
     }
 }
+void webC(){
+  if (Serial3.available()) {
+    int a = Serial3.read();
+    if (Num1 >= 1) {
+      w1[Num1 - 1] = a;
+      Num1++;
+    }
+    if (a == 126) {
+      Num1 = 1;
+    }
+    if (Num1 == 9) {
+      writeNew(w1);
+      led(0,255,0);
+      delay(1500);
+    }
+  } else {
+    Num1 = 0;
+  }
+}
 
 void(* reboot)(void) = 0;
 
@@ -274,6 +295,7 @@ void interrupt(){
 
 void setup(){
     Serial.begin(9600);
+    Serial3.begin(115200);
     //Serial3.begin(9600);
     if(EEPROM[1023] == 255){
         initiation();
@@ -321,11 +343,12 @@ void setup(){
 
 void loop(){
     if(millis() < start_time){
-        start_time = millis();  
+        start_time = millis();
     }
     checkBtn();
     led(R, G, B);
     setLocked(1);
+    webC();
     play();
     /*if(millis() - start_time > 86400){
         led(255, 255, 255);
@@ -333,6 +356,7 @@ void loop(){
         //reboot();
     }*/
     delay(2);
+
     int a = Serial.read();
     if(!Serial.available()){
         Num = 0;
@@ -393,4 +417,3 @@ void loop(){
         }
     }
 }
-
