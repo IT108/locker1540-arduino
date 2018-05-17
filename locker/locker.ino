@@ -276,9 +276,16 @@ void webC(){
       Num1 = 1;
     }
     if (Num1 == 9) {
-      writeNew(w1);
-      led(0,255,0);
-      delay(1500);
+      int idx = _find(w);
+      if (idx == -1) {
+        writeNew(w1);
+        led(0,255,0);
+        delay(1500);
+      }else{
+        del(idx);
+        led(255,0,0);
+        delay(1500);
+      }
     }
   } else {
     Num1 = 0;
