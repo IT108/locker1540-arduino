@@ -1,4 +1,4 @@
-ed/*
+/*
  *  This sketch demonstrates how to set up a simple HTTP-like server.
  *  The server will set a GPIO pin depending on the request
  *    http://server_ip/gpio/0 will set the GPIO2 low,
