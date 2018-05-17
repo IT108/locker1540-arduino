@@ -73,7 +73,7 @@ void loop() {
   String megaReq;
   if (req.indexOf(pass + "/A") != -1 && req.indexOf("/E") != -1){
     val = 0;
-    megaReq = req.substring(req.indexOf(pass + "/A")+ pass.length() + 1, req.indexOf("/E"));
+    megaReq = req.substring(req.indexOf(pass + "/A")+ pass.length() + 2, req.indexOf("/E"));
   }
   else if (req.indexOf(pass + "/R") != -1){
     val = 1;
