@@ -1,4 +1,4 @@
-/*
+ed/*
  *  This sketch demonstrates how to set up a simple HTTP-like server.
  *  The server will set a GPIO pin depending on the request
  *    http://server_ip/gpio/0 will set the GPIO2 low,
@@ -47,7 +47,10 @@ void setup() {
   if (debug) Serial.println("Server started");
 
   // Print the IP address
-  if (debug) Serial.println(WiFi.localIP());
+  if (debug){ 
+    Serial.println(WiFi.localIP());
+    Serial.println(WiFi.macAddress());
+  }
 }
 
 void loop() {
