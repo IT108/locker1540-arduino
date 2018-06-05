@@ -127,6 +127,52 @@ void checkFind(int w[]){
    if (debug) Serial.print(" OK");
 }
 
+void checkDB(){
+  if (!Serial.available()) {
+    Num = -1;
+    Main = -1;
+    return;
+  } else {
+    int a = Serial.read();
+    //Serial.println(a);
+    if (a == 126 || a == 124){
+      Main = a;
+      Num = 0;
+      if (debug) Serial.println(Main);
+    }
+    if (Main == 126){
+      if (Num > -1 && a != Main) {
+        if (debug){
+          Serial.print(a);
+          Serial.print(" ");
+        }
+        w[Num] = a;
+        Num++;
+
+        if (Num == 8) {
+          checkFind(w);
+        }
+      }
+    } else if (Main == 124){
+      if (debug) {
+        Serial.print(a);
+        Serial.print(" ");
+      }
+      if (Num > -1 && a != Main) {
+        w[Num] = a;
+        Num++;
+        if (Num == 8){
+          if (_find(w) != -1) {
+            Serial.print("Y");
+          } else {
+            Serial.print("N");
+          }
+        }
+      }
+    }
+  }
+}
+
 void setup() {
   Serial.begin(115200);
   delay(10);
@@ -169,49 +215,7 @@ void setup() {
 }
 
 void loop() {
-  /*if (!Serial.available()) {
-    Num = -1;
-    Main = -1;
-    return;
-  } else {
-    int a = Serial.read();
-    //Serial.println(a);
-    if (a == 126 || a == 124){
-      Main = a;
-      Num = 0;
-      if (debug) Serial.println(Main);
-    }
-    if (Main == 126){
-      if (Num > -1 && a != Main) {
-        if (debug){
-          Serial.print(a);
-          Serial.print(" ");
-        }
-        w[Num] = a;
-        Num++;
 
-        if (Num == 8) {
-          checkFind(w);
-        }
-      }
-    } else if (Main == 124){
-      if (debug) {
-        Serial.print(a);
-        Serial.print(" ");
-      }
-      if (Num > -1 && a != Main) {
-        w[Num] = a;
-        Num++;
-        if (Num == 8){
-          if (_find(w) != -1) {
-            Serial.print("Y");
-          } else {
-            Serial.print("N");
-          }
-        }
-      }
-    }
-  }*/
   // Check if a client has connected
   WiFiClient client = server.available();
   if (!client) {
@@ -240,7 +244,7 @@ void loop() {
   }
   else if (req.indexOf(pass + "/R") != -1){
     val = 1;
-    
+
   }
   else {
     if (debug) Serial.println("invalid request");
@@ -260,7 +264,7 @@ void loop() {
     }
   }
   checkFind(fmas);
-  
+
   client.flush();
 
   // Prepare the response
@@ -276,4 +280,6 @@ void loop() {
 
   // The client will actually be disconnected
   // when the function returns and 'client' object is detroyed
+  checkDB();
+
 }
