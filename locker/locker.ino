@@ -49,11 +49,12 @@ int master[8] = {
 int badsymb[9] = {
     -1, 2, 3, 10, 13, 249, 191, 235, 0
 };
-
-int qq[3][8] = {
-    {55, 53, 49, 56, 57, 65, 54, 70},
-    {55, 53, 48, 56, 67, 67, 52, 70},
-    {51, 55, 70, 68, 56, 48, 56, 70},
+int qqLength = 4;
+int qq[4][8] = {
+    {66, 66, 57, 53, 65, 53, 66, 54},  //ОХРАНА
+    {69, 54, 57, 55, 49, 69, 70, 57},  // ПАРАМОНОВ
+    {68, 57, 53, 52, 48, 57, 52, 57},  //АМЕЛИЧЕВ
+    {68, 57, 52, 49, 69, 51, 52, 57}   //ФИЛИППОВ
 };
 
 int q[60][8];
@@ -265,31 +266,58 @@ void reColor(){
         R++;
     }
 }
-void webC(){
-  if (Serial3.available()) {
-    int a = Serial3.read();
-    if (Num1 >= 1) {
-      w1[Num1 - 1] = a;
-      Num1++;
+
+void webServerAddReq(){
+    String req = "~";
+    for (size_t i = 0; i < 8; i++) {
+        char temp = w[i];
+        req += temp;
     }
-    if (a == 126) {
-      Num1 = 1;
+    Serial3.print(req);
+}
+
+void checkForOpen(){
+    if (Serial3.available()) {
+        int ans = Serial3.read();
+        if(ans == 89){
+            setLocked(0);
+            led(0, 255, 0);
+            delay(5000);
+            setLocked(1);
+            led(0, 0, 0);
+            return;
+        }
+        if(ans == 78){
+            led(255, 0, 0);
+            delay(2000);
+            led(0, 0, 0);
+        }
     }
-    if (Num1 == 9) {
-      int idx = _find(w);
-      if (idx == -1) {
-        writeNew(w1);
-        led(0,255,0);
-        delay(1500);
-      }else{
-        del(idx);
-        led(255,0,0);
-        delay(1500);
-      }
+}
+
+void checkCards(){
+    bool ok = false;
+    for(int i = 0; i < qqLength; i++){
+        ok = checkCard(qq[i], w);
+        if(ok){
+            setLocked(0);
+            led(0, 255, 0);
+            delay(5000);
+            setLocked(1);
+            led(0, 0, 0);
+            return;
+        }
     }
-  } else {
-    Num1 = 0;
-  }
+    checkWebCards();
+}
+
+void checkWebCards(){
+    String req = "|";
+    for (size_t i = 0; i < 8; i++) {
+        char temp = w[i];
+        req += temp;
+    }
+    Serial3.print(req);
 }
 
 void(* reboot)(void) = 0;
@@ -355,7 +383,7 @@ void loop(){
     checkBtn();
     led(R, G, B);
     setLocked(1);
-    webC();
+    checkForOpen();
     play();
     /*if(millis() - start_time > 86400){
         led(255, 255, 255);
@@ -384,39 +412,12 @@ void loop(){
                 }
                 else{
                     if(rec){
-                        int idx = _find(w);
-                        if (idx == -1) {
-                            writeNew(w);
-                            led(0,255,0);
-                            delay(5000);
-                            //writeQ();
-                        }
-                        else{
-                            del(idx);
-                            led(255,0,0);
-                            delay(5000);
-                            //writeQ();
-                        }
+                        //TODO: WebServer request
+                        webServerAddReq();
                         rec = false;
                     }
                     else{
-                        bool ok = true;
-                        for(int i = 0; i < n; i++){
-                            ok = checkCard(q[i], w);
-                            if(ok){
-                                setLocked(0);
-                                led(0, 255, 0);
-                                delay(5000);
-                                setLocked(1);
-                                led(0, 0, 0);
-                                break;
-                            }
-                        }
-                        if(!ok){
-                            led(255, 0, 0);
-                            delay(2000);
-                            led(0, 0, 0);
-                        }
+                        checkCards();
                     }
                     Num = 0;
                 }

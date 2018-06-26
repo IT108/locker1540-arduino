@@ -14,7 +14,7 @@
 const char* ssid = "it108";
 const char* password = "ITCHURCH";
 String pass = "12345";
-bool debug = true;
+bool debug = false;
 int q[60][8];
 int w[8];
 int Num;
@@ -247,7 +247,7 @@ void loop() {
     freq = megaReq;
     resp = "Request type - add|remove. Card is: " + freq;
      int fmas[8];
-    Serial.print("card ");
+    if (debug) Serial.print("card ");
     for (size_t i = 0; i < 8; i++) {
       fmas[i] = freq.charAt(i);
       if (debug) {
