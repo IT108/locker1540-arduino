@@ -74,7 +74,7 @@ void writeNew(int w[]){
 void del(int idx){
   for (size_t i = idx; i < n; i++) {
     renameC(i, i + 1);
-  }
+  }     
   n--;
   SD.remove("CARDS.txt");
   File cards = SD.open("CARDS.txt",FILE_WRITE);
