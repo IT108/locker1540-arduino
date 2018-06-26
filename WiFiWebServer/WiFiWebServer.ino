@@ -11,8 +11,8 @@
 #include<SPI.h>
 #include<SD.h>
 
-const char* ssid = "it";
-const char* password = "itchurch";
+const char* ssid = "it108";
+const char* password = "ITCHURCH";
 String pass = "12345";
 bool debug = true;
 int q[60][8];
@@ -73,7 +73,7 @@ void writeNew(int w[]){
 
 void del(int idx){
   for (size_t i = idx; i < n; i++) {
-    renameC(idx, idx + 1);
+    renameC(i, i + 1);
   }
   n--;
   SD.remove("CARDS.txt");
@@ -179,7 +179,7 @@ void setup() {
   if (!SD.begin(PIN_CHIP_SELECT)) {
       if (debug) Serial.println("Card failed, or not present");
       // Если что-то пошло не так, завершаем работу:
-      return;
+      //return;
     }
     if (debug) Serial.println("card initialized.");
     initCards();
@@ -201,7 +201,10 @@ void setup() {
     if (debug) Serial.print(".");
   }
   if (debug) Serial.println("");
-  if (debug) Serial.println("WiFi connected");
+  if (debug){ 
+    Serial.println("WiFi connected");
+    //Serial.println(WiFi.macAddress());
+  }
 
   // Start the server
   server.begin();
@@ -215,19 +218,19 @@ void setup() {
 }
 
 void loop() {
-
+    checkDB();
   // Check if a client has connected
   WiFiClient client = server.available();
   if (!client) {
     return;
   }
-
-  // Wait until the client sends some data
-  if (debug) Serial.println("new client");
   while(!client.available()){
     delay(1);
   }
-
+  // Wait until the client sends some data
+  if (debug) Serial.println("new client");
+  
+  
   // Read the first line of the request
   String req = client.readStringUntil('\r');
   if (debug) Serial.println(req);
@@ -237,14 +240,45 @@ void loop() {
   int val;
   String megaReq;
   String freq;
+  String resp;
   if (req.indexOf(pass + "/A") != -1 && req.indexOf("/E") != -1){
     val = 0;
     megaReq = req.substring(req.indexOf(pass + "/A")+ pass.length() + 2, req.indexOf("/E"));
     freq = megaReq;
+    resp = "Request type - add|remove. Card is: " + freq;
+     int fmas[8];
+    Serial.print("card ");
+    for (size_t i = 0; i < 8; i++) {
+      fmas[i] = freq.charAt(i);
+      if (debug) {
+        Serial.print(fmas[i]);
+        Serial.print(" ");
+      }
+    }
+    checkFind(fmas);
   }
   else if (req.indexOf(pass + "/R") != -1){
-    val = 1;
-
+    resp = "/R... but i don't now what is it";
+  }else if(req.indexOf(pass + "/B") != -1){
+    resp = "<h3>Request type - show cards</h3>\r\n<br />\r\n<h2>Cards:</h2>\r\n<br />\r\n";
+    for(int j = 0; j < 60; j++){
+      if (q[j][0] == 0) break;
+      for(int p = 0; p < 8; p++){
+        resp += q[j][p];
+        resp += " ";
+      }
+      resp += "\r\n<br />\r\n";
+    }
+  } else if(req.indexOf(pass + "/O") != -1){
+    resp = "<h3>Request type - show cards</h3>\r\n<br />\r\n<h2>Cards:</h2>\r\n<br />\r\n";
+    for(int j = 0; j < 60; j++){
+      if (q[j][0] == 0) break;
+      for(int p = 0; p < 8; p++){
+        char temp = q[j][p];
+        resp += temp;
+      }
+      resp += "\r\n<br />\r\n";
+    }
   }
   else {
     if (debug) Serial.println("invalid request");
@@ -254,24 +288,14 @@ void loop() {
   }
   // Set GPIO2 according to the request
   digitalWrite(2, val);
-  int fmas[8];
-  int j = 0;
-  for (size_t i = 0; i < 8; i++) {
-    fmas[j] = freq.charAt(i);
-    if (debug) {
-      Serial.print(fmas[j]);
-      Serial.print(" ");
-    }
-  }
-  checkFind(fmas);
+
 
   client.flush();
 
   // Prepare the response
-  String s = "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n<!DOCTYPE HTML>\r\n<html>\r\nRequest status - ";
-  s += val;
-  s += " Generated message - " + megaReq;
-  s += "</html>\n";
+  String s = "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n<!DOCTYPE HTML>\r\n<html>\r\n";
+  s += resp;
+  s += "\r\n</html>\n";
 
   // Send the response to the client
   client.print(s);
@@ -280,6 +304,5 @@ void loop() {
 
   // The client will actually be disconnected
   // when the function returns and 'client' object is detroyed
-  checkDB();
 
 }
