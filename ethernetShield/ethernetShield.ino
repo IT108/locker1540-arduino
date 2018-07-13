@@ -35,12 +35,13 @@ int Main2;
 const int PIN_CHIP_SELECT = 22;
 const int symbolWrite = 1;
 const int symbolDel = 2;
+String cardsFileName = "CARDS.txt";
 
 void initCards(){
   int i = 0;
   int j = 0;
   int a;
-  File cards = SD.open("CARDS.txt");
+  File cards = SD.open(cardsFileName);
     if (cards) {
       while (cards.available()) {
         for (int f = 0; f < 8; f++){
@@ -66,8 +67,8 @@ void writeNew(int w[]){
     q[n][i] = w[i];
   }
   n++;
-  SD.remove("CARDS.txt");
-  File cards = SD.open("CARDS.txt",FILE_WRITE);
+  SD.remove(cardsFileName);
+  File cards = SD.open(cardsFileName,FILE_WRITE);
   if (cards) {
     for (size_t i = 0; i < n; i++) {
       for (size_t j = 0; j < 8; j++) {
@@ -86,8 +87,8 @@ void del(int idx){
     renameC(i, i + 1);
   }
   n--;
-  SD.remove("CARDS.txt");
-  File cards = SD.open("CARDS.txt",FILE_WRITE);
+  SD.remove(cardsFileName);
+  File cards = SD.open(cardsFileName,FILE_WRITE);
   if (cards) {
     for (size_t i = 0; i < n; i++) {
       for (size_t j = 0; j < 8; j++) {
@@ -283,7 +284,6 @@ void setup(){
     delay(20);
     if (!SD.begin(PIN_CHIP_SELECT)) {
         if (debug) DebugSerial.println("Card failed, or not present");
-        // Ð•Ñ�Ð»Ð¸ Ñ‡Ñ‚Ð¾-Ñ‚Ð¾ Ð¿Ð¾ÑˆÐ»Ð¾ Ð½Ðµ Ñ‚Ð°Ðº, Ð·Ð°Ð²ÐµÑ€ÑˆÐ°ÐµÐ¼ Ñ€Ð°Ð±Ð¾Ñ‚Ñƒ:
         //return;
       }
     if (debug) DebugSerial.println("card initialized.");
