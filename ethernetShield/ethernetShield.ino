@@ -19,6 +19,7 @@ EthernetServer server(80);
 String showCardsReq = "/O";
 String showCardsBytesReq = "/B";
 String addRemoveCardReq = "/A";
+String nameSymbol = "/N";
 String getAllCards = "/GC";
 String HTTPHead = "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n<!DOCTYPE HTML>\r\n<html>\r\n";
 String HTTPEnd = "\r\n</html>\n";
@@ -193,7 +194,7 @@ void checkDB(){
   }
 }
 
-void webServer(){ 
+void webServer(){
   bool sys = false;
   String sysresp = "";
     // Check if a client has connected
@@ -217,17 +218,19 @@ void webServer(){
   String freq;
   String resp;
   if (req.indexOf(pass + addRemoveCardReq) != -1){
-    freq = req.substring(req.indexOf(pass + addRemoveCardReq)+ pass.length() + 2, req.indexOf(pass + addRemoveCardReq)+ pass.length() + 10);
-    resp = "Request type - add|remove. Card is: " + freq;
-     int fmas[8];
-    if (debug) Serial.print("card ");
-    for (size_t i = 0; i < 8; i++) {
-      fmas[i] = freq.charAt(i);
-      if (debug) {
-        Serial.print(fmas[i]);
-        Serial.print(" ");
+    if (req.indexOf(nameSymbol) != -1){
+      freq = req.substring(req.indexOf(pass + addRemoveCardReq) + pass.length() + addRemoveCardReq.length(), req.indexOf(pass + addRemoveCardReq)+ pass.length() + addRemoveCardReq.length() + 8);
+      resp = "Request type - add|remove. Card is: " + freq;
+      int fmas[8];
+      if (debug) Serial.print("card ");
+      for (size_t i = 0; i < 8; i++) {
+        fmas[i] = freq.charAt(i);
+        if (debug) {
+          Serial.print(fmas[i]);
+          Serial.print(" ");
+        }
       }
-    }
+      String name = req.substring(req.indexOf(nameSymbol) + nameSymbol.length());
       int status = checkFind(fmas);
       switch (status) {
         case symbolWrite:
@@ -239,6 +242,9 @@ void webServer(){
         resp += "Card successfully removed!";
         break;
       }
+    } else {
+      resp += "Enter cardholder's name";
+    }
   }else if(req.indexOf(pass + showCardsBytesReq) != -1){
     resp = "<h3>Request type - show cards</h3>\r\n";
     resp += "<br />\r\n<h2>Cards:</h2>\r\n<br />\r\n";
@@ -326,4 +332,3 @@ void loop(){
     checkDB();
     webServer();
 }
-
