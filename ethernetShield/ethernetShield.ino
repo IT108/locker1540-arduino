@@ -272,6 +272,7 @@ void webServer(){
     resp += HTTPCloseTable;
   } else if (req.indexOf(pass + getAllCards) != -1){
     sys = true;
+    sysresp += ";";
     for (int j = 0; j < 60; j++){
       if (q[j][0] == 0) break;
       for (int p = 0; p < 8; p++){
