@@ -19,9 +19,14 @@ EthernetServer server(80);
 String showCardsReq = "/O";
 String showCardsBytesReq = "/B";
 String addRemoveCardReq = "/A";
+String getAllCards = "/GC";
 String HTTPHead = "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n<!DOCTYPE HTML>\r\n<html>\r\n";
 String HTTPEnd = "\r\n</html>\n";
 String HTTPNextLine = "\r\n<br />\r\n";
+String HTTPOpenTable = "\r\n<table border=1 align=\"left\" cellpadding=0 cellspacing=0>\r\n<tr><td>";
+String HTTPNextTableCell = "</td><td>";
+String HTTPNextTableRow = "</td></tr>\r\n<tr><td>";
+String HTTPCloseTable = "</td></tr>\r\n</table>";
 //System variables
 bool debug = true;
 int q[60][8];
@@ -189,6 +194,8 @@ void checkDB(){
 }
 
 void webServer(){ 
+  bool sys = false;
+  String sysresp = "";
     // Check if a client has connected
   EthernetClient client = server.available();
   if (!client) {
@@ -235,26 +242,45 @@ void webServer(){
   }else if(req.indexOf(pass + showCardsBytesReq) != -1){
     resp = "<h3>Request type - show cards</h3>\r\n";
     resp += "<br />\r\n<h2>Cards:</h2>\r\n<br />\r\n";
+    resp += HTTPOpenTable;
     for(int j = 0; j < 60; j++){
       if (q[j][0] == 0) break;
+      resp += j + 1;
+      resp += ".  ";
+      resp += HTTPNextTableCell;
       for(int p = 0; p < 8; p++){
         resp += q[j][p];
         resp += " ";
       }
-      resp += "\r\n<br />\r\n";
+      resp += HTTPNextTableRow;
     }
+    resp += HTTPCloseTable;
   } else if(req.indexOf(pass + showCardsReq) != -1){
     resp = "<h3>Request type - show cards</h3>\r\n<br />\r\n<h2>Cards:</h2>\r\n<br />\r\n";
+    resp += HTTPOpenTable;
     for(int j = 0; j < 60; j++){
       if (q[j][0] == 0) break;
+      resp += j + 1;
+      resp += ".  ";
+      resp += HTTPNextTableCell;
       for(int p = 0; p < 8; p++){
         char temp = q[j][p];
         resp += temp;
       }
-      resp += "\r\n<br />\r\n";
+      resp += HTTPNextTableRow;
     }
-  }
-    else {
+    resp += HTTPCloseTable;
+  } else if (req.indexOf(pass + getAllCards) != -1){
+    sys = true;
+    for (int j = 0; j < 60; j++){
+      if (q[j][0] == 0) break;
+      for (int p = 0; p < 8; p++){
+        char temp = q[j][p];
+          sysresp += temp;
+        }
+        sysresp += ";";
+      }
+  } else {
     if (debug) Serial.println("invalid request");
     resp = "<h5>INVALID REQUEST</h5>";
   }
@@ -263,7 +289,8 @@ void webServer(){
 
   // Prepare the response
   String s = HTTPHead;
-  s += resp;
+  if (sys) s += sysresp;
+  else s += resp;
   s += HTTPEnd;
 
   // Send the response to the client
