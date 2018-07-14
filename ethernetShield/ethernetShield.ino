@@ -18,7 +18,8 @@ IPAddress ip(192, 168, 1, 38);
 EthernetServer server(80);
 String showCardsReq = "/O";
 String showCardsBytesReq = "/B";
-String addRemoveCardReq = "/A";
+String addCardReq = "/A";
+String removeCardReq = "/R";
 String nameSymbol = "/N";
 String getAllCards = "/GC";
 String HTTPHead = "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n<!DOCTYPE HTML>\r\n<html>\r\n";
@@ -39,9 +40,19 @@ int w2[8];
 int Num2;
 int Main2;
 const int PIN_CHIP_SELECT = 22;
-const int symbolWrite = 1;
-const int symbolDel = 2;
+const int symbolExist = 1;
+const int symbolNotExist = -1;
+const int cardsSeparator = 59;
+const int nameSeparator = 47;
 String cardsFileName = "CARDS.txt";
+String fullDBFileName = "CardsDB.txt";
+String tmpFileName = "TmpFile.txt";
+
+class card_pair{
+public:
+    int card[8];
+    String name;
+};
 
 void initCards(){
   int i = 0;
@@ -68,9 +79,9 @@ void initCards(){
     cards.close();
 }
 
-void writeNew(int w[]){
+void writeNew(card_pair w){
   for (int i = 0; i < 8; i++){
-    q[n][i] = w[i];
+    q[n][i] = w.card[i];
   }
   n++;
   SD.remove(cardsFileName);
@@ -86,26 +97,113 @@ void writeNew(int w[]){
   }
   cards.close();
   initCards();
+  writeToFullDB(w);
 }
 
-void del(int idx){
-  for (size_t i = idx; i < n; i++) {
-    renameC(i, i + 1);
-  }
-  n--;
-  SD.remove(cardsFileName);
-  File cards = SD.open(cardsFileName,FILE_WRITE);
-  if (cards) {
-    for (size_t i = 0; i < n; i++) {
-      for (size_t j = 0; j < 8; j++) {
-        byte f = q[i][j];
-        cards.write(f);
+void writeToFullDB(card_pair card){
+    File cards = SD.open(fullDBFileName,FILE_WRITE);
+    byte f;
+    if (cards) {
+      for (size_t i = 0; i < 8; i++) {
+          f = card.card[i];
+          cards.write(f);
       }
-      cards.println();
+      f = '/';
+      cards.write(f);
+      for (size_t i = 0; i < card.name.length(); i++) {
+          f = card.name.charAt(i);
+          cards.write(f);
+      }
+      f = ';';
+      cards.write(f);
     }
-  }
-  cards.close();
-  initCards();
+    cards.close();
+}
+
+void delFromFullDB(card_pair card){
+    File DB = SD.open(fullDBFileName);
+    File tmpFile = SD.open(tmpFileName, FILE_WRITE);
+    if(DB){
+        bool found = false;
+        while (DB.available()) {
+            int a = DB.read();
+            if (a == cardsSeparator){
+                if (DB.available()) {
+                    int tmpCard[8];
+                    for (size_t i = 0; i < 8; i++) {
+                        tmpCard[i] = DB.read();
+                    }
+                    if (checkCard(tmpCard, card.card)) {
+                        found = true;
+                    } else {
+                        byte f;
+                        for (size_t i = 0; i < 8; i++) {
+                            f = tmpCard[i];
+                            tmpFile.write(f);
+                        }
+                        f = nameSeparator;
+                        tmpFile.write(f);
+                    }
+                }
+            } else if (a == nameSeparator && found){
+                int temp = DB.read();
+                while (temp != cardsSeparator) {
+                    temp = DB.read();
+                }
+                found = false;
+            } else if (a == nameSeparator){
+                int temp = DB.read();
+                byte f;
+                while (temp != cardsSeparator) {
+                    f = temp;
+                    tmpFile.write(f);
+                    temp = DB.read();
+                }
+                f = cardsSeparator;
+                tmpFile.write(f);
+            }
+        }
+        DB.close();
+        tmpFile.close();
+        copyTmpToDB();
+    }
+}
+
+void copyTmpToDB(){
+    SD.remove(fullDBFileName);
+    File DB = SD.open(fullDBFileName,FILE_WRITE);
+    File tmpFile = SD.open(tmpFileName);
+    if (tmpFile) {
+        while (tmpFile.available()) {
+            byte f = tmpFile.read();
+            DB.write(f);
+        }
+    }
+    DB.close();
+    tmpFile.close();
+    SD.remove(tmpFileName);
+}
+
+void del(card_pair card){
+    int idx = _find(card.card);
+    for (size_t i = idx; i < n; i++) {
+        renameC(i, i + 1);
+    }
+    n--;
+    SD.remove(cardsFileName);
+    File cards = SD.open(cardsFileName,FILE_WRITE);
+    if (cards) {
+        for (size_t i = 0; i < n; i++) {
+            for (size_t j = 0; j < 8; j++) {
+                byte f = q[i][j];
+                cards.write(f);
+            }
+            cards.println();
+        }
+    }
+    cards.close();
+    initCards();
+    delFromFullDB(card);
 }
 
 void renameC(int idx1, int idx2){
@@ -136,13 +234,11 @@ int checkFind(int w[]){
   int res = 0;
   int idx = _find(w);
   if(idx == -1){
-    if (debug) DebugSerial.println("write");
-    res = symbolWrite;
-    writeNew(w);
+    if (debug) DebugSerial.println("not exist");
+    res = symbolNotExist;
   } else {
-    if (debug) DebugSerial.println("del");
-    res = symbolDel;
-    del(idx);
+    if (debug) DebugSerial.println("exist");
+    res = symbolExist;
   }
    if (debug) DebugSerial.print(" OK");
    return res;
@@ -217,10 +313,10 @@ void webServer(){
   // Match the request
   String freq;
   String resp;
-  if (req.indexOf(pass + addRemoveCardReq) != -1){
+  if (req.indexOf(pass + addCardReq) != -1){
     if (req.indexOf(nameSymbol) != -1){
-      freq = req.substring(req.indexOf(pass + addRemoveCardReq) + pass.length() + addRemoveCardReq.length(), req.indexOf(pass + addRemoveCardReq)+ pass.length() + addRemoveCardReq.length() + 8);
-      resp = "Request type - add|remove. Card is: " + freq;
+      freq = req.substring(req.indexOf(pass + addCardReq) + pass.length() + addCardReq.length(), req.indexOf(pass + addCardReq)+ pass.length() + addCardReq.length() + 8);
+      resp = "Request type - add card. Card is: " + freq;
       int fmas[8];
       if (debug) Serial.print("card ");
       for (size_t i = 0; i < 8; i++) {
@@ -232,20 +328,54 @@ void webServer(){
       }
       String name = req.substring(req.indexOf(nameSymbol) + nameSymbol.length());
       int status = checkFind(fmas);
+      card_pair newCard;
       switch (status) {
-        case symbolWrite:
+        case symbolNotExist:
+        newCard.name = name;
+        for (int i = 0; i < 8; i++){
+          newCard.card[i] = fmas[i];
+        }
+        writeNew(newCard);
         resp += HTTPNextLine;
         resp += "Card successfully added!";
         break;
-        case symbolDel:
+        case symbolExist:
         resp += HTTPNextLine;
-        resp += "Card successfully removed!";
+        resp += "Card already exist!";
         break;
       }
     } else {
       resp += "Enter cardholder's name";
     }
-  }else if(req.indexOf(pass + showCardsBytesReq) != -1){
+} else if(req.indexOf(pass + removeCardReq) != -1){
+    freq = req.substring(req.indexOf(pass + removeCardReq) + pass.length() + removeCardReq.length(), req.indexOf(pass + removeCardReq) + pass.length() + removeCardReq.length() + 8);
+    resp = "Request type - remove card. Card is: " + freq;
+    int fmas[8];
+    if (debug) Serial.print("card ");
+    for (size_t i = 0; i < 8; i++) {
+      fmas[i] = freq.charAt(i);
+      if (debug) {
+        Serial.print(fmas[i]);
+        Serial.print(" ");
+      }
+    }
+    int status = checkFind(fmas);
+    card_pair reqCard;
+    switch (status) {
+      case symbolNotExist:
+      resp += HTTPNextLine;
+      resp += "Card is not present in database!";
+      break;
+      case symbolExist:
+      for (int i = 0; i < 8; i++){
+          reqCard.card[i] = fmas[i];
+        }
+      del(reqCard);
+      resp += HTTPNextLine;
+      resp += "Card already exist!";
+      break;
+    }
+} else if(req.indexOf(pass + showCardsBytesReq) != -1){
     resp = "<h3>Request type - show cards</h3>\r\n";
     resp += "<br />\r\n<h2>Cards:</h2>\r\n<br />\r\n";
     resp += HTTPOpenTable;
