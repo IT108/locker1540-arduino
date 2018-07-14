@@ -1,0 +1,2 @@
+CARDS_FILE = "CARDS.txt"
+ALL_CARDS_URL = 'http://192.168.1.38/12345/GC'

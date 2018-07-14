@@ -1,13 +1,23 @@
 import requests
-myFile = open('CARDS.txt', 'w')
-allCards = requests.get('http://192.168.1.38/12345/GC')
-allCards = allCards.text.split(';')
-allCards = allCards[1:len(allCards) - 1]
-i = ''
-print(len(allCards))
-for i in allCards:
-    print(i)
-    myFile.write(i)
-    myFile.write('\n')
-myFile.close()
+import constants
 
+
+def get_all_cards():
+    allcards = requests.get(constants.ALL_CARDS_URL)
+    allcards = allcards.text.split(';')
+    allcards = allcards[1:len(allcards) - 1]
+    return allcards
+
+
+def write_cards_to_file():
+    myFile = open(constants.CARDS_FILE, 'w')
+    cards = get_all_cards()
+    print(len(cards))
+    for i in cards:
+        print(i)
+        myFile.write(i)
+        myFile.write('\n')
+    myFile.close()
+
+
+write_cards_to_file()
