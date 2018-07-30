@@ -5,6 +5,7 @@ CARDS_FILE = "CARDS.txt"
 ALL_CARDS_URL = HTTP_START + SERVER_IP + '/' + PASS + '/GC'
 LOGIN_URL = HTTP_START + SERVER_IP + '/' + 'LA/'
 FULL_DB_URL = HTTP_START + SERVER_IP + '/FD'
+TOKEN = ""
 
 
 class ServerAnswer:

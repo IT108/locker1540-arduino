@@ -8,6 +8,7 @@ import ui.login
 import ui.addUserDialog
 import login
 import getFullDB
+import constants
 
 
 class AddUserDialog(QDialog, ui.addUserDialog.Ui_Dialog):
@@ -47,6 +48,7 @@ class ConsoleApp(QtWidgets.QMainWindow, ui.login.Ui_MainWindow):
             QMessageBox.question(self, 'Message', "Wrong key!", QMessageBox.Yes, QMessageBox.Yes)
         elif a.answer_code == requests.codes.ok:
             print(a.answer_code)
+            constants.TOKEN = a.data
             self.close()
             self.window = CardsView()
             self.window.show()

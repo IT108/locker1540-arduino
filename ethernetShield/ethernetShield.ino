@@ -4,6 +4,7 @@
 #include <EthernetClient.h>
 #include <EthernetServer.h>
 #include <EthernetUdp.h>
+#include <DFPlayer_Mini_Mp3.h>
 
 #include<SPI.h>
 #include<SD.h>
@@ -16,13 +17,18 @@ String pass = "12345";
 byte mac[] = { 0xA0, 0x20, 0xA6, 0x21, 0xBB, 0xF5 };
 IPAddress ip(192, 168, 1, 38);
 EthernetServer server(80);
+int keyLength = 6;
+String token;
 String showCardsReq = "/O";
 String showCardsBytesReq = "/B";
 String addCardReq = "/A";
 String removeCardReq = "/R";
 String nameSymbol = "/N";
 String getAllCards = "/GC";
+String HTTPLoginURL = "LA/";
+String HTTPMusic = "MUSIC/";
 String HTTPHead = "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n<!DOCTYPE HTML>\r\n<html>\r\n";
+String HTTPSysHead = "HTTP/1.1 ";
 String HTTPEnd = "\r\n</html>\n";
 String HTTPNextLine = "\r\n<br />\r\n";
 String HTTPOpenTable = "\r\n<table border=1 align=\"left\" cellpadding=0 cellspacing=0>\r\n<tr><td>";
@@ -244,6 +250,55 @@ int checkFind(int w[]){
    return res;
 }
 
+String getMusicNum(int needCardi[]){
+    String needCard = "";
+    for (size_t i = 0; i < 8; i++) {
+        char q = needCardi[i];
+        needCard += q;
+    }
+    File cards = SD.open(fullDBFileName);
+      if (cards) {
+        int i = 1;
+        String _name = "";
+        String cardNum = "";
+        String music = "";
+        while (cards.available()) {
+            int a = cards.read();
+            if (a != nameSeparator && a != cardsSeparator) {
+                char q = a;
+                switch (i) {
+                    case 2:
+                      _name += q;
+                      break;
+                    case 1:
+                      cardNum += q;
+                      break;
+                    case 3:
+                      music += q;
+                      break;
+                }
+            }
+            if (a == cardsSeparator) {
+                if (i == 3){
+                      if (needCard == cardNum){
+                        cards.close();
+                        return music;
+                      }
+                }
+                i = 1;
+                _name = "";
+                cardNum = "";
+                music = "";
+            }
+            if (a == nameSeparator)
+                i++;
+        }
+        cards.close();
+        return "null";
+      }
+      cards.close();
+}
+
 void checkDB(){
   if (!LockerSerial.available()) {
     Num = -1;
@@ -252,7 +307,7 @@ void checkDB(){
   } else {
     int a = LockerSerial.read();
     //LockerSerial.println(a);
-    if (a == 126 || a == 124){
+    if (a == 126 || a == 124 || a == 125){
       Main = a;
       Num = 0;
       if (debug) DebugSerial.println(Main);
@@ -281,11 +336,39 @@ void checkDB(){
         if (Num == 8){
           if (_find(w) != -1) {
             LockerSerial.print("Y");
+            String musicNum = getMusicNum(w);
+            mp3_play(rand() % 5 + 1);
+            if (musicNum != "null") {
+                int x = musicNum.toInt();
+                delay(1000);
+                mp3_play(x);
+            }
           } else {
             LockerSerial.print("N");
           }
         }
       }
+    }
+    else if (Main == 125) {
+      if (Num > -1 && a != Main) {
+        w[Num] = a;
+        if (debug) {
+        DebugSerial.print(w[Num]);
+        DebugSerial.print(" ");
+      }
+        Num++;
+        if (Num == 8){
+          if (_find(w) != -1) {
+            String musicNum = getMusicNum(w);
+            mp3_play(rand() % 4 + 1);
+            if (musicNum != "null") {
+                int x = musicNum.toInt();
+                delay(8000);
+                mp3_play(x);
+            }
+          }
+        }
+      } 
     }
   }
 }
@@ -313,6 +396,7 @@ void webServer(){
   // Match the request
   String freq;
   String resp;
+  String sysStatus;
   if (req.indexOf(pass + addCardReq) != -1){
     if (req.indexOf(nameSymbol) != -1){
       freq = req.substring(req.indexOf(pass + addCardReq) + pass.length() + addCardReq.length(), req.indexOf(pass + addCardReq)+ pass.length() + addCardReq.length() + 8);
@@ -408,6 +492,7 @@ void webServer(){
     resp += HTTPCloseTable;
   } else if (req.indexOf(pass + getAllCards) != -1){
     sys = true;
+    sysStatus = "200 ";
     sysresp += ";";
     for (int j = 0; j < 60; j++){
       if (q[j][0] == 0) break;
@@ -417,6 +502,36 @@ void webServer(){
         }
         sysresp += ";";
       }
+  } else if(req.indexOf(HTTPLoginURL + pass) != -1) {
+      sys = true;
+      sysStatus = "200 ";
+      randomSeed(analogRead(0));
+      for (int i = 0; i < keyLength; i++){
+          sysresp += String(random(10));
+      }
+      token = sysresp;
+
+  } else if(req.indexOf(HTTPLoginURL) != -1){
+      sys = true;
+      sysStatus = "401 ";
+  }else if (req.indexOf(HTTPMusic + pass + "/1") != -1){
+      mp3_next();
+      delay(100);
+  }else if (req.indexOf(HTTPMusic + pass + "/2") != -1){
+      mp3_random_play();
+      delay(100);
+  } else if (req.indexOf(HTTPMusic + pass) != -1){
+      resp = "<h3>Request type - musicPlay</h3>\r\n";
+      resp += "<br />\r\n<h2>Cards:</h2>\r\n<br />\r\n";
+      resp += HTTPOpenTable;
+      resp += "<p><a href=""http://192.168.1.38/MUSIC/";
+      resp += pass;
+      resp += "/1""><button>next composition</button></a></p>";
+      resp += HTTPNextTableCell;
+      resp += "<p><a href=""http://192.168.1.38/MUSIC/";
+      resp += pass;
+      resp += "/2""><button>random composition</button></a></p>";
+      resp += HTTPCloseTable;
   } else {
     if (debug) Serial.println("invalid request");
     resp = "<h5>INVALID REQUEST</h5>";
@@ -426,9 +541,14 @@ void webServer(){
 
   // Prepare the response
   String s = HTTPHead;
-  if (sys) s += sysresp;
-  else s += resp;
+  s += resp;
   s += HTTPEnd;
+  if (sys){
+      s = HTTPSysHead;
+      s += sysStatus;
+      s += "OK \r\n\r\n";
+      s += sysresp;
+  }
 
   // Send the response to the client
   client.print(s);
@@ -445,7 +565,10 @@ void webServer(){
 void setup(){
     DebugSerial.begin(115200);
     LockerSerial.begin(115200);
-    delay(20);
+    Serial2.begin(9600);
+    mp3_set_serial(Serial2);
+    mp3_set_volume(25);
+    delay(100);
     if (!SD.begin(PIN_CHIP_SELECT)) {
         if (debug) DebugSerial.println("Card failed, or not present");
         //return;

@@ -14,3 +14,6 @@ def get_card(comport):
             x = x[1:9]
             print(x)
         last = ser.in_waiting
+
+
+get_card('COM5')

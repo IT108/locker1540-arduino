@@ -300,6 +300,7 @@ void checkCards(){
     for(int i = 0; i < qqLength; i++){
         ok = checkCard(qq[i], w);
         if(ok){
+            SayHello();
             setLocked(0);
             led(0, 255, 0);
             delay(5000);
@@ -309,6 +310,15 @@ void checkCards(){
         }
     }
     checkWebCards();
+}
+
+void SayHello() {
+    String req = "}";
+    for (size_t i = 0; i < 8; i++) {
+        char temp = w[i];
+        req += temp;
+    }
+    Serial3.print(req);
 }
 
 void checkWebCards(){
