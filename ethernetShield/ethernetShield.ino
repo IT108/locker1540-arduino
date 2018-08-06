@@ -5,6 +5,7 @@
 #include <EthernetServer.h>
 #include <EthernetUdp.h>
 #include <DFPlayer_Mini_Mp3.h>
+#include <QueueList.h>
 
 #include<SPI.h>
 #include<SD.h>
@@ -45,6 +46,7 @@ int Main;
 int w2[8];
 int Num2;
 int Main2;
+const int PIN_DFPLAYER_BUSY = 123; // warning
 const int PIN_CHIP_SELECT = 22;
 const int symbolExist = 1;
 const int symbolNotExist = -1;
@@ -53,6 +55,8 @@ const int nameSeparator = 47;
 String cardsFileName = "CARDS.txt";
 String fullDBFileName = "CardsDB.txt";
 String tmpFileName = "TmpFile.txt";
+QueueList<int> melody_buffer;
+
 
 class card_pair{
 public:
@@ -299,6 +303,15 @@ String getMusicNum(int needCardi[]){
       cards.close();
 }
 
+void play_melody() {
+    String musicNum = getMusicNum(w);
+    melody_buffer.push(rand() % 4 + 1);
+    if (musicNum != "null") {
+        int x = musicNum.toInt();
+        melody_buffer.push(x);
+    }
+}
+
 void checkDB(){
   if (!LockerSerial.available()) {
     Num = -1;
@@ -336,14 +349,8 @@ void checkDB(){
         if (Num == 8){
           if (_find(w) != -1) {
             LockerSerial.print("Y");
-            String musicNum = getMusicNum(w);
-            mp3_play(rand() % 5 + 1);
-            if (musicNum != "null") {
-                int x = musicNum.toInt();
-                delay(1000);
-                mp3_play(x);
-            }
-          } else {
+            play_melody();
+	  } else {
             LockerSerial.print("N");
           }
         }
@@ -359,18 +366,19 @@ void checkDB(){
         Num++;
         if (Num == 8){
           if (_find(w) != -1) {
-            String musicNum = getMusicNum(w);
-            mp3_play(rand() % 4 + 1);
-            if (musicNum != "null") {
-                int x = musicNum.toInt();
-                delay(8000);
-                mp3_play(x);
-            }
+            play_melody(); 
           }
         }
       } 
     }
   }
+}
+
+void process_melody() {
+    if (digitalRead(PIN_DFPLAYER_BUSY) && melody_buffer.size()) {
+	mp3_play(melody_buffer.top());
+	melody_buffer.pop();	
+    }
 }
 
 void webServer(){
@@ -569,6 +577,7 @@ void setup(){
     mp3_set_serial(Serial2);
     mp3_set_volume(25);
     delay(100);
+    pinMode(PIN_DFPLAYER_BUSY, INPUT);
     if (!SD.begin(PIN_CHIP_SELECT)) {
         if (debug) DebugSerial.println("Card failed, or not present");
         //return;
@@ -582,6 +591,7 @@ void setup(){
 }
 
 void loop(){
+    process_melody();
     checkDB();
     webServer();
 }
