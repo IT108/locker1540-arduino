@@ -25,6 +25,7 @@ String showCardsBytesReq = "/B";
 String addCardReq = "/A";
 String removeCardReq = "/R";
 String nameSymbol = "/N";
+String HTTPFullDB = "/FD";
 String getAllCards = "/GC";
 String HTTPLoginURL = "LA/";
 String HTTPMusic = "MUSIC/";
@@ -37,6 +38,7 @@ String HTTPNextTableCell = "</td><td>";
 String HTTPNextTableRow = "</td></tr>\r\n<tr><td>";
 String HTTPCloseTable = "</td></tr>\r\n</table>";
 //System variables
+const int PIN_DFPLAYER_BUSY = 123; // warning
 bool debug = true;
 int q[60][8];
 int w[8];
@@ -46,7 +48,6 @@ int Main;
 int w2[8];
 int Num2;
 int Main2;
-const int PIN_DFPLAYER_BUSY = 123; // warning
 const int PIN_CHIP_SELECT = 22;
 const int symbolExist = 1;
 const int symbolNotExist = -1;
@@ -88,6 +89,14 @@ void initCards(){
     }
     cards.close();
 }
+
+void play_melody() {
+    String musicNum = getMusicNum(w);
+    melody_buffer.push(rand() % 4 + 1);
+    if (musicNum != "null") {
+        int x = musicNum.toInt();
+        melody_buffer.push(x);
+    }
 
 void writeNew(card_pair w){
   for (int i = 0; i < 8; i++){
@@ -131,8 +140,57 @@ void writeToFullDB(card_pair card){
 }
 
 void delFromFullDB(card_pair card){
-    File DB = SD.open(fullDBFileName);
+    String needCard = "";
+    for (size_t i = 0; i < 8; i++) {
+        char q = card.card[i];
+        needCard += q;
+    }
     File tmpFile = SD.open(tmpFileName, FILE_WRITE);
+    File cards = SD.open(fullDBFileName);
+      if (cards) {
+        int i = 1;
+        String _name = "";
+        String cardNum = "";
+        String music = "";
+        while (cards.available()) {
+            int a = cards.read();
+            if (a != nameSeparator && a != cardsSeparator) {
+                char q = a;
+                switch (i) {
+                    case 2:
+                      _name += q;
+                      break;
+                    case 1:
+                      cardNum += q;
+                      break;
+                    case 3:
+                      music += q;
+                      break;
+                }
+            }
+            if (a == cardsSeparator) {
+                if (needCard != cardNum){
+                    tmpFile.write(cardNum);
+                    tmpFile.write('/');
+                    tmpFile.write(_name);
+                    tmpFile.write('/');
+                    tmpFile.write(music);
+                    tmpFile.write(';');
+                }
+                i = 1;
+                _name = "";
+                cardNum = "";
+                music = "";
+            }
+            if (a == nameSeparator)
+                i++;
+        }
+        cards.close();
+        return "null";
+      }
+      cards.close();
+
+    File DB = SD.open(fullDBFileName);
     if(DB){
         bool found = false;
         while (DB.available()) {
@@ -303,15 +361,6 @@ String getMusicNum(int needCardi[]){
       cards.close();
 }
 
-void play_melody() {
-    String musicNum = getMusicNum(w);
-    melody_buffer.push(rand() % 4 + 1);
-    if (musicNum != "null") {
-        int x = musicNum.toInt();
-        melody_buffer.push(x);
-    }
-}
-
 void checkDB(){
   if (!LockerSerial.available()) {
     Num = -1;
@@ -366,10 +415,10 @@ void checkDB(){
         Num++;
         if (Num == 8){
           if (_find(w) != -1) {
-            play_melody(); 
+            play_melody();
           }
         }
-      } 
+      }
     }
   }
 }
@@ -377,7 +426,7 @@ void checkDB(){
 void process_melody() {
     if (digitalRead(PIN_DFPLAYER_BUSY) && melody_buffer.size()) {
 	mp3_play(melody_buffer.top());
-	melody_buffer.pop();	
+	melody_buffer.pop();
     }
 }
 
@@ -540,6 +589,18 @@ void webServer(){
       resp += pass;
       resp += "/2""><button>random composition</button></a></p>";
       resp += HTTPCloseTable;
+  } else if(req.indexOf(pass + HTTPFullDB) != -1){
+      sys = true;
+      sysStatus = "200 ";
+      File cards = SD.open(fullDBFileName);
+      if (cards){
+          while (cards.available()) {
+              int a = cards.read();
+              char q = a;
+              sysresp += q;
+          }
+      }
+
   } else {
     if (debug) Serial.println("invalid request");
     resp = "<h5>INVALID REQUEST</h5>";
@@ -577,7 +638,6 @@ void setup(){
     mp3_set_serial(Serial2);
     mp3_set_volume(25);
     delay(100);
-    pinMode(PIN_DFPLAYER_BUSY, INPUT);
     if (!SD.begin(PIN_CHIP_SELECT)) {
         if (debug) DebugSerial.println("Card failed, or not present");
         //return;
