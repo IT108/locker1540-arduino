@@ -8,7 +8,7 @@ def login_attempt(key):
     status = check_server()
     print(status)
     if status == requests.codes.not_found:
-        pack = constants.ServerAnswer(requests.codes.ok)
+        pack = constants.ServerAnswer(requests.codes.not_found)
         return pack
     ans = requests.get(constants.LOGIN_URL + key)
     if ans.status_code == requests.codes.ok:

@@ -22,9 +22,10 @@ class CardsView(QMainWindow, ui.cardsView.Ui_MainWindow):
         a = getFullDB.get_db()
         i = 0
         if a[0].code != requests.codes.bad:
+            self.UsersTable.setRowCount(a.__len__())
             for q in a:
-                self.UsersTable.setItem(i, 0, QTableWidgetItem(q.name))
-                self.UsersTable.setItem(i, 1, QTableWidgetItem(q.card))
+                self.UsersTable.setItem(i, 1, QTableWidgetItem(q.name))
+                self.UsersTable.setItem(i, 0, QTableWidgetItem(q.card))
         super().__init__()
         self.setupUi(self)
         self.addUser.clicked.connect(self.add_user)

@@ -38,7 +38,7 @@ String HTTPNextTableCell = "</td><td>";
 String HTTPNextTableRow = "</td></tr>\r\n<tr><td>";
 String HTTPCloseTable = "</td></tr>\r\n</table>";
 //System variables
-const int PIN_DFPLAYER_BUSY = 123; // warning
+const int PIN_DFPLAYER_BUSY = 24; // warning
 bool debug = true;
 int q[60][8];
 int w[8];
@@ -90,13 +90,6 @@ void initCards(){
     cards.close();
 }
 
-void play_melody() {
-    String musicNum = getMusicNum(w);
-    melody_buffer.push(rand() % 4 + 1);
-    if (musicNum != "null") {
-        int x = musicNum.toInt();
-        melody_buffer.push(x);
-    }
 
 void writeNew(card_pair w){
   for (int i = 0; i < 8; i++){
@@ -139,6 +132,28 @@ void writeToFullDB(card_pair card){
     cards.close();
 }
 
+void writebyte(File &f, String s) {
+    for (int i = 0; i < s.length(); i++) {
+        byte cur = (byte)s[i]; 
+        f.write(cur);
+    }
+} 
+
+void copyTmpToDB(){
+    SD.remove(fullDBFileName);
+    File DB = SD.open(fullDBFileName,FILE_WRITE);
+    File tmpFile = SD.open(tmpFileName);
+    if (tmpFile) {
+        while (tmpFile.available()) {
+            byte f = tmpFile.read();
+            DB.write(f);
+        }
+    }
+    DB.close();
+    tmpFile.close();
+    SD.remove(tmpFileName);
+}
+
 void delFromFullDB(card_pair card){
     String needCard = "";
     for (size_t i = 0; i < 8; i++) {
@@ -170,12 +185,12 @@ void delFromFullDB(card_pair card){
             }
             if (a == cardsSeparator) {
                 if (needCard != cardNum){
-                    tmpFile.write(cardNum);
-                    tmpFile.write('/');
-                    tmpFile.write(_name);
-                    tmpFile.write('/');
-                    tmpFile.write(music);
-                    tmpFile.write(';');
+                    writebyte(tmpFile, cardNum);
+                    writebyte(tmpFile, "/");
+                    writebyte(tmpFile, _name);
+                    writebyte(tmpFile, "/");
+                    writebyte(tmpFile, music);
+                    writebyte(tmpFile, ";");
                 }
                 i = 1;
                 _name = "";
@@ -186,71 +201,13 @@ void delFromFullDB(card_pair card){
                 i++;
         }
         cards.close();
-        return "null";
+        tmpFile.close();
       }
       cards.close();
-
-    File DB = SD.open(fullDBFileName);
-    if(DB){
-        bool found = false;
-        while (DB.available()) {
-            int a = DB.read();
-            if (a == cardsSeparator){
-                if (DB.available()) {
-                    int tmpCard[8];
-                    for (size_t i = 0; i < 8; i++) {
-                        tmpCard[i] = DB.read();
-                    }
-                    if (checkCard(tmpCard, card.card)) {
-                        found = true;
-                    } else {
-                        byte f;
-                        for (size_t i = 0; i < 8; i++) {
-                            f = tmpCard[i];
-                            tmpFile.write(f);
-                        }
-                        f = nameSeparator;
-                        tmpFile.write(f);
-                    }
-                }
-            } else if (a == nameSeparator && found){
-                int temp = DB.read();
-                while (temp != cardsSeparator) {
-                    temp = DB.read();
-                }
-                found = false;
-            } else if (a == nameSeparator){
-                int temp = DB.read();
-                byte f;
-                while (temp != cardsSeparator) {
-                    f = temp;
-                    tmpFile.write(f);
-                    temp = DB.read();
-                }
-                f = cardsSeparator;
-                tmpFile.write(f);
-            }
-        }
-        DB.close();
-        tmpFile.close();
-        copyTmpToDB();
+      copyTmpToDB();
     }
-}
 
-void copyTmpToDB(){
-    SD.remove(fullDBFileName);
-    File DB = SD.open(fullDBFileName,FILE_WRITE);
-    File tmpFile = SD.open(tmpFileName);
-    if (tmpFile) {
-        while (tmpFile.available()) {
-            byte f = tmpFile.read();
-            DB.write(f);
-        }
-    }
-    DB.close();
-    tmpFile.close();
-    SD.remove(tmpFileName);
-}
+
 
 void del(card_pair card){
     int idx = _find(card.card);
@@ -318,6 +275,7 @@ String getMusicNum(int needCardi[]){
         char q = needCardi[i];
         needCard += q;
     }
+    DebugSerial.println(needCard);
     File cards = SD.open(fullDBFileName);
       if (cards) {
         int i = 1;
@@ -326,6 +284,9 @@ String getMusicNum(int needCardi[]){
         String music = "";
         while (cards.available()) {
             int a = cards.read();
+//            Serial.print(a);
+//            Serial.print(" ");
+//            Serial.println((char)a);
             if (a != nameSeparator && a != cardsSeparator) {
                 char q = a;
                 switch (i) {
@@ -342,7 +303,11 @@ String getMusicNum(int needCardi[]){
             }
             if (a == cardsSeparator) {
                 if (i == 3){
+                  Serial.println(cardNum);
+                  //Serial.println(cardNum.substring(0, 8));
+                  //Serial.println(cardNum.length());
                       if (needCard == cardNum){
+                        Serial.println(music);
                         cards.close();
                         return music;
                       }
@@ -359,6 +324,22 @@ String getMusicNum(int needCardi[]){
         return "null";
       }
       cards.close();
+}
+
+
+void play_melody() {
+    String musicNum = getMusicNum(w);
+    DebugSerial.println(musicNum);
+    randomSeed(analogRead(0));
+    
+    melody_buffer.push(random(6));
+    if (musicNum != "null") {
+        int x = musicNum.toInt();
+        DebugSerial.println(x);
+        melody_buffer.push(x);
+    }
+    DebugSerial.println(melody_buffer.count());
+    delay(2000);
 }
 
 void checkDB(){
@@ -424,10 +405,10 @@ void checkDB(){
 }
 
 void process_melody() {
-    if (digitalRead(PIN_DFPLAYER_BUSY) && melody_buffer.size()) {
-	mp3_play(melody_buffer.top());
-	melody_buffer.pop();
-    }
+  if (digitalRead(PIN_DFPLAYER_BUSY) && melody_buffer.count()) {
+	    mp3_play(melody_buffer.pop());
+      delay(100);
+   }
 }
 
 void webServer(){
