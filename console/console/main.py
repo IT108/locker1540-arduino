@@ -19,6 +19,8 @@ class AddUserDialog(QDialog, ui.addUserDialog.Ui_Dialog):
 
 class CardsView(QMainWindow, ui.cardsView.Ui_MainWindow):
     def __init__(self):
+        super().__init__()
+        self.setupUi(self)
         a = getFullDB.get_db()
         i = 0
         if a[0].code != requests.codes.bad:
@@ -26,8 +28,7 @@ class CardsView(QMainWindow, ui.cardsView.Ui_MainWindow):
             for q in a:
                 self.UsersTable.setItem(i, 1, QTableWidgetItem(q.name))
                 self.UsersTable.setItem(i, 0, QTableWidgetItem(q.card))
-        super().__init__()
-        self.setupUi(self)
+                i += 1
         self.addUser.clicked.connect(self.add_user)
 
     def add_user(self):
