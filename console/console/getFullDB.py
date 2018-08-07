@@ -12,6 +12,7 @@ def get_db():
         q = a.split('/')
         if q.__len__() > 1:
             PairsDB.append(constants.cardPair(requests.codes.ok, q[0], q[1]))
+    print(PairsDB.__len__())
     return PairsDB
 
 get_db()

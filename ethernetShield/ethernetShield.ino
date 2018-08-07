@@ -109,7 +109,7 @@ void writeNew(card_pair w){
   }
   cards.close();
   initCards();
-  writeToFullDB(w);
+  //writeToFullDB(w);
 }
 
 void writeToFullDB(card_pair card){
@@ -134,10 +134,10 @@ void writeToFullDB(card_pair card){
 
 void writebyte(File &f, String s) {
     for (int i = 0; i < s.length(); i++) {
-        byte cur = (byte)s[i]; 
+        byte cur = (byte)s[i];
         f.write(cur);
     }
-} 
+}
 
 void copyTmpToDB(){
     SD.remove(fullDBFileName);
@@ -145,7 +145,8 @@ void copyTmpToDB(){
     File tmpFile = SD.open(tmpFileName);
     if (tmpFile) {
         while (tmpFile.available()) {
-            byte f = tmpFile.read();
+            int a = tmpFile.read();
+            byte f = a;
             DB.write(f);
         }
     }
@@ -159,16 +160,23 @@ void delFromFullDB(card_pair card){
     for (size_t i = 0; i < 8; i++) {
         char q = card.card[i];
         needCard += q;
-    }
+    } 
+    DebugSerial.println(needCard);
     File tmpFile = SD.open(tmpFileName, FILE_WRITE);
     File cards = SD.open(fullDBFileName);
+    byte f = ';';
+    tmpFile.write(f);
       if (cards) {
         int i = 1;
         String _name = "";
         String cardNum = "";
         String music = "";
         while (cards.available()) {
-            int a = cards.read();
+            int a = 0;
+            while (a != cardsSeparator){
+              a = cards.read();
+            }
+            a = cards.read();
             if (a != nameSeparator && a != cardsSeparator) {
                 char q = a;
                 switch (i) {
@@ -184,13 +192,17 @@ void delFromFullDB(card_pair card){
                 }
             }
             if (a == cardsSeparator) {
+                DebugSerial.print(cardNum);
                 if (needCard != cardNum){
+                    DebugSerial.println(" OK");
                     writebyte(tmpFile, cardNum);
                     writebyte(tmpFile, "/");
                     writebyte(tmpFile, _name);
                     writebyte(tmpFile, "/");
                     writebyte(tmpFile, music);
                     writebyte(tmpFile, ";");
+                } else {
+                  DebugSerial.println("");
                 }
                 i = 1;
                 _name = "";
@@ -304,8 +316,8 @@ String getMusicNum(int needCardi[]){
             if (a == cardsSeparator) {
                 if (i == 3){
                   Serial.println(cardNum);
-                  //Serial.println(cardNum.substring(0, 8));
-                  //Serial.println(cardNum.length());
+                  Serial.println(cardNum.substring(0, 8));
+                  Serial.println(cardNum.length());
                       if (needCard == cardNum){
                         Serial.println(music);
                         cards.close();
@@ -331,7 +343,7 @@ void play_melody() {
     String musicNum = getMusicNum(w);
     DebugSerial.println(musicNum);
     randomSeed(analogRead(0));
-    
+
     melody_buffer.push(random(6));
     if (musicNum != "null") {
         int x = musicNum.toInt();
@@ -494,7 +506,7 @@ void webServer(){
         }
       del(reqCard);
       resp += HTTPNextLine;
-      resp += "Card already exist!";
+      resp += "Card successfully deleted!";
       break;
     }
 } else if(req.indexOf(pass + showCardsBytesReq) != -1){
