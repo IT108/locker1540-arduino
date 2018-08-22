@@ -54,7 +54,7 @@ const int symbolNotExist = -1;
 const int cardsSeparator = 59;
 const int nameSeparator = 47;
 String cardsFileName = "CARDS.txt";
-String fullDBFileName = "CardsDB.txt";
+String fullDBFileName = "CARDSDB.TXT";
 String tmpFileName = "TmpFile.txt";
 QueueList<int> melody_buffer;
 
@@ -162,15 +162,13 @@ void delFromFullDB(card_pair card){
         needCard += q;
     } 
     DebugSerial.println(needCard);
-    File tmpFile = SD.open(tmpFileName, FILE_WRITE);
     File cards = SD.open(fullDBFileName);
-    byte f = ';';
-    tmpFile.write(f);
       if (cards) {
         int i = 1;
         String _name = "";
         String cardNum = "";
         String music = "";
+        String res = ";";
         while (cards.available()) {
             int a = 0;
             while (a != cardsSeparator){
@@ -195,12 +193,12 @@ void delFromFullDB(card_pair card){
                 DebugSerial.print(cardNum);
                 if (needCard != cardNum){
                     DebugSerial.println(" OK");
-                    writebyte(tmpFile, cardNum);
-                    writebyte(tmpFile, "/");
-                    writebyte(tmpFile, _name);
-                    writebyte(tmpFile, "/");
-                    writebyte(tmpFile, music);
-                    writebyte(tmpFile, ";");
+                    res += cardNum;
+                    res += "/";
+                    res += _name;
+                    res +=  "/";
+                    res += music;
+                    res += ";";
                 } else {
                   DebugSerial.println("");
                 }
@@ -213,10 +211,20 @@ void delFromFullDB(card_pair card){
                 i++;
         }
         cards.close();
-        tmpFile.close();
       }
       cards.close();
-      copyTmpToDB();
+      SD.remove(fullDBFileName);
+      cards = SD.open(fullDBFileName,FILE_WRITE);
+    if (cards) {
+        for (size_t i = 0; i < n; i++) {
+            for (size_t j = 0; j < 8; j++) {
+                byte f = q[i][j];
+                cards.write(f);
+            }
+            cards.println();
+        }
+    }
+    cards.close();
     }
 
 

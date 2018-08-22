@@ -61,9 +61,9 @@ namespace outside_led {
 	const int RED[] = {255, 0, 0};
 	const int GREEN[] = {0, 255, 0};
 	const int BLUE[] = {0, 0, 255};
-	int current_red;
-	int current_green;
-	int current_blue;
+	volatile int current_red;
+	volatile int current_green;
+	volatile int current_blue;
 
 	void led(int red, int green, int blue) {
 	    analogWrite(constant_pins::OUTSIDE_RED, red);
@@ -71,10 +71,17 @@ namespace outside_led {
 	    analogWrite(constant_pins::OUTSIDE_BLUE, blue);
 	}
 
+  void setCurrentColor() {
+      //Serial.println("CurrentColor");
+      analogWrite(constant_pins::OUTSIDE_RED, current_red);
+      analogWrite(constant_pins::OUTSIDE_GREEN, current_green);
+      analogWrite(constant_pins::OUTSIDE_BLUE, current_blue);
+  }
+
 	void red() {
 		led(RED[0], RED[1], RED[2]);
 	}
-
+ 
 	void green() {
 		led(GREEN[0], GREEN[1], GREEN[2]);
 	}
@@ -84,7 +91,7 @@ namespace outside_led {
 	}
 
 	void recolor() {
-		if (current_red > 0 && current_green == 0) {
+		if (current_red > 0 && current_blue == 0) {
 		    current_red--;
 		    current_green++;
 		} 
@@ -96,6 +103,14 @@ namespace outside_led {
 		    current_blue--;
 		    current_red++;
 		}
+//   Serial.print(current_red);
+//   Serial.print(" ");
+//   Serial.print(current_green);
+//   Serial.print(" ");
+//   Serial.print(current_blue);
+//   Serial.println(" ");
+   
+   //led(current_red, current_green, current_blue);
 	}
 }
 
@@ -124,23 +139,25 @@ namespace exit_button {
 	void check() {
 	    int status = digitalRead(constant_pins::EXIT_BUTTON);
 	    if (status != 0) {
+          //Serial.println("Check");
 	       	locker::unlock();
 	        outside_led::green();
 	        delay(5000);
-	        locker::unlock();
+	        locker::lock();
 	    }
 	}
 }
 
 
 namespace security {
-	long long timer;
+	long long timer = millis();
 
 	int cabinet_status() {
 		bool status = 0;
 		for (int i = constant_pins::INSIDE_SENSOR_0_0; i <= constant_pins::INSIDE_SENSOR_1_1; i++) {
 		    status |= digitalRead(i);
 		}
+   //Serial.println(status);
 		if (timer > millis()) {
 		    timer = millis();
 		}
@@ -153,7 +170,7 @@ namespace security {
 		return 0;
 	}
 
-	void update() {
+	void _update() {
 	    if (cabinet_status()) {
 	        digitalWrite(constant_pins::V_MEN_G, 1);
 	        digitalWrite(constant_pins::V_MEN_R, 0);
@@ -161,6 +178,7 @@ namespace security {
 	    else {
 	        digitalWrite(constant_pins::V_MEN_G, 0);
 	        digitalWrite(constant_pins::V_MEN_R, 1);
+          //Serial.print("NOPE");
 	    }
 	    if (locker::door_status()) {
 	        digitalWrite(constant_pins::V_DOOR_G, 1);
@@ -220,8 +238,8 @@ namespace client {
 }
 
 namespace handler {
-	int position;
-	int buffer[8];
+	int _position;
+	int _buffer[8];
 	bool edit_query;
 
 	const int MASTER_CARD[8] = {
@@ -291,24 +309,24 @@ namespace handler {
 		}
 	}
 
-	void read() {
+	void _read() {
 		int value = Serial.read();
 	    if (!Serial.available()) {
-	        position = 0;
+	        _position = 0;
 	        return;
 	    }
 		if (is_valid(value)) {
-			buffer[position++] = value;
-			if (position == 8) {
-				position = 0;
+			_buffer[_position++] = value;
+			if (_position == 8) {
+        handle(_buffer);
+				_position = 0;
 			}
 		}
 	}
 }
 
 void interrupt() {
-    security::update();
-    outside_led::recolor();
+    security::_update();
 }
 
 void setup() {
@@ -343,18 +361,19 @@ void setup() {
     outside_led::current_red = 255;
     outside_led::current_green = 0;
     outside_led::current_blue = 0;
-    handler::position = 0;
+    handler::_position = 0;
     handler::edit_query = 0;
-    FlexiTimer2::set(2, interrupt);
+    FlexiTimer2::set(5, interrupt);
     FlexiTimer2::start();
     locker::lock();
 }
 
 void loop() {
     exit_button::check();
-    outside_led::led(outside_led::current_red, outside_led::current_green, outside_led::current_blue);
+    outside_led::setCurrentColor();
+    outside_led::recolor();
     client::receive();
     door_bell::play();
-    handler::read();
+    handler::_read();
     delay(2);
 }

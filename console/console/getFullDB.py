@@ -15,4 +15,5 @@ def get_db():
     print(PairsDB.__len__())
     return PairsDB
 
+
 get_db()
