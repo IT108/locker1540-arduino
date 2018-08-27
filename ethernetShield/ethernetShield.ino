@@ -304,9 +304,9 @@ String getMusicNum(int needCardi[]){
         String music = "";
         while (cards.available()) {
             int a = cards.read();
-//            Serial.print(a);
-//            Serial.print(" ");
-//            Serial.println((char)a);
+           // Serial.print(a);
+           // Serial.print(" ");
+           // Serial.println((char)a);
             if (a != nameSeparator && a != cardsSeparator) {
                 char q = a;
                 switch (i) {

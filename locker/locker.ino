@@ -138,7 +138,7 @@ namespace exit_button {
 
 
 namespace security {
-	long long timer = millis();
+	long long timer;
 
 	int cabinet_status() {
 		bool status = 0;
@@ -154,7 +154,7 @@ namespace security {
 		if (millis() - timer > 60000) {
 			return 1;
 		}
-		return 0;
+		return 0;  
 	}
 
 	void update() {
