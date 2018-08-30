@@ -275,6 +275,10 @@ int _find(int a[]){
     return -1;
 }
 
+bool is_good(int a) {
+    return (int)'0' <= a && (int) '9' >= a || (int)'A' <= a && (int)'F' >= a;
+}
+
 int checkFind(int w[]){
   int res = 0;
   int idx = _find(w);
@@ -307,7 +311,7 @@ String getMusicNum(int needCardi[]){
            // Serial.print(a);
            // Serial.print(" ");
            // Serial.println((char)a);
-            if (a != nameSeparator && a != cardsSeparator) {
+            if (a != nameSeparator && a != cardsSeparator && is_good(a)) {
                 char q = a;
                 switch (i) {
                     case 2:
@@ -352,7 +356,7 @@ void play_melody() {
     DebugSerial.println(musicNum);
     randomSeed(analogRead(0));
 
-    melody_buffer.push(random(6));
+    melody_buffer.push(random(1, 6));
     if (musicNum != "null") {
         int x = musicNum.toInt();
         DebugSerial.println(x);
@@ -415,9 +419,7 @@ void checkDB(){
       }
         Num++;
         if (Num == 8){
-          if (_find(w) != -1) {
             play_melody();
-          }
         }
       }
     }
