@@ -1,0 +1,13 @@
+GREETING = "ADMIN CONSOLE "
+ENTER_KEY = "Enter your key"
+NOT_FOUND = "Sorry, server not found in this network"
+FOUND = "Server found!"
+MENU = "Choose option"
+ATTEMPTING_LOGIN = "Trying to login"
+WRONG_KEY = "Wrong password! Try again"
+SUCCESS_LOGIN = "Logged in"
+INVALID_TUPLE_KEY = "Invalid option"
+INPUT_CARD = "Please, input card number \r\n"
+INVALID_CARD = "Invalid card"
+UNKNOWN_ERROR = "Unknown server answer. Try again"
+CHOOSE_MENU = {1: 'Add card', 2: 'Remove card', 3: 'Get all cards in ascii', 4: 'Get all cards in bytes'}
