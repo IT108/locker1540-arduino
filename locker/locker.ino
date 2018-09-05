@@ -139,7 +139,7 @@ namespace exit_button {
 
 namespace security {
 	long long timer;
-
+	const long long TIMER_EMPTY = 60000LL;
 	int cabinet_status() {
 		bool status = 0;
 		for (int i = constant_pins::INSIDE_SENSOR_0_0; i <= constant_pins::INSIDE_SENSOR_1_1; i++) {
@@ -151,7 +151,7 @@ namespace security {
 		if (status) {
 			timer = millis();
 		}
-		if (millis() - timer > 60000) {
+		if (millis() - timer > TIMER_EMPTY) {
 			return 1;
 		}
 		return 0;  
@@ -188,7 +188,7 @@ namespace security {
 namespace client {
 	String make_request(String type, int card[]) {
 		String res = type;
-		for (int i = 0; i < 8; i++) {
+		for (int i = 0; i < handler::CARD_SIZE; i++) {
 			res += (char)card[i];
 		}
 		return res;
@@ -212,39 +212,44 @@ namespace client {
 			if (ans == 89) {
 				locker::unlock();
 				outside_led::green();
-				delay(5000);
+				delay(handler::TIMER_GREEN);
 				locker::lock();
 			}
 			if (ans == 78) {
 				outside_led::red();
-				delay(2000);
+				delay(handler::TIMER_RED);
 			}
 		}
 	}
 }
 
 namespace handler {
-	int position;
-	int buffer[8];
-	bool edit_query;
-
-	const int MASTER_CARD[8] = {
+	const int CARD_SIZE = 8;
+	const int MASTER_CARD[CARD_SIZE] = {
 		55, 57, 55, 57, 48, 55, 55, 57
 	}; //0 -> 48
-	const int BAD_SYMBOLS_CNT = 9;
-	const int BAD_SYMBOLS[9] = {
+	const int BAD_SYMBOLS_SIZE = 9;
+	const int BAD_SYMBOLS[BAD_SYMBOLS_CNT] = {
 		-1, 2, 3, 10, 13, 249, 191, 235, 0
 	};
 	const int LOCAL_DB_SIZE = 4;
-	const int DEFINED_CARDS[4][8] = {
+	const int DEFINED_CARDS[LOCAL_DB_SIZE][CARD_SIZE] = {
 		{66, 66, 57, 53, 65, 53, 66, 54},  // Vahta
 		{69, 54, 57, 55, 49, 69, 70, 57},  // Paramonov
 		{68, 57, 53, 52, 48, 57, 52, 57},  // Amelichev
 		{68, 57, 52, 49, 69, 51, 52, 57}   // Filippov
 	};
+	const int TIMER_GREEN = 5000;
+	const int TIMER_RED = 2000;
+	const int TIMER_BLUE = 2000;
+
+	int position;
+	int buffer[CARD_SIZE];
+	bool edit_query;
+
 
 	bool check_card(int a[], int b[]) {
-		for (int i = 0; i < 8; i++) {
+		for (int i = 0; i < CARD_SIZE; i++) {
 			if (a[i] != b[i]) {
 				return false;
 			}
@@ -269,7 +274,7 @@ namespace handler {
 				client::greeting(card);
 				locker::unlock();
 				outside_led::green();
-				delay(5000);
+				delay(TIMER_GREEN);
 				locker::lock();
 				return;
 			}
@@ -281,7 +286,7 @@ namespace handler {
 		if (check_card(card, MASTER_CARD)) {
 			edit_query = true;
 			outside_led::blue();
-			delay(5000);	
+			delay(TIMER_BLUE);	
 		}
 		else {
 			if (edit_query) {
@@ -302,7 +307,7 @@ namespace handler {
 		}
 		if (is_valid(value)) {
 			buffer[position++] = value;
-			if (position == 8) {
+			if (position == CARD_SIZE) {
 				handle(handler::buffer);
 				position = 0;
 			}

@@ -51,7 +51,7 @@ const int nameSeparator = 47;
 String cardsFileName = "CARDS.txt";
 String fullDBFileName = "CARDSDB.TXT";
 String tmpFileName = "TmpFile.txt";
-QueueList<int> melody_buffer;
+QueueList<int> greeting_buffer;
 int bufferSize;
 char buffer[bufferMax];
 String readString = String(128);
@@ -60,7 +60,6 @@ boolean sys = false;
 String sysStatus = "";
 
 namespace fullDB {
-
     void write(int card[8], String name) {
         File cards = SD.open(fullDBFileName, FILE_WRITE);
         byte f;
@@ -154,7 +153,6 @@ namespace fullDB {
 }
 
 namespace DB {
-
     void renameC(int idx1, int idx2) {
         for (size_t i = 0; i < 8; i++) {
             q[idx1][i] = q[idx2][i];
@@ -268,58 +266,50 @@ namespace DB {
 }
 
 
-namespace music {
-
-    String getMusicNum(int needCardi[]) {
-        String needCard = "";
-        for (size_t i = 0; i < 8; i++) {
-            char q = needCardi[i];
-            needCard += q;
+namespace greeting {
+    String get_track_number(int card[]) {
+        String need_card = "";
+        for (int i = 0; i < 8; i++) {
+            char q = card[i];
+            need_card += q;
         }
-        DebugSerial.println(needCard);
         File cards = SD.open(fullDBFileName);
         if (cards) {
-            int i = 1;
-            String _name = "";
-            String cardNum = "";
-            String music = "";
+            int mode = 1;
+            String name = "";
+            String card_id = "";
+            String track_number = "";
             while (cards.available()) {
                 int a = cards.read();
-                // Serial.print(a);
-                // Serial.print(" ");
-                // Serial.println((char)a);
                 if (a != nameSeparator && a != cardsSeparator && DB::is_good(a)) {
                     char q = a;
-                    switch (i) {
-                        case 2:
-                            _name += q;
-                            break;
+                    switch (mode) {
                         case 1:
-                            cardNum += q;
+                            card_id += q;
+                            break;
+                        case 2:
+                            name += q;
                             break;
                         case 3:
-                            music += q;
+                            track_number += q;
                             break;
                     }
                 }
                 if (a == cardsSeparator) {
-                    if (i == 3) {
-                        DebugSerial.println(cardNum);
-                        DebugSerial.println(cardNum.substring(0, 8));
-                        DebugSerial.println(cardNum.length());
-                        if (needCard == cardNum) {
-                            DebugSerial.println(music);
+                    if (mode == 3) {
+                        if (need_card == card_id) {
                             cards.close();
-                            return music;
+                            return track_number;
                         }
                     }
-                    i = 1;
-                    _name = "";
-                    cardNum = "";
-                    music = "";
+                    mode = 1;
+                    name = "";
+                    card_id = "";
+                    track_number = "";
                 }
-                if (a == nameSeparator)
-                    i++;
+                if (a == nameSeparator) {
+                    mode++;
+                }
             }
             cards.close();
             return "null";
@@ -328,19 +318,21 @@ namespace music {
     }
 
 
-    void play_melody() {
-        String musicNum = getMusicNum(w);
-        DebugSerial.println(musicNum);
-        randomSeed(analogRead(0));
-
-        melody_buffer.push(random(1, 6));
-        if (musicNum != "null") {
-            int x = musicNum.toInt();
-            DebugSerial.println(x);
-            melody_buffer.push(x);
+    void play_greeting() {
+        String greeting_number = get_track_number(w);
+        greeting_buffer.push(random(1, 6));
+        if (greeting_number != "null") {
+            int x = greeting_number.toInt();
+            greeting_buffer.push(x);
         }
-        DebugSerial.println(melody_buffer.count());
         delay(2000);
+    }
+
+    void process_greetings() {
+        if (digitalRead(PIN_DFPLAYER_BUSY) && greeting_buffer.count()) {
+            mp3_play(greeting_buffer.pop());
+            delay(100);
+        }
     }
 }
 
@@ -567,13 +559,6 @@ namespace manage {
         // when the function returns and 'client' object is detroyed
     }
 
-    void process_melody() {
-        if (digitalRead(PIN_DFPLAYER_BUSY) && melody_buffer.count()) {
-            mp3_play(melody_buffer.pop());
-            delay(100);
-        }
-    }
-
     void checkDB() {
         if (!LockerSerial.available()) {
             Num = -1;
@@ -616,7 +601,7 @@ namespace manage {
                     if (Num == 8) {
                         if (DB::_find(w) != -1) {
                             LockerSerial.print("Y");
-                            music::play_melody();
+                            music::play_greeting();
                         } else {
                             LockerSerial.print("N");
                         }
@@ -631,7 +616,7 @@ namespace manage {
                     }
                     Num++;
                     if (Num == 8) {
-                        music::play_melody();
+                        music::play_greeting();
                     }
                 }
             }
@@ -663,7 +648,7 @@ void setup() {
 }
 
 void loop() {
-    manage::process_melody();
+    greeting::process_greetings();
     manage::checkDB();
     manage::webServer();
 }
