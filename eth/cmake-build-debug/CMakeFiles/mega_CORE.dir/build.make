@@ -44,10 +44,10 @@ RM = "C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = E:\locker1540-arduino\eth
+CMAKE_SOURCE_DIR = D:\locker1540-arduino\eth
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = E:\locker1540-arduino\eth\cmake-build-debug
+CMAKE_BINARY_DIR = D:\locker1540-arduino\eth\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles\mega_CORE.dir\depend.make
@@ -60,7 +60,7 @@ include CMakeFiles\mega_CORE.dir\flags.make
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\CDC.cpp.obj: CMakeFiles\mega_CORE.dir\flags.make
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\CDC.cpp.obj: "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\CDC.cpp"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/CDC.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/CDC.cpp.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\CDC.cpp.obj -c "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\CDC.cpp"
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\CDC.cpp.i: cmake_force
@@ -73,7 +73,7 @@ CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cor
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial.cpp.obj: CMakeFiles\mega_CORE.dir\flags.make
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial.cpp.obj: "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial.cpp"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/HardwareSerial.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/HardwareSerial.cpp.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial.cpp.obj -c "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial.cpp"
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial.cpp.i: cmake_force
@@ -86,7 +86,7 @@ CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cor
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial0.cpp.obj: CMakeFiles\mega_CORE.dir\flags.make
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial0.cpp.obj: "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial0.cpp"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/HardwareSerial0.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/HardwareSerial0.cpp.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial0.cpp.obj -c "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial0.cpp"
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial0.cpp.i: cmake_force
@@ -99,7 +99,7 @@ CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cor
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial1.cpp.obj: CMakeFiles\mega_CORE.dir\flags.make
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial1.cpp.obj: "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial1.cpp"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/HardwareSerial1.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/HardwareSerial1.cpp.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial1.cpp.obj -c "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial1.cpp"
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial1.cpp.i: cmake_force
@@ -112,7 +112,7 @@ CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cor
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial2.cpp.obj: CMakeFiles\mega_CORE.dir\flags.make
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial2.cpp.obj: "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial2.cpp"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/HardwareSerial2.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/HardwareSerial2.cpp.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial2.cpp.obj -c "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial2.cpp"
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial2.cpp.i: cmake_force
@@ -125,7 +125,7 @@ CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cor
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial3.cpp.obj: CMakeFiles\mega_CORE.dir\flags.make
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial3.cpp.obj: "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial3.cpp"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/HardwareSerial3.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/HardwareSerial3.cpp.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial3.cpp.obj -c "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial3.cpp"
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial3.cpp.i: cmake_force
@@ -138,7 +138,7 @@ CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cor
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\IPAddress.cpp.obj: CMakeFiles\mega_CORE.dir\flags.make
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\IPAddress.cpp.obj: "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\IPAddress.cpp"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/IPAddress.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/IPAddress.cpp.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\IPAddress.cpp.obj -c "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\IPAddress.cpp"
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\IPAddress.cpp.i: cmake_force
@@ -151,7 +151,7 @@ CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cor
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\PluggableUSB.cpp.obj: CMakeFiles\mega_CORE.dir\flags.make
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\PluggableUSB.cpp.obj: "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\PluggableUSB.cpp"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/PluggableUSB.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/PluggableUSB.cpp.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\PluggableUSB.cpp.obj -c "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\PluggableUSB.cpp"
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\PluggableUSB.cpp.i: cmake_force
@@ -164,7 +164,7 @@ CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cor
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\Print.cpp.obj: CMakeFiles\mega_CORE.dir\flags.make
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\Print.cpp.obj: "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\Print.cpp"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/Print.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/Print.cpp.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\Print.cpp.obj -c "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\Print.cpp"
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\Print.cpp.i: cmake_force
@@ -177,7 +177,7 @@ CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cor
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\Stream.cpp.obj: CMakeFiles\mega_CORE.dir\flags.make
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\Stream.cpp.obj: "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\Stream.cpp"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/Stream.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/Stream.cpp.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\Stream.cpp.obj -c "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\Stream.cpp"
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\Stream.cpp.i: cmake_force
@@ -190,7 +190,7 @@ CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cor
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\Tone.cpp.obj: CMakeFiles\mega_CORE.dir\flags.make
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\Tone.cpp.obj: "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\Tone.cpp"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/Tone.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/Tone.cpp.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\Tone.cpp.obj -c "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\Tone.cpp"
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\Tone.cpp.i: cmake_force
@@ -203,7 +203,7 @@ CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cor
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\USBCore.cpp.obj: CMakeFiles\mega_CORE.dir\flags.make
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\USBCore.cpp.obj: "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\USBCore.cpp"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/USBCore.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/USBCore.cpp.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\USBCore.cpp.obj -c "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\USBCore.cpp"
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\USBCore.cpp.i: cmake_force
@@ -216,7 +216,7 @@ CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cor
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\WInterrupts.c.obj: CMakeFiles\mega_CORE.dir\flags.make
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\WInterrupts.c.obj: "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\WInterrupts.c"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/WInterrupts.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/WInterrupts.c.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\avr-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\WInterrupts.c.obj   -c "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\WInterrupts.c"
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\WInterrupts.c.i: cmake_force
@@ -229,7 +229,7 @@ CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cor
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\WMath.cpp.obj: CMakeFiles\mega_CORE.dir\flags.make
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\WMath.cpp.obj: "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\WMath.cpp"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/WMath.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/WMath.cpp.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\WMath.cpp.obj -c "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\WMath.cpp"
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\WMath.cpp.i: cmake_force
@@ -242,7 +242,7 @@ CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cor
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\WString.cpp.obj: CMakeFiles\mega_CORE.dir\flags.make
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\WString.cpp.obj: "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\WString.cpp"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/WString.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/WString.cpp.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\WString.cpp.obj -c "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\WString.cpp"
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\WString.cpp.i: cmake_force
@@ -255,7 +255,7 @@ CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cor
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\abi.cpp.obj: CMakeFiles\mega_CORE.dir\flags.make
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\abi.cpp.obj: "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\abi.cpp"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/abi.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/abi.cpp.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\abi.cpp.obj -c "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\abi.cpp"
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\abi.cpp.i: cmake_force
@@ -268,7 +268,7 @@ CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cor
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\hooks.c.obj: CMakeFiles\mega_CORE.dir\flags.make
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\hooks.c.obj: "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\hooks.c"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/hooks.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/hooks.c.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\avr-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\hooks.c.obj   -c "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\hooks.c"
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\hooks.c.i: cmake_force
@@ -281,7 +281,7 @@ CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cor
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\main.cpp.obj: CMakeFiles\mega_CORE.dir\flags.make
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\main.cpp.obj: "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\main.cpp"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/main.cpp.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\main.cpp.obj -c "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\main.cpp"
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\main.cpp.i: cmake_force
@@ -294,7 +294,7 @@ CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cor
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\new.cpp.obj: CMakeFiles\mega_CORE.dir\flags.make
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\new.cpp.obj: "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\new.cpp"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/new.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/new.cpp.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\new.cpp.obj -c "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\new.cpp"
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\new.cpp.i: cmake_force
@@ -307,7 +307,7 @@ CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cor
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring.c.obj: CMakeFiles\mega_CORE.dir\flags.make
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring.c.obj: "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring.c"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/wiring.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/wiring.c.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\avr-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring.c.obj   -c "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring.c"
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring.c.i: cmake_force
@@ -320,7 +320,7 @@ CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cor
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_analog.c.obj: CMakeFiles\mega_CORE.dir\flags.make
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_analog.c.obj: "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_analog.c"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/wiring_analog.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/wiring_analog.c.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\avr-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_analog.c.obj   -c "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_analog.c"
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_analog.c.i: cmake_force
@@ -333,7 +333,7 @@ CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cor
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_digital.c.obj: CMakeFiles\mega_CORE.dir\flags.make
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_digital.c.obj: "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_digital.c"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/wiring_digital.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/wiring_digital.c.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\avr-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_digital.c.obj   -c "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_digital.c"
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_digital.c.i: cmake_force
@@ -346,7 +346,7 @@ CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cor
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_pulse.c.obj: CMakeFiles\mega_CORE.dir\flags.make
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_pulse.c.obj: "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_pulse.c"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/wiring_pulse.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/wiring_pulse.c.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\avr-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_pulse.c.obj   -c "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_pulse.c"
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_pulse.c.i: cmake_force
@@ -359,7 +359,7 @@ CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cor
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_shift.c.obj: CMakeFiles\mega_CORE.dir\flags.make
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_shift.c.obj: "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_shift.c"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/wiring_shift.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/wiring_shift.c.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\avr-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_shift.c.obj   -c "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_shift.c"
 
 CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_shift.c.i: cmake_force
@@ -426,7 +426,7 @@ libmega_CORE.a: CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware
 libmega_CORE.a: CMakeFiles\mega_CORE.dir\C_\Program_Files_(x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_shift.c.obj
 libmega_CORE.a: CMakeFiles\mega_CORE.dir\build.make
 libmega_CORE.a: CMakeFiles\mega_CORE.dir\link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Linking CXX static library libmega_CORE.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Linking CXX static library libmega_CORE.a"
 	$(CMAKE_COMMAND) -P CMakeFiles\mega_CORE.dir\cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\mega_CORE.dir\link.txt --verbose=$(VERBOSE)
 
@@ -440,6 +440,6 @@ CMakeFiles\mega_CORE.dir\clean:
 .PHONY : CMakeFiles\mega_CORE.dir\clean
 
 CMakeFiles\mega_CORE.dir\depend:
-	$(CMAKE_COMMAND) -E cmake_depends "NMake Makefiles" E:\locker1540-arduino\eth E:\locker1540-arduino\eth E:\locker1540-arduino\eth\cmake-build-debug E:\locker1540-arduino\eth\cmake-build-debug E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles\mega_CORE.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "NMake Makefiles" D:\locker1540-arduino\eth D:\locker1540-arduino\eth D:\locker1540-arduino\eth\cmake-build-debug D:\locker1540-arduino\eth\cmake-build-debug D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles\mega_CORE.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles\mega_CORE.dir\depend
 

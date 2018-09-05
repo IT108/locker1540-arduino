@@ -437,7 +437,7 @@ namespace commands{
             resp += ".  ";
             resp += HTTPNextTableCell;
             for (int p = 0; p < 8; p++) {
-                char temp = q[j][p];
+                char temp = (char)q[j][p];
                 resp += temp;
             }
             resp += HTTPNextTableRow;
@@ -478,21 +478,22 @@ namespace commands{
 namespace net{
 
     EthernetClient client;
+    String response = "";
 
-    void sendResponse(String res){
+    void sendResponse(){
         client.flush();
-        String res;
+        String res = "";
         if (sys){
             res = HTTPSysHead;
             res += sysStatus;
             res += "OK \r\n\r\n";
-            res += sysresp;
+            res += response;
         } else {
             res = HTTPHead;
-            res += resp;
+            res += response;
             res += HTTPEnd;
         }
-        client.print(s);
+        client.print(res);
         delay(1);
         client.stop();
         if (debug) DebugSerial.println("Client disonnected");
@@ -509,14 +510,15 @@ namespace net{
         String tmpId = getVal("id");
         int id = tmpId.toInt();
         String key = getVal("key");
-        String res = "<h5>INVALID REQUEST</h5>";
+        response = "<h5>INVALID REQUEST</h5>";
         switch (id){
             case 1:
                 String card = getVal("card");
                 String name = getVal("name");
-                res = commands::addCard(card, name);
+                response = commands::addCard(card, name);
 
         }
+        sendResponse();
     }
 
     void getPostRequest() {
@@ -595,7 +597,12 @@ namespace manage {
                     Num++;
 
                     if (Num == 8) {
-                        DB::checkFind(w);
+                        int status = DB::checkFind(w);
+                        if (status == symbolNotExist){
+                          DB::writeNew(w);
+                        } else {
+                          DB::del(w);
+                        }
                     }
                 }
             } else if (Main == 124) {
@@ -647,7 +654,9 @@ void setup() {
     }
     if (debug) DebugSerial.println("card initialized.");
     DB::initCards();
+    DebugSerial.print("eth beg");
     Ethernet.begin(mac);
+    DebugSerial.print("eth end");
     server.begin();
     DebugSerial.print("server is at ");
     DebugSerial.println(Ethernet.localIP());

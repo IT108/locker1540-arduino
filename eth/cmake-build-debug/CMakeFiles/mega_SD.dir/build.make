@@ -44,10 +44,10 @@ RM = "C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = E:\locker1540-arduino\eth
+CMAKE_SOURCE_DIR = D:\locker1540-arduino\eth
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = E:\locker1540-arduino\eth\cmake-build-debug
+CMAKE_BINARY_DIR = D:\locker1540-arduino\eth\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles\mega_SD.dir\depend.make
@@ -60,7 +60,7 @@ include CMakeFiles\mega_SD.dir\flags.make
 
 CMakeFiles\mega_SD.dir\C_\Program_Files_(x86)\Arduino\libraries\SD\src\File.cpp.obj: CMakeFiles\mega_SD.dir\flags.make
 CMakeFiles\mega_SD.dir\C_\Program_Files_(x86)\Arduino\libraries\SD\src\File.cpp.obj: "C:\Program Files (x86)\Arduino\libraries\SD\src\File.cpp"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mega_SD.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/File.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mega_SD.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/File.cpp.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\mega_SD.dir\C_\Program_Files_(x86)\Arduino\libraries\SD\src\File.cpp.obj -c "C:\Program Files (x86)\Arduino\libraries\SD\src\File.cpp"
 
 CMakeFiles\mega_SD.dir\C_\Program_Files_(x86)\Arduino\libraries\SD\src\File.cpp.i: cmake_force
@@ -73,7 +73,7 @@ CMakeFiles\mega_SD.dir\C_\Program_Files_(x86)\Arduino\libraries\SD\src\File.cpp.
 
 CMakeFiles\mega_SD.dir\C_\Program_Files_(x86)\Arduino\libraries\SD\src\SD.cpp.obj: CMakeFiles\mega_SD.dir\flags.make
 CMakeFiles\mega_SD.dir\C_\Program_Files_(x86)\Arduino\libraries\SD\src\SD.cpp.obj: "C:\Program Files (x86)\Arduino\libraries\SD\src\SD.cpp"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mega_SD.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/SD.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mega_SD.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/SD.cpp.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\mega_SD.dir\C_\Program_Files_(x86)\Arduino\libraries\SD\src\SD.cpp.obj -c "C:\Program Files (x86)\Arduino\libraries\SD\src\SD.cpp"
 
 CMakeFiles\mega_SD.dir\C_\Program_Files_(x86)\Arduino\libraries\SD\src\SD.cpp.i: cmake_force
@@ -86,7 +86,7 @@ CMakeFiles\mega_SD.dir\C_\Program_Files_(x86)\Arduino\libraries\SD\src\SD.cpp.s:
 
 CMakeFiles\mega_SD.dir\C_\Program_Files_(x86)\Arduino\libraries\SD\src\utility\Sd2Card.cpp.obj: CMakeFiles\mega_SD.dir\flags.make
 CMakeFiles\mega_SD.dir\C_\Program_Files_(x86)\Arduino\libraries\SD\src\utility\Sd2Card.cpp.obj: "C:\Program Files (x86)\Arduino\libraries\SD\src\utility\Sd2Card.cpp"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/mega_SD.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/utility/Sd2Card.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/mega_SD.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/utility/Sd2Card.cpp.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\mega_SD.dir\C_\Program_Files_(x86)\Arduino\libraries\SD\src\utility\Sd2Card.cpp.obj -c "C:\Program Files (x86)\Arduino\libraries\SD\src\utility\Sd2Card.cpp"
 
 CMakeFiles\mega_SD.dir\C_\Program_Files_(x86)\Arduino\libraries\SD\src\utility\Sd2Card.cpp.i: cmake_force
@@ -99,7 +99,7 @@ CMakeFiles\mega_SD.dir\C_\Program_Files_(x86)\Arduino\libraries\SD\src\utility\S
 
 CMakeFiles\mega_SD.dir\C_\Program_Files_(x86)\Arduino\libraries\SD\src\utility\SdFile.cpp.obj: CMakeFiles\mega_SD.dir\flags.make
 CMakeFiles\mega_SD.dir\C_\Program_Files_(x86)\Arduino\libraries\SD\src\utility\SdFile.cpp.obj: "C:\Program Files (x86)\Arduino\libraries\SD\src\utility\SdFile.cpp"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/mega_SD.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/utility/SdFile.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/mega_SD.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/utility/SdFile.cpp.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\mega_SD.dir\C_\Program_Files_(x86)\Arduino\libraries\SD\src\utility\SdFile.cpp.obj -c "C:\Program Files (x86)\Arduino\libraries\SD\src\utility\SdFile.cpp"
 
 CMakeFiles\mega_SD.dir\C_\Program_Files_(x86)\Arduino\libraries\SD\src\utility\SdFile.cpp.i: cmake_force
@@ -112,7 +112,7 @@ CMakeFiles\mega_SD.dir\C_\Program_Files_(x86)\Arduino\libraries\SD\src\utility\S
 
 CMakeFiles\mega_SD.dir\C_\Program_Files_(x86)\Arduino\libraries\SD\src\utility\SdVolume.cpp.obj: CMakeFiles\mega_SD.dir\flags.make
 CMakeFiles\mega_SD.dir\C_\Program_Files_(x86)\Arduino\libraries\SD\src\utility\SdVolume.cpp.obj: "C:\Program Files (x86)\Arduino\libraries\SD\src\utility\SdVolume.cpp"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/mega_SD.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/utility/SdVolume.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/mega_SD.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/utility/SdVolume.cpp.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\mega_SD.dir\C_\Program_Files_(x86)\Arduino\libraries\SD\src\utility\SdVolume.cpp.obj -c "C:\Program Files (x86)\Arduino\libraries\SD\src\utility\SdVolume.cpp"
 
 CMakeFiles\mega_SD.dir\C_\Program_Files_(x86)\Arduino\libraries\SD\src\utility\SdVolume.cpp.i: cmake_force
@@ -141,7 +141,7 @@ libmega_SD.a: CMakeFiles\mega_SD.dir\C_\Program_Files_(x86)\Arduino\libraries\SD
 libmega_SD.a: CMakeFiles\mega_SD.dir\C_\Program_Files_(x86)\Arduino\libraries\SD\src\utility\SdVolume.cpp.obj
 libmega_SD.a: CMakeFiles\mega_SD.dir\build.make
 libmega_SD.a: CMakeFiles\mega_SD.dir\link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX static library libmega_SD.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX static library libmega_SD.a"
 	$(CMAKE_COMMAND) -P CMakeFiles\mega_SD.dir\cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\mega_SD.dir\link.txt --verbose=$(VERBOSE)
 
@@ -155,6 +155,6 @@ CMakeFiles\mega_SD.dir\clean:
 .PHONY : CMakeFiles\mega_SD.dir\clean
 
 CMakeFiles\mega_SD.dir\depend:
-	$(CMAKE_COMMAND) -E cmake_depends "NMake Makefiles" E:\locker1540-arduino\eth E:\locker1540-arduino\eth E:\locker1540-arduino\eth\cmake-build-debug E:\locker1540-arduino\eth\cmake-build-debug E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles\mega_SD.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "NMake Makefiles" D:\locker1540-arduino\eth D:\locker1540-arduino\eth D:\locker1540-arduino\eth\cmake-build-debug D:\locker1540-arduino\eth\cmake-build-debug D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles\mega_SD.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles\mega_SD.dir\depend
 

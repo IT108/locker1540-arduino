@@ -44,10 +44,10 @@ RM = "C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = E:\locker1540-arduino\eth
+CMAKE_SOURCE_DIR = D:\locker1540-arduino\eth
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = E:\locker1540-arduino\eth\cmake-build-debug
+CMAKE_BINARY_DIR = D:\locker1540-arduino\eth\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles\eth.dir\depend.make
@@ -59,21 +59,21 @@ include CMakeFiles\eth.dir\progress.make
 include CMakeFiles\eth.dir\flags.make
 
 eth_eth.ino.cpp: ..\eth.ino
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Regnerating eth.ino Sketch"
-	echo >nul && "C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" E:/locker1540-arduino/eth
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Regnerating eth.ino Sketch"
+	echo >nul && "C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" D:/locker1540-arduino/eth
 
 CMakeFiles\eth.dir\eth_eth.ino.cpp.obj: CMakeFiles\eth.dir\flags.make
 CMakeFiles\eth.dir\eth_eth.ino.cpp.obj: eth_eth.ino.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/eth.dir/eth_eth.ino.cpp.obj"
-	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\eth.dir\eth_eth.ino.cpp.obj -c E:\locker1540-arduino\eth\cmake-build-debug\eth_eth.ino.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/eth.dir/eth_eth.ino.cpp.obj"
+	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\eth.dir\eth_eth.ino.cpp.obj -c D:\locker1540-arduino\eth\cmake-build-debug\eth_eth.ino.cpp
 
 CMakeFiles\eth.dir\eth_eth.ino.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/eth.dir/eth_eth.ino.cpp.i"
-	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\locker1540-arduino\eth\cmake-build-debug\eth_eth.ino.cpp > CMakeFiles\eth.dir\eth_eth.ino.cpp.i
+	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\locker1540-arduino\eth\cmake-build-debug\eth_eth.ino.cpp > CMakeFiles\eth.dir\eth_eth.ino.cpp.i
 
 CMakeFiles\eth.dir\eth_eth.ino.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/eth.dir/eth_eth.ino.cpp.s"
-	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\locker1540-arduino\eth\cmake-build-debug\eth_eth.ino.cpp -o CMakeFiles\eth.dir\eth_eth.ino.cpp.s
+	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\locker1540-arduino\eth\cmake-build-debug\eth_eth.ino.cpp -o CMakeFiles\eth.dir\eth_eth.ino.cpp.s
 
 # Object files for target eth
 eth_OBJECTS = \
@@ -84,11 +84,16 @@ eth_EXTERNAL_OBJECTS =
 
 eth.elf: CMakeFiles\eth.dir\eth_eth.ino.cpp.obj
 eth.elf: CMakeFiles\eth.dir\build.make
-eth.elf: libmega_Ethernet.a
-eth.elf: libmega_Dhcp.a
 eth.elf: libmega_w5100.a
-eth.elf: libmega_SPI.a
+eth.elf: libmega_Dhcp.a
+eth.elf: libmega_util.a
+eth.elf: libmega_EthernetUdp.a
+eth.elf: libmega_Ethernet.a
 eth.elf: libmega_Dns.a
+eth.elf: libmega_EthernetClient.a
+eth.elf: libmega_EthernetServer.a
+eth.elf: libmega_SPI.a
+eth.elf: libmega_socket.a
 eth.elf: libmega_SoftwareSerial.a
 eth.elf: libmega_DFPlayer_Mini_Mp3.a
 eth.elf: libmega_QueueList.a
@@ -98,14 +103,14 @@ eth.elf: libmega_SdFat.a
 eth.elf: libmega_SPI.a
 eth.elf: libmega_SdFatUtil.a
 eth.elf: libmega_CORE.a
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable eth.elf"
-	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD  -w -Os -Wl,--gc-sections -w -Os -Wl,--gc-sections -mmcu=atmega2560  $(eth_OBJECTS) $(eth_EXTERNAL_OBJECTS)  -o eth.elf libmega_Ethernet.a libmega_Dhcp.a libmega_w5100.a libmega_SPI.a libmega_Dns.a libmega_SoftwareSerial.a libmega_DFPlayer_Mini_Mp3.a libmega_QueueList.a libmega_SPI.a libmega_SD.a libmega_SdFat.a libmega_SPI.a libmega_SdFatUtil.a libmega_CORE.a -lc -lm 
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable eth.elf"
+	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD  -w -Os -Wl,--gc-sections -w -Os -Wl,--gc-sections -mmcu=atmega2560  $(eth_OBJECTS) $(eth_EXTERNAL_OBJECTS)  -o eth.elf libmega_w5100.a libmega_Dhcp.a libmega_util.a libmega_EthernetUdp.a libmega_Ethernet.a libmega_Dns.a libmega_EthernetClient.a libmega_EthernetServer.a libmega_SPI.a libmega_socket.a libmega_SoftwareSerial.a libmega_DFPlayer_Mini_Mp3.a libmega_QueueList.a libmega_SPI.a libmega_SD.a libmega_SdFat.a libmega_SPI.a libmega_SdFatUtil.a libmega_CORE.a -lc -lm 
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating EEP image"
-	echo >nul && "C:\Program Files (x86)\Arduino\hardware\tools\avr\bin\avr-objcopy.exe" -O ihex -j .eeprom --set-section-flags=.eeprom=alloc,load --no-change-warnings --change-section-lma .eeprom=0 E:/locker1540-arduino/eth/cmake-build-debug/eth.elf E:/locker1540-arduino/eth/cmake-build-debug/eth.eep
+	echo >nul && "C:\Program Files (x86)\Arduino\hardware\tools\avr\bin\avr-objcopy.exe" -O ihex -j .eeprom --set-section-flags=.eeprom=alloc,load --no-change-warnings --change-section-lma .eeprom=0 D:/locker1540-arduino/eth/cmake-build-debug/eth.elf D:/locker1540-arduino/eth/cmake-build-debug/eth.eep
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating HEX image"
-	echo >nul && "C:\Program Files (x86)\Arduino\hardware\tools\avr\bin\avr-objcopy.exe" -O ihex -R .eeprom E:/locker1540-arduino/eth/cmake-build-debug/eth.elf E:/locker1540-arduino/eth/cmake-build-debug/eth.hex
+	echo >nul && "C:\Program Files (x86)\Arduino\hardware\tools\avr\bin\avr-objcopy.exe" -O ihex -R .eeprom D:/locker1540-arduino/eth/cmake-build-debug/eth.elf D:/locker1540-arduino/eth/cmake-build-debug/eth.hex
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Calculating image size"
-	echo >nul && "C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -DFIRMWARE_IMAGE=E:/locker1540-arduino/eth/cmake-build-debug/eth.elf -DMCU=atmega2560 -DEEPROM_IMAGE=E:/locker1540-arduino/eth/cmake-build-debug/eth.eep -P E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/FirmwareSize.cmake
+	echo >nul && "C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -DFIRMWARE_IMAGE=D:/locker1540-arduino/eth/cmake-build-debug/eth.elf -DMCU=atmega2560 -DEEPROM_IMAGE=D:/locker1540-arduino/eth/cmake-build-debug/eth.eep -P D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/FirmwareSize.cmake
 
 # Rule to build all files generated by this target.
 CMakeFiles\eth.dir\build: eth.elf
@@ -117,6 +122,6 @@ CMakeFiles\eth.dir\clean:
 .PHONY : CMakeFiles\eth.dir\clean
 
 CMakeFiles\eth.dir\depend: eth_eth.ino.cpp
-	$(CMAKE_COMMAND) -E cmake_depends "NMake Makefiles" E:\locker1540-arduino\eth E:\locker1540-arduino\eth E:\locker1540-arduino\eth\cmake-build-debug E:\locker1540-arduino\eth\cmake-build-debug E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles\eth.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "NMake Makefiles" D:\locker1540-arduino\eth D:\locker1540-arduino\eth D:\locker1540-arduino\eth\cmake-build-debug D:\locker1540-arduino\eth\cmake-build-debug D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles\eth.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles\eth.dir\depend
 
