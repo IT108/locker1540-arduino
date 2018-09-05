@@ -549,75 +549,51 @@ namespace net{
 }
 
 namespace manage {
+    int mode, position;
 
     void webServer() {
         bool sys = false;
         String sysresp = "";
-        // Check if a client has connected
         net::getPostRequest();
-        // The client will actually be disconnected
-        // when the function returns and 'client' object is detroyed
     }
 
-    void checkDB() {
+    void handle_locker() {
         if (!LockerSerial.available()) {
-            Num = -1;
-            Main = -1;
+            position = -1;
+            mode = -1;
             return;
-        } else {
-            int a = LockerSerial.read();
-            //LockerSerial.println(a);
-            if (a == 126 || a == 124 || a == 125) {
-                Main = a;
-                Num = 0;
-                if (debug) DebugSerial.println(Main);
+        } 
+        else {
+            int value = LockerSerial.read();
+            if (124 <= value && value <= 126) {
+                mode = a;
+                position = 0;
+                return;
             }
-            if (Main == 126) {
-                if (Num > -1 && a != Main) {
-                    if (debug) {
-                        DebugSerial.print(a);
-                        DebugSerial.print(" ");
+            if (position > -1) {
+                w[position++] = a;
+            }
+            if (position == 8) {
+                if (mode == 126) {
+                    int status = DB::checkFind(w);
+                    if (status == symbolNotExist){
+                        DB::writeNew(w);
+                    } 
+                    else {
+                        DB::del(w);
                     }
-                    w[Num] = a;
-                    Num++;
-
-                    if (Num == 8) {
-                        int status = DB::checkFind(w);
-                        if (status == symbolNotExist){
-                          DB::writeNew(w);
-                        } else {
-                          DB::del(w);
-                        }
-                    }
-                }
-            } else if (Main == 124) {
-                if (Num > -1 && a != Main) {
-                    w[Num] = a;
-                    if (debug) {
-                        DebugSerial.print(w[Num]);
-                        DebugSerial.print(" ");
-                    }
-                    Num++;
-                    if (Num == 8) {
-                        if (DB::_find(w) != -1) {
-                            LockerSerial.print("Y");
-                            music::play_greeting();
-                        } else {
-                            LockerSerial.print("N");
-                        }
-                    }
-                }
-            } else if (Main == 125) {
-                if (Num > -1 && a != Main) {
-                    w[Num] = a;
-                    if (debug) {
-                        DebugSerial.print(w[Num]);
-                        DebugSerial.print(" ");
-                    }
-                    Num++;
-                    if (Num == 8) {
+                } 
+                else if (mode == 124) {
+                    if (DB::_find(w) != -1) {
+                        LockerSerial.print("Y");
                         music::play_greeting();
                     }
+                    else {
+                        LockerSerial.print("N");
+                    }
+                } 
+                else if (Main == 125) {
+                    music::play_greeting();
                 }
             }
         }
@@ -645,10 +621,12 @@ void setup() {
     server.begin();
     DebugSerial.print("server is at ");
     DebugSerial.println(Ethernet.localIP());
+    manage::position = -1;
+    manage::mode = -1;
 }
 
 void loop() {
     greeting::process_greetings();
-    manage::checkDB();
+    manage::handle_locker();
     manage::webServer();
 }
