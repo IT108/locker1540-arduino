@@ -263,7 +263,7 @@ namespace DB {
         }
         cards.close();
         initCards();
-        fullDB::del(card);
+        //fullDB::del(card);
     }
 }
 
@@ -288,7 +288,7 @@ namespace music {
                 // Serial.print(a);
                 // Serial.print(" ");
                 // Serial.println((char)a);
-                if (a != nameSeparator && a != cardsSeparator && is_good(a)) {
+                if (a != nameSeparator && a != cardsSeparator && DB::is_good(a)) {
                     char q = a;
                     switch (i) {
                         case 2:
@@ -342,8 +342,6 @@ namespace music {
         DebugSerial.println(melody_buffer.count());
         delay(2000);
     }
-
-
 }
 
 namespace commands{
@@ -359,7 +357,7 @@ namespace commands{
                 DebugSerial.print(" ");
             }
         }
-        int status = checkFind(fmas);
+        int status = DB::checkFind(fmas);
         int newCard[8];
         switch (status) {
             case symbolNotExist:
@@ -390,7 +388,7 @@ namespace commands{
                 DebugSerial.print(" ");
             }
         }
-        int status = checkFind(fmas);
+        int status = DB::checkFind(fmas);
         int reqCard[8];
         switch (status) {
             case symbolNotExist:
@@ -478,25 +476,51 @@ namespace commands{
 }
 
 namespace net{
-    String getVal(String req, String key){
-        return req.substring(req.indexOf(key) + key.length() + 1,
-                                    req.indexOf("&",req.indexOf(key) + key.length() + 1));
+
+    EthernetClient client;
+
+    void sendResponse(String res){
+        client.flush();
+        String res;
+        if (sys){
+            res = HTTPSysHead;
+            res += sysStatus;
+            res += "OK \r\n\r\n";
+            res += sysresp;
+        } else {
+            res = HTTPHead;
+            res += resp;
+            res += HTTPEnd;
+        }
+        client.print(s);
+        delay(1);
+        client.stop();
+        if (debug) DebugSerial.println("Client disonnected");
+    }
+
+    String getVal(String key){
+        readString = buffer;
+        return readString.substring(readString.indexOf(key) + key.length() + 1,
+                                    readString.indexOf("&",readString.indexOf(key) + key.length() + 1));
     }
 
     void PerformRequestedCommands() {
         readString = buffer;
-        String tmpId = getVal(readString, "id");
+        String tmpId = getVal("id");
         int id = tmpId.toInt();
-        String key = getVal(readString, String("key"));
+        String key = getVal("key");
+        String res = "<h5>INVALID REQUEST</h5>";
         switch (id){
             case 1:
-                String card = getVal(readString, String("card"));
-                String name = getVal(readString, String("name"));
-                commands::addCard(card, name);
+                String card = getVal("card");
+                String name = getVal("name");
+                res = commands::addCard(card, name);
+
         }
     }
 
     void getPostRequest() {
+        client = server.available();
         // если клиент подключен....
         if (client) {
             Serial.println("Client connected");
@@ -518,8 +542,6 @@ namespace net{
                         Serial.println("Received POST request:");
                         // Выполнение команд
                         PerformRequestedCommands();
-                        // Отправка ответа
-                        sendResponse();
                     } else if (c == '\n') {
                         currentLineIsBlank = true;
                     } else if (c != '\r') {
@@ -573,7 +595,7 @@ namespace manage {
                     Num++;
 
                     if (Num == 8) {
-                        checkFind(w);
+                        DB::checkFind(w);
                     }
                 }
             } else if (Main == 124) {
@@ -585,9 +607,9 @@ namespace manage {
                     }
                     Num++;
                     if (Num == 8) {
-                        if (_find(w) != -1) {
+                        if (DB::_find(w) != -1) {
                             LockerSerial.print("Y");
-                            play_melody();
+                            music::play_melody();
                         } else {
                             LockerSerial.print("N");
                         }
@@ -602,7 +624,7 @@ namespace manage {
                     }
                     Num++;
                     if (Num == 8) {
-                        play_melody();
+                        music::play_melody();
                     }
                 }
             }

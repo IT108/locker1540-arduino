@@ -16,15 +16,15 @@ def start():
 
 def _login():
     while 1:
-        constants.PASS = input(strings.ENTER_KEY)
+        constants.PASS = input(strings.INPUT_KEY)
         print(strings.ATTEMPTING_LOGIN)
         res = login.login_attempt(constants.PASS)
-        if res == requests.codes.not_found:
+        if res.answer_code == requests.codes.not_found:
             print(strings.NOT_FOUND)
             exit(1)
-        elif res == requests.codes.unauthorized:
+        elif res.answer_code == requests.codes.unauthorized:
             print(strings.WRONG_KEY)
-        elif res == requests.codes.ok:
+        elif res.answer_code == requests.codes.ok:
             print(strings.SUCCESS_LOGIN)
             break
         else:
@@ -59,6 +59,3 @@ def run_command(num):
         commands.get_all_ascii()
     elif num == constants.OPERATION_KEYS[constants.ALL_CARDS_BYTE]:
         commands.get_all_byte()
-
-
-menu()

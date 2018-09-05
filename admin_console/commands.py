@@ -10,7 +10,9 @@ def add_card():
         if isValid(__card):
             break
         print(strings.INVALID_CARD)
-    return net.make_request({'id': constants.OPERATION_KEYS[constants.ADD_CARD], 'key': constants.PASS, 'card': __card})
+    name = input(strings.INPUT_NAME)
+    return net.make_request({'id': constants.OPERATION_KEYS[constants.ADD_CARD], 'key': constants.PASS, 'card': __card,
+                             'name': name})
 
 
 def remove_card():
