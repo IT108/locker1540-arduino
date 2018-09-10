@@ -8,7 +8,8 @@ import commands
 
 def start():
     print(strings.GREETING)
-    if net.check_server() == requests.codes.not_found:
+    chk = net.check_server()
+    if chk == requests.codes.not_found:
         print(strings.NOT_FOUND)
         exit(1)
     print(strings.FOUND)
@@ -35,7 +36,7 @@ def _login():
 def menu():
     while 1:
         print(strings.MENU)
-        i = 1
+        i = 0
         for a in strings.CHOOSE_MENU.values():
             print(str(i) + ' ' + a)
             i += 1
@@ -43,7 +44,6 @@ def menu():
             req = int(input())
             print(strings.CHOOSE_MENU[req])
             run_command(req)
-            break
         except ValueError:
             print(strings.INVALID_TUPLE_KEY)
         except KeyError:
@@ -51,7 +51,9 @@ def menu():
 
 
 def run_command(num):
-    if num == constants.OPERATION_KEYS[constants.ADD_CARD]:
+    if num == constants.OPERATION_KEYS[constants.EXIT]:
+        exit(0)
+    elif num == constants.OPERATION_KEYS[constants.ADD_CARD]:
         commands.add_card()
     elif num == constants.OPERATION_KEYS[constants.REMOVE_CARD]:
         commands.remove_card()

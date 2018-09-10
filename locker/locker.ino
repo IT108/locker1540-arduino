@@ -28,6 +28,13 @@ namespace constant_pins {
 	const int INSIDE_SENSOR_1_1 = 5;
 }
 
+namespace constant_values {
+  const int TIMER_GREEN = 5000;
+  const int TIMER_RED = 2000;
+  const int TIMER_BLUE = 2000;
+  const int CARD_SIZE = 8;
+}
+
 namespace door_bell {
 	long long timer;
 	const int COUNT_NOTES = 9;
@@ -130,7 +137,7 @@ namespace exit_button {
 		if (status != 0) {
 			locker::unlock();
 			outside_led::green();
-			delay(5000);
+			delay(constant_values::TIMER_GREEN);
 			locker::lock();
 		}
 	}
@@ -188,7 +195,7 @@ namespace security {
 namespace client {
 	String make_request(String type, int card[]) {
 		String res = type;
-		for (int i = 0; i < handler::CARD_SIZE; i++) {
+		for (int i = 0; i < constant_values::CARD_SIZE; i++) {
 			res += (char)card[i];
 		}
 		return res;
@@ -212,12 +219,12 @@ namespace client {
 			if (ans == 89) {
 				locker::unlock();
 				outside_led::green();
-				delay(handler::TIMER_GREEN);
+				delay(constant_values::TIMER_GREEN);
 				locker::lock();
 			}
 			if (ans == 78) {
 				outside_led::red();
-				delay(handler::TIMER_RED);
+				delay(constant_values::TIMER_RED);
 			}
 		}
 	}
@@ -229,7 +236,7 @@ namespace handler {
 		55, 57, 55, 57, 48, 55, 55, 57
 	}; //0 -> 48
 	const int BAD_SYMBOLS_SIZE = 9;
-	const int BAD_SYMBOLS[BAD_SYMBOLS_CNT] = {
+	const int BAD_SYMBOLS[BAD_SYMBOLS_SIZE] = {
 		-1, 2, 3, 10, 13, 249, 191, 235, 0
 	};
 	const int LOCAL_DB_SIZE = 4;
@@ -239,9 +246,6 @@ namespace handler {
 		{68, 57, 53, 52, 48, 57, 52, 57},  // Amelichev
 		{68, 57, 52, 49, 69, 51, 52, 57}   // Filippov
 	};
-	const int TIMER_GREEN = 5000;
-	const int TIMER_RED = 2000;
-	const int TIMER_BLUE = 2000;
 
 	int position;
 	int buffer[CARD_SIZE];
@@ -249,7 +253,7 @@ namespace handler {
 
 
 	bool check_card(int a[], int b[]) {
-		for (int i = 0; i < CARD_SIZE; i++) {
+		for (int i = 0; i < constant_values::CARD_SIZE; i++) {
 			if (a[i] != b[i]) {
 				return false;
 			}
@@ -258,7 +262,7 @@ namespace handler {
 	}
 
 	bool is_valid(int a) {
-		for (int i = 0; i < BAD_SYMBOLS_CNT; i++) {
+		for (int i = 0; i < BAD_SYMBOLS_SIZE; i++) {
 			if (a == BAD_SYMBOLS[i]) {
 				return false;
 			}
@@ -274,7 +278,7 @@ namespace handler {
 				client::greeting(card);
 				locker::unlock();
 				outside_led::green();
-				delay(TIMER_GREEN);
+				delay(constant_values::TIMER_GREEN);
 				locker::lock();
 				return;
 			}
@@ -286,7 +290,7 @@ namespace handler {
 		if (check_card(card, MASTER_CARD)) {
 			edit_query = true;
 			outside_led::blue();
-			delay(TIMER_BLUE);	
+			delay(constant_values::TIMER_BLUE);	
 		}
 		else {
 			if (edit_query) {
@@ -307,7 +311,7 @@ namespace handler {
 		}
 		if (is_valid(value)) {
 			buffer[position++] = value;
-			if (position == CARD_SIZE) {
+			if (position == constant_values::CARD_SIZE) {
 				handle(handler::buffer);
 				position = 0;
 			}

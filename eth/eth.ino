@@ -454,10 +454,13 @@ namespace commands{
         return sysresp;
     }
 
-    String login() {
+    String login(String key) {
+        sysStatus = "200 ";
+        if (key != pass){
+          sysStatus = "403 ";
+        }
         String sysresp = "";
         sys = true;
-        sysStatus = "200 ";
         randomSeed(analogRead(0));
         for (int i = 0; i < keyLength; i++) {
             sysresp += String(random(10));
@@ -503,12 +506,31 @@ namespace net{
         int id = tmpId.toInt();
         String key = getVal("key");
         response = "<h5>INVALID REQUEST</h5>";
-        switch (id){
-            case 1:
-                String card = getVal("card");
-                String name = getVal("name");
-                response = commands::addCard(card, name);
+        String card = getVal("card");
+        String name = getVal("name");
+        if (key != pass){
+            sys = true;
+            sysStatus = "403 ";
+            response = "";
+        } else {
+            switch (id) {
+                case 1:
+                    response = commands::addCard(card, name);
+                    break;
+                case 2:
+                    response = commands::removeCard(card);
+                    break;
+                case 3:
+                    response = commands::showCards();
+                    break;
+                case 4:
+                    response = commands::showCardsBytes();
+                    break;
+                case 5:
+                    response = commands::login(key);
+                    break;
 
+            }
         }
         sendResponse();
     }
@@ -520,6 +542,7 @@ namespace net{
             Serial.println("Client connected");
             boolean currentLineIsBlank = true;
             bufferSize = 0;
+            readString = String(128);
             while (client.connected()) {
                 if (client.available()) {
                     char c = client.read();
@@ -534,6 +557,7 @@ namespace net{
                                 buffer[bufferSize++] = post;  // сохраняем новый символ в буфере и создаем приращение bufferSize
                         }
                         Serial.println("Received POST request:");
+                        DebugSerial.print(buffer);
                         // Выполнение команд
                         PerformRequestedCommands();
                     } else if (c == '\n') {
@@ -552,7 +576,7 @@ namespace manage {
     int mode, position;
 
     void webServer() {
-        bool sys = false;
+        sys = false;
         String sysresp = "";
         net::getPostRequest();
     }
@@ -566,12 +590,12 @@ namespace manage {
         else {
             int value = LockerSerial.read();
             if (124 <= value && value <= 126) {
-                mode = a;
+                mode = value;
                 position = 0;
                 return;
             }
             if (position > -1) {
-                w[position++] = a;
+                w[position++] = value;
             }
             if (position == 8) {
                 if (mode == 126) {
@@ -582,18 +606,18 @@ namespace manage {
                     else {
                         DB::del(w);
                     }
-                } 
+                }   
                 else if (mode == 124) {
                     if (DB::_find(w) != -1) {
                         LockerSerial.print("Y");
-                        music::play_greeting();
+                        greeting::play_greeting();
                     }
                     else {
                         LockerSerial.print("N");
                     }
                 } 
-                else if (Main == 125) {
-                    music::play_greeting();
+                else if (mode == 125) {
+                    greeting::play_greeting();
                 }
             }
         }

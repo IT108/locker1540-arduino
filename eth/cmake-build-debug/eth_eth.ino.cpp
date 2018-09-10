@@ -43,10 +43,12 @@
      void writeNew(int w[8]) ;
      void del(int card[8]) ;
      void del(int card[8]) ;
-     String getMusicNum(int needCardi[]) ;
-     String getMusicNum(int needCardi[]) ;
-     void play_melody() ;
-     void play_melody() ;
+     String get_track_number(int card[]) ;
+     String get_track_number(int card[]) ;
+     void play_greeting() ;
+     void play_greeting() ;
+     void process_greetings() ;
+     void process_greetings() ;
      String addCard(String freq, String name) ;
      String addCard(String freq, String name) ;
      String removeCard(String freq) ;
@@ -57,8 +59,8 @@
      String showCards() ;
      String getAllCards() ;
      String getAllCards() ;
-     String login() ;
-     String login() ;
+     String login(String key) ;
+     String login(String key) ;
      void sendResponse();
      void sendResponse();
      String getVal(String key);
@@ -69,10 +71,8 @@
      void getPostRequest() ;
      void webServer() ;
      void webServer() ;
-     void process_melody() ;
-     void process_melody() ;
-     void checkDB() ;
-     void checkDB() ;
+     void handle_locker() ;
+     void handle_locker() ;
  void setup() ;
  void setup() ;
  void loop() ;
@@ -115,7 +115,7 @@ const int nameSeparator = 47;
 String cardsFileName = "CARDS.txt";
 String fullDBFileName = "CARDSDB.TXT";
 String tmpFileName = "TmpFile.txt";
-QueueList<int> melody_buffer;
+QueueList<int> greeting_buffer;
 int bufferSize;
 char buffer[bufferMax];
 String readString = String(128);
@@ -124,7 +124,6 @@ boolean sys = false;
 String sysStatus = "";
 
 namespace fullDB {
-
     void write(int card[8], String name) {
         File cards = SD.open(fullDBFileName, FILE_WRITE);
         byte f;
@@ -218,7 +217,6 @@ namespace fullDB {
 }
 
 namespace DB {
-
     void renameC(int idx1, int idx2) {
         for (size_t i = 0; i < 8; i++) {
             q[idx1][i] = q[idx2][i];
@@ -332,58 +330,50 @@ namespace DB {
 }
 
 
-namespace music {
-
-    String getMusicNum(int needCardi[]) {
-        String needCard = "";
-        for (size_t i = 0; i < 8; i++) {
-            char q = needCardi[i];
-            needCard += q;
+namespace greeting {
+    String get_track_number(int card[]) {
+        String need_card = "";
+        for (int i = 0; i < 8; i++) {
+            char q = card[i];
+            need_card += q;
         }
-        DebugSerial.println(needCard);
         File cards = SD.open(fullDBFileName);
         if (cards) {
-            int i = 1;
-            String _name = "";
-            String cardNum = "";
-            String music = "";
+            int mode = 1;
+            String name = "";
+            String card_id = "";
+            String track_number = "";
             while (cards.available()) {
                 int a = cards.read();
-                // Serial.print(a);
-                // Serial.print(" ");
-                // Serial.println((char)a);
                 if (a != nameSeparator && a != cardsSeparator && DB::is_good(a)) {
                     char q = a;
-                    switch (i) {
-                        case 2:
-                            _name += q;
-                            break;
+                    switch (mode) {
                         case 1:
-                            cardNum += q;
+                            card_id += q;
+                            break;
+                        case 2:
+                            name += q;
                             break;
                         case 3:
-                            music += q;
+                            track_number += q;
                             break;
                     }
                 }
                 if (a == cardsSeparator) {
-                    if (i == 3) {
-                        DebugSerial.println(cardNum);
-                        DebugSerial.println(cardNum.substring(0, 8));
-                        DebugSerial.println(cardNum.length());
-                        if (needCard == cardNum) {
-                            DebugSerial.println(music);
+                    if (mode == 3) {
+                        if (need_card == card_id) {
                             cards.close();
-                            return music;
+                            return track_number;
                         }
                     }
-                    i = 1;
-                    _name = "";
-                    cardNum = "";
-                    music = "";
+                    mode = 1;
+                    name = "";
+                    card_id = "";
+                    track_number = "";
                 }
-                if (a == nameSeparator)
-                    i++;
+                if (a == nameSeparator) {
+                    mode++;
+                }
             }
             cards.close();
             return "null";
@@ -392,19 +382,21 @@ namespace music {
     }
 
 
-    void play_melody() {
-        String musicNum = getMusicNum(w);
-        DebugSerial.println(musicNum);
-        randomSeed(analogRead(0));
-
-        melody_buffer.push(random(1, 6));
-        if (musicNum != "null") {
-            int x = musicNum.toInt();
-            DebugSerial.println(x);
-            melody_buffer.push(x);
+    void play_greeting() {
+        String greeting_number = get_track_number(w);
+        greeting_buffer.push(random(1, 6));
+        if (greeting_number != "null") {
+            int x = greeting_number.toInt();
+            greeting_buffer.push(x);
         }
-        DebugSerial.println(melody_buffer.count());
         delay(2000);
+    }
+
+    void process_greetings() {
+        if (digitalRead(PIN_DFPLAYER_BUSY) && greeting_buffer.count()) {
+            mp3_play(greeting_buffer.pop());
+            delay(100);
+        }
     }
 }
 
@@ -526,10 +518,13 @@ namespace commands{
         return sysresp;
     }
 
-    String login() {
+    String login(String key) {
+        sysStatus = "200 ";
+        if (key != pass){
+          sysStatus = "403 ";
+        }
         String sysresp = "";
         sys = true;
-        sysStatus = "200 ";
         randomSeed(analogRead(0));
         for (int i = 0; i < keyLength; i++) {
             sysresp += String(random(10));
@@ -575,12 +570,31 @@ namespace net{
         int id = tmpId.toInt();
         String key = getVal("key");
         response = "<h5>INVALID REQUEST</h5>";
-        switch (id){
-            case 1:
-                String card = getVal("card");
-                String name = getVal("name");
-                response = commands::addCard(card, name);
+        String card = getVal("card");
+        String name = getVal("name");
+        if (key != pass){
+            sys = true;
+            sysStatus = "403 ";
+            response = "";
+        } else {
+            switch (id) {
+                case 1:
+                    response = commands::addCard(card, name);
+                    break;
+                case 2:
+                    response = commands::removeCard(card);
+                    break;
+                case 3:
+                    response = commands::showCards();
+                    break;
+                case 4:
+                    response = commands::showCardsBytes();
+                    break;
+                case 5:
+                    response = commands::login(key);
+                    break;
 
+            }
         }
         sendResponse();
     }
@@ -592,6 +606,7 @@ namespace net{
             Serial.println("Client connected");
             boolean currentLineIsBlank = true;
             bufferSize = 0;
+            readString = String(128);
             while (client.connected()) {
                 if (client.available()) {
                     char c = client.read();
@@ -606,6 +621,7 @@ namespace net{
                                 buffer[bufferSize++] = post;  // сохраняем новый символ в буфере и создаем приращение bufferSize
                         }
                         Serial.println("Received POST request:");
+                        DebugSerial.print(buffer);
                         // Выполнение команд
                         PerformRequestedCommands();
                     } else if (c == '\n') {
@@ -621,77 +637,51 @@ namespace net{
 }
 
 namespace manage {
+    int mode, position;
 
     void webServer() {
-        bool sys = false;
+        sys = false;
         String sysresp = "";
-        // Check if a client has connected
         net::getPostRequest();
-        // The client will actually be disconnected
-        // when the function returns and 'client' object is detroyed
     }
 
-    void process_melody() {
-        if (digitalRead(PIN_DFPLAYER_BUSY) && melody_buffer.count()) {
-            mp3_play(melody_buffer.pop());
-            delay(100);
-        }
-    }
-
-    void checkDB() {
+    void handle_locker() {
         if (!LockerSerial.available()) {
-            Num = -1;
-            Main = -1;
+            position = -1;
+            mode = -1;
             return;
-        } else {
-            int a = LockerSerial.read();
-            //LockerSerial.println(a);
-            if (a == 126 || a == 124 || a == 125) {
-                Main = a;
-                Num = 0;
-                if (debug) DebugSerial.println(Main);
+        } 
+        else {
+            int value = LockerSerial.read();
+            if (124 <= value && value <= 126) {
+                mode = value;
+                position = 0;
+                return;
             }
-            if (Main == 126) {
-                if (Num > -1 && a != Main) {
-                    if (debug) {
-                        DebugSerial.print(a);
-                        DebugSerial.print(" ");
+            if (position > -1) {
+                w[position++] = value;
+            }
+            if (position == 8) {
+                if (mode == 126) {
+                    int status = DB::checkFind(w);
+                    if (status == symbolNotExist){
+                        DB::writeNew(w);
+                    } 
+                    else {
+                        DB::del(w);
                     }
-                    w[Num] = a;
-                    Num++;
-
-                    if (Num == 8) {
-                        DB::checkFind(w);
+                }   
+                else if (mode == 124) {
+                    if (DB::_find(w) != -1) {
+                        LockerSerial.print("Y");
+                        greeting::play_greeting();
                     }
-                }
-            } else if (Main == 124) {
-                if (Num > -1 && a != Main) {
-                    w[Num] = a;
-                    if (debug) {
-                        DebugSerial.print(w[Num]);
-                        DebugSerial.print(" ");
+                    else {
+                        LockerSerial.print("N");
                     }
-                    Num++;
-                    if (Num == 8) {
-                        if (DB::_find(w) != -1) {
-                            LockerSerial.print("Y");
-                            music::play_melody();
-                        } else {
-                            LockerSerial.print("N");
-                        }
-                    }
-                }
-            } else if (Main == 125) {
-                if (Num > -1 && a != Main) {
-                    w[Num] = a;
-                    if (debug) {
-                        DebugSerial.print(w[Num]);
-                        DebugSerial.print(" ");
-                    }
-                    Num++;
-                    if (Num == 8) {
-                        music::play_melody();
-                    }
+                } 
+                else if (mode == 125) {
+                    greeting::play_greeting();
                 }
             }
         }
@@ -713,14 +703,18 @@ void setup() {
     }
     if (debug) DebugSerial.println("card initialized.");
     DB::initCards();
+    DebugSerial.print("eth beg");
     Ethernet.begin(mac);
+    DebugSerial.print("eth end");
     server.begin();
     DebugSerial.print("server is at ");
     DebugSerial.println(Ethernet.localIP());
+    manage::position = -1;
+    manage::mode = -1;
 }
 
 void loop() {
-    manage::process_melody();
-    manage::checkDB();
+    greeting::process_greetings();
+    manage::handle_locker();
     manage::webServer();
 }

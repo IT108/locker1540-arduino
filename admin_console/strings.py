@@ -11,4 +11,4 @@ INPUT_CARD = "Please, input card number \r\n> "
 INPUT_NAME = "Please, input cardholder's name \r\n> "
 INVALID_CARD = "Invalid card"
 UNKNOWN_ERROR = "Unknown server answer. Try again"
-CHOOSE_MENU = {1: 'Add card', 2: 'Remove card', 3: 'Get all cards in ascii', 4: 'Get all cards in bytes'}
+CHOOSE_MENU = {0: 'exit', 1: 'Add card', 2: 'Remove card', 3: 'Get all cards in ascii', 4: 'Get all cards in bytes'}
