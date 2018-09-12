@@ -620,6 +620,7 @@ namespace net{
                             if (bufferSize < bufferMax)
                                 buffer[bufferSize++] = post;  // сохраняем новый символ в буфере и создаем приращение bufferSize
                         }
+                        buffer[bufferSize] = '&';
                         Serial.println("Received POST request:");
                         DebugSerial.print(buffer);
                         // Выполнение команд

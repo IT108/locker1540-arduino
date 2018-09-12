@@ -27,11 +27,27 @@ def remove_card():
 
 
 def get_all_ascii():
-    return net.make_request({id: constants.OPERATION_KEYS[constants.ALL_CARDS_ASCII], 'key': constants.PASS})
+    id = constants.OPERATION_KEYS[constants.ALL_CARDS_ASCII]
+    ans = net.make_request({'id': id, 'key': constants.PASS})
+    ans = ans.text.split(';')
+    q = 1
+    for i in ans:
+        if i.__len__() == 8:
+            print(str(q) + '. ' + i)
+            q += 1
+    return ans
 
 
 def get_all_byte():
-    return net.make_request({id: constants.OPERATION_KEYS[constants.ALL_CARDS_BYTE], 'key': constants.PASS})
+    id = constants.OPERATION_KEYS[constants.ALL_CARDS_BYTE]
+    ans = net.make_request({'id': id, 'key': constants.PASS})
+    ans = ans.text.split(';')
+    q = 1
+    for i in ans:
+        if i.__len__() > 2:
+            print(str(q) + '. ' + i)
+            q += 1
+    return ans
 
 
 def isValid(val):

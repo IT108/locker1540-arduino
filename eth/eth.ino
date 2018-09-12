@@ -454,6 +454,22 @@ namespace commands{
         return sysresp;
     }
 
+    String getAllCardsBytes() {
+        sys = true;
+        sysStatus = "200 ";
+        String sysresp = "";
+        sysresp += ";";
+        for (int j = 0; j < 60; j++) {
+            if (q[j][0] == 0) break;
+            for (int p = 0; p < 8; p++) {
+                sysresp += q[j][p];
+                sysresp += " ";
+            }
+            sysresp += ";";
+        }
+        return sysresp;
+    }
+
     String login(String key) {
         sysStatus = "200 ";
         if (key != pass){
@@ -508,6 +524,7 @@ namespace net{
         response = "<h5>INVALID REQUEST</h5>";
         String card = getVal("card");
         String name = getVal("name");
+        response = "";
         if (key != pass){
             sys = true;
             sysStatus = "403 ";
@@ -521,10 +538,10 @@ namespace net{
                     response = commands::removeCard(card);
                     break;
                 case 3:
-                    response = commands::showCards();
+                    response = commands::getAllCards();
                     break;
                 case 4:
-                    response = commands::showCardsBytes();
+                    response = commands::getAllCardsBytes();
                     break;
                 case 5:
                     response = commands::login(key);
@@ -556,6 +573,7 @@ namespace net{
                             if (bufferSize < bufferMax)
                                 buffer[bufferSize++] = post;  // сохраняем новый символ в буфере и создаем приращение bufferSize
                         }
+                        buffer[bufferSize] = '&';
                         Serial.println("Received POST request:");
                         DebugSerial.print(buffer);
                         // Выполнение команд
