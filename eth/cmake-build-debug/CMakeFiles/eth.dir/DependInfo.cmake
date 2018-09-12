@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "D:/locker1540-arduino/eth/cmake-build-debug/eth_eth.ino.cpp" "D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/eth.dir/eth_eth.ino.cpp.obj"
+  "E:/locker1540-arduino/eth/cmake-build-debug/eth_eth.ino.cpp" "E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/eth.dir/eth_eth.ino.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -13,30 +13,15 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "C:/Program Files (x86)/Arduino/libraries/Ethernet"
   "C:/Program Files (x86)/Arduino/libraries/Ethernet/src"
   "C:/Program Files (x86)/Arduino/libraries/Ethernet/utility"
-  "C:/Program Files (x86)/Arduino/libraries/Ethernet/src/w5100"
-  "C:/Program Files (x86)/Arduino/libraries/Ethernet/src/w5100/src"
-  "C:/Program Files (x86)/Arduino/libraries/Ethernet/src/w5100/utility"
   "C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dhcp"
   "C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dhcp/src"
   "C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dhcp/utility"
-  "C:/Program Files (x86)/Arduino/libraries/Ethernet/src/util"
-  "C:/Program Files (x86)/Arduino/libraries/Ethernet/src/util/src"
-  "C:/Program Files (x86)/Arduino/libraries/Ethernet/src/util/utility"
-  "C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetUdp"
-  "C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetUdp/src"
-  "C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetUdp/utility"
+  "C:/Program Files (x86)/Arduino/libraries/Ethernet/src/w5100"
+  "C:/Program Files (x86)/Arduino/libraries/Ethernet/src/w5100/src"
+  "C:/Program Files (x86)/Arduino/libraries/Ethernet/src/w5100/utility"
   "C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dns"
   "C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dns/src"
   "C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dns/utility"
-  "C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetClient"
-  "C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetClient/src"
-  "C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetClient/utility"
-  "C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetServer"
-  "C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetServer/src"
-  "C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetServer/utility"
-  "C:/Program Files (x86)/Arduino/libraries/Ethernet/src/socket"
-  "C:/Program Files (x86)/Arduino/libraries/Ethernet/src/socket/src"
-  "C:/Program Files (x86)/Arduino/libraries/Ethernet/src/socket/utility"
   "C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SPI"
   "C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SPI/src"
   "C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SPI/utility"
@@ -62,23 +47,18 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/DependInfo.cmake"
-  "D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/DependInfo.cmake"
-  "D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/mega_util.dir/DependInfo.cmake"
-  "D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/mega_EthernetUdp.dir/DependInfo.cmake"
-  "D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/DependInfo.cmake"
-  "D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/DependInfo.cmake"
-  "D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/mega_EthernetClient.dir/DependInfo.cmake"
-  "D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/mega_EthernetServer.dir/DependInfo.cmake"
-  "D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/mega_SPI.dir/DependInfo.cmake"
-  "D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/mega_socket.dir/DependInfo.cmake"
-  "D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/mega_SoftwareSerial.dir/DependInfo.cmake"
-  "D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/mega_DFPlayer_Mini_Mp3.dir/DependInfo.cmake"
-  "D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/mega_QueueList.dir/DependInfo.cmake"
-  "D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/mega_SD.dir/DependInfo.cmake"
-  "D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/mega_SdFat.dir/DependInfo.cmake"
-  "D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/mega_SdFatUtil.dir/DependInfo.cmake"
-  "D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/DependInfo.cmake"
+  "E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/DependInfo.cmake"
+  "E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/DependInfo.cmake"
+  "E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/DependInfo.cmake"
+  "E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/mega_SPI.dir/DependInfo.cmake"
+  "E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/DependInfo.cmake"
+  "E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/mega_SoftwareSerial.dir/DependInfo.cmake"
+  "E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/mega_DFPlayer_Mini_Mp3.dir/DependInfo.cmake"
+  "E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/mega_QueueList.dir/DependInfo.cmake"
+  "E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/mega_SD.dir/DependInfo.cmake"
+  "E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/mega_SdFat.dir/DependInfo.cmake"
+  "E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/mega_SdFatUtil.dir/DependInfo.cmake"
+  "E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

@@ -560,6 +560,9 @@ namespace net{
             boolean currentLineIsBlank = true;
             bufferSize = 0;
             readString = String(128);
+            for (int i = 0; i < bufferSize; i++) {
+                buffer[i] = ' ';
+            }
             while (client.connected()) {
                 if (client.available()) {
                     char c = client.read();

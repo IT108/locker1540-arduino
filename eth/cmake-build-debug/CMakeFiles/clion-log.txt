@@ -1,95 +1,41 @@
-"C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - NMake Makefiles" D:\locker1540-arduino\eth
+"C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - NMake Makefiles" E:\locker1540-arduino\eth
+-- The C compiler identification is GNU 5.4.0
+-- The CXX compiler identification is GNU 5.4.0
+-- Arduino SDK version 1.8.6: C:/Program Files (x86)/Arduino
+-- Check for working C compiler: C:/Program Files (x86)/Arduino/hardware/tools/avr/bin/avr-gcc.exe
+-- Check for working C compiler: C:/Program Files (x86)/Arduino/hardware/tools/avr/bin/avr-gcc.exe -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: C:/Program Files (x86)/Arduino/hardware/tools/avr/bin/avr-g++.exe
+-- Check for working CXX compiler: C:/Program Files (x86)/Arduino/hardware/tools/avr/bin/avr-g++.exe -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
 -- Generating eth
 -- Generating mega_Ethernet for library Ethernet
--- Generating mega_w5100 for library w5100
 -- Generating mega_Dhcp for library Dhcp
--- Found library Dhcp needs mega_w5100
--- Found library Dhcp needs mega_w5100
--- Generating mega_util for library util
--- Found library util needs mega_Dhcp
--- Found library util needs mega_w5100
--- Found library util needs mega_Dhcp
--- Generating mega_EthernetUdp for library EthernetUdp
--- Found library EthernetUdp needs mega_util
--- Found library EthernetUdp needs mega_w5100
--- Found library EthernetUdp needs mega_Dhcp
--- Found library EthernetUdp needs mega_util
--- Generating mega_Dns for library Dns
--- Found library Dns needs mega_EthernetUdp
--- Found library Dns needs mega_w5100
--- Found library Dns needs mega_Dhcp
--- Found library Dns needs mega_util
--- Found library Dns needs mega_EthernetUdp
--- Found library Dns needs mega_Ethernet
--- Generating mega_EthernetClient for library EthernetClient
--- Found library EthernetClient needs mega_Ethernet
--- Found library EthernetClient needs mega_w5100
--- Found library EthernetClient needs mega_Dhcp
--- Found library EthernetClient needs mega_util
--- Found library EthernetClient needs mega_EthernetUdp
--- Found library EthernetClient needs mega_Dns
--- Found library EthernetClient needs mega_Ethernet
--- Generating mega_EthernetServer for library EthernetServer
--- Found library EthernetServer needs mega_EthernetClient
--- Found library EthernetServer needs mega_w5100
--- Found library EthernetServer needs mega_Dhcp
--- Found library EthernetServer needs mega_util
--- Found library EthernetServer needs mega_EthernetUdp
--- Found library EthernetServer needs mega_Dns
--- Found library EthernetServer needs mega_Ethernet
--- Found library EthernetServer needs mega_EthernetClient
--- Generating mega_socket for library socket
--- Found library socket needs mega_EthernetServer
--- Found library socket needs mega_w5100
--- Found library socket needs mega_Dhcp
--- Found library socket needs mega_util
--- Found library socket needs mega_EthernetUdp
--- Found library socket needs mega_Dns
--- Found library socket needs mega_Ethernet
--- Found library socket needs mega_EthernetClient
--- Found library socket needs mega_EthernetServer
--- Generating mega_SPI for library SPI
--- Found library SPI needs mega_socket
--- Found library EthernetServer needs mega_w5100;mega_Dhcp;mega_util;mega_EthernetUdp;mega_Dns;mega_Ethernet;mega_EthernetClient;mega_EthernetServer;mega_SPI;mega_socket
--- Found library EthernetClient needs mega_w5100;mega_Dhcp;mega_util;mega_EthernetUdp;mega_Dns;mega_Ethernet;mega_EthernetClient;mega_EthernetServer;mega_SPI;mega_socket
--- Found library EthernetClient needs mega_socket
--- Found library Dns needs mega_w5100;mega_Dhcp;mega_util;mega_EthernetUdp;mega_Dns;mega_Ethernet;mega_EthernetClient;mega_EthernetServer;mega_SPI;mega_socket
--- Found library Dns needs mega_EthernetServer
--- Found library Dns needs mega_socket
--- Found library EthernetUdp needs mega_w5100;mega_Dhcp;mega_util;mega_EthernetUdp;mega_Ethernet;mega_Dns;mega_EthernetClient;mega_EthernetServer;mega_SPI;mega_socket
--- Found library EthernetUdp needs mega_Ethernet
--- Found library EthernetUdp needs mega_EthernetClient
--- Found library EthernetUdp needs mega_EthernetServer
--- Found library EthernetUdp needs mega_socket
--- Found library util needs mega_w5100;mega_Dhcp;mega_util;mega_EthernetUdp;mega_Ethernet;mega_Dns;mega_EthernetClient;mega_EthernetServer;mega_SPI;mega_socket
--- Found library util needs mega_Dns
--- Found library util needs mega_Ethernet
--- Found library util needs mega_EthernetClient
--- Found library util needs mega_EthernetServer
--- Found library util needs mega_socket
--- Found library Dhcp needs mega_w5100;mega_Dhcp;mega_util;mega_EthernetUdp;mega_Ethernet;mega_Dns;mega_EthernetClient;mega_EthernetServer;mega_SPI;mega_socket
--- Found library Dhcp needs mega_EthernetUdp
--- Found library Dhcp needs mega_Dns
 -- Found library Dhcp needs mega_Ethernet
--- Found library Dhcp needs mega_EthernetClient
--- Found library Dhcp needs mega_EthernetServer
--- Found library Dhcp needs mega_socket
--- Found library w5100 needs mega_w5100;mega_Dhcp;mega_util;mega_EthernetUdp;mega_Ethernet;mega_Dns;mega_EthernetClient;mega_EthernetServer;mega_SPI;mega_socket
--- Found library w5100 needs mega_util
--- Found library w5100 needs mega_EthernetUdp
--- Found library w5100 needs mega_Dns
+-- Found library Dhcp needs mega_Ethernet
+-- Generating mega_w5100 for library w5100
+-- Found library w5100 needs mega_Dhcp
 -- Found library w5100 needs mega_Ethernet
--- Found library w5100 needs mega_EthernetClient
--- Found library w5100 needs mega_EthernetServer
--- Found library w5100 needs mega_socket
--- Found library Ethernet needs mega_w5100;mega_Dhcp;mega_util;mega_EthernetUdp;mega_Ethernet;mega_Dns;mega_EthernetClient;mega_EthernetServer;mega_SPI;mega_socket
--- Found library Ethernet needs mega_Dhcp
--- Found library Ethernet needs mega_util
--- Found library Ethernet needs mega_EthernetUdp
+-- Found library w5100 needs mega_Dhcp
+-- Generating mega_Dns for library Dns
+-- Found library Dns needs mega_w5100
+-- Found library Dns needs mega_Ethernet
+-- Found library Dns needs mega_Dhcp
+-- Found library Dns needs mega_w5100
+-- Generating mega_SPI for library SPI
+-- Found library SPI needs mega_Dns
+-- Found library w5100 needs mega_Ethernet;mega_Dhcp;mega_w5100;mega_SPI;mega_Dns
+-- Found library Dhcp needs mega_Ethernet;mega_Dhcp;mega_w5100;mega_SPI;mega_Dns
+-- Found library Dhcp needs mega_Dns
+-- Found library Ethernet needs mega_Ethernet;mega_Dhcp;mega_w5100;mega_SPI;mega_Dns
+-- Found library Ethernet needs mega_w5100
 -- Found library Ethernet needs mega_Dns
--- Found library Ethernet needs mega_EthernetClient
--- Found library Ethernet needs mega_EthernetServer
--- Found library Ethernet needs mega_socket
 -- Generating mega_DFPlayer_Mini_Mp3 for library DFPlayer_Mini_Mp3
 -- Generating mega_SoftwareSerial for library SoftwareSerial
 -- Generating mega_QueueList for library QueueList
@@ -107,4 +53,4 @@
 -- Using C:/Program Files (x86)/Arduino/hardware/tools/avr/bin/avr-objcopy.exe for converting firmware image to hex
 -- Configuring done
 -- Generating done
--- Build files have been written to: D:/locker1540-arduino/eth/cmake-build-debug
+-- Build files have been written to: E:/locker1540-arduino/eth/cmake-build-debug

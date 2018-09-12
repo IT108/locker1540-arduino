@@ -44,10 +44,10 @@ RM = "C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\locker1540-arduino\eth
+CMAKE_SOURCE_DIR = E:\locker1540-arduino\eth
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\locker1540-arduino\eth\cmake-build-debug
+CMAKE_BINARY_DIR = E:\locker1540-arduino\eth\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles\mega_Dhcp.dir\depend.make
@@ -60,7 +60,7 @@ include CMakeFiles\mega_Dhcp.dir\flags.make
 
 CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\Dhcp.cpp.obj: CMakeFiles\mega_Dhcp.dir\flags.make
 CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\Dhcp.cpp.obj: "C:\Program Files (x86)\Arduino\libraries\Ethernet\src\Dhcp.cpp"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\Dhcp.cpp.obj -c "C:\Program Files (x86)\Arduino\libraries\Ethernet\src\Dhcp.cpp"
 
 CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\Dhcp.cpp.i: cmake_force
@@ -73,7 +73,7 @@ CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\D
 
 CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\Dns.cpp.obj: CMakeFiles\mega_Dhcp.dir\flags.make
 CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\Dns.cpp.obj: "C:\Program Files (x86)\Arduino\libraries\Ethernet\src\Dns.cpp"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\Dns.cpp.obj -c "C:\Program Files (x86)\Arduino\libraries\Ethernet\src\Dns.cpp"
 
 CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\Dns.cpp.i: cmake_force
@@ -86,7 +86,7 @@ CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\D
 
 CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\Ethernet.cpp.obj: CMakeFiles\mega_Dhcp.dir\flags.make
 CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\Ethernet.cpp.obj: "C:\Program Files (x86)\Arduino\libraries\Ethernet\src\Ethernet.cpp"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\Ethernet.cpp.obj -c "C:\Program Files (x86)\Arduino\libraries\Ethernet\src\Ethernet.cpp"
 
 CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\Ethernet.cpp.i: cmake_force
@@ -99,7 +99,7 @@ CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\E
 
 CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\EthernetClient.cpp.obj: CMakeFiles\mega_Dhcp.dir\flags.make
 CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\EthernetClient.cpp.obj: "C:\Program Files (x86)\Arduino\libraries\Ethernet\src\EthernetClient.cpp"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\EthernetClient.cpp.obj -c "C:\Program Files (x86)\Arduino\libraries\Ethernet\src\EthernetClient.cpp"
 
 CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\EthernetClient.cpp.i: cmake_force
@@ -112,7 +112,7 @@ CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\E
 
 CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\EthernetServer.cpp.obj: CMakeFiles\mega_Dhcp.dir\flags.make
 CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\EthernetServer.cpp.obj: "C:\Program Files (x86)\Arduino\libraries\Ethernet\src\EthernetServer.cpp"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\EthernetServer.cpp.obj -c "C:\Program Files (x86)\Arduino\libraries\Ethernet\src\EthernetServer.cpp"
 
 CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\EthernetServer.cpp.i: cmake_force
@@ -125,7 +125,7 @@ CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\E
 
 CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\EthernetUdp.cpp.obj: CMakeFiles\mega_Dhcp.dir\flags.make
 CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\EthernetUdp.cpp.obj: "C:\Program Files (x86)\Arduino\libraries\Ethernet\src\EthernetUdp.cpp"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\EthernetUdp.cpp.obj -c "C:\Program Files (x86)\Arduino\libraries\Ethernet\src\EthernetUdp.cpp"
 
 CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\EthernetUdp.cpp.i: cmake_force
@@ -136,22 +136,22 @@ CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\E
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.s"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Program Files (x86)\Arduino\libraries\Ethernet\src\EthernetUdp.cpp" -o CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\EthernetUdp.cpp.s
 
-CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\utility\socket.cpp.obj: CMakeFiles\mega_Dhcp.dir\flags.make
-CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\utility\socket.cpp.obj: "C:\Program Files (x86)\Arduino\libraries\Ethernet\src\utility\socket.cpp"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.obj"
-	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\utility\socket.cpp.obj -c "C:\Program Files (x86)\Arduino\libraries\Ethernet\src\utility\socket.cpp"
+CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\socket.cpp.obj: CMakeFiles\mega_Dhcp.dir\flags.make
+CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\socket.cpp.obj: "C:\Program Files (x86)\Arduino\libraries\Ethernet\src\socket.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.cpp.obj"
+	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\socket.cpp.obj -c "C:\Program Files (x86)\Arduino\libraries\Ethernet\src\socket.cpp"
 
-CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\utility\socket.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.i"
-	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Program Files (x86)\Arduino\libraries\Ethernet\src\utility\socket.cpp" > CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\utility\socket.cpp.i
+CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\socket.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.cpp.i"
+	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Program Files (x86)\Arduino\libraries\Ethernet\src\socket.cpp" > CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\socket.cpp.i
 
-CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\utility\socket.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.s"
-	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Program Files (x86)\Arduino\libraries\Ethernet\src\utility\socket.cpp" -o CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\utility\socket.cpp.s
+CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\socket.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.cpp.s"
+	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Program Files (x86)\Arduino\libraries\Ethernet\src\socket.cpp" -o CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\socket.cpp.s
 
 CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\utility\w5100.cpp.obj: CMakeFiles\mega_Dhcp.dir\flags.make
 CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\utility\w5100.cpp.obj: "C:\Program Files (x86)\Arduino\libraries\Ethernet\src\utility\w5100.cpp"
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.obj"
 	C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\utility\w5100.cpp.obj -c "C:\Program Files (x86)\Arduino\libraries\Ethernet\src\utility\w5100.cpp"
 
 CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\utility\w5100.cpp.i: cmake_force
@@ -170,7 +170,7 @@ mega_Dhcp_OBJECTS = \
 "CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\EthernetClient.cpp.obj" \
 "CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\EthernetServer.cpp.obj" \
 "CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\EthernetUdp.cpp.obj" \
-"CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\utility\socket.cpp.obj" \
+"CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\socket.cpp.obj" \
 "CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\utility\w5100.cpp.obj"
 
 # External object files for target mega_Dhcp
@@ -182,11 +182,11 @@ libmega_Dhcp.a: CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\librarie
 libmega_Dhcp.a: CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\EthernetClient.cpp.obj
 libmega_Dhcp.a: CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\EthernetServer.cpp.obj
 libmega_Dhcp.a: CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\EthernetUdp.cpp.obj
-libmega_Dhcp.a: CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\utility\socket.cpp.obj
+libmega_Dhcp.a: CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\socket.cpp.obj
 libmega_Dhcp.a: CMakeFiles\mega_Dhcp.dir\C_\Program_Files_(x86)\Arduino\libraries\Ethernet\src\utility\w5100.cpp.obj
 libmega_Dhcp.a: CMakeFiles\mega_Dhcp.dir\build.make
 libmega_Dhcp.a: CMakeFiles\mega_Dhcp.dir\link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX static library libmega_Dhcp.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX static library libmega_Dhcp.a"
 	$(CMAKE_COMMAND) -P CMakeFiles\mega_Dhcp.dir\cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\mega_Dhcp.dir\link.txt --verbose=$(VERBOSE)
 
@@ -200,6 +200,6 @@ CMakeFiles\mega_Dhcp.dir\clean:
 .PHONY : CMakeFiles\mega_Dhcp.dir\clean
 
 CMakeFiles\mega_Dhcp.dir\depend:
-	$(CMAKE_COMMAND) -E cmake_depends "NMake Makefiles" D:\locker1540-arduino\eth D:\locker1540-arduino\eth D:\locker1540-arduino\eth\cmake-build-debug D:\locker1540-arduino\eth\cmake-build-debug D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles\mega_Dhcp.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "NMake Makefiles" E:\locker1540-arduino\eth E:\locker1540-arduino\eth E:\locker1540-arduino\eth\cmake-build-debug E:\locker1540-arduino\eth\cmake-build-debug E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles\mega_Dhcp.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles\mega_Dhcp.dir\depend
 
