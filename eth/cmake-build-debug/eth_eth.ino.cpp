@@ -23,10 +23,22 @@
 #include "Arduino.h"
 
 //=== START Forward: E:/locker1540-arduino/eth/eth.ino
-     void write(int card[8], String name) ;
-     void write(int card[8], String name) ;
+     String getValue(String val);
+     String getValue(String val);
+     void appendFile();
+     void appendFile();
+     String getTrivialCard();
+     String getTrivialCard();
+     String getGreetCard();
+     String getGreetCard();
+     String getGreet(int card[8]);
+     String getGreet(int card[8]);
+     void write(int card[8], String name, String greet) ;
+     void write(int card[8], String name, String greet) ;
      void del(int card[8]) ;
      void del(int card[8]) ;
+     void initMiniDB();
+     void initMiniDB();
      void renameC(int idx1, int idx2) ;
      void renameC(int idx1, int idx2) ;
      bool checkCard(int a[], int b[]) ;
@@ -49,8 +61,8 @@
      void play_greeting() ;
      void process_greetings() ;
      void process_greetings() ;
-     String addCard(String freq, String name) ;
-     String addCard(String freq, String name) ;
+     String addCard(String freq) ;
+     String addCard(String freq) ;
      String removeCard(String freq) ;
      String removeCard(String freq) ;
      String showCardsBytes() ;
@@ -126,99 +138,164 @@ boolean sys = false;
 String sysStatus = "";
 
 namespace fullDB {
-    void write(int card[8], String name) {
-        File cards = SD.open(fullDBFileName, FILE_WRITE);
-        byte f;
-        if (cards) {
-            for (size_t i = 0; i < 8; i++) {
-                f = card[i];
-                cards.write(f);
-            }
-            f = '/';
-            cards.write(f);
-            for (size_t i = 0; i < name.length(); i++) {
-                f = name.charAt(i);
-                cards.write(f);
-            }
-            f = ';';
-            cards.write(f);
+    File CardsDB;
+    unsigned int pointer = 0;
+    String _name;
+    String _card;
+    String _greet;
+    String FileAppend;
+    String currentData;
+
+    String getValue(String val){
+        pointer = currentData.indexOf("&",pointer);
+        return currentData.substring(currentData.indexOf(val) + val.length() + 1, pointer);
+    }
+
+    void appendFile(){
+        for (int i = 0; i < FileAppend.length(); i++) {
+            byte q;
+            q = FileAppend[i];
+            CardsDB.write(q);
         }
-        cards.close();
+    }
+
+    String getTrivialCard(){
+        String res;
+        res = "{\r\n_card=";
+        res += _card;
+        res += "$\r\n_name=";
+        res += _name;
+        res += "$\r\n}\r\n";
+        return res;
+    }
+    String getGreetCard(){
+        String res;
+        res = "{\r\n_card=";
+        res += _card;
+        res += "$\r\n_name=";
+        res += _name;
+        res += "$\r\n_greeting=";
+        res += _greet;
+        res += "$\r\n}\r\n";
+        return res;
+    }
+
+    String getGreet(int card[8]){
+        String needCard = "";
+        String currentCard = "";
+        String greet = "null";
+        for (size_t i = 0; i < 8; i++) {
+            char f = card[i];
+            needCard += f;
+        }
+        CardsDB = SD.open(fullDBFileName);
+        if (CardsDB){
+            while (CardsDB.available()) {
+                char a = CardsDB.read();
+                if (a == '{') {
+                    currentCard = "";
+                } else if (a == '}') {
+                    currentData = currentCard;
+                    String cardNum = getValue("card");
+                    if (cardNum == needCard) {
+                        greet = getValue("greeting");
+                        return greet;
+                    }
+                }
+            }
+            CardsDB.close();
+        }
+        return greet;
+    }
+
+    void write(int card[8], String name, String greet) {
+        CardsDB = SD.open(fullDBFileName, FILE_WRITE);
+        String needCard = "";
+        String res;
+        if (CardsDB) {
+            for (size_t i = 0; i < 8; i++) {
+                char f = card[i];
+                needCard += f;
+            }
+            if (greet == "-1"){
+                _name = name;
+                _card = needCard;
+                res = getTrivialCard();
+            } else {
+                _name = name;
+                _card = needCard;
+                _greet = greet;
+                res = getGreetCard();
+            }
+            FileAppend = res;
+            appendFile();
+        }
+        CardsDB.close();
     }
 
 
     void del(int card[8]) {
         String needCard = "";
+        String currentCard = "";
+        String res = "";
         for (size_t i = 0; i < 8; i++) {
             char q = card[i];
             needCard += q;
         }
         DebugSerial.println(needCard);
-        File cards = SD.open(fullDBFileName);
+        CardsDB = SD.open(fullDBFileName);
+        if (CardsDB) {
+            while (CardsDB.available()) {
+                char a = CardsDB.read();
+                if (a == '{') {
+                    currentCard = "";
+                } else if (a == '}') {
+                    currentData = currentCard;
+                    String cardNum = getValue("card");
+                    if (cardNum != needCard) {
+                        res += currentCard;
+                        res += "\r\n";
+                    }
+                }
+            }
+            CardsDB.close();
+            SD.remove(fullDBFileName);
+            CardsDB = SD.open(fullDBFileName, FILE_WRITE);
+            FileAppend = res;
+            appendFile();
+            CardsDB.close();
+        }
+    }
+
+    void initMiniDB(){
+        CardsDB = SD.open(fullDBFileName);
         String res = "";
-        if (cards) {
-            int i = 1;
-            String _name = "";
-            String cardNum = "";
-            String music = "";
-            res = ";";
-            while (cards.available()) {
-                int a = 0;
-                while (a != cardsSeparator) {
-                    a = cards.read();
-                }
-                a = cards.read();
-                if (a != nameSeparator && a != cardsSeparator) {
-                    char q = a;
-                    switch (i) {
-                        case 2:
-                            _name += q;
-                            break;
-                        case 1:
-                            cardNum += q;
-                            break;
-                        case 3:
-                            music += q;
-                            break;
-                    }
-                }
-                if (a == cardsSeparator) {
-                    DebugSerial.print(cardNum);
-                    if (needCard != cardNum) {
-                        DebugSerial.println(" OK");
+        String currentCard = "";
+        if (CardsDB){
+            while (CardsDB.available()){
+                char a = CardsDB.read();
+                if (a == '{') {
+                    currentCard = "";
+                } else if (a == '}') {
+                    currentData = currentCard;
+                    String cardNum = getValue("card");
                         res += cardNum;
-                        res += "/";
-                        res += _name;
-                        res += "/";
-                        res += music;
-                        res += ";";
-                    } else {
-                        DebugSerial.println("");
-                    }
-                    i = 1;
-                    _name = "";
-                    cardNum = "";
-                    music = "";
+                        res += "\r\n";
                 }
-                if (a == nameSeparator)
-                    i++;
             }
-            cards.close();
+            CardsDB.close();
+            SD.remove(cardsFileName);
+            CardsDB = SD.open(cardsFileName, FILE_WRITE);
+            FileAppend = res;
+            appendFile();
+            CardsDB.close();
         }
-        cards.close();
-        SD.remove(fullDBFileName);
-        cards = SD.open(fullDBFileName, FILE_WRITE);
-        if (cards) {
-            for (int i = 0; i < res.length(); i++) {
-                byte f = res[i];
-                cards.write(f);
-            }
-        }
-        cards.close();
     }
 }
 
 namespace DB {
+    String _name = "";
+    String _greet = "-1";
     void renameC(int idx1, int idx2) {
         for (size_t i = 0; i < 8; i++) {
             q[idx1][i] = q[idx2][i];
@@ -305,7 +382,7 @@ namespace DB {
         }
         cards.close();
         initCards();
-        //fullDB::write(w);
+        fullDB::write(w, _name, _greet);
     }
 
     void del(int card[8]) {
@@ -327,60 +404,14 @@ namespace DB {
         }
         cards.close();
         initCards();
-        //fullDB::del(card);
+        fullDB::del(card);
     }
 }
 
 
 namespace greeting {
     String get_track_number(int card[]) {
-        String need_card = "";
-        for (int i = 0; i < 8; i++) {
-            char q = card[i];
-            need_card += q;
-        }
-        File cards = SD.open(fullDBFileName);
-        if (cards) {
-            int mode = 1;
-            String name = "";
-            String card_id = "";
-            String track_number = "";
-            while (cards.available()) {
-                int a = cards.read();
-                if (a != nameSeparator && a != cardsSeparator && DB::is_good(a)) {
-                    char q = a;
-                    switch (mode) {
-                        case 1:
-                            card_id += q;
-                            break;
-                        case 2:
-                            name += q;
-                            break;
-                        case 3:
-                            track_number += q;
-                            break;
-                    }
-                }
-                if (a == cardsSeparator) {
-                    if (mode == 3) {
-                        if (need_card == card_id) {
-                            cards.close();
-                            return track_number;
-                        }
-                    }
-                    mode = 1;
-                    name = "";
-                    card_id = "";
-                    track_number = "";
-                }
-                if (a == nameSeparator) {
-                    mode++;
-                }
-            }
-            cards.close();
-            return "null";
-        }
-        cards.close();
+        return fullDB::getGreet(card);
     }
 
 
@@ -403,7 +434,7 @@ namespace greeting {
 }
 
 namespace commands{
-    String addCard(String freq, String name) {
+    String addCard(String freq) {
         String resp = "";
         resp = "Request type - add card. Card is: " + freq;
         int fmas[8];
@@ -578,6 +609,8 @@ namespace net{
 
     String getVal(String key){
         readString = buffer;
+        if (readString.indexOf(key) == -1)
+            return "-1";
         return readString.substring(readString.indexOf(key) + key.length() + 1,
                                     readString.indexOf("&",readString.indexOf(key) + key.length() + 1));
     }
@@ -590,6 +623,7 @@ namespace net{
         response = "<h5>INVALID REQUEST</h5>";
         String card = getVal("card");
         String name = getVal("name");
+        String greet = getVal("greet");
         response = "";
         if (key != pass){
             sys = true;
@@ -598,7 +632,9 @@ namespace net{
         } else {
             switch (id) {
                 case 1:
-                    response = commands::addCard(card, name);
+                    DB::_name = name;
+                    DB::_greet = greet;
+                    response = commands::addCard(card);
                     break;
                 case 2:
                     response = commands::removeCard(card);
@@ -725,6 +761,7 @@ void setup() {
         //return;
     }
     if (debug) DebugSerial.println("card initialized.");
+    fullDB::initMiniDB();
     DB::initCards();
     DebugSerial.print("eth beg");
     Ethernet.begin(mac);

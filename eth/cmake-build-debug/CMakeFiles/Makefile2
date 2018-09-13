@@ -545,18 +545,18 @@ clean: CMakeFiles\mega_SdFatUtil.dir\clean
 # Target rules for target CMakeFiles/eth.dir
 
 # All Build rule for target.
-CMakeFiles\eth.dir\all: CMakeFiles\mega_QueueList.dir\all
 CMakeFiles\eth.dir\all: CMakeFiles\mega_Dhcp.dir\all
-CMakeFiles\eth.dir\all: CMakeFiles\mega_Dns.dir\all
-CMakeFiles\eth.dir\all: CMakeFiles\mega_w5100.dir\all
-CMakeFiles\eth.dir\all: CMakeFiles\mega_CORE.dir\all
-CMakeFiles\eth.dir\all: CMakeFiles\mega_Ethernet.dir\all
-CMakeFiles\eth.dir\all: CMakeFiles\mega_SD.dir\all
-CMakeFiles\eth.dir\all: CMakeFiles\mega_SdFatUtil.dir\all
-CMakeFiles\eth.dir\all: CMakeFiles\mega_SoftwareSerial.dir\all
-CMakeFiles\eth.dir\all: CMakeFiles\mega_DFPlayer_Mini_Mp3.dir\all
 CMakeFiles\eth.dir\all: CMakeFiles\mega_SPI.dir\all
+CMakeFiles\eth.dir\all: CMakeFiles\mega_DFPlayer_Mini_Mp3.dir\all
+CMakeFiles\eth.dir\all: CMakeFiles\mega_Dns.dir\all
+CMakeFiles\eth.dir\all: CMakeFiles\mega_SD.dir\all
+CMakeFiles\eth.dir\all: CMakeFiles\mega_SoftwareSerial.dir\all
 CMakeFiles\eth.dir\all: CMakeFiles\mega_SdFat.dir\all
+CMakeFiles\eth.dir\all: CMakeFiles\mega_CORE.dir\all
+CMakeFiles\eth.dir\all: CMakeFiles\mega_w5100.dir\all
+CMakeFiles\eth.dir\all: CMakeFiles\mega_SdFatUtil.dir\all
+CMakeFiles\eth.dir\all: CMakeFiles\mega_QueueList.dir\all
+CMakeFiles\eth.dir\all: CMakeFiles\mega_Ethernet.dir\all
 	$(MAKE) -f CMakeFiles\eth.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\eth.dir\depend
 	$(MAKE) -f CMakeFiles\eth.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\eth.dir\build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles --progress-num=1,2,3 "Built target eth"

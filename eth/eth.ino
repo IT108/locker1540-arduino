@@ -101,6 +101,35 @@ namespace fullDB {
         res += "$\r\n}\r\n";
         return res;
     }
+
+    String getGreet(int card[8]){
+        String needCard = "";
+        String currentCard = "";
+        String greet = "null";
+        for (size_t i = 0; i < 8; i++) {
+            char f = card[i];
+            needCard += f;
+        }
+        CardsDB = SD.open(fullDBFileName);
+        if (CardsDB){
+            while (CardsDB.available()) {
+                char a = CardsDB.read();
+                if (a == '{') {
+                    currentCard = "";
+                } else if (a == '}') {
+                    currentData = currentCard;
+                    String cardNum = getValue("card");
+                    if (cardNum == needCard) {
+                        greet = getValue("greeting");
+                        return greet;
+                    }
+                }
+            }
+            CardsDB.close();
+        }
+        return greet;
+    }
+
     void write(int card[8], String name, String greet) {
         CardsDB = SD.open(fullDBFileName, FILE_WRITE);
         String needCard = "";
@@ -233,7 +262,6 @@ namespace DB {
 
     void initCards() {
         int i = 0;
-        int j = 0;
         int a;
         File cards = SD.open(cardsFileName);
         if (cards) {
@@ -304,53 +332,7 @@ namespace DB {
 
 namespace greeting {
     String get_track_number(int card[]) {
-        String need_card = "";
-        for (int i = 0; i < 8; i++) {
-            char q = card[i];
-            need_card += q;
-        }
-        File cards = SD.open(fullDBFileName);
-        if (cards) {
-            int mode = 1;
-            String name = "";
-            String card_id = "";
-            String track_number = "";
-            while (cards.available()) {
-                int a = cards.read();
-                if (a != nameSeparator && a != cardsSeparator && DB::is_good(a)) {
-                    char q = a;
-                    switch (mode) {
-                        case 1:
-                            card_id += q;
-                            break;
-                        case 2:
-                            name += q;
-                            break;
-                        case 3:
-                            track_number += q;
-                            break;
-                    }
-                }
-                if (a == cardsSeparator) {
-                    if (mode == 3) {
-                        if (need_card == card_id) {
-                            cards.close();
-                            return track_number;
-                        }
-                    }
-                    mode = 1;
-                    name = "";
-                    card_id = "";
-                    track_number = "";
-                }
-                if (a == nameSeparator) {
-                    mode++;
-                }
-            }
-            cards.close();
-            return "null";
-        }
-        cards.close();
+        return fullDB::getGreet(card);
     }
 
 
