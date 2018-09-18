@@ -69,7 +69,7 @@ namespace fullDB {
     String currentData;
 
     String getValue(String val){
-        pointer = currentData.indexOf("&",pointer);
+        pointer = currentData.indexOf("$",currentData.indexOf(val) + val.length() + 1);
         return currentData.substring(currentData.indexOf(val) + val.length() + 1, pointer);
     }
 
@@ -79,24 +79,25 @@ namespace fullDB {
             q = FileAppend[i];
             CardsDB.write(q);
         }
+        CardsDB.close();
     }
 
     String getTrivialCard(){
         String res;
-        res = "{\r\n_card=";
+        res = "{\r\ncard=";
         res += _card;
-        res += "$\r\n_name=";
+        res += "$\r\nname=";
         res += _name;
         res += "$\r\n}\r\n";
         return res;
     }
     String getGreetCard(){
         String res;
-        res = "{\r\n_card=";
+        res = "{\r\ncard=";
         res += _card;
-        res += "$\r\n_name=";
+        res += "$\r\nname=";
         res += _name;
-        res += "$\r\n_greeting=";
+        res += "$\r\ngreeting=";
         res += _greet;
         res += "$\r\n}\r\n";
         return res;
@@ -121,8 +122,11 @@ namespace fullDB {
                     String cardNum = getValue("card");
                     if (cardNum == needCard) {
                         greet = getValue("greeting");
+                        DebugSerial.println(greet);
                         return greet;
-                    }
+                    } 
+                } else {
+                  currentCard += a;
                 }
             }
             CardsDB.close();
@@ -152,7 +156,6 @@ namespace fullDB {
             FileAppend = res;
             appendFile();
         }
-        CardsDB.close();
     }
 
 
@@ -169,8 +172,9 @@ namespace fullDB {
         if (CardsDB) {
             while (CardsDB.available()) {
                 char a = CardsDB.read();
+                currentCard += a;
                 if (a == '{') {
-                    currentCard = "";
+                    currentCard = "{";
                 } else if (a == '}') {
                     currentData = currentCard;
                     String cardNum = getValue("card");
@@ -181,10 +185,13 @@ namespace fullDB {
                 }
             }
             CardsDB.close();
+            DebugSerial.print(res);
             SD.remove(fullDBFileName);
             CardsDB = SD.open(fullDBFileName, FILE_WRITE);
             FileAppend = res;
-            appendFile();
+            for (int i = 0; i < res.length(); i++){
+              CardsDB.write(res[i]);
+            }
             CardsDB.close();
         }
     }
@@ -196,22 +203,31 @@ namespace fullDB {
         if (CardsDB){
             while (CardsDB.available()){
                 char a = CardsDB.read();
+                //DebugSerial.print(a);
                 if (a == '{') {
                     currentCard = "";
                 } else if (a == '}') {
                     currentData = currentCard;
+                    //DebugSerial.println(currentData);
                     String cardNum = getValue("card");
+                    //DebugSerial.println(cardNum);
                         res += cardNum;
                         res += "\r\n";
+                } else {
+                  currentCard += a;
                 }
             }
             CardsDB.close();
             SD.remove(cardsFileName);
             CardsDB = SD.open(cardsFileName, FILE_WRITE);
+            //DebugSerial.println(res);
             FileAppend = res;
-            appendFile();
+            for (int i = 0; i < res.length(); i++){
+              CardsDB.write(res[i]);
+            }
             CardsDB.close();
         }
+        CardsDB.close();
     }
 }
 
