@@ -1,2 +1,1 @@
-compiler-file.o: \
- C:\Users\dmitry_paramonov\AppData\Local\Temp\compiler-file
+compiler-file.o: C:\Users\gamiy\AppData\Local\Temp\compiler-file

@@ -60,99 +60,180 @@ boolean sys = false;
 String sysStatus = "";
 
 namespace fullDB {
-    void write(int card[8], String name) {
-        File cards = SD.open(fullDBFileName, FILE_WRITE);
-        byte f;
-        if (cards) {
-            for (size_t i = 0; i < 8; i++) {
-                f = card[i];
-                cards.write(f);
-            }
-            f = '/';
-            cards.write(f);
-            for (size_t i = 0; i < name.length(); i++) {
-                f = name.charAt(i);
-                cards.write(f);
-            }
-            f = ';';
-            cards.write(f);
+    File CardsDB;
+    unsigned int pointer = 0;
+    String _name;
+    String _card;
+    String _greet;
+    String FileAppend;
+    String currentData;
+
+    String getValue(String val){
+        pointer = currentData.indexOf("$",currentData.indexOf(val) + val.length() + 1);
+        return currentData.substring(currentData.indexOf(val) + val.length() + 1, pointer);
+    }
+
+    void appendFile(){
+        for (int i = 0; i < FileAppend.length(); i++) {
+            byte q;
+            q = FileAppend[i];
+            CardsDB.write(q);
         }
-        cards.close();
+        CardsDB.close();
+    }
+
+    String getTrivialCard(){
+        String res;
+        res = "{\r\ncard=";
+        res += _card;
+        res += "$\r\nname=";
+        res += _name;
+        res += "$\r\n}\r\n";
+        return res;
+    }
+    String getGreetCard(){
+        String res;
+        res = "{\r\ncard=";
+        res += _card;
+        res += "$\r\nname=";
+        res += _name;
+        res += "$\r\ngreeting=";
+        res += _greet;
+        res += "$\r\n}\r\n";
+        return res;
+    }
+
+    String getGreet(int card[8]){
+        String needCard = "";
+        String currentCard = "";
+        String greet = "null";
+        for (size_t i = 0; i < 8; i++) {
+            char f = card[i];
+            needCard += f;
+        }
+        CardsDB = SD.open(fullDBFileName);
+        if (CardsDB){
+            while (CardsDB.available()) {
+                char a = CardsDB.read();
+                if (a == '{') {
+                    currentCard = "";
+                } else if (a == '}') {
+                    currentData = currentCard;
+                    String cardNum = getValue("card");
+                    if (cardNum == needCard) {
+                        greet = getValue("greeting");
+                        DebugSerial.println(greet);
+                        return greet;
+                    } 
+                } else {
+                  currentCard += a;
+                }
+            }
+            CardsDB.close();
+        }
+        return greet;
+    }
+
+    void write(int card[8], String name, String greet) {
+        CardsDB = SD.open(fullDBFileName, FILE_WRITE);
+        String needCard = "";
+        String res;
+        if (CardsDB) {
+            for (size_t i = 0; i < 8; i++) {
+                char f = card[i];
+                needCard += f;
+            }
+            if (greet == "-1"){
+                _name = name;
+                _card = needCard;
+                res = getTrivialCard();
+            } else {
+                _name = name;
+                _card = needCard;
+                _greet = greet;
+                res = getGreetCard();
+            }
+            FileAppend = res;
+            appendFile();
+        }
     }
 
 
     void del(int card[8]) {
         String needCard = "";
+        String currentCard = "";
+        String res = "";
         for (size_t i = 0; i < 8; i++) {
             char q = card[i];
             needCard += q;
         }
         DebugSerial.println(needCard);
-        File cards = SD.open(fullDBFileName);
+        CardsDB = SD.open(fullDBFileName);
+        if (CardsDB) {
+            while (CardsDB.available()) {
+                char a = CardsDB.read();
+                currentCard += a;
+                if (a == '{') {
+                    currentCard = "{";
+                } else if (a == '}') {
+                    currentData = currentCard;
+                    String cardNum = getValue("card");
+                    if (cardNum != needCard) {
+                        res += currentCard;
+                        res += "\r\n";
+                    }
+                }
+            }
+            CardsDB.close();
+            DebugSerial.print(res);
+            SD.remove(fullDBFileName);
+            CardsDB = SD.open(fullDBFileName, FILE_WRITE);
+            FileAppend = res;
+            for (int i = 0; i < res.length(); i++){
+              CardsDB.write(res[i]);
+            }
+            CardsDB.close();
+        }
+    }
+
+    void initMiniDB(){
+        CardsDB = SD.open(fullDBFileName);
         String res = "";
-        if (cards) {
-            int i = 1;
-            String _name = "";
-            String cardNum = "";
-            String music = "";
-            res = ";";
-            while (cards.available()) {
-                int a = 0;
-                while (a != cardsSeparator) {
-                    a = cards.read();
-                }
-                a = cards.read();
-                if (a != nameSeparator && a != cardsSeparator) {
-                    char q = a;
-                    switch (i) {
-                        case 2:
-                            _name += q;
-                            break;
-                        case 1:
-                            cardNum += q;
-                            break;
-                        case 3:
-                            music += q;
-                            break;
-                    }
-                }
-                if (a == cardsSeparator) {
-                    DebugSerial.print(cardNum);
-                    if (needCard != cardNum) {
-                        DebugSerial.println(" OK");
+        String currentCard = "";
+        if (CardsDB){
+            while (CardsDB.available()){
+                char a = CardsDB.read();
+                //DebugSerial.print(a);
+                if (a == '{') {
+                    currentCard = "";
+                } else if (a == '}') {
+                    currentData = currentCard;
+                    //DebugSerial.println(currentData);
+                    String cardNum = getValue("card");
+                    //DebugSerial.println(cardNum);
                         res += cardNum;
-                        res += "/";
-                        res += _name;
-                        res += "/";
-                        res += music;
-                        res += ";";
-                    } else {
-                        DebugSerial.println("");
-                    }
-                    i = 1;
-                    _name = "";
-                    cardNum = "";
-                    music = "";
+                        res += "\r\n";
+                } else {
+                  currentCard += a;
                 }
-                if (a == nameSeparator)
-                    i++;
             }
-            cards.close();
-        }
-        cards.close();
-        SD.remove(fullDBFileName);
-        cards = SD.open(fullDBFileName, FILE_WRITE);
-        if (cards) {
-            for (int i = 0; i < res.length(); i++) {
-                byte f = res[i];
-                cards.write(f);
+            CardsDB.close();
+            SD.remove(cardsFileName);
+            CardsDB = SD.open(cardsFileName, FILE_WRITE);
+            //DebugSerial.println(res);
+            FileAppend = res;
+            for (int i = 0; i < res.length(); i++){
+              CardsDB.write(res[i]);
             }
+            CardsDB.close();
         }
-        cards.close();
+        CardsDB.close();
     }
 }
 
 namespace DB {
+    String _name = "";
+    String _greet = "-1";
     void renameC(int idx1, int idx2) {
         for (size_t i = 0; i < 8; i++) {
             q[idx1][i] = q[idx2][i];
@@ -197,7 +278,6 @@ namespace DB {
 
     void initCards() {
         int i = 0;
-        int j = 0;
         int a;
         File cards = SD.open(cardsFileName);
         if (cards) {
@@ -239,7 +319,7 @@ namespace DB {
         }
         cards.close();
         initCards();
-        //fullDB::write(w);
+        fullDB::write(w, _name, _greet);
     }
 
     void del(int card[8]) {
@@ -261,60 +341,14 @@ namespace DB {
         }
         cards.close();
         initCards();
-        //fullDB::del(card);
+        fullDB::del(card);
     }
 }
 
 
 namespace greeting {
     String get_track_number(int card[]) {
-        String need_card = "";
-        for (int i = 0; i < 8; i++) {
-            char q = card[i];
-            need_card += q;
-        }
-        File cards = SD.open(fullDBFileName);
-        if (cards) {
-            int mode = 1;
-            String name = "";
-            String card_id = "";
-            String track_number = "";
-            while (cards.available()) {
-                int a = cards.read();
-                if (a != nameSeparator && a != cardsSeparator && DB::is_good(a)) {
-                    char q = a;
-                    switch (mode) {
-                        case 1:
-                            card_id += q;
-                            break;
-                        case 2:
-                            name += q;
-                            break;
-                        case 3:
-                            track_number += q;
-                            break;
-                    }
-                }
-                if (a == cardsSeparator) {
-                    if (mode == 3) {
-                        if (need_card == card_id) {
-                            cards.close();
-                            return track_number;
-                        }
-                    }
-                    mode = 1;
-                    name = "";
-                    card_id = "";
-                    track_number = "";
-                }
-                if (a == nameSeparator) {
-                    mode++;
-                }
-            }
-            cards.close();
-            return "null";
-        }
-        cards.close();
+        return fullDB::getGreet(card);
     }
 
 
@@ -337,7 +371,7 @@ namespace greeting {
 }
 
 namespace commands{
-    String addCard(String freq, String name) {
+    String addCard(String freq) {
         String resp = "";
         resp = "Request type - add card. Card is: " + freq;
         int fmas[8];
@@ -454,6 +488,22 @@ namespace commands{
         return sysresp;
     }
 
+    String getAllCardsBytes() {
+        sys = true;
+        sysStatus = "200 ";
+        String sysresp = "";
+        sysresp += ";";
+        for (int j = 0; j < 60; j++) {
+            if (q[j][0] == 0) break;
+            for (int p = 0; p < 8; p++) {
+                sysresp += q[j][p];
+                sysresp += " ";
+            }
+            sysresp += ";";
+        }
+        return sysresp;
+    }
+
     String login(String key) {
         sysStatus = "200 ";
         if (key != pass){
@@ -496,6 +546,8 @@ namespace net{
 
     String getVal(String key){
         readString = buffer;
+        if (readString.indexOf(key) == -1)
+            return "-1";
         return readString.substring(readString.indexOf(key) + key.length() + 1,
                                     readString.indexOf("&",readString.indexOf(key) + key.length() + 1));
     }
@@ -508,6 +560,8 @@ namespace net{
         response = "<h5>INVALID REQUEST</h5>";
         String card = getVal("card");
         String name = getVal("name");
+        String greet = getVal("greet");
+        response = "";
         if (key != pass){
             sys = true;
             sysStatus = "403 ";
@@ -515,16 +569,18 @@ namespace net{
         } else {
             switch (id) {
                 case 1:
-                    response = commands::addCard(card, name);
+                    DB::_name = name;
+                    DB::_greet = greet;
+                    response = commands::addCard(card);
                     break;
                 case 2:
                     response = commands::removeCard(card);
                     break;
                 case 3:
-                    response = commands::showCards();
+                    response = commands::getAllCards();
                     break;
                 case 4:
-                    response = commands::showCardsBytes();
+                    response = commands::getAllCardsBytes();
                     break;
                 case 5:
                     response = commands::login(key);
@@ -543,6 +599,9 @@ namespace net{
             boolean currentLineIsBlank = true;
             bufferSize = 0;
             readString = String(128);
+            for (int i = 0; i < bufferSize; i++) {
+                buffer[i] = ' ';
+            }
             while (client.connected()) {
                 if (client.available()) {
                     char c = client.read();
@@ -556,6 +615,7 @@ namespace net{
                             if (bufferSize < bufferMax)
                                 buffer[bufferSize++] = post;  // сохраняем новый символ в буфере и создаем приращение bufferSize
                         }
+                        buffer[bufferSize] = '&';
                         Serial.println("Received POST request:");
                         DebugSerial.print(buffer);
                         // Выполнение команд
@@ -638,6 +698,7 @@ void setup() {
         //return;
     }
     if (debug) DebugSerial.println("card initialized.");
+    fullDB::initMiniDB();
     DB::initCards();
     DebugSerial.print("eth beg");
     Ethernet.begin(mac);

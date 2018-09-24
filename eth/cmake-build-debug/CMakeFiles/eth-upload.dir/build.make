@@ -44,10 +44,10 @@ RM = "C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\locker1540-arduino\eth
+CMAKE_SOURCE_DIR = E:\locker1540-arduino\eth
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\locker1540-arduino\eth\cmake-build-debug
+CMAKE_BINARY_DIR = E:\locker1540-arduino\eth\cmake-build-debug
 
 # Utility rule file for eth-upload.
 
@@ -55,7 +55,7 @@ CMAKE_BINARY_DIR = D:\locker1540-arduino\eth\cmake-build-debug
 include CMakeFiles\eth-upload.dir\progress.make
 
 CMakeFiles\eth-upload: eth.elf
-	echo >nul && "C:\Program Files (x86)\Arduino\hardware\tools\avr\bin\avrdude.exe" "-CC:/Program Files (x86)/Arduino/hardware/tools/avr/etc/avrdude.conf" -patmega2560 -cwiring -b115200 -PCOM4 -D -V -Uflash:w:D:/locker1540-arduino/eth/cmake-build-debug/eth.hex:i -Ueeprom:w:D:/locker1540-arduino/eth/cmake-build-debug/eth.eep:i
+	echo >nul && "C:\Program Files (x86)\Arduino\hardware\tools\avr\bin\avrdude.exe" "-CC:/Program Files (x86)/Arduino/hardware/tools/avr/etc/avrdude.conf" -patmega2560 -cwiring -b115200 -PCOM4 -D -V -Uflash:w:E:/locker1540-arduino/eth/cmake-build-debug/eth.hex:i -Ueeprom:w:E:/locker1540-arduino/eth/cmake-build-debug/eth.eep:i
 
 eth-upload: CMakeFiles\eth-upload
 eth-upload: CMakeFiles\eth-upload.dir\build.make
@@ -72,6 +72,6 @@ CMakeFiles\eth-upload.dir\clean:
 .PHONY : CMakeFiles\eth-upload.dir\clean
 
 CMakeFiles\eth-upload.dir\depend:
-	$(CMAKE_COMMAND) -E cmake_depends "NMake Makefiles" D:\locker1540-arduino\eth D:\locker1540-arduino\eth D:\locker1540-arduino\eth\cmake-build-debug D:\locker1540-arduino\eth\cmake-build-debug D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles\eth-upload.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "NMake Makefiles" E:\locker1540-arduino\eth E:\locker1540-arduino\eth E:\locker1540-arduino\eth\cmake-build-debug E:\locker1540-arduino\eth\cmake-build-debug E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles\eth-upload.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles\eth-upload.dir\depend
 

@@ -6,3 +6,15 @@
 
 #IncludeRegexTransform: 
 
+C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SoftwareSerial/src/SoftwareSerial.h
+inttypes.h
+-
+Stream.h
+-
+
+C:/Program Files (x86)/Arduino/libraries/DFPlayer_Mini_Mp3/DFPlayer_Mini_Mp3.cpp
+Arduino.h
+-
+SoftwareSerial.h
+-
+

@@ -45,22 +45,17 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/mega_QueueList.dir/DependInfo.cmake"
   "CMakeFiles/mega_Dns.dir/DependInfo.cmake"
   "CMakeFiles/mega_SD.dir/DependInfo.cmake"
   "CMakeFiles/mega_Dhcp.dir/DependInfo.cmake"
   "CMakeFiles/mega_CORE.dir/DependInfo.cmake"
   "CMakeFiles/mega_Ethernet.dir/DependInfo.cmake"
   "CMakeFiles/mega_w5100.dir/DependInfo.cmake"
-  "CMakeFiles/mega_EthernetClient.dir/DependInfo.cmake"
-  "CMakeFiles/mega_util.dir/DependInfo.cmake"
   "CMakeFiles/eth-size.dir/DependInfo.cmake"
   "CMakeFiles/mega_SPI.dir/DependInfo.cmake"
-  "CMakeFiles/mega_EthernetUdp.dir/DependInfo.cmake"
-  "CMakeFiles/mega_EthernetServer.dir/DependInfo.cmake"
-  "CMakeFiles/mega_socket.dir/DependInfo.cmake"
   "CMakeFiles/mega_DFPlayer_Mini_Mp3.dir/DependInfo.cmake"
   "CMakeFiles/mega_SoftwareSerial.dir/DependInfo.cmake"
-  "CMakeFiles/mega_QueueList.dir/DependInfo.cmake"
   "CMakeFiles/mega_SdFat.dir/DependInfo.cmake"
   "CMakeFiles/mega_SdFatUtil.dir/DependInfo.cmake"
   "CMakeFiles/eth.dir/DependInfo.cmake"

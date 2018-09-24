@@ -21,7 +21,7 @@ def check_server():
 def ping(host):
 
     # Ping parameters as function of OS
-    parameters = "-n 1 -w 1" if system_name().lower()=="windows" else "-w 1 -c 1"
+    parameters = "-n 2 -w 2" if system_name().lower()=="windows" else "-w 1 -c 1"
 
     # Pinging
     return system_call("ping " + parameters + " " + host) == 0
