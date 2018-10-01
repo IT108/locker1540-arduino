@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set "VIRTUAL_ENV=D:\locker1540-arduino\admin_console\venv"
+set "VIRTUAL_ENV=E:\locker1540-arduino\admin_console\venv"
 
 if not defined PROMPT (
     set "PROMPT=$P$G"
