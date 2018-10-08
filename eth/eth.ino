@@ -234,9 +234,45 @@ namespace fullDB {
 namespace DB {
     String _name = "";
     String _greet = "-1";
+    String srvFullAns = "";
+    String srvAns = "";
     void renameC(int idx1, int idx2) {
         for (size_t i = 0; i < 8; i++) {
             q[idx1][i] = q[idx2][i];
+        }
+    }
+
+
+    void getPostAns() {
+        srvAns = srvFullAns.substring(srvFullAns.indexOf("\r\n\r\n"));
+    }
+    
+    bool checkGuest(int a[]){
+        String c = "";
+        String req = "POST /card HTTP/1.1\r\nHost: 217.61.106.178\r\nContent-Type: application/x-www-form-urlencoded\r\nContent-Length: 13\r\n\r\ncard=";
+        DebugSerial.println("chk"); 
+        for (int i = 0; i < 8; i++) {
+            c += (char) a[i];
+        }
+        req += c;
+        byte db_server[] = {217,61,106,178};
+        EthernetClient client;
+        if (client.connect(db_server,5000)){
+            client.print(req);
+            String ans = "";
+            while (!client.available()){}
+            while (client.available()){
+                char q = client.read();
+                //DebugSerial.print(q);
+                ans += q;
+            }
+            srvFullAns = ans;
+            getPostAns();
+            DebugSerial.print(srvAns);
+            if (srvAns.indexOf("True") != -1)
+                return true;
+            else 
+                return false;
         }
     }
 
@@ -668,7 +704,7 @@ namespace manage {
                     }
                 }   
                 else if (mode == 124) {
-                    if (DB::_find(w) != -1) {
+                    if (DB::checkGuest(w)) {
                         LockerSerial.print("Y");
                         greeting::play_greeting();
                     }

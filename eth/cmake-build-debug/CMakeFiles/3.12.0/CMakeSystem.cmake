@@ -3,7 +3,7 @@ set(CMAKE_HOST_SYSTEM_NAME "Windows")
 set(CMAKE_HOST_SYSTEM_VERSION "10.0.17134")
 set(CMAKE_HOST_SYSTEM_PROCESSOR "AMD64")
 
-include("E:/locker1540-arduino/eth/cmake/ArduinoToolchain.cmake")
+include("D:/locker1540-arduino/eth/cmake/ArduinoToolchain.cmake")
 
 set(CMAKE_SYSTEM "Arduino")
 set(CMAKE_SYSTEM_NAME "Arduino")

@@ -2,10 +2,255 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c0bc5843-b605-470a-8f64-a4fb90a61ff1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/constants.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../admin_console/.idea/admin_console.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../admin_console/.idea/admin_console.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../admin_console/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../admin_console/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../admin_console/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../admin_console/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../admin_console/interfaces/cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/../admin_console/interfaces/int_cli.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/3.12.0/CMakeCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/3.12.0/CMakeCCompiler.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/3.12.0/CMakeCXXCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/3.12.0/CMakeCXXCompiler.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/3.12.0/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/3.12.0/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/3.12.0/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/3.12.0/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/3.12.0/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/3.12.0/CMakeSystem.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/3.12.0/CompilerIdC/a.out" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/3.12.0/CompilerIdC/a.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/3.12.0/CompilerIdCXX/a.out" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/3.12.0/CompilerIdCXX/a.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/CMakeRuleHashes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/CMakeRuleHashes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/eth-size.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/eth-size.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/eth-size.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/eth-size.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/eth-upload.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/eth-upload.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/eth.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/eth.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/eth.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/eth.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/eth.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/eth.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/eth.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/eth.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/eth.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/eth.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/eth.dir/eth_eth.ino.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/eth.dir/eth_eth.ino.cpp.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/eth.dir/eth_eth.ino.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/eth.dir/eth_eth.ino.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/eth.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/eth.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/eth.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/eth.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/feature_tests.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/feature_tests.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/CDC.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/CDC.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/HardwareSerial.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/HardwareSerial.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/HardwareSerial0.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/HardwareSerial0.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/HardwareSerial1.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/HardwareSerial1.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/HardwareSerial2.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/HardwareSerial2.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/HardwareSerial3.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/HardwareSerial3.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/IPAddress.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/IPAddress.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/PluggableUSB.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/PluggableUSB.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/Print.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/Print.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/Stream.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/Stream.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/Tone.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/Tone.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/USBCore.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/USBCore.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/WInterrupts.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/WInterrupts.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/WMath.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/WMath.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/WString.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/WString.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/abi.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/abi.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/hooks.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/hooks.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/main.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/new.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/new.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/wiring.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/wiring.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/wiring_analog.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/wiring_analog.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/wiring_digital.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/wiring_digital.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/wiring_pulse.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/wiring_pulse.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/wiring_shift.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/cores/arduino/wiring_shift.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_CORE.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_DFPlayer_Mini_Mp3.dir/C_/Program_Files_(x86)/Arduino/libraries/DFPlayer_Mini_Mp3/DFPlayer_Mini_Mp3.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_DFPlayer_Mini_Mp3.dir/C_/Program_Files_(x86)/Arduino/libraries/DFPlayer_Mini_Mp3/DFPlayer_Mini_Mp3.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_DFPlayer_Mini_Mp3.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_DFPlayer_Mini_Mp3.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_DFPlayer_Mini_Mp3.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_DFPlayer_Mini_Mp3.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_DFPlayer_Mini_Mp3.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_DFPlayer_Mini_Mp3.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_DFPlayer_Mini_Mp3.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_DFPlayer_Mini_Mp3.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_DFPlayer_Mini_Mp3.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_DFPlayer_Mini_Mp3.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_DFPlayer_Mini_Mp3.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_DFPlayer_Mini_Mp3.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.cpp.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dhcp.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.cpp.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Dns.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.cpp.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_Ethernet.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_QueueList.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_QueueList.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_QueueList.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_QueueList.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_QueueList.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_QueueList.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_QueueList.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_QueueList.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_QueueList.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_QueueList.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_QueueList.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_QueueList.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SD.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/File.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SD.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/File.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SD.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/SD.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SD.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/SD.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SD.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/utility/Sd2Card.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SD.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/utility/Sd2Card.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SD.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/utility/SdFile.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SD.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/utility/SdFile.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SD.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/utility/SdVolume.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SD.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/utility/SdVolume.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SD.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SD.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SD.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SD.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SD.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SD.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SD.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SD.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SD.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SD.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SD.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SD.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SPI.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/libraries/SPI/src/SPI.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SPI.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/libraries/SPI/src/SPI.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SPI.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SPI.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SPI.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SPI.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SPI.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SPI.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SPI.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SPI.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SPI.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SPI.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SPI.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SPI.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFat.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/File.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFat.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/File.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFat.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/SD.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFat.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/SD.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFat.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/utility/Sd2Card.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFat.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/utility/Sd2Card.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFat.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/utility/SdFile.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFat.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/utility/SdFile.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFat.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/utility/SdVolume.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFat.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/utility/SdVolume.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFat.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFat.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFat.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFat.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFat.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFat.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFat.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFat.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFat.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFat.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFat.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFat.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFatUtil.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/File.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFatUtil.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/File.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFatUtil.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/SD.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFatUtil.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/SD.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFatUtil.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/utility/Sd2Card.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFatUtil.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/utility/Sd2Card.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFatUtil.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/utility/SdFile.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFatUtil.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/utility/SdFile.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFatUtil.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/utility/SdVolume.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFatUtil.dir/C_/Program_Files_(x86)/Arduino/libraries/SD/src/utility/SdVolume.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFatUtil.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFatUtil.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFatUtil.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFatUtil.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFatUtil.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFatUtil.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFatUtil.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFatUtil.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFatUtil.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFatUtil.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFatUtil.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SdFatUtil.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SoftwareSerial.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/libraries/SoftwareSerial/src/SoftwareSerial.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SoftwareSerial.dir/C_/Program_Files_(x86)/Arduino/hardware/arduino/avr/libraries/SoftwareSerial/src/SoftwareSerial.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SoftwareSerial.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SoftwareSerial.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SoftwareSerial.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SoftwareSerial.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SoftwareSerial.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SoftwareSerial.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SoftwareSerial.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SoftwareSerial.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SoftwareSerial.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SoftwareSerial.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SoftwareSerial.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_SoftwareSerial.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.cpp.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/mega_w5100.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/upload.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/CMakeFiles/upload.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/compiler-file.d" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/compiler-file.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/eth.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/eth.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/eth.elf" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/eth.elf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/eth.hex" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/eth.hex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/eth_eth.ino.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/eth_eth.ino.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/libmega_CORE.a" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/libmega_CORE.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/libmega_DFPlayer_Mini_Mp3.a" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/libmega_DFPlayer_Mini_Mp3.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/libmega_Dhcp.a" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/libmega_Dhcp.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/libmega_Dns.a" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/libmega_Dns.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/libmega_Ethernet.a" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/libmega_Ethernet.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/libmega_SD.a" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/libmega_SD.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/libmega_SPI.a" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/libmega_SPI.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/libmega_SdFat.a" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/libmega_SdFat.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/libmega_SdFatUtil.a" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/libmega_SdFatUtil.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/libmega_SoftwareSerial.a" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/libmega_SoftwareSerial.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/cmake-build-debug/libmega_w5100.a" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/cmake-build-debug/libmega_w5100.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eth/eth.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/eth.ino" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,7 +259,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/server$server.coverage" NAME="server Coverage Results" MODIFIED="1538844639582" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/server$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1538994786633" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/server$server.coverage" NAME="server Coverage Results" MODIFIED="1538994852008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-1760692565">
@@ -47,31 +293,50 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="-820444515">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.13" value="1" />
+          <entry key="project.opened" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="Python Console" value="72" />
+          <entry key="py" value="94" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="Python" value="166" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="306">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
-                <marker date="1538844639512" expanded="true" signature="254:314" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="374">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
-                <marker date="1538844639555" expanded="true" signature="48:229" ph="..." />
-                <marker date="1538844639555" expanded="true" signature="250:255" ph="..." />
               </folding>
             </state>
           </provider>
@@ -80,8 +345,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/constants.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="90" selection-start-line="5" selection-start-column="90" selection-end-line="5" selection-end-column="90" />
+            <state relative-caret-position="102">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
@@ -103,8 +368,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/constants.py" />
-        <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/db.py" />
+        <option value="$PROJECT_DIR$/app.py" />
       </list>
     </option>
   </component>
@@ -115,10 +380,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-12" />
-    <option name="y" value="-12" />
-    <option name="width" value="1944" />
-    <option name="height" value="1044" />
+    <option name="x" value="-15" />
+    <option name="y" value="-15" />
+    <option name="width" value="1945" />
+    <option name="height" value="1045" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -126,7 +391,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -138,13 +402,15 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="E:/NTI2018-19" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -158,7 +424,22 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Flask server.server">
+    <configuration name="Flask (app.py)" type="Python.FlaskServer" factoryName="Flask server" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <option name="target" value="$PROJECT_DIR$/app.py" />
+      <option name="targetType" value="PATH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
     <configuration name="server" type="Python.FlaskServer" factoryName="Flask server">
       <module name="server" />
       <option name="target" value="$PROJECT_DIR$/app.py" />
@@ -174,6 +455,15 @@
       <option name="launchJavascriptDebuger" value="false" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Flask server.server" />
+      <item itemvalue="Flask server.Flask (app.py)" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Flask server.Flask (app.py)" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -198,29 +488,29 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15789473" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16431925" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info active="true" anchor="bottom" id="Python Console" visible="true" weight="0.3291815" />
-      <window_info anchor="bottom" id="Terminal" weight="0.3291815" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3291815" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3291815" />
-      <window_info anchor="right" id="SciView" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="12" visible="true" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,31 +522,28 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="306">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
-            <marker date="1538844639512" expanded="true" signature="254:314" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/constants.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="90" selection-start-line="5" selection-start-column="90" selection-end-line="5" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-            <marker date="1538844639555" expanded="true" signature="48:229" ph="..." />
-            <marker date="1538844639555" expanded="true" signature="250:255" ph="..." />
-          </folding>
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>

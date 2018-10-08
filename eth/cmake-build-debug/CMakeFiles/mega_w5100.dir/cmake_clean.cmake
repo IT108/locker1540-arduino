@@ -5,7 +5,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.obj"
   "CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.obj"
   "CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.obj"
-  "CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.cpp.obj"
+  "CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.obj"
   "CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.obj"
   "libmega_w5100.pdb"
   "libmega_w5100.a"

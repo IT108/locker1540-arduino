@@ -23,32 +23,42 @@ SoftwareSerial.h
 C:/Program Files (x86)/Arduino/libraries/DFPlayer_Mini_Mp3/SoftwareSerial.h
 
 C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dhcp.h
+EthernetUdp.h
+C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetUdp.h
 
 C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dns.h
-Ethernet.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Ethernet.h
+EthernetUdp.h
+-
 
 C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Ethernet.h
-Arduino.h
+inttypes.h
 -
-Client.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Client.h
-Server.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Server.h
-Udp.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Udp.h
+IPAddress.h
+C:/Program Files (x86)/Arduino/libraries/Ethernet/src/IPAddress.h
+EthernetClient.h
+C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetClient.h
+EthernetServer.h
+C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetServer.h
+Dhcp.h
+C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dhcp.h
 
 C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetClient.h
-Ethernet.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Ethernet.h
+Arduino.h
+C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Arduino.h
+Print.h
+C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Print.h
+Client.h
+C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Client.h
+IPAddress.h
+C:/Program Files (x86)/Arduino/libraries/Ethernet/src/IPAddress.h
 
 C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetServer.h
-Ethernet.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Ethernet.h
+Server.h
+C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Server.h
 
 C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetUdp.h
-Ethernet.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Ethernet.h
+Udp.h
+-
 
 C:/Program Files (x86)/Arduino/libraries/QueueList/QueueList.h
 Arduino.h
@@ -98,7 +108,7 @@ C:/Program Files (x86)/Arduino/libraries/SD/src/utility/SdInfo.h
 stdint.h
 -
 
-E:/locker1540-arduino/eth/cmake-build-debug/eth_eth.ino.cpp
+D:/locker1540-arduino/eth/cmake-build-debug/eth_eth.ino.cpp
 stdint.h
 -
 Dhcp.h
@@ -126,5 +136,5 @@ Ethernet.h
 WString.h
 -
 Arduino.h
-E:/locker1540-arduino/eth/cmake-build-debug/Arduino.h
+D:/locker1540-arduino/eth/cmake-build-debug/Arduino.h
 
