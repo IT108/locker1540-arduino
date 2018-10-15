@@ -7,6 +7,7 @@ import serial
 
 root = Tk()
 root.geometry(str(root.winfo_screenwidth()) + 'x' + str(root.winfo_screenheight()))
+root.attributes("-fullscreen", True)
 mes = StringVar(root, 'Выберите порт')
 label = Label(root, {"textvariable": mes, "justify": 'center'})
 lb = Listbox()
@@ -34,7 +35,10 @@ def listen_card():
     ser.close()
     btn['text'] = "Аунтификация..."
     root.update()
-    card_login_attempt(card)
+    resp = card_login_attempt(card)
+    if not resp:
+        btn['text'] = 'Пользователя не существует или ему запрещено изменение базы данных'
+        root.update()
 
 
 btn['command'] = listen_card

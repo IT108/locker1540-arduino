@@ -1,5 +1,6 @@
 import requests
 from BL import constants, net
+import postgresql
 
 
 def login_attempt(key):
@@ -19,5 +20,12 @@ def login_attempt(key):
 
 def card_login_attempt(key):
     print("card_attempt")
+    constants.DB = postgresql.open('pq://' + constants.username + ':' + constants.password + '@' + constants.DBIP
+                                   + ':5432/' + constants.DBName)
+    resp = constants.DB.query('select admin from public.users where card = \'' + key + '\'')
+    if resp.__len__() > 0:
+        if resp[0][0]:
+            return True
+    return False
 
 

@@ -23,26 +23,30 @@
 #include "Arduino.h"
 
 //=== START Forward: D:/locker1540-arduino/eth/eth.ino
-     String getValue(String val);
-     String getValue(String val);
-     void appendFile();
-     void appendFile();
-     String getTrivialCard();
-     String getTrivialCard();
-     String getGreetCard();
-     String getGreetCard();
-     String getGreet(int card[8]);
-     String getGreet(int card[8]);
+     String getValue(String val) ;
+     String getValue(String val) ;
+     void appendFile() ;
+     void appendFile() ;
+     String getTrivialCard() ;
+     String getTrivialCard() ;
+     String getGreetCard() ;
+     String getGreetCard() ;
      void write(int card[8], String name, String greet) ;
      void write(int card[8], String name, String greet) ;
      void del(int card[8]) ;
      void del(int card[8]) ;
-     void initMiniDB();
-     void initMiniDB();
+     void initMiniDB() ;
+     void initMiniDB() ;
+     void makeReq() ;
+     void makeReq() ;
      void renameC(int idx1, int idx2) ;
      void renameC(int idx1, int idx2) ;
-     bool checkGuest(int a[]);
-     bool checkGuest(int a[]);
+     void getPostAns() ;
+     void getPostAns() ;
+     bool checkGuest(int a[]) ;
+     bool checkGuest(int a[]) ;
+     int getGreet(int a[]) ;
+     int getGreet(int a[]) ;
      bool checkCard(int a[], int b[]) ;
      bool checkCard(int a[], int b[]) ;
      int _find(int a[]) ;
@@ -57,8 +61,8 @@
      void writeNew(int w[8]) ;
      void del(int card[8]) ;
      void del(int card[8]) ;
-     String get_track_number(int card[]) ;
-     String get_track_number(int card[]) ;
+     int get_track_number(int q[]) ;
+     int get_track_number(int q[]) ;
      void play_greeting() ;
      void play_greeting() ;
      void process_greetings() ;
@@ -77,10 +81,10 @@
      String getAllCardsBytes() ;
      String login(String key) ;
      String login(String key) ;
-     void sendResponse();
-     void sendResponse();
-     String getVal(String key);
-     String getVal(String key);
+     void sendResponse() ;
+     void sendResponse() ;
+     String getVal(String key) ;
+     String getVal(String key) ;
      void PerformRequestedCommands() ;
      void PerformRequestedCommands() ;
      void getPostRequest() ;
@@ -148,12 +152,12 @@ namespace fullDB {
     String FileAppend;
     String currentData;
 
-    String getValue(String val){
-        pointer = currentData.indexOf("$",currentData.indexOf(val) + val.length() + 1);
+    String getValue(String val) {
+        pointer = currentData.indexOf("$", currentData.indexOf(val) + val.length() + 1);
         return currentData.substring(currentData.indexOf(val) + val.length() + 1, pointer);
     }
 
-    void appendFile(){
+    void appendFile() {
         for (int i = 0; i < FileAppend.length(); i++) {
             byte q;
             q = FileAppend[i];
@@ -162,7 +166,7 @@ namespace fullDB {
         CardsDB.close();
     }
 
-    String getTrivialCard(){
+    String getTrivialCard() {
         String res;
         res = "{\r\ncard=";
         res += _card;
@@ -171,7 +175,8 @@ namespace fullDB {
         res += "$\r\n}\r\n";
         return res;
     }
-    String getGreetCard(){
+
+    String getGreetCard() {
         String res;
         res = "{\r\ncard=";
         res += _card;
@@ -183,37 +188,6 @@ namespace fullDB {
         return res;
     }
 
-    String getGreet(int card[8]){
-        String needCard = "";
-        String currentCard = "";
-        String greet = "null";
-        for (size_t i = 0; i < 8; i++) {
-            char f = card[i];
-            needCard += f;
-        }
-        CardsDB = SD.open(fullDBFileName);
-        if (CardsDB){
-            while (CardsDB.available()) {
-                char a = CardsDB.read();
-                if (a == '{') {
-                    currentCard = "";
-                } else if (a == '}') {
-                    currentData = currentCard;
-                    String cardNum = getValue("card");
-                    if (cardNum == needCard) {
-                        greet = getValue("greeting");
-                        DebugSerial.println(greet);
-                        return greet;
-                    } 
-                } else {
-                  currentCard += a;
-                }
-            }
-            CardsDB.close();
-        }
-        return greet;
-    }
-
     void write(int card[8], String name, String greet) {
         CardsDB = SD.open(fullDBFileName, FILE_WRITE);
         String needCard = "";
@@ -223,7 +197,7 @@ namespace fullDB {
                 char f = card[i];
                 needCard += f;
             }
-            if (greet == "-1"){
+            if (greet == "-1") {
                 _name = name;
                 _card = needCard;
                 res = getTrivialCard();
@@ -269,19 +243,19 @@ namespace fullDB {
             SD.remove(fullDBFileName);
             CardsDB = SD.open(fullDBFileName, FILE_WRITE);
             FileAppend = res;
-            for (int i = 0; i < res.length(); i++){
-              CardsDB.write(res[i]);
+            for (int i = 0; i < res.length(); i++) {
+                CardsDB.write(res[i]);
             }
             CardsDB.close();
         }
     }
 
-    void initMiniDB(){
+    void initMiniDB() {
         CardsDB = SD.open(fullDBFileName);
         String res = "";
         String currentCard = "";
-        if (CardsDB){
-            while (CardsDB.available()){
+        if (CardsDB) {
+            while (CardsDB.available()) {
                 char a = CardsDB.read();
                 //DebugSerial.print(a);
                 if (a == '{') {
@@ -291,10 +265,10 @@ namespace fullDB {
                     //DebugSerial.println(currentData);
                     String cardNum = getValue("card");
                     //DebugSerial.println(cardNum);
-                        res += cardNum;
-                        res += "\r\n";
+                    res += cardNum;
+                    res += "\r\n";
                 } else {
-                  currentCard += a;
+                    currentCard += a;
                 }
             }
             CardsDB.close();
@@ -302,8 +276,8 @@ namespace fullDB {
             CardsDB = SD.open(cardsFileName, FILE_WRITE);
             //DebugSerial.println(res);
             FileAppend = res;
-            for (int i = 0; i < res.length(); i++){
-              CardsDB.write(res[i]);
+            for (int i = 0; i < res.length(); i++) {
+                CardsDB.write(res[i]);
             }
             CardsDB.close();
         }
@@ -314,30 +288,95 @@ namespace fullDB {
 namespace DB {
     String _name = "";
     String _greet = "-1";
+    String srvFullAns = "";
+    String srvAns = "";
+    String tmpReq = "";
+    String reqArgs = "";
+    String reqHttp = "";
+    byte db_server[] = {217, 61, 106, 178};
+
+    void makeReq() {
+        String res = "POST /";
+        res += reqHttp;
+        res += " HTTP/1.1\r\nHost: 217.61.106.178\r\nContent-Type: application/x-www-form-urlencoded\r\nContent-Length: ";
+        res += String(reqArgs.length());
+        res += "\r\n\r\n";
+        res += reqArgs;
+        tmpReq = res;
+
+    }
+
     void renameC(int idx1, int idx2) {
         for (size_t i = 0; i < 8; i++) {
             q[idx1][i] = q[idx2][i];
         }
     }
 
-    bool checkGuest(int a[]){
+
+    void getPostAns() {
+        srvAns = srvFullAns.substring(srvFullAns.indexOf("\r\n\r\n"),
+                                      srvFullAns.indexOf(srvFullAns.indexOf("\r"), srvFullAns.indexOf("\r\n\r\n")));
+    }
+
+
+    bool checkGuest(int a[]) {
         String c = "";
-        String req = "POST / HTTP/1.1\r\nHost: foo.com\r\nContent-Type: application/x-www-form-urlencoded\r\nContent-Length: 13\r\n\r\ncard=";
+        DebugSerial.println("chk");
         for (int i = 0; i < 8; i++) {
             c += (char) a[i];
         }
-        req += c;
-        byte db_server[] = {217,61,106,178};
+        reqHttp = "card";
+        reqArgs = "card=";
+        reqArgs += c;
+        makeReq();
+        String req = tmpReq;
         EthernetClient client;
-        if (client.connect(db_server,5000)){
+        if (client.connect(db_server, 5000)) {
             client.print(req);
             String ans = "";
-            while (client.available()){
+            while (!client.available()) {}
+            while (client.available()) {
                 char q = client.read();
+                //DebugSerial.print(q);
                 ans += q;
             }
-            DebugSerial.println(ans);
+            srvFullAns = ans;
+            getPostAns();
+            DebugSerial.print(srvAns);
+            if (srvAns.indexOf("True") != -1)
+                return true;
+            else
+                return false;
         }
+    }
+
+    int getGreet(int a[]) {
+        String c = "";
+        DebugSerial.println("chk");
+        for (int i = 0; i < 8; i++) {
+            c += (char) a[i];
+        }
+        reqHttp = "card";
+        reqArgs = "card=";
+        reqArgs += c;
+        makeReq();
+        EthernetClient client;
+        String req = tmpReq;
+        srvAns = "-1";
+        if (client.connect(db_server, 5000)) {
+            client.print(req);
+            String ans = "";
+            while (!client.available()) {}
+            while (client.available()) {
+                char q = client.read();
+                //DebugSerial.print(q);
+                ans += q;
+            }
+            srvFullAns = ans;
+            getPostAns();
+            DebugSerial.print(srvAns);
+        }
+        return srvAns.toInt();
     }
 
     bool checkCard(int a[], int b[]) {
@@ -447,17 +486,16 @@ namespace DB {
 
 
 namespace greeting {
-    String get_track_number(int card[]) {
-        return fullDB::getGreet(card);
+    int get_track_number(int q[]) {
+        return DB::getGreet(q);
     }
 
 
     void play_greeting() {
-        String greeting_number = get_track_number(w);
+        int greeting_number = get_track_number(w);
         greeting_buffer.push(random(1, 6));
-        if (greeting_number != "null") {
-            int x = greeting_number.toInt();
-            greeting_buffer.push(x);
+        if (greeting_number != -1){
+            greeting_buffer.push(greeting_number);
         }
         delay(2000);
     }
@@ -470,7 +508,7 @@ namespace greeting {
     }
 }
 
-namespace commands{
+namespace commands {
     String addCard(String freq) {
         String resp = "";
         resp = "Request type - add card. Card is: " + freq;
@@ -563,7 +601,7 @@ namespace commands{
             resp += ".  ";
             resp += HTTPNextTableCell;
             for (int p = 0; p < 8; p++) {
-                char temp = (char)q[j][p];
+                char temp = (char) q[j][p];
                 resp += temp;
             }
             resp += HTTPNextTableRow;
@@ -606,8 +644,8 @@ namespace commands{
 
     String login(String key) {
         sysStatus = "200 ";
-        if (key != pass){
-          sysStatus = "403 ";
+        if (key != pass) {
+            sysStatus = "403 ";
         }
         String sysresp = "";
         sys = true;
@@ -620,15 +658,15 @@ namespace commands{
     }
 }
 
-namespace net{
+namespace net {
 
     EthernetClient client;
     String response = "";
 
-    void sendResponse(){
+    void sendResponse() {
         client.flush();
         String res = "";
-        if (sys){
+        if (sys) {
             res = HTTPSysHead;
             res += sysStatus;
             res += "OK \r\n\r\n";
@@ -644,12 +682,12 @@ namespace net{
         if (debug) DebugSerial.println("Client disonnected");
     }
 
-    String getVal(String key){
+    String getVal(String key) {
         readString = buffer;
         if (readString.indexOf(key) == -1)
             return "-1";
         return readString.substring(readString.indexOf(key) + key.length() + 1,
-                                    readString.indexOf("&",readString.indexOf(key) + key.length() + 1));
+                                    readString.indexOf("&", readString.indexOf(key) + key.length() + 1));
     }
 
     void PerformRequestedCommands() {
@@ -662,7 +700,7 @@ namespace net{
         String name = getVal("name");
         String greet = getVal("greet");
         response = "";
-        if (key != pass){
+        if (key != pass) {
             sys = true;
             sysStatus = "403 ";
             response = "";
@@ -746,8 +784,7 @@ namespace manage {
             position = -1;
             mode = -1;
             return;
-        } 
-        else {
+        } else {
             int value = LockerSerial.read();
             if (124 <= value && value <= 126) {
                 mode = value;
@@ -760,31 +797,25 @@ namespace manage {
             if (position == 8) {
                 if (mode == 126) {
                     int status = DB::checkFind(w);
-                    if (status == symbolNotExist){
+                    if (status == symbolNotExist) {
                         DB::writeNew(w);
-                    } 
-                    else {
+                    } else {
                         DB::del(w);
                     }
-                }   
-                else if (mode == 124) {
-                    DB::checkGuest(w);
-                    if (DB::_find(w) != -1) {
+                } else if (mode == 124) {
+                    if (DB::checkGuest(w)) {
                         LockerSerial.print("Y");
                         greeting::play_greeting();
-                    }
-                    else {
+                    } else {
                         LockerSerial.print("N");
                     }
-                } 
-                else if (mode == 125) {
+                } else if (mode == 125) {
                     greeting::play_greeting();
                 }
             }
         }
     }
 }
-
 
 
 void setup() {
