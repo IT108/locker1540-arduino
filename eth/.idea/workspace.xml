@@ -9,17 +9,17 @@
       <config projectName="eth" targetName="mega_Ethernet" />
       <config projectName="eth" targetName="mega_SdFatUtil" />
       <config projectName="eth" targetName="eth" />
-      <config projectName="eth" targetName="mega_SdFat" />
+      <config projectName="eth" targetName="mega_EthernetClient" />
       <config projectName="eth" targetName="mega_CORE" />
       <config projectName="eth" targetName="mega_Dns" />
+      <config projectName="eth" targetName="mega_socket" />
       <config projectName="eth" targetName="mega_Dhcp" />
       <config projectName="eth" targetName="upload" />
       <config projectName="eth" targetName="mega_DFPlayer_Mini_Mp3" />
-      <config projectName="eth" targetName="mega_w5100" />
       <config projectName="eth" targetName="mega_SoftwareSerial" />
       <config projectName="eth" targetName="mega_EthernetServer" />
-      <config projectName="eth" targetName="mega_EthernetClient" />
-      <config projectName="eth" targetName="mega_socket" />
+      <config projectName="eth" targetName="mega_w5100" />
+      <config projectName="eth" targetName="mega_SdFat" />
       <config projectName="eth" targetName="eth-upload" />
       <config projectName="eth" targetName="mega_SD" />
       <config projectName="eth" targetName="eth-size" />
@@ -32,11 +32,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8809faca-4895-436c-80e9-6aff69a241d6" name="Default Changelist" comment="greetings">
-      <change beforePath="$PROJECT_DIR$/../admin_console/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../admin_console/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../admin_console/BL/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/../admin_console/BL/constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../admin_console/BL/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/../admin_console/BL/login.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../admin_console/graphic/card_wait.py" beforeDir="false" afterPath="$PROJECT_DIR$/../admin_console/graphic/card_wait.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/eth.dir/eth_eth.ino.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eth.ino" beforeDir="false" afterPath="$PROJECT_DIR$/eth.ino" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../server/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -88,26 +84,27 @@
     <session id="-1446308982">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.13" value="2" />
+          <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.9" value="3" />
-          <entry key="project.opened" value="9" />
+          <entry key="project.opened" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="ino" value="1216" />
+          <entry key="ino" value="1221" />
           <entry key="txt" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CMakeLists.txt" value="4" />
-          <entry key="ObjectiveC" value="1216" />
+          <entry key="ObjectiveC" value="1221" />
         </counts>
       </usages-collector>
     </session>
@@ -117,8 +114,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/eth.ino">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-740">
-              <caret line="266" column="21" selection-start-line="266" selection-start-column="21" selection-end-line="266" selection-end-column="21" />
+            <state relative-caret-position="207">
+              <caret line="255" column="39" selection-start-line="255" selection-start-column="39" selection-end-line="255" selection-end-column="39" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -199,6 +196,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -210,7 +208,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -390,7 +387,8 @@
       <workItem from="1537173353027" duration="20000" />
       <workItem from="1538995978764" duration="2073000" />
       <workItem from="1538999857036" duration="991000" />
-      <workItem from="1539616207771" duration="2223000" />
+      <workItem from="1539616207771" duration="3250000" />
+      <workItem from="1539689997808" duration="88000" />
     </task>
     <task id="LOCAL-00001" summary="overload">
       <created>1536101638560</created>
@@ -410,7 +408,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24301000" />
+    <option name="totallyTimeSpent" value="25416000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -423,9 +421,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14151576" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14352784" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -476,8 +473,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/eth.ino">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-740">
-          <caret line="266" column="21" selection-start-line="266" selection-start-column="21" selection-end-line="266" selection-end-column="21" />
+        <state relative-caret-position="207">
+          <caret line="255" column="39" selection-start-line="255" selection-start-column="39" selection-end-line="255" selection-end-column="39" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>

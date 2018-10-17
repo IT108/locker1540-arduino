@@ -247,7 +247,7 @@ namespace DB {
         makeReq();
         String req = tmpReq;
         EthernetClient client;
-        if (client.connect(db_server, 5000)) {
+        if (client.connect(db_server, 80)) {
             client.print(req);
             String ans = "";
             while (!client.available()) {}
@@ -273,14 +273,15 @@ namespace DB {
         for (int i = 0; i < 8; i++) {
             c += (char) a[i];
         }
-        reqHttp = "card";
+        reqHttp = "greet";
         reqArgs = "card=";
         reqArgs += c;
         makeReq();
         EthernetClient client;
         String req = tmpReq;
         srvAns = "-1";
-        if (client.connect(db_server, 5000)) {
+        if (client.connect(db_server, 80)) {
+            Serial.print(req);
             client.print(req);
             String ans = "";
             while (!client.available()) {}
@@ -291,7 +292,7 @@ namespace DB {
             }
             srvFullAns = ans;
             getPostAns();
-            DebugSerial.print(srvAns);
+            DebugSerial.print(srvFullAns);
         }
         return srvAns.toInt();
     }
