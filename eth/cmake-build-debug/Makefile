@@ -47,10 +47,10 @@ RM = "C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\locker1540-arduino\eth
+CMAKE_SOURCE_DIR = E:\locker1540-arduino\eth
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\locker1540-arduino\eth\cmake-build-debug
+CMAKE_BINARY_DIR = E:\locker1540-arduino\eth\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,9 +79,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles\progress.marks
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -108,6 +108,19 @@ preinstall/fast:
 depend:
 	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
 .PHONY : depend
+
+#=============================================================================
+# Target rules for targets named mega_QueueList
+
+# Build rule for target.
+mega_QueueList: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 mega_QueueList
+.PHONY : mega_QueueList
+
+# fast build rule for target.
+mega_QueueList/fast:
+	$(MAKE) -f CMakeFiles\mega_QueueList.dir\build.make CMakeFiles/mega_QueueList.dir/build
+.PHONY : mega_QueueList/fast
 
 #=============================================================================
 # Target rules for targets named mega_Dns
@@ -188,32 +201,6 @@ mega_w5100/fast:
 .PHONY : mega_w5100/fast
 
 #=============================================================================
-# Target rules for targets named mega_EthernetClient
-
-# Build rule for target.
-mega_EthernetClient: cmake_check_build_system
-	$(MAKE) -f CMakeFiles\Makefile2 mega_EthernetClient
-.PHONY : mega_EthernetClient
-
-# fast build rule for target.
-mega_EthernetClient/fast:
-	$(MAKE) -f CMakeFiles\mega_EthernetClient.dir\build.make CMakeFiles/mega_EthernetClient.dir/build
-.PHONY : mega_EthernetClient/fast
-
-#=============================================================================
-# Target rules for targets named mega_util
-
-# Build rule for target.
-mega_util: cmake_check_build_system
-	$(MAKE) -f CMakeFiles\Makefile2 mega_util
-.PHONY : mega_util
-
-# fast build rule for target.
-mega_util/fast:
-	$(MAKE) -f CMakeFiles\mega_util.dir\build.make CMakeFiles/mega_util.dir/build
-.PHONY : mega_util/fast
-
-#=============================================================================
 # Target rules for targets named eth-size
 
 # Build rule for target.
@@ -240,45 +227,6 @@ mega_SPI/fast:
 .PHONY : mega_SPI/fast
 
 #=============================================================================
-# Target rules for targets named mega_EthernetUdp
-
-# Build rule for target.
-mega_EthernetUdp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles\Makefile2 mega_EthernetUdp
-.PHONY : mega_EthernetUdp
-
-# fast build rule for target.
-mega_EthernetUdp/fast:
-	$(MAKE) -f CMakeFiles\mega_EthernetUdp.dir\build.make CMakeFiles/mega_EthernetUdp.dir/build
-.PHONY : mega_EthernetUdp/fast
-
-#=============================================================================
-# Target rules for targets named mega_EthernetServer
-
-# Build rule for target.
-mega_EthernetServer: cmake_check_build_system
-	$(MAKE) -f CMakeFiles\Makefile2 mega_EthernetServer
-.PHONY : mega_EthernetServer
-
-# fast build rule for target.
-mega_EthernetServer/fast:
-	$(MAKE) -f CMakeFiles\mega_EthernetServer.dir\build.make CMakeFiles/mega_EthernetServer.dir/build
-.PHONY : mega_EthernetServer/fast
-
-#=============================================================================
-# Target rules for targets named mega_socket
-
-# Build rule for target.
-mega_socket: cmake_check_build_system
-	$(MAKE) -f CMakeFiles\Makefile2 mega_socket
-.PHONY : mega_socket
-
-# fast build rule for target.
-mega_socket/fast:
-	$(MAKE) -f CMakeFiles\mega_socket.dir\build.make CMakeFiles/mega_socket.dir/build
-.PHONY : mega_socket/fast
-
-#=============================================================================
 # Target rules for targets named mega_DFPlayer_Mini_Mp3
 
 # Build rule for target.
@@ -303,19 +251,6 @@ mega_SoftwareSerial: cmake_check_build_system
 mega_SoftwareSerial/fast:
 	$(MAKE) -f CMakeFiles\mega_SoftwareSerial.dir\build.make CMakeFiles/mega_SoftwareSerial.dir/build
 .PHONY : mega_SoftwareSerial/fast
-
-#=============================================================================
-# Target rules for targets named mega_QueueList
-
-# Build rule for target.
-mega_QueueList: cmake_check_build_system
-	$(MAKE) -f CMakeFiles\Makefile2 mega_QueueList
-.PHONY : mega_QueueList
-
-# fast build rule for target.
-mega_QueueList/fast:
-	$(MAKE) -f CMakeFiles\mega_QueueList.dir\build.make CMakeFiles/mega_QueueList.dir/build
-.PHONY : mega_QueueList/fast
 
 #=============================================================================
 # Target rules for targets named mega_SdFat
@@ -1121,11 +1056,6 @@ C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.obj:
 	$(MAKE) -f CMakeFiles\mega_Dhcp.dir\build.make CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.obj
 	$(MAKE) -f CMakeFiles\mega_Ethernet.dir\build.make CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.obj
 	$(MAKE) -f CMakeFiles\mega_w5100.dir\build.make CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_EthernetClient.dir\build.make CMakeFiles/mega_EthernetClient.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_util.dir\build.make CMakeFiles/mega_util.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_EthernetUdp.dir\build.make CMakeFiles/mega_EthernetUdp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_EthernetServer.dir\build.make CMakeFiles/mega_EthernetServer.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_socket.dir\build.make CMakeFiles/mega_socket.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.obj
 .PHONY : C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.obj
 
 C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.i: C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.i
@@ -1138,11 +1068,6 @@ C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.i:
 	$(MAKE) -f CMakeFiles\mega_Dhcp.dir\build.make CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.i
 	$(MAKE) -f CMakeFiles\mega_Ethernet.dir\build.make CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.i
 	$(MAKE) -f CMakeFiles\mega_w5100.dir\build.make CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.i
-	$(MAKE) -f CMakeFiles\mega_EthernetClient.dir\build.make CMakeFiles/mega_EthernetClient.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.i
-	$(MAKE) -f CMakeFiles\mega_util.dir\build.make CMakeFiles/mega_util.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.i
-	$(MAKE) -f CMakeFiles\mega_EthernetUdp.dir\build.make CMakeFiles/mega_EthernetUdp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.i
-	$(MAKE) -f CMakeFiles\mega_EthernetServer.dir\build.make CMakeFiles/mega_EthernetServer.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.i
-	$(MAKE) -f CMakeFiles\mega_socket.dir\build.make CMakeFiles/mega_socket.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.i
 .PHONY : C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.i
 
 C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.s: C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.s
@@ -1155,11 +1080,6 @@ C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.s:
 	$(MAKE) -f CMakeFiles\mega_Dhcp.dir\build.make CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.s
 	$(MAKE) -f CMakeFiles\mega_Ethernet.dir\build.make CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.s
 	$(MAKE) -f CMakeFiles\mega_w5100.dir\build.make CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.s
-	$(MAKE) -f CMakeFiles\mega_EthernetClient.dir\build.make CMakeFiles/mega_EthernetClient.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.s
-	$(MAKE) -f CMakeFiles\mega_util.dir\build.make CMakeFiles/mega_util.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.s
-	$(MAKE) -f CMakeFiles\mega_EthernetUdp.dir\build.make CMakeFiles/mega_EthernetUdp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.s
-	$(MAKE) -f CMakeFiles\mega_EthernetServer.dir\build.make CMakeFiles/mega_EthernetServer.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.s
-	$(MAKE) -f CMakeFiles\mega_socket.dir\build.make CMakeFiles/mega_socket.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.s
 .PHONY : C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp.s
 
 C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.obj: C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.obj
@@ -1172,11 +1092,6 @@ C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.obj:
 	$(MAKE) -f CMakeFiles\mega_Dhcp.dir\build.make CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.obj
 	$(MAKE) -f CMakeFiles\mega_Ethernet.dir\build.make CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.obj
 	$(MAKE) -f CMakeFiles\mega_w5100.dir\build.make CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_EthernetClient.dir\build.make CMakeFiles/mega_EthernetClient.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_util.dir\build.make CMakeFiles/mega_util.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_EthernetUdp.dir\build.make CMakeFiles/mega_EthernetUdp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_EthernetServer.dir\build.make CMakeFiles/mega_EthernetServer.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_socket.dir\build.make CMakeFiles/mega_socket.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.obj
 .PHONY : C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.obj
 
 C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.i: C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.i
@@ -1189,11 +1104,6 @@ C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.i:
 	$(MAKE) -f CMakeFiles\mega_Dhcp.dir\build.make CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.i
 	$(MAKE) -f CMakeFiles\mega_Ethernet.dir\build.make CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.i
 	$(MAKE) -f CMakeFiles\mega_w5100.dir\build.make CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.i
-	$(MAKE) -f CMakeFiles\mega_EthernetClient.dir\build.make CMakeFiles/mega_EthernetClient.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.i
-	$(MAKE) -f CMakeFiles\mega_util.dir\build.make CMakeFiles/mega_util.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.i
-	$(MAKE) -f CMakeFiles\mega_EthernetUdp.dir\build.make CMakeFiles/mega_EthernetUdp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.i
-	$(MAKE) -f CMakeFiles\mega_EthernetServer.dir\build.make CMakeFiles/mega_EthernetServer.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.i
-	$(MAKE) -f CMakeFiles\mega_socket.dir\build.make CMakeFiles/mega_socket.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.i
 .PHONY : C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.i
 
 C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.s: C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.s
@@ -1206,11 +1116,6 @@ C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.s:
 	$(MAKE) -f CMakeFiles\mega_Dhcp.dir\build.make CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.s
 	$(MAKE) -f CMakeFiles\mega_Ethernet.dir\build.make CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.s
 	$(MAKE) -f CMakeFiles\mega_w5100.dir\build.make CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.s
-	$(MAKE) -f CMakeFiles\mega_EthernetClient.dir\build.make CMakeFiles/mega_EthernetClient.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.s
-	$(MAKE) -f CMakeFiles\mega_util.dir\build.make CMakeFiles/mega_util.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.s
-	$(MAKE) -f CMakeFiles\mega_EthernetUdp.dir\build.make CMakeFiles/mega_EthernetUdp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.s
-	$(MAKE) -f CMakeFiles\mega_EthernetServer.dir\build.make CMakeFiles/mega_EthernetServer.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.s
-	$(MAKE) -f CMakeFiles\mega_socket.dir\build.make CMakeFiles/mega_socket.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.s
 .PHONY : C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Dns.cpp.s
 
 C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.obj: C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.obj
@@ -1223,11 +1128,6 @@ C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.obj:
 	$(MAKE) -f CMakeFiles\mega_Dhcp.dir\build.make CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.obj
 	$(MAKE) -f CMakeFiles\mega_Ethernet.dir\build.make CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.obj
 	$(MAKE) -f CMakeFiles\mega_w5100.dir\build.make CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_EthernetClient.dir\build.make CMakeFiles/mega_EthernetClient.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_util.dir\build.make CMakeFiles/mega_util.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_EthernetUdp.dir\build.make CMakeFiles/mega_EthernetUdp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_EthernetServer.dir\build.make CMakeFiles/mega_EthernetServer.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_socket.dir\build.make CMakeFiles/mega_socket.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.obj
 .PHONY : C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.obj
 
 C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.i: C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.i
@@ -1240,11 +1140,6 @@ C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.i:
 	$(MAKE) -f CMakeFiles\mega_Dhcp.dir\build.make CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.i
 	$(MAKE) -f CMakeFiles\mega_Ethernet.dir\build.make CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.i
 	$(MAKE) -f CMakeFiles\mega_w5100.dir\build.make CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.i
-	$(MAKE) -f CMakeFiles\mega_EthernetClient.dir\build.make CMakeFiles/mega_EthernetClient.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.i
-	$(MAKE) -f CMakeFiles\mega_util.dir\build.make CMakeFiles/mega_util.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.i
-	$(MAKE) -f CMakeFiles\mega_EthernetUdp.dir\build.make CMakeFiles/mega_EthernetUdp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.i
-	$(MAKE) -f CMakeFiles\mega_EthernetServer.dir\build.make CMakeFiles/mega_EthernetServer.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.i
-	$(MAKE) -f CMakeFiles\mega_socket.dir\build.make CMakeFiles/mega_socket.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.i
 .PHONY : C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.i
 
 C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.s: C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.s
@@ -1257,11 +1152,6 @@ C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.s:
 	$(MAKE) -f CMakeFiles\mega_Dhcp.dir\build.make CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.s
 	$(MAKE) -f CMakeFiles\mega_Ethernet.dir\build.make CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.s
 	$(MAKE) -f CMakeFiles\mega_w5100.dir\build.make CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.s
-	$(MAKE) -f CMakeFiles\mega_EthernetClient.dir\build.make CMakeFiles/mega_EthernetClient.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.s
-	$(MAKE) -f CMakeFiles\mega_util.dir\build.make CMakeFiles/mega_util.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.s
-	$(MAKE) -f CMakeFiles\mega_EthernetUdp.dir\build.make CMakeFiles/mega_EthernetUdp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.s
-	$(MAKE) -f CMakeFiles\mega_EthernetServer.dir\build.make CMakeFiles/mega_EthernetServer.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.s
-	$(MAKE) -f CMakeFiles\mega_socket.dir\build.make CMakeFiles/mega_socket.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.s
 .PHONY : C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp.s
 
 C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.obj: C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.obj
@@ -1274,11 +1164,6 @@ C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.obj:
 	$(MAKE) -f CMakeFiles\mega_Dhcp.dir\build.make CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.obj
 	$(MAKE) -f CMakeFiles\mega_Ethernet.dir\build.make CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.obj
 	$(MAKE) -f CMakeFiles\mega_w5100.dir\build.make CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_EthernetClient.dir\build.make CMakeFiles/mega_EthernetClient.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_util.dir\build.make CMakeFiles/mega_util.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_EthernetUdp.dir\build.make CMakeFiles/mega_EthernetUdp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_EthernetServer.dir\build.make CMakeFiles/mega_EthernetServer.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_socket.dir\build.make CMakeFiles/mega_socket.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.obj
 .PHONY : C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.obj
 
 C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.i: C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.i
@@ -1291,11 +1176,6 @@ C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.i:
 	$(MAKE) -f CMakeFiles\mega_Dhcp.dir\build.make CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.i
 	$(MAKE) -f CMakeFiles\mega_Ethernet.dir\build.make CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.i
 	$(MAKE) -f CMakeFiles\mega_w5100.dir\build.make CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.i
-	$(MAKE) -f CMakeFiles\mega_EthernetClient.dir\build.make CMakeFiles/mega_EthernetClient.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.i
-	$(MAKE) -f CMakeFiles\mega_util.dir\build.make CMakeFiles/mega_util.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.i
-	$(MAKE) -f CMakeFiles\mega_EthernetUdp.dir\build.make CMakeFiles/mega_EthernetUdp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.i
-	$(MAKE) -f CMakeFiles\mega_EthernetServer.dir\build.make CMakeFiles/mega_EthernetServer.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.i
-	$(MAKE) -f CMakeFiles\mega_socket.dir\build.make CMakeFiles/mega_socket.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.i
 .PHONY : C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.i
 
 C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.s: C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.s
@@ -1308,11 +1188,6 @@ C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.s:
 	$(MAKE) -f CMakeFiles\mega_Dhcp.dir\build.make CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.s
 	$(MAKE) -f CMakeFiles\mega_Ethernet.dir\build.make CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.s
 	$(MAKE) -f CMakeFiles\mega_w5100.dir\build.make CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.s
-	$(MAKE) -f CMakeFiles\mega_EthernetClient.dir\build.make CMakeFiles/mega_EthernetClient.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.s
-	$(MAKE) -f CMakeFiles\mega_util.dir\build.make CMakeFiles/mega_util.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.s
-	$(MAKE) -f CMakeFiles\mega_EthernetUdp.dir\build.make CMakeFiles/mega_EthernetUdp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.s
-	$(MAKE) -f CMakeFiles\mega_EthernetServer.dir\build.make CMakeFiles/mega_EthernetServer.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.s
-	$(MAKE) -f CMakeFiles\mega_socket.dir\build.make CMakeFiles/mega_socket.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.s
 .PHONY : C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp.s
 
 C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.obj: C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.obj
@@ -1325,11 +1200,6 @@ C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.obj:
 	$(MAKE) -f CMakeFiles\mega_Dhcp.dir\build.make CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.obj
 	$(MAKE) -f CMakeFiles\mega_Ethernet.dir\build.make CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.obj
 	$(MAKE) -f CMakeFiles\mega_w5100.dir\build.make CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_EthernetClient.dir\build.make CMakeFiles/mega_EthernetClient.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_util.dir\build.make CMakeFiles/mega_util.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_EthernetUdp.dir\build.make CMakeFiles/mega_EthernetUdp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_EthernetServer.dir\build.make CMakeFiles/mega_EthernetServer.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_socket.dir\build.make CMakeFiles/mega_socket.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.obj
 .PHONY : C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.obj
 
 C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.i: C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.i
@@ -1342,11 +1212,6 @@ C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.i:
 	$(MAKE) -f CMakeFiles\mega_Dhcp.dir\build.make CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.i
 	$(MAKE) -f CMakeFiles\mega_Ethernet.dir\build.make CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.i
 	$(MAKE) -f CMakeFiles\mega_w5100.dir\build.make CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.i
-	$(MAKE) -f CMakeFiles\mega_EthernetClient.dir\build.make CMakeFiles/mega_EthernetClient.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.i
-	$(MAKE) -f CMakeFiles\mega_util.dir\build.make CMakeFiles/mega_util.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.i
-	$(MAKE) -f CMakeFiles\mega_EthernetUdp.dir\build.make CMakeFiles/mega_EthernetUdp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.i
-	$(MAKE) -f CMakeFiles\mega_EthernetServer.dir\build.make CMakeFiles/mega_EthernetServer.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.i
-	$(MAKE) -f CMakeFiles\mega_socket.dir\build.make CMakeFiles/mega_socket.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.i
 .PHONY : C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.i
 
 C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.s: C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.s
@@ -1359,11 +1224,6 @@ C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.s:
 	$(MAKE) -f CMakeFiles\mega_Dhcp.dir\build.make CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.s
 	$(MAKE) -f CMakeFiles\mega_Ethernet.dir\build.make CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.s
 	$(MAKE) -f CMakeFiles\mega_w5100.dir\build.make CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.s
-	$(MAKE) -f CMakeFiles\mega_EthernetClient.dir\build.make CMakeFiles/mega_EthernetClient.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.s
-	$(MAKE) -f CMakeFiles\mega_util.dir\build.make CMakeFiles/mega_util.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.s
-	$(MAKE) -f CMakeFiles\mega_EthernetUdp.dir\build.make CMakeFiles/mega_EthernetUdp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.s
-	$(MAKE) -f CMakeFiles\mega_EthernetServer.dir\build.make CMakeFiles/mega_EthernetServer.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.s
-	$(MAKE) -f CMakeFiles\mega_socket.dir\build.make CMakeFiles/mega_socket.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.s
 .PHONY : C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp.s
 
 C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.obj: C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.obj
@@ -1376,11 +1236,6 @@ C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.obj:
 	$(MAKE) -f CMakeFiles\mega_Dhcp.dir\build.make CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.obj
 	$(MAKE) -f CMakeFiles\mega_Ethernet.dir\build.make CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.obj
 	$(MAKE) -f CMakeFiles\mega_w5100.dir\build.make CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_EthernetClient.dir\build.make CMakeFiles/mega_EthernetClient.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_util.dir\build.make CMakeFiles/mega_util.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_EthernetUdp.dir\build.make CMakeFiles/mega_EthernetUdp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_EthernetServer.dir\build.make CMakeFiles/mega_EthernetServer.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_socket.dir\build.make CMakeFiles/mega_socket.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.obj
 .PHONY : C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.obj
 
 C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.i: C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.i
@@ -1393,11 +1248,6 @@ C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.i:
 	$(MAKE) -f CMakeFiles\mega_Dhcp.dir\build.make CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.i
 	$(MAKE) -f CMakeFiles\mega_Ethernet.dir\build.make CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.i
 	$(MAKE) -f CMakeFiles\mega_w5100.dir\build.make CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.i
-	$(MAKE) -f CMakeFiles\mega_EthernetClient.dir\build.make CMakeFiles/mega_EthernetClient.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.i
-	$(MAKE) -f CMakeFiles\mega_util.dir\build.make CMakeFiles/mega_util.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.i
-	$(MAKE) -f CMakeFiles\mega_EthernetUdp.dir\build.make CMakeFiles/mega_EthernetUdp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.i
-	$(MAKE) -f CMakeFiles\mega_EthernetServer.dir\build.make CMakeFiles/mega_EthernetServer.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.i
-	$(MAKE) -f CMakeFiles\mega_socket.dir\build.make CMakeFiles/mega_socket.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.i
 .PHONY : C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.i
 
 C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.s: C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.s
@@ -1410,63 +1260,43 @@ C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.s:
 	$(MAKE) -f CMakeFiles\mega_Dhcp.dir\build.make CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.s
 	$(MAKE) -f CMakeFiles\mega_Ethernet.dir\build.make CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.s
 	$(MAKE) -f CMakeFiles\mega_w5100.dir\build.make CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.s
-	$(MAKE) -f CMakeFiles\mega_EthernetClient.dir\build.make CMakeFiles/mega_EthernetClient.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.s
-	$(MAKE) -f CMakeFiles\mega_util.dir\build.make CMakeFiles/mega_util.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.s
-	$(MAKE) -f CMakeFiles\mega_EthernetUdp.dir\build.make CMakeFiles/mega_EthernetUdp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.s
-	$(MAKE) -f CMakeFiles\mega_EthernetServer.dir\build.make CMakeFiles/mega_EthernetServer.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.s
-	$(MAKE) -f CMakeFiles\mega_socket.dir\build.make CMakeFiles/mega_socket.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.s
 .PHONY : C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp.s
 
-C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.obj: C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.obj
+C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.obj: C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.cpp.obj
 
-.PHONY : C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.obj
+.PHONY : C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.obj
 
 # target to build an object file
-C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.obj:
-	$(MAKE) -f CMakeFiles\mega_Dns.dir\build.make CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_Dhcp.dir\build.make CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_Ethernet.dir\build.make CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_w5100.dir\build.make CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_EthernetClient.dir\build.make CMakeFiles/mega_EthernetClient.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_util.dir\build.make CMakeFiles/mega_util.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_EthernetUdp.dir\build.make CMakeFiles/mega_EthernetUdp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_EthernetServer.dir\build.make CMakeFiles/mega_EthernetServer.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_socket.dir\build.make CMakeFiles/mega_socket.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.obj
-.PHONY : C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.obj
+C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.cpp.obj:
+	$(MAKE) -f CMakeFiles\mega_Dns.dir\build.make CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.cpp.obj
+	$(MAKE) -f CMakeFiles\mega_Dhcp.dir\build.make CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.cpp.obj
+	$(MAKE) -f CMakeFiles\mega_Ethernet.dir\build.make CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.cpp.obj
+	$(MAKE) -f CMakeFiles\mega_w5100.dir\build.make CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.cpp.obj
+.PHONY : C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.cpp.obj
 
-C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.i: C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.i
+C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.i: C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.cpp.i
 
-.PHONY : C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.i
+.PHONY : C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.i
 
 # target to preprocess a source file
-C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.i:
-	$(MAKE) -f CMakeFiles\mega_Dns.dir\build.make CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.i
-	$(MAKE) -f CMakeFiles\mega_Dhcp.dir\build.make CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.i
-	$(MAKE) -f CMakeFiles\mega_Ethernet.dir\build.make CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.i
-	$(MAKE) -f CMakeFiles\mega_w5100.dir\build.make CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.i
-	$(MAKE) -f CMakeFiles\mega_EthernetClient.dir\build.make CMakeFiles/mega_EthernetClient.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.i
-	$(MAKE) -f CMakeFiles\mega_util.dir\build.make CMakeFiles/mega_util.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.i
-	$(MAKE) -f CMakeFiles\mega_EthernetUdp.dir\build.make CMakeFiles/mega_EthernetUdp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.i
-	$(MAKE) -f CMakeFiles\mega_EthernetServer.dir\build.make CMakeFiles/mega_EthernetServer.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.i
-	$(MAKE) -f CMakeFiles\mega_socket.dir\build.make CMakeFiles/mega_socket.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.i
-.PHONY : C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.i
+C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.cpp.i:
+	$(MAKE) -f CMakeFiles\mega_Dns.dir\build.make CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.cpp.i
+	$(MAKE) -f CMakeFiles\mega_Dhcp.dir\build.make CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.cpp.i
+	$(MAKE) -f CMakeFiles\mega_Ethernet.dir\build.make CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.cpp.i
+	$(MAKE) -f CMakeFiles\mega_w5100.dir\build.make CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.cpp.i
+.PHONY : C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.cpp.i
 
-C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.s: C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.s
+C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.s: C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.cpp.s
 
-.PHONY : C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.s
+.PHONY : C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.s
 
 # target to generate assembly for a file
-C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.s:
-	$(MAKE) -f CMakeFiles\mega_Dns.dir\build.make CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.s
-	$(MAKE) -f CMakeFiles\mega_Dhcp.dir\build.make CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.s
-	$(MAKE) -f CMakeFiles\mega_Ethernet.dir\build.make CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.s
-	$(MAKE) -f CMakeFiles\mega_w5100.dir\build.make CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.s
-	$(MAKE) -f CMakeFiles\mega_EthernetClient.dir\build.make CMakeFiles/mega_EthernetClient.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.s
-	$(MAKE) -f CMakeFiles\mega_util.dir\build.make CMakeFiles/mega_util.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.s
-	$(MAKE) -f CMakeFiles\mega_EthernetUdp.dir\build.make CMakeFiles/mega_EthernetUdp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.s
-	$(MAKE) -f CMakeFiles\mega_EthernetServer.dir\build.make CMakeFiles/mega_EthernetServer.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.s
-	$(MAKE) -f CMakeFiles\mega_socket.dir\build.make CMakeFiles/mega_socket.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.s
-.PHONY : C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp.s
+C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.cpp.s:
+	$(MAKE) -f CMakeFiles\mega_Dns.dir\build.make CMakeFiles/mega_Dns.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.cpp.s
+	$(MAKE) -f CMakeFiles\mega_Dhcp.dir\build.make CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.cpp.s
+	$(MAKE) -f CMakeFiles\mega_Ethernet.dir\build.make CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.cpp.s
+	$(MAKE) -f CMakeFiles\mega_w5100.dir\build.make CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.cpp.s
+.PHONY : C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.cpp.s
 
 C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.obj: C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.obj
 
@@ -1478,11 +1308,6 @@ C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.obj:
 	$(MAKE) -f CMakeFiles\mega_Dhcp.dir\build.make CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.obj
 	$(MAKE) -f CMakeFiles\mega_Ethernet.dir\build.make CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.obj
 	$(MAKE) -f CMakeFiles\mega_w5100.dir\build.make CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_EthernetClient.dir\build.make CMakeFiles/mega_EthernetClient.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_util.dir\build.make CMakeFiles/mega_util.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_EthernetUdp.dir\build.make CMakeFiles/mega_EthernetUdp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_EthernetServer.dir\build.make CMakeFiles/mega_EthernetServer.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.obj
-	$(MAKE) -f CMakeFiles\mega_socket.dir\build.make CMakeFiles/mega_socket.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.obj
 .PHONY : C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.obj
 
 C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.i: C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.i
@@ -1495,11 +1320,6 @@ C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.i:
 	$(MAKE) -f CMakeFiles\mega_Dhcp.dir\build.make CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.i
 	$(MAKE) -f CMakeFiles\mega_Ethernet.dir\build.make CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.i
 	$(MAKE) -f CMakeFiles\mega_w5100.dir\build.make CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.i
-	$(MAKE) -f CMakeFiles\mega_EthernetClient.dir\build.make CMakeFiles/mega_EthernetClient.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.i
-	$(MAKE) -f CMakeFiles\mega_util.dir\build.make CMakeFiles/mega_util.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.i
-	$(MAKE) -f CMakeFiles\mega_EthernetUdp.dir\build.make CMakeFiles/mega_EthernetUdp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.i
-	$(MAKE) -f CMakeFiles\mega_EthernetServer.dir\build.make CMakeFiles/mega_EthernetServer.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.i
-	$(MAKE) -f CMakeFiles\mega_socket.dir\build.make CMakeFiles/mega_socket.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.i
 .PHONY : C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.i
 
 C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.s: C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.s
@@ -1512,11 +1332,6 @@ C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.s:
 	$(MAKE) -f CMakeFiles\mega_Dhcp.dir\build.make CMakeFiles/mega_Dhcp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.s
 	$(MAKE) -f CMakeFiles\mega_Ethernet.dir\build.make CMakeFiles/mega_Ethernet.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.s
 	$(MAKE) -f CMakeFiles\mega_w5100.dir\build.make CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.s
-	$(MAKE) -f CMakeFiles\mega_EthernetClient.dir\build.make CMakeFiles/mega_EthernetClient.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.s
-	$(MAKE) -f CMakeFiles\mega_util.dir\build.make CMakeFiles/mega_util.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.s
-	$(MAKE) -f CMakeFiles\mega_EthernetUdp.dir\build.make CMakeFiles/mega_EthernetUdp.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.s
-	$(MAKE) -f CMakeFiles\mega_EthernetServer.dir\build.make CMakeFiles/mega_EthernetServer.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.s
-	$(MAKE) -f CMakeFiles\mega_socket.dir\build.make CMakeFiles/mega_socket.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.s
 .PHONY : C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.s
 
 C_/Program_Files_(x86)/Arduino/libraries/SD/src/File.obj: C_/Program_Files_(x86)/Arduino/libraries/SD/src/File.cpp.obj
@@ -1717,22 +1532,17 @@ help:
 	@echo ... all (the default if no target is provided)
 	@echo ... clean
 	@echo ... depend
+	@echo ... mega_QueueList
 	@echo ... mega_Dns
 	@echo ... mega_SD
 	@echo ... mega_Dhcp
 	@echo ... mega_CORE
 	@echo ... mega_Ethernet
 	@echo ... mega_w5100
-	@echo ... mega_EthernetClient
-	@echo ... mega_util
 	@echo ... eth-size
 	@echo ... mega_SPI
-	@echo ... mega_EthernetUdp
-	@echo ... mega_EthernetServer
-	@echo ... mega_socket
 	@echo ... mega_DFPlayer_Mini_Mp3
 	@echo ... mega_SoftwareSerial
-	@echo ... mega_QueueList
 	@echo ... mega_SdFat
 	@echo ... mega_SdFatUtil
 	@echo ... eth
@@ -1839,9 +1649,9 @@ help:
 	@echo ... C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.obj
 	@echo ... C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.i
 	@echo ... C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/EthernetUdp.s
-	@echo ... C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.obj
-	@echo ... C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.i
-	@echo ... C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/socket.s
+	@echo ... C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.obj
+	@echo ... C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.i
+	@echo ... C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/socket.s
 	@echo ... C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.obj
 	@echo ... C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.i
 	@echo ... C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.s

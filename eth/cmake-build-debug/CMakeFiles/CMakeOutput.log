@@ -11,7 +11,7 @@ The output was:
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
 
-The C compiler identification is GNU, found in "D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/3.12.0/CompilerIdC/a.out"
+The C compiler identification is GNU, found in "E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/3.12.0/CompilerIdC/a.out"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
 Compiler: C:/Program Files (x86)/Arduino/hardware/tools/avr/bin/avr-g++.exe 
@@ -24,235 +24,237 @@ The output was:
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
 
-The CXX compiler identification is GNU, found in "D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/3.12.0/CompilerIdCXX/a.out"
+The CXX compiler identification is GNU, found in "E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/3.12.0/CompilerIdCXX/a.out"
 
 Determining if the C compiler works passed with the following output:
-Change Dir: D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:/mingw/bin/mingw32-make.exe" "cmTC_fd7c1/fast"
-D:/mingw/bin/mingw32-make.exe -f CMakeFiles\cmTC_fd7c1.dir\build.make CMakeFiles/cmTC_fd7c1.dir/build
-mingw32-make.exe[1]: Entering directory 'D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_fd7c1.dir/testCCompiler.c.obj
-C:\PROGRA~2\Arduino\hardware\tools\avr\bin\avr-gcc.exe   -g -Os -w -ffunction-sections -fdata-sections -MMD    -o CMakeFiles\cmTC_fd7c1.dir\testCCompiler.c.obj   -c D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles\CMakeTmp\testCCompiler.c
-Linking C executable cmTC_fd7c1
-"C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_fd7c1.dir\link.txt --verbose=1
-C:\PROGRA~2\Arduino\hardware\tools\avr\bin\avr-gcc.exe -g -Os -w -ffunction-sections -fdata-sections -MMD   -w -Os -Wl,--gc-sections  CMakeFiles/cmTC_fd7c1.dir/testCCompiler.c.obj  -o cmTC_fd7c1 
-mingw32-make.exe[1]: Leaving directory 'D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command:"E:/MinGW/bin/mingw32-make.exe" "cmTC_e5beb/fast"
+E:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_e5beb.dir\build.make CMakeFiles/cmTC_e5beb.dir/build
+mingw32-make.exe[1]: Entering directory 'E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e5beb.dir/testCCompiler.c.obj
+C:\PROGRA~2\Arduino\hardware\tools\avr\bin\avr-gcc.exe   -g -Os -w -ffunction-sections -fdata-sections -MMD    -o CMakeFiles\cmTC_e5beb.dir\testCCompiler.c.obj   -c E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles\CMakeTmp\testCCompiler.c
+Linking C executable cmTC_e5beb
+"C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_e5beb.dir\link.txt --verbose=1
+C:\PROGRA~2\Arduino\hardware\tools\avr\bin\avr-gcc.exe -g -Os -w -ffunction-sections -fdata-sections -MMD   -w -Os -Wl,--gc-sections  CMakeFiles/cmTC_e5beb.dir/testCCompiler.c.obj  -o cmTC_e5beb 
+mingw32-make.exe[1]: Leaving directory 'E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:/mingw/bin/mingw32-make.exe" "cmTC_e020c/fast"
-D:/mingw/bin/mingw32-make.exe -f CMakeFiles\cmTC_e020c.dir\build.make CMakeFiles/cmTC_e020c.dir/build
-mingw32-make.exe[1]: Entering directory 'D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_e020c.dir/CMakeCCompilerABI.c.obj
-C:\PROGRA~2\Arduino\hardware\tools\avr\bin\avr-gcc.exe   -g -Os -w -ffunction-sections -fdata-sections -MMD    -o CMakeFiles\cmTC_e020c.dir\CMakeCCompilerABI.c.obj   -c "C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\share\cmake-3.12\Modules\CMakeCCompilerABI.c"
-Linking C executable cmTC_e020c
-"C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_e020c.dir\link.txt --verbose=1
-C:\PROGRA~2\Arduino\hardware\tools\avr\bin\avr-gcc.exe -g -Os -w -ffunction-sections -fdata-sections -MMD   -w -Os -Wl,--gc-sections -v CMakeFiles/cmTC_e020c.dir/CMakeCCompilerABI.c.obj  -o cmTC_e020c 
+Run Build Command:"E:/MinGW/bin/mingw32-make.exe" "cmTC_b5ee6/fast"
+E:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_b5ee6.dir\build.make CMakeFiles/cmTC_b5ee6.dir/build
+mingw32-make.exe[1]: Entering directory 'E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b5ee6.dir/CMakeCCompilerABI.c.obj
+C:\PROGRA~2\Arduino\hardware\tools\avr\bin\avr-gcc.exe   -g -Os -w -ffunction-sections -fdata-sections -MMD    -o CMakeFiles\cmTC_b5ee6.dir\CMakeCCompilerABI.c.obj   -c "C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\share\cmake-3.12\Modules\CMakeCCompilerABI.c"
+Linking C executable cmTC_b5ee6
+"C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_b5ee6.dir\link.txt --verbose=1
+C:\PROGRA~2\Arduino\hardware\tools\avr\bin\avr-gcc.exe -g -Os -w -ffunction-sections -fdata-sections -MMD   -w -Os -Wl,--gc-sections -v CMakeFiles/cmTC_b5ee6.dir/CMakeCCompilerABI.c.obj  -o cmTC_b5ee6 
 Using built-in specs.
-Reading specs from c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/device-specs/specs-avr2
+Reading specs from c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0/device-specs/specs-avr2
 COLLECT_GCC=C:\PROGRA~2\Arduino\hardware\tools\avr\bin\avr-gcc.exe
-COLLECT_LTO_WRAPPER=c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/4.9.2/lto-wrapper.exe
+COLLECT_LTO_WRAPPER=c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/5.4.0/lto-wrapper.exe
 Target: avr
-Configured with: ../gcc/configure --enable-fixed-point --enable-languages=c,c++ --prefix=/c/jenkins/workspace/avr-gcc/label/winxp-32-mingw/objdir --enable-long-long --disable-nls --disable-checking --disable-libssp --disable-libada --disable-shared --enable-lto --with-avrlibc=yes --with-dwarf2 --disable-doc --target=avr
+Configured with: ../gcc/configure --enable-fixed-point --enable-languages=c,c++ --prefix=/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/objdir --disable-nls --disable-libssp --disable-libada --disable-shared --with-avrlibc=yes --with-dwarf2 --disable-doc --target=avr --host=i686-w64-mingw32
 Thread model: single
-gcc version 4.9.2 (GCC) 
-COMPILER_PATH=c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/4.9.2/;c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/;c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/bin/
-LIBRARY_PATH=c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/;c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/;c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/
-COLLECT_GCC_OPTIONS='-g' '-Os' '-w' '-ffunction-sections' '-fdata-sections' '-MMD' '-w' '-Os' '-v' '-o' 'cmTC_e020c' '-specs=device-specs/specs-avr2'
- c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/4.9.2/collect2.exe -plugin c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/4.9.2/liblto_plugin-0.dll -plugin-opt=c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/4.9.2/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\DMITRY~1\AppData\Local\Temp\cc4tG6ex.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lc -o cmTC_e020c -Lc:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2 -Lc:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc -Lc:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib --gc-sections CMakeFiles/cmTC_e020c.dir/CMakeCCompilerABI.c.obj --start-group -lgcc -lm -lc --end-group
-mingw32-make.exe[1]: Leaving directory 'D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
+gcc version 5.4.0 (GCC) 
+COMPILER_PATH=c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/5.4.0/;c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/;c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/bin/
+LIBRARY_PATH=c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0/;c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/;c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/
+COLLECT_GCC_OPTIONS='-g' '-Os' '-w' '-ffunction-sections' '-fdata-sections' '-MMD' '-w' '-Os' '-v' '-o' 'cmTC_b5ee6' '-specs=device-specs/specs-avr2'
+ c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/5.4.0/collect2.exe -plugin c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/5.4.0/liblto_plugin-0.dll -plugin-opt=c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/5.4.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\gamiy\AppData\Local\Temp\ccyxCB9D.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lc --pmem-wrap-around=8k -o cmTC_b5ee6 -Lc:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0 -Lc:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc -Lc:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib --gc-sections CMakeFiles/cmTC_b5ee6.dir/CMakeCCompilerABI.c.obj --start-group -lgcc -lm -lc --end-group
+mingw32-make.exe[1]: Leaving directory 'E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(avr-ld\.exe|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"D:/mingw/bin/mingw32-make.exe" "cmTC_e020c/fast"]
-  ignore line: [D:/mingw/bin/mingw32-make.exe -f CMakeFiles\cmTC_e020c.dir\build.make CMakeFiles/cmTC_e020c.dir/build]
-  ignore line: [mingw32-make.exe[1]: Entering directory 'D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_e020c.dir/CMakeCCompilerABI.c.obj]
-  ignore line: [C:\PROGRA~2\Arduino\hardware\tools\avr\bin\avr-gcc.exe   -g -Os -w -ffunction-sections -fdata-sections -MMD    -o CMakeFiles\cmTC_e020c.dir\CMakeCCompilerABI.c.obj   -c "C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\share\cmake-3.12\Modules\CMakeCCompilerABI.c"]
-  ignore line: [Linking C executable cmTC_e020c]
-  ignore line: ["C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_e020c.dir\link.txt --verbose=1]
-  ignore line: [C:\PROGRA~2\Arduino\hardware\tools\avr\bin\avr-gcc.exe -g -Os -w -ffunction-sections -fdata-sections -MMD   -w -Os -Wl,--gc-sections -v CMakeFiles/cmTC_e020c.dir/CMakeCCompilerABI.c.obj  -o cmTC_e020c ]
+  ignore line: [Run Build Command:"E:/MinGW/bin/mingw32-make.exe" "cmTC_b5ee6/fast"]
+  ignore line: [E:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_b5ee6.dir\build.make CMakeFiles/cmTC_b5ee6.dir/build]
+  ignore line: [mingw32-make.exe[1]: Entering directory 'E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_b5ee6.dir/CMakeCCompilerABI.c.obj]
+  ignore line: [C:\PROGRA~2\Arduino\hardware\tools\avr\bin\avr-gcc.exe   -g -Os -w -ffunction-sections -fdata-sections -MMD    -o CMakeFiles\cmTC_b5ee6.dir\CMakeCCompilerABI.c.obj   -c "C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\share\cmake-3.12\Modules\CMakeCCompilerABI.c"]
+  ignore line: [Linking C executable cmTC_b5ee6]
+  ignore line: ["C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_b5ee6.dir\link.txt --verbose=1]
+  ignore line: [C:\PROGRA~2\Arduino\hardware\tools\avr\bin\avr-gcc.exe -g -Os -w -ffunction-sections -fdata-sections -MMD   -w -Os -Wl,--gc-sections -v CMakeFiles/cmTC_b5ee6.dir/CMakeCCompilerABI.c.obj  -o cmTC_b5ee6 ]
   ignore line: [Using built-in specs.]
-  ignore line: [Reading specs from c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/device-specs/specs-avr2]
+  ignore line: [Reading specs from c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0/device-specs/specs-avr2]
   ignore line: [COLLECT_GCC=C:\PROGRA~2\Arduino\hardware\tools\avr\bin\avr-gcc.exe]
-  ignore line: [COLLECT_LTO_WRAPPER=c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/4.9.2/lto-wrapper.exe]
+  ignore line: [COLLECT_LTO_WRAPPER=c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/5.4.0/lto-wrapper.exe]
   ignore line: [Target: avr]
-  ignore line: [Configured with: ../gcc/configure --enable-fixed-point --enable-languages=c,c++ --prefix=/c/jenkins/workspace/avr-gcc/label/winxp-32-mingw/objdir --enable-long-long --disable-nls --disable-checking --disable-libssp --disable-libada --disable-shared --enable-lto --with-avrlibc=yes --with-dwarf2 --disable-doc --target=avr]
+  ignore line: [Configured with: ../gcc/configure --enable-fixed-point --enable-languages=c,c++ --prefix=/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/objdir --disable-nls --disable-libssp --disable-libada --disable-shared --with-avrlibc=yes --with-dwarf2 --disable-doc --target=avr --host=i686-w64-mingw32]
   ignore line: [Thread model: single]
-  ignore line: [gcc version 4.9.2 (GCC) ]
-  ignore line: [COMPILER_PATH=c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/4.9.2/]
+  ignore line: [gcc version 5.4.0 (GCC) ]
+  ignore line: [COMPILER_PATH=c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/5.4.0/]
   ignore line: [c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/]
-  ignore line: [c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/bin/]
-  ignore line: [LIBRARY_PATH=c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/]
+  ignore line: [c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/bin/]
+  ignore line: [LIBRARY_PATH=c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0/]
   ignore line: [c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/]
-  ignore line: [c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-g' '-Os' '-w' '-ffunction-sections' '-fdata-sections' '-MMD' '-w' '-Os' '-v' '-o' 'cmTC_e020c' '-specs=device-specs/specs-avr2']
-  link line: [ c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/4.9.2/collect2.exe -plugin c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/4.9.2/liblto_plugin-0.dll -plugin-opt=c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/4.9.2/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\DMITRY~1\AppData\Local\Temp\cc4tG6ex.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lc -o cmTC_e020c -Lc:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2 -Lc:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc -Lc:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib --gc-sections CMakeFiles/cmTC_e020c.dir/CMakeCCompilerABI.c.obj --start-group -lgcc -lm -lc --end-group]
-    arg [c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/4.9.2/collect2.exe] ==> ignore
+  ignore line: [c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-g' '-Os' '-w' '-ffunction-sections' '-fdata-sections' '-MMD' '-w' '-Os' '-v' '-o' 'cmTC_b5ee6' '-specs=device-specs/specs-avr2']
+  link line: [ c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/5.4.0/collect2.exe -plugin c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/5.4.0/liblto_plugin-0.dll -plugin-opt=c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/5.4.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\gamiy\AppData\Local\Temp\ccyxCB9D.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lc --pmem-wrap-around=8k -o cmTC_b5ee6 -Lc:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0 -Lc:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc -Lc:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib --gc-sections CMakeFiles/cmTC_b5ee6.dir/CMakeCCompilerABI.c.obj --start-group -lgcc -lm -lc --end-group]
+    arg [c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/5.4.0/collect2.exe] ==> ignore
     arg [-plugin] ==> ignore
-    arg [c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/4.9.2/liblto_plugin-0.dll] ==> ignore
-    arg [-plugin-opt=c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/4.9.2/lto-wrapper.exe] ==> ignore
-    arg [-plugin-opt=-fresolution=C:\Users\DMITRY~1\AppData\Local\Temp\cc4tG6ex.res] ==> ignore
+    arg [c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/5.4.0/liblto_plugin-0.dll] ==> ignore
+    arg [-plugin-opt=c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/5.4.0/lto-wrapper.exe] ==> ignore
+    arg [-plugin-opt=-fresolution=C:\Users\gamiy\AppData\Local\Temp\ccyxCB9D.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lm] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [--pmem-wrap-around=8k] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_e020c] ==> ignore
-    arg [-Lc:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2] ==> dir [c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2]
+    arg [cmTC_b5ee6] ==> ignore
+    arg [-Lc:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0] ==> dir [c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0]
     arg [-Lc:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc] ==> dir [c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc]
-    arg [-Lc:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib] ==> dir [c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib]
+    arg [-Lc:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib] ==> dir [c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib]
     arg [--gc-sections] ==> ignore
-    arg [CMakeFiles/cmTC_e020c.dir/CMakeCCompilerABI.c.obj] ==> ignore
+    arg [CMakeFiles/cmTC_b5ee6.dir/CMakeCCompilerABI.c.obj] ==> ignore
     arg [--start-group] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [-lm] ==> lib [m]
     arg [-lc] ==> lib [c]
     arg [--end-group] ==> ignore
-  collapse library dir [c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2] ==> [C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.9.2]
+  collapse library dir [c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0] ==> [C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/5.4.0]
   collapse library dir [c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc] ==> [C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc]
-  collapse library dir [c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib] ==> [C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/lib]
+  collapse library dir [c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib] ==> [C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/lib]
   implicit libs: [gcc;m;c]
-  implicit dirs: [C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.9.2;C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc;C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/lib]
+  implicit dirs: [C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/5.4.0;C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc;C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/lib]
   implicit fwks: []
 
 
 
 
 Detecting C [-std=c11] compiler features compiled with the following output:
-Change Dir: D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:/mingw/bin/mingw32-make.exe" "cmTC_ad359/fast"
-D:/mingw/bin/mingw32-make.exe -f CMakeFiles\cmTC_ad359.dir\build.make CMakeFiles/cmTC_ad359.dir/build
-mingw32-make.exe[1]: Entering directory 'D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_ad359.dir/feature_tests.c.obj
-C:\PROGRA~2\Arduino\hardware\tools\avr\bin\avr-gcc.exe   -g -Os -w -ffunction-sections -fdata-sections -MMD    -std=c11 -o CMakeFiles\cmTC_ad359.dir\feature_tests.c.obj   -c D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles\feature_tests.c
-Linking C executable cmTC_ad359
-"C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_ad359.dir\link.txt --verbose=1
-C:\PROGRA~2\Arduino\hardware\tools\avr\bin\avr-gcc.exe -g -Os -w -ffunction-sections -fdata-sections -MMD   -w -Os -Wl,--gc-sections  CMakeFiles/cmTC_ad359.dir/feature_tests.c.obj  -o cmTC_ad359 
-mingw32-make.exe[1]: Leaving directory 'D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command:"E:/MinGW/bin/mingw32-make.exe" "cmTC_5cba6/fast"
+E:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_5cba6.dir\build.make CMakeFiles/cmTC_5cba6.dir/build
+mingw32-make.exe[1]: Entering directory 'E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5cba6.dir/feature_tests.c.obj
+C:\PROGRA~2\Arduino\hardware\tools\avr\bin\avr-gcc.exe   -g -Os -w -ffunction-sections -fdata-sections -MMD    -std=c11 -o CMakeFiles\cmTC_5cba6.dir\feature_tests.c.obj   -c E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles\feature_tests.c
+Linking C executable cmTC_5cba6
+"C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_5cba6.dir\link.txt --verbose=1
+C:\PROGRA~2\Arduino\hardware\tools\avr\bin\avr-gcc.exe -g -Os -w -ffunction-sections -fdata-sections -MMD   -w -Os -Wl,--gc-sections  CMakeFiles/cmTC_5cba6.dir/feature_tests.c.obj  -o cmTC_5cba6 
+mingw32-make.exe[1]: Leaving directory 'E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
 
 
 Detecting C [-std=c99] compiler features compiled with the following output:
-Change Dir: D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:/mingw/bin/mingw32-make.exe" "cmTC_146ae/fast"
-D:/mingw/bin/mingw32-make.exe -f CMakeFiles\cmTC_146ae.dir\build.make CMakeFiles/cmTC_146ae.dir/build
-mingw32-make.exe[1]: Entering directory 'D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_146ae.dir/feature_tests.c.obj
-C:\PROGRA~2\Arduino\hardware\tools\avr\bin\avr-gcc.exe   -g -Os -w -ffunction-sections -fdata-sections -MMD    -std=c99 -o CMakeFiles\cmTC_146ae.dir\feature_tests.c.obj   -c D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles\feature_tests.c
-Linking C executable cmTC_146ae
-"C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_146ae.dir\link.txt --verbose=1
-C:\PROGRA~2\Arduino\hardware\tools\avr\bin\avr-gcc.exe -g -Os -w -ffunction-sections -fdata-sections -MMD   -w -Os -Wl,--gc-sections  CMakeFiles/cmTC_146ae.dir/feature_tests.c.obj  -o cmTC_146ae 
-mingw32-make.exe[1]: Leaving directory 'D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command:"E:/MinGW/bin/mingw32-make.exe" "cmTC_62807/fast"
+E:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_62807.dir\build.make CMakeFiles/cmTC_62807.dir/build
+mingw32-make.exe[1]: Entering directory 'E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_62807.dir/feature_tests.c.obj
+C:\PROGRA~2\Arduino\hardware\tools\avr\bin\avr-gcc.exe   -g -Os -w -ffunction-sections -fdata-sections -MMD    -std=c99 -o CMakeFiles\cmTC_62807.dir\feature_tests.c.obj   -c E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles\feature_tests.c
+Linking C executable cmTC_62807
+"C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_62807.dir\link.txt --verbose=1
+C:\PROGRA~2\Arduino\hardware\tools\avr\bin\avr-gcc.exe -g -Os -w -ffunction-sections -fdata-sections -MMD   -w -Os -Wl,--gc-sections  CMakeFiles/cmTC_62807.dir/feature_tests.c.obj  -o cmTC_62807 
+mingw32-make.exe[1]: Leaving directory 'E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
 
 
 Detecting C [-std=c90] compiler features compiled with the following output:
-Change Dir: D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:/mingw/bin/mingw32-make.exe" "cmTC_62ec4/fast"
-D:/mingw/bin/mingw32-make.exe -f CMakeFiles\cmTC_62ec4.dir\build.make CMakeFiles/cmTC_62ec4.dir/build
-mingw32-make.exe[1]: Entering directory 'D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_62ec4.dir/feature_tests.c.obj
-C:\PROGRA~2\Arduino\hardware\tools\avr\bin\avr-gcc.exe   -g -Os -w -ffunction-sections -fdata-sections -MMD    -std=c90 -o CMakeFiles\cmTC_62ec4.dir\feature_tests.c.obj   -c D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles\feature_tests.c
-Linking C executable cmTC_62ec4
-"C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_62ec4.dir\link.txt --verbose=1
-C:\PROGRA~2\Arduino\hardware\tools\avr\bin\avr-gcc.exe -g -Os -w -ffunction-sections -fdata-sections -MMD   -w -Os -Wl,--gc-sections  CMakeFiles/cmTC_62ec4.dir/feature_tests.c.obj  -o cmTC_62ec4 
-mingw32-make.exe[1]: Leaving directory 'D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command:"E:/MinGW/bin/mingw32-make.exe" "cmTC_91d65/fast"
+E:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_91d65.dir\build.make CMakeFiles/cmTC_91d65.dir/build
+mingw32-make.exe[1]: Entering directory 'E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_91d65.dir/feature_tests.c.obj
+C:\PROGRA~2\Arduino\hardware\tools\avr\bin\avr-gcc.exe   -g -Os -w -ffunction-sections -fdata-sections -MMD    -std=c90 -o CMakeFiles\cmTC_91d65.dir\feature_tests.c.obj   -c E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles\feature_tests.c
+Linking C executable cmTC_91d65
+"C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_91d65.dir\link.txt --verbose=1
+C:\PROGRA~2\Arduino\hardware\tools\avr\bin\avr-gcc.exe -g -Os -w -ffunction-sections -fdata-sections -MMD   -w -Os -Wl,--gc-sections  CMakeFiles/cmTC_91d65.dir/feature_tests.c.obj  -o cmTC_91d65 
+mingw32-make.exe[1]: Leaving directory 'E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
 Determining if the CXX compiler works passed with the following output:
-Change Dir: D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:/mingw/bin/mingw32-make.exe" "cmTC_0a2b6/fast"
-D:/mingw/bin/mingw32-make.exe -f CMakeFiles\cmTC_0a2b6.dir\build.make CMakeFiles/cmTC_0a2b6.dir/build
-mingw32-make.exe[1]: Entering directory 'D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_0a2b6.dir/testCXXCompiler.cxx.obj
-C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE    -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD    -o CMakeFiles\cmTC_0a2b6.dir\testCXXCompiler.cxx.obj -c D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles\CMakeTmp\testCXXCompiler.cxx
-Linking CXX executable cmTC_0a2b6
-"C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_0a2b6.dir\link.txt --verbose=1
-C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD   -w -Os -Wl,--gc-sections  CMakeFiles/cmTC_0a2b6.dir/testCXXCompiler.cxx.obj  -o cmTC_0a2b6 
-mingw32-make.exe[1]: Leaving directory 'D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command:"E:/MinGW/bin/mingw32-make.exe" "cmTC_04a63/fast"
+E:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_04a63.dir\build.make CMakeFiles/cmTC_04a63.dir/build
+mingw32-make.exe[1]: Entering directory 'E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_04a63.dir/testCXXCompiler.cxx.obj
+C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE    -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD    -o CMakeFiles\cmTC_04a63.dir\testCXXCompiler.cxx.obj -c E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles\CMakeTmp\testCXXCompiler.cxx
+Linking CXX executable cmTC_04a63
+"C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_04a63.dir\link.txt --verbose=1
+C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD   -w -Os -Wl,--gc-sections  CMakeFiles/cmTC_04a63.dir/testCXXCompiler.cxx.obj  -o cmTC_04a63 
+mingw32-make.exe[1]: Leaving directory 'E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:/mingw/bin/mingw32-make.exe" "cmTC_4eef4/fast"
-D:/mingw/bin/mingw32-make.exe -f CMakeFiles\cmTC_4eef4.dir\build.make CMakeFiles/cmTC_4eef4.dir/build
-mingw32-make.exe[1]: Entering directory 'D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_4eef4.dir/CMakeCXXCompilerABI.cpp.obj
-C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE    -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD    -o CMakeFiles\cmTC_4eef4.dir\CMakeCXXCompilerABI.cpp.obj -c "C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\share\cmake-3.12\Modules\CMakeCXXCompilerABI.cpp"
-Linking CXX executable cmTC_4eef4
-"C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_4eef4.dir\link.txt --verbose=1
-C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD   -w -Os -Wl,--gc-sections -v CMakeFiles/cmTC_4eef4.dir/CMakeCXXCompilerABI.cpp.obj  -o cmTC_4eef4 
+Run Build Command:"E:/MinGW/bin/mingw32-make.exe" "cmTC_53a83/fast"
+E:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_53a83.dir\build.make CMakeFiles/cmTC_53a83.dir/build
+mingw32-make.exe[1]: Entering directory 'E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_53a83.dir/CMakeCXXCompilerABI.cpp.obj
+C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE    -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD    -o CMakeFiles\cmTC_53a83.dir\CMakeCXXCompilerABI.cpp.obj -c "C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\share\cmake-3.12\Modules\CMakeCXXCompilerABI.cpp"
+Linking CXX executable cmTC_53a83
+"C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_53a83.dir\link.txt --verbose=1
+C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD   -w -Os -Wl,--gc-sections -v CMakeFiles/cmTC_53a83.dir/CMakeCXXCompilerABI.cpp.obj  -o cmTC_53a83 
 Using built-in specs.
-Reading specs from c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/device-specs/specs-avr2
+Reading specs from c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0/device-specs/specs-avr2
 COLLECT_GCC=C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE
-COLLECT_LTO_WRAPPER=c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/4.9.2/lto-wrapper.exe
+COLLECT_LTO_WRAPPER=c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/5.4.0/lto-wrapper.exe
 Target: avr
-Configured with: ../gcc/configure --enable-fixed-point --enable-languages=c,c++ --prefix=/c/jenkins/workspace/avr-gcc/label/winxp-32-mingw/objdir --enable-long-long --disable-nls --disable-checking --disable-libssp --disable-libada --disable-shared --enable-lto --with-avrlibc=yes --with-dwarf2 --disable-doc --target=avr
+Configured with: ../gcc/configure --enable-fixed-point --enable-languages=c,c++ --prefix=/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/objdir --disable-nls --disable-libssp --disable-libada --disable-shared --with-avrlibc=yes --with-dwarf2 --disable-doc --target=avr --host=i686-w64-mingw32
 Thread model: single
-gcc version 4.9.2 (GCC) 
-COMPILER_PATH=c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/4.9.2/;c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/;c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/bin/
-LIBRARY_PATH=c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/;c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/;c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/
-COLLECT_GCC_OPTIONS='-g' '-Os' '-w' '-fno-exceptions' '-ffunction-sections' '-fdata-sections' '-fno-threadsafe-statics' '-MMD' '-w' '-Os' '-v' '-o' 'cmTC_4eef4' '-specs=device-specs/specs-avr2'
- c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/4.9.2/collect2.exe -plugin c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/4.9.2/liblto_plugin-0.dll -plugin-opt=c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/4.9.2/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\DMITRY~1\AppData\Local\Temp\ccmhCHmB.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lc -o cmTC_4eef4 -Lc:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2 -Lc:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc -Lc:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib --gc-sections CMakeFiles/cmTC_4eef4.dir/CMakeCXXCompilerABI.cpp.obj -lgcc -lm --start-group -lgcc -lm -lc --end-group
-mingw32-make.exe[1]: Leaving directory 'D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
+gcc version 5.4.0 (GCC) 
+COMPILER_PATH=c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/5.4.0/;c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/;c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/bin/
+LIBRARY_PATH=c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0/;c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/;c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/
+COLLECT_GCC_OPTIONS='-g' '-Os' '-w' '-fno-exceptions' '-ffunction-sections' '-fdata-sections' '-fno-threadsafe-statics' '-MMD' '-w' '-Os' '-v' '-o' 'cmTC_53a83' '-specs=device-specs/specs-avr2'
+ c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/5.4.0/collect2.exe -plugin c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/5.4.0/liblto_plugin-0.dll -plugin-opt=c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/5.4.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\gamiy\AppData\Local\Temp\cc1nvZ81.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lc --pmem-wrap-around=8k -o cmTC_53a83 -Lc:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0 -Lc:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc -Lc:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib --gc-sections CMakeFiles/cmTC_53a83.dir/CMakeCXXCompilerABI.cpp.obj -lgcc -lm --start-group -lgcc -lm -lc --end-group
+mingw32-make.exe[1]: Leaving directory 'E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(avr-ld\.exe|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"D:/mingw/bin/mingw32-make.exe" "cmTC_4eef4/fast"]
-  ignore line: [D:/mingw/bin/mingw32-make.exe -f CMakeFiles\cmTC_4eef4.dir\build.make CMakeFiles/cmTC_4eef4.dir/build]
-  ignore line: [mingw32-make.exe[1]: Entering directory 'D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_4eef4.dir/CMakeCXXCompilerABI.cpp.obj]
-  ignore line: [C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE    -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD    -o CMakeFiles\cmTC_4eef4.dir\CMakeCXXCompilerABI.cpp.obj -c "C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\share\cmake-3.12\Modules\CMakeCXXCompilerABI.cpp"]
-  ignore line: [Linking CXX executable cmTC_4eef4]
-  ignore line: ["C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_4eef4.dir\link.txt --verbose=1]
-  ignore line: [C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD   -w -Os -Wl,--gc-sections -v CMakeFiles/cmTC_4eef4.dir/CMakeCXXCompilerABI.cpp.obj  -o cmTC_4eef4 ]
+  ignore line: [Run Build Command:"E:/MinGW/bin/mingw32-make.exe" "cmTC_53a83/fast"]
+  ignore line: [E:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_53a83.dir\build.make CMakeFiles/cmTC_53a83.dir/build]
+  ignore line: [mingw32-make.exe[1]: Entering directory 'E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_53a83.dir/CMakeCXXCompilerABI.cpp.obj]
+  ignore line: [C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE    -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD    -o CMakeFiles\cmTC_53a83.dir\CMakeCXXCompilerABI.cpp.obj -c "C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\share\cmake-3.12\Modules\CMakeCXXCompilerABI.cpp"]
+  ignore line: [Linking CXX executable cmTC_53a83]
+  ignore line: ["C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_53a83.dir\link.txt --verbose=1]
+  ignore line: [C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD   -w -Os -Wl,--gc-sections -v CMakeFiles/cmTC_53a83.dir/CMakeCXXCompilerABI.cpp.obj  -o cmTC_53a83 ]
   ignore line: [Using built-in specs.]
-  ignore line: [Reading specs from c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/device-specs/specs-avr2]
+  ignore line: [Reading specs from c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0/device-specs/specs-avr2]
   ignore line: [COLLECT_GCC=C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE]
-  ignore line: [COLLECT_LTO_WRAPPER=c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/4.9.2/lto-wrapper.exe]
+  ignore line: [COLLECT_LTO_WRAPPER=c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/5.4.0/lto-wrapper.exe]
   ignore line: [Target: avr]
-  ignore line: [Configured with: ../gcc/configure --enable-fixed-point --enable-languages=c,c++ --prefix=/c/jenkins/workspace/avr-gcc/label/winxp-32-mingw/objdir --enable-long-long --disable-nls --disable-checking --disable-libssp --disable-libada --disable-shared --enable-lto --with-avrlibc=yes --with-dwarf2 --disable-doc --target=avr]
+  ignore line: [Configured with: ../gcc/configure --enable-fixed-point --enable-languages=c,c++ --prefix=/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/objdir --disable-nls --disable-libssp --disable-libada --disable-shared --with-avrlibc=yes --with-dwarf2 --disable-doc --target=avr --host=i686-w64-mingw32]
   ignore line: [Thread model: single]
-  ignore line: [gcc version 4.9.2 (GCC) ]
-  ignore line: [COMPILER_PATH=c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/4.9.2/]
+  ignore line: [gcc version 5.4.0 (GCC) ]
+  ignore line: [COMPILER_PATH=c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/5.4.0/]
   ignore line: [c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/]
-  ignore line: [c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/bin/]
-  ignore line: [LIBRARY_PATH=c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/]
+  ignore line: [c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/bin/]
+  ignore line: [LIBRARY_PATH=c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0/]
   ignore line: [c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/]
-  ignore line: [c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-g' '-Os' '-w' '-fno-exceptions' '-ffunction-sections' '-fdata-sections' '-fno-threadsafe-statics' '-MMD' '-w' '-Os' '-v' '-o' 'cmTC_4eef4' '-specs=device-specs/specs-avr2']
-  link line: [ c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/4.9.2/collect2.exe -plugin c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/4.9.2/liblto_plugin-0.dll -plugin-opt=c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/4.9.2/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\DMITRY~1\AppData\Local\Temp\ccmhCHmB.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lc -o cmTC_4eef4 -Lc:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2 -Lc:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc -Lc:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib --gc-sections CMakeFiles/cmTC_4eef4.dir/CMakeCXXCompilerABI.cpp.obj -lgcc -lm --start-group -lgcc -lm -lc --end-group]
-    arg [c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/4.9.2/collect2.exe] ==> ignore
+  ignore line: [c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-g' '-Os' '-w' '-fno-exceptions' '-ffunction-sections' '-fdata-sections' '-fno-threadsafe-statics' '-MMD' '-w' '-Os' '-v' '-o' 'cmTC_53a83' '-specs=device-specs/specs-avr2']
+  link line: [ c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/5.4.0/collect2.exe -plugin c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/5.4.0/liblto_plugin-0.dll -plugin-opt=c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/5.4.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\gamiy\AppData\Local\Temp\cc1nvZ81.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lc --pmem-wrap-around=8k -o cmTC_53a83 -Lc:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0 -Lc:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc -Lc:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib --gc-sections CMakeFiles/cmTC_53a83.dir/CMakeCXXCompilerABI.cpp.obj -lgcc -lm --start-group -lgcc -lm -lc --end-group]
+    arg [c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/5.4.0/collect2.exe] ==> ignore
     arg [-plugin] ==> ignore
-    arg [c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/4.9.2/liblto_plugin-0.dll] ==> ignore
-    arg [-plugin-opt=c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/4.9.2/lto-wrapper.exe] ==> ignore
-    arg [-plugin-opt=-fresolution=C:\Users\DMITRY~1\AppData\Local\Temp\ccmhCHmB.res] ==> ignore
+    arg [c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/5.4.0/liblto_plugin-0.dll] ==> ignore
+    arg [-plugin-opt=c:/progra~2/arduino/hardware/tools/avr/bin/../libexec/gcc/avr/5.4.0/lto-wrapper.exe] ==> ignore
+    arg [-plugin-opt=-fresolution=C:\Users\gamiy\AppData\Local\Temp\cc1nvZ81.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lm] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [--pmem-wrap-around=8k] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_4eef4] ==> ignore
-    arg [-Lc:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2] ==> dir [c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2]
+    arg [cmTC_53a83] ==> ignore
+    arg [-Lc:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0] ==> dir [c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0]
     arg [-Lc:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc] ==> dir [c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc]
-    arg [-Lc:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib] ==> dir [c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib]
+    arg [-Lc:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib] ==> dir [c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib]
     arg [--gc-sections] ==> ignore
-    arg [CMakeFiles/cmTC_4eef4.dir/CMakeCXXCompilerABI.cpp.obj] ==> ignore
+    arg [CMakeFiles/cmTC_53a83.dir/CMakeCXXCompilerABI.cpp.obj] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [-lm] ==> lib [m]
     arg [--start-group] ==> ignore
@@ -260,59 +262,75 @@ Parsed CXX implicit link information from above output:
     arg [-lm] ==> lib [m]
     arg [-lc] ==> lib [c]
     arg [--end-group] ==> ignore
-  collapse library dir [c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2] ==> [C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.9.2]
+  collapse library dir [c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0] ==> [C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/5.4.0]
   collapse library dir [c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc] ==> [C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc]
-  collapse library dir [c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib] ==> [C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/lib]
+  collapse library dir [c:/progra~2/arduino/hardware/tools/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib] ==> [C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/lib]
   implicit libs: [gcc;m;gcc;m;c]
-  implicit dirs: [C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.9.2;C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc;C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/lib]
+  implicit dirs: [C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/5.4.0;C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc;C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/lib]
   implicit fwks: []
 
 
 
 
-Detecting CXX [-std=c++14] compiler features compiled with the following output:
-Change Dir: D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp
+Detecting CXX [-std=c++1z] compiler features compiled with the following output:
+Change Dir: E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:/mingw/bin/mingw32-make.exe" "cmTC_389e7/fast"
-D:/mingw/bin/mingw32-make.exe -f CMakeFiles\cmTC_389e7.dir\build.make CMakeFiles/cmTC_389e7.dir/build
-mingw32-make.exe[1]: Entering directory 'D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_389e7.dir/feature_tests.cxx.obj
-C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE    -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD    -std=c++14 -o CMakeFiles\cmTC_389e7.dir\feature_tests.cxx.obj -c D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles\feature_tests.cxx
-Linking CXX executable cmTC_389e7
-"C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_389e7.dir\link.txt --verbose=1
-C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD   -w -Os -Wl,--gc-sections  CMakeFiles/cmTC_389e7.dir/feature_tests.cxx.obj  -o cmTC_389e7 
-mingw32-make.exe[1]: Leaving directory 'D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command:"E:/MinGW/bin/mingw32-make.exe" "cmTC_eebb0/fast"
+E:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_eebb0.dir\build.make CMakeFiles/cmTC_eebb0.dir/build
+mingw32-make.exe[1]: Entering directory 'E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_eebb0.dir/feature_tests.cxx.obj
+C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE    -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD    -std=c++1z -o CMakeFiles\cmTC_eebb0.dir\feature_tests.cxx.obj -c E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles\feature_tests.cxx
+Linking CXX executable cmTC_eebb0
+"C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_eebb0.dir\link.txt --verbose=1
+C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD   -w -Os -Wl,--gc-sections  CMakeFiles/cmTC_eebb0.dir/feature_tests.cxx.obj  -o cmTC_eebb0 
+mingw32-make.exe[1]: Leaving directory 'E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
+
+
+
+
+Detecting CXX [-std=c++14] compiler features compiled with the following output:
+Change Dir: E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command:"E:/MinGW/bin/mingw32-make.exe" "cmTC_71aa4/fast"
+E:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_71aa4.dir\build.make CMakeFiles/cmTC_71aa4.dir/build
+mingw32-make.exe[1]: Entering directory 'E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_71aa4.dir/feature_tests.cxx.obj
+C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE    -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD    -std=c++14 -o CMakeFiles\cmTC_71aa4.dir\feature_tests.cxx.obj -c E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles\feature_tests.cxx
+Linking CXX executable cmTC_71aa4
+"C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_71aa4.dir\link.txt --verbose=1
+C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD   -w -Os -Wl,--gc-sections  CMakeFiles/cmTC_71aa4.dir/feature_tests.cxx.obj  -o cmTC_71aa4 
+mingw32-make.exe[1]: Leaving directory 'E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
 
 
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
-Change Dir: D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:/mingw/bin/mingw32-make.exe" "cmTC_9d93b/fast"
-D:/mingw/bin/mingw32-make.exe -f CMakeFiles\cmTC_9d93b.dir\build.make CMakeFiles/cmTC_9d93b.dir/build
-mingw32-make.exe[1]: Entering directory 'D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_9d93b.dir/feature_tests.cxx.obj
-C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE    -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD    -std=c++11 -o CMakeFiles\cmTC_9d93b.dir\feature_tests.cxx.obj -c D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles\feature_tests.cxx
-Linking CXX executable cmTC_9d93b
-"C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_9d93b.dir\link.txt --verbose=1
-C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD   -w -Os -Wl,--gc-sections  CMakeFiles/cmTC_9d93b.dir/feature_tests.cxx.obj  -o cmTC_9d93b 
-mingw32-make.exe[1]: Leaving directory 'D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command:"E:/MinGW/bin/mingw32-make.exe" "cmTC_450b5/fast"
+E:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_450b5.dir\build.make CMakeFiles/cmTC_450b5.dir/build
+mingw32-make.exe[1]: Entering directory 'E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_450b5.dir/feature_tests.cxx.obj
+C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE    -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD    -std=c++11 -o CMakeFiles\cmTC_450b5.dir\feature_tests.cxx.obj -c E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles\feature_tests.cxx
+Linking CXX executable cmTC_450b5
+"C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_450b5.dir\link.txt --verbose=1
+C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD   -w -Os -Wl,--gc-sections  CMakeFiles/cmTC_450b5.dir/feature_tests.cxx.obj  -o cmTC_450b5 
+mingw32-make.exe[1]: Leaving directory 'E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
 
 
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
-Change Dir: D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:/mingw/bin/mingw32-make.exe" "cmTC_e5c96/fast"
-D:/mingw/bin/mingw32-make.exe -f CMakeFiles\cmTC_e5c96.dir\build.make CMakeFiles/cmTC_e5c96.dir/build
-mingw32-make.exe[1]: Entering directory 'D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_e5c96.dir/feature_tests.cxx.obj
-C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE    -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD    -std=c++98 -o CMakeFiles\cmTC_e5c96.dir\feature_tests.cxx.obj -c D:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles\feature_tests.cxx
-Linking CXX executable cmTC_e5c96
-"C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_e5c96.dir\link.txt --verbose=1
-C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD   -w -Os -Wl,--gc-sections  CMakeFiles/cmTC_e5c96.dir/feature_tests.cxx.obj  -o cmTC_e5c96 
-mingw32-make.exe[1]: Leaving directory 'D:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command:"E:/MinGW/bin/mingw32-make.exe" "cmTC_f6378/fast"
+E:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_f6378.dir\build.make CMakeFiles/cmTC_f6378.dir/build
+mingw32-make.exe[1]: Entering directory 'E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_f6378.dir/feature_tests.cxx.obj
+C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE    -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD    -std=c++98 -o CMakeFiles\cmTC_f6378.dir\feature_tests.cxx.obj -c E:\locker1540-arduino\eth\cmake-build-debug\CMakeFiles\feature_tests.cxx
+Linking CXX executable cmTC_f6378
+"C:\Program Files\JetBrains\CLion 2018.2.2\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_f6378.dir\link.txt --verbose=1
+C:\PROGRA~2\Arduino\hardware\tools\avr\bin\AVR-G_~1.EXE  -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD   -w -Os -Wl,--gc-sections  CMakeFiles/cmTC_f6378.dir/feature_tests.cxx.obj  -o cmTC_f6378 
+mingw32-make.exe[1]: Leaving directory 'E:/locker1540-arduino/eth/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 

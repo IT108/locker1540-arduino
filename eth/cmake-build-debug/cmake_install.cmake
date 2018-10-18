@@ -1,4 +1,4 @@
-# Install script for directory: D:/locker1540-arduino/eth
+# Install script for directory: E:/locker1540-arduino/eth
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/locker1540-arduino/eth/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "E:/locker1540-arduino/eth/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

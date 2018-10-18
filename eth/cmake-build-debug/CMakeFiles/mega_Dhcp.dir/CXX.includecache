@@ -11,144 +11,98 @@ Arduino.h
 -
 
 C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dhcp.cpp
-utility/w5100.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/utility/w5100.h
-string.h
+Arduino.h
 -
-stdlib.h
--
+Ethernet.h
+C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Ethernet.h
 Dhcp.h
 C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dhcp.h
-Arduino.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Arduino.h
-utility/util.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/utility/util.h
+utility/w5100.h
+C:/Program Files (x86)/Arduino/libraries/Ethernet/src/utility/w5100.h
 
 C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dhcp.h
-EthernetUdp.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetUdp.h
 
 C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dns.cpp
-utility/w5100.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/utility/w5100.h
-EthernetUdp.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetUdp.h
-utility/util.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/utility/util.h
+Arduino.h
+-
+Ethernet.h
+C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Ethernet.h
 Dns.h
 C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dns.h
-string.h
--
-Arduino.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Arduino.h
+utility/w5100.h
+C:/Program Files (x86)/Arduino/libraries/Ethernet/src/utility/w5100.h
 
 C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dns.h
-EthernetUdp.h
--
+Ethernet.h
+C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Ethernet.h
 
 C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Ethernet.cpp
-utility/w5100.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/utility/w5100.h
-Ethernet.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Ethernet.h
-Dhcp.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dhcp.h
-
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Ethernet.h
-inttypes.h
+Arduino.h
 -
-IPAddress.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/IPAddress.h
-EthernetClient.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetClient.h
-EthernetServer.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetServer.h
+Ethernet.h
+C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Ethernet.h
+utility/w5100.h
+C:/Program Files (x86)/Arduino/libraries/Ethernet/src/utility/w5100.h
 Dhcp.h
 C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dhcp.h
 
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp
-utility/w5100.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/utility/w5100.h
-utility/socket.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/utility/socket.h
-string.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/string.h
-Arduino.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Arduino.h
-Ethernet.h
 C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Ethernet.h
-EthernetClient.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetClient.h
-EthernetServer.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetServer.h
-Dns.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dns.h
-
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetClient.h
 Arduino.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Arduino.h
-Print.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Print.h
+-
 Client.h
 C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Client.h
-IPAddress.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/IPAddress.h
-
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp
-utility/w5100.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/utility/w5100.h
-utility/socket.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/utility/socket.h
-string.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/string.h
-Ethernet.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Ethernet.h
-EthernetClient.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetClient.h
-EthernetServer.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetServer.h
-
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetServer.h
 Server.h
 C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Server.h
-
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp
-utility/w5100.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/utility/w5100.h
-utility/socket.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/utility/socket.h
-Ethernet.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Ethernet.h
 Udp.h
 C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Udp.h
+
+C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetClient.cpp
+Arduino.h
+-
+Ethernet.h
+C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Ethernet.h
 Dns.h
 C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dns.h
-
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetUdp.h
-Udp.h
--
-
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/utility/socket.cpp
-w5100.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/utility/w5100.h
-socket.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/utility/socket.h
-
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/utility/socket.h
 utility/w5100.h
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/utility/utility/w5100.h
+C:/Program Files (x86)/Arduino/libraries/Ethernet/src/utility/w5100.h
 
-C:/Program Files (x86)/Arduino/libraries/Ethernet/src/utility/util.h
+C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetServer.cpp
+Arduino.h
+-
+Ethernet.h
+C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Ethernet.h
+utility/w5100.h
+C:/Program Files (x86)/Arduino/libraries/Ethernet/src/utility/w5100.h
+
+C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetUdp.cpp
+Arduino.h
+-
+Ethernet.h
+C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Ethernet.h
+Dns.h
+C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dns.h
+utility/w5100.h
+C:/Program Files (x86)/Arduino/libraries/Ethernet/src/utility/w5100.h
+
+C:/Program Files (x86)/Arduino/libraries/Ethernet/src/socket.cpp
+Arduino.h
+-
+Ethernet.h
+C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Ethernet.h
+utility/w5100.h
+C:/Program Files (x86)/Arduino/libraries/Ethernet/src/utility/w5100.h
 
 C:/Program Files (x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp
-stdio.h
+Arduino.h
 -
-string.h
--
+Ethernet.h
+C:/Program Files (x86)/Arduino/libraries/Ethernet/src/utility/Ethernet.h
 w5100.h
 C:/Program Files (x86)/Arduino/libraries/Ethernet/src/utility/w5100.h
 
 C:/Program Files (x86)/Arduino/libraries/Ethernet/src/utility/w5100.h
+Arduino.h
+-
 SPI.h
 -
 
