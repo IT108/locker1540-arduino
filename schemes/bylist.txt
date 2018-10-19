@@ -1,0 +1,24 @@
+что надо купить
+
+Свитч на <4 порта
+Шкаф для хранения системы
+Raspberry Pi для сервера
+ИБП компактный
+
+тезисы - 
+сверху ставим Dinrail, на который крепим автомат, сервер, raspberry pi
+внизу ставим большой ups
+По центру ставим еще один dinrail, на который повесим плату
+Надо тянуть два провода ethernet для серверов, либо ставить свитч внизу.
+
+https://videoglaz.ru/elektromontazhnye-shkafy?f=shirina:300-mm,310-mm,328-mm,330-mm,370-mm,380-mm,400-mm;vysota:500-mm,560-mm
+
+https://videoglaz.ru/istochniki-bespereboynogo-pitaniya-do-12v
+
+https://www.moxa.ru/shop/accessories/mounting/dk35a/
+
+http://lartmaster.ru/goods/Plastikovye-derzhateli-dlya-DIN-rejki
+
+https://www.ulmart.ru/goods/494160
+
+https://www.dns-shop.ru/product/940e53a73bcf3330/ibp-dexp-iec-450va/characteristics/
