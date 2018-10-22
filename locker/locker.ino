@@ -26,6 +26,8 @@ namespace constant_pins {
 	const int INSIDE_SENSOR_0_1 = 3;
 	const int INSIDE_SENSOR_1_0 = 4;
 	const int INSIDE_SENSOR_1_1 = 5;
+
+	const int INSIDE_LIGHT = 9;
 }
 
 namespace constant_values {
@@ -147,7 +149,8 @@ namespace exit_button {
 namespace security {
 	long long timer;
 	const long long TIMER_EMPTY = 60000LL;
-	int cabinet_status() {
+
+	int cabinet_status(long long gap) {
 		bool status = 0;
 		for (int i = constant_pins::INSIDE_SENSOR_0_0; i <= constant_pins::INSIDE_SENSOR_1_1; i++) {
 			status |= digitalRead(i);
@@ -158,14 +161,14 @@ namespace security {
 		if (status) {
 			timer = millis();
 		}
-		if (millis() - timer > TIMER_EMPTY) {
+		if (millis() - timer < gap) {
 			return 1;
 		}
-		return 0;  
+		return 0;
 	}
 
 	void update() {
-		if (cabinet_status()) {
+		if (!cabinet_status(TIMER_EMPTY)) {
 			digitalWrite(constant_pins::V_MEN_G, 1);
 			digitalWrite(constant_pins::V_MEN_R, 0);
 		}
@@ -319,8 +322,23 @@ namespace handler {
 	}
 }
 
+namespace inside_light {
+	int timer;
+	int status;
+	const long long TIMER_EMPTY = 12000LL;
+
+	void update() {
+		int current_status = security::cabinet_status(TIMER_EMPTY);
+		if (current_status != status) {
+			digitalWrite(constant_pins::INSIDE_LIGHT, current_status);
+		}
+		status = current_status;
+	}
+}
+
 void interrupt() {
 	security::update();
+	inside_light::update();
 }
 
 void setup() {
@@ -352,6 +370,8 @@ void setup() {
 	pinMode(constant_pins::INSIDE_SENSOR_1_1, INPUT);
 	security::timer = millis();
 	door_bell::timer = millis();
+	inside_light::timer = millis();
+	inside_light::status = 0;
 	outside_led::current_red = 255;
 	outside_led::current_green = 0;
 	outside_led::current_blue = 0;
