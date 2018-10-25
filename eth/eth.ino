@@ -30,10 +30,13 @@ int q[60][8];
 int w[8];
 int n;
 int w2[8];
+bool need_reset = false;
 const int PIN_CHIP_SELECT = 22;
 String cardsFileName = "CARDS.txt";
 QueueList<int> greeting_buffer;
 char buffer[bufferMax];
+
+void(* resetFunc) (void) = 0;
 
 namespace local_db {
 
@@ -172,6 +175,7 @@ namespace DB {
         } else {
           DebugSerial.println("Unable to connect to server!");
         }
+        need_reset = true;
         return local_db::check_guest(a);
     }
 
@@ -202,6 +206,8 @@ namespace DB {
             server_answer = ans;
             parse_greeting_answer();
             DebugSerial.print(common_greeting + " " + personal_greeting);
+        } else {
+            need_reset = true;
         }
     }
 
@@ -308,9 +314,11 @@ namespace manage {
                     } else {
                         LockerSerial.print("N");
                     }
+                    if (need_reset) resetFunc();
                 } else if (mode == 125) {
                     DB::request_greetings(w);
                     greeting::play_greeting();
+                    if (need_reset) resetFunc();
                 }
             }
         }
