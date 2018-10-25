@@ -144,6 +144,18 @@ namespace DB {
     }
 
 
+}
+
+namespace local_db {
+
+    void clear_db() {
+        for (int i = 0; i < 60;i++) {
+            for (int j = 0; j < 8; j++) {
+                q[i][j] = 0;
+            }
+        }
+    }
+
     void parse_cards_from_file() {
         int i = 0;
         int a;
@@ -168,8 +180,25 @@ namespace DB {
         }
         cards.close();
     }
-}
 
+    bool check_card(int a[], int b[]) {
+        for (int i = 0; i < 8; i++) {
+            if (a[i] != b[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    bool check_guest(int a[]) {
+        for (int i = 0; i < 60; i++) {
+            if (check_card(q[i], a)) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
 
 namespace greeting {
 

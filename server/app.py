@@ -14,5 +14,10 @@ def get_greet():
     return str(db.get_greet(request.values.get('card')))
 
 
+@app.route('/sync', methods=['POST'])
+def sync():
+    return str(db.sync())
+
+
 if __name__ == '__main__':
     app.run()
