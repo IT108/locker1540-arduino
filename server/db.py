@@ -12,15 +12,15 @@ def init():
 def get_card(card):
     resp = constants.DB.query('select active, greeting, position from public.users where card = \'' + card + '\'')
     if resp.__len__() > 0:
-        return resp[0][0] + ';' + get_common_greet(resp[0][2]) + ';' + resp[0][1] + ';'
+        return str(resp[0][0]) + ';' + str(get_common_greet(resp[0][2])) + ';' + str(resp[0][1]) + ';'
     else:
         return False
 
 
 def get_greet(card):
-    resp = constants.DB.query('select greeting from public.users where card = \'' + card + '\'')
+    resp = constants.DB.query('select greeting, position from public.users where card = \'' + card + '\'')
     if resp.__len__() > 0:
-        return resp[0][0]
+        return str(get_common_greet(resp[0][1])) + ';' + str(resp[0][0]) + ';'
     else:
         return -1
 

@@ -58,18 +58,18 @@ namespace DB {
 
 
     void parse_guest_answer() {
-        int data_start = server_answer.indexOf("\r\n\r\n") + 3;
+        int data_start = server_answer.indexOf("\r\n\r\n") + 4;
+        guest_authorization = server_answer.substring(data_start, 4);
         int common_greeting_start = server_answer.indexOf(";", data_start) + 1;
         int personal_greeting_start = server_answer.indexOf(";", common_greeting_start) + 1;
         int data_end = server_answer.indexOf(";", personal_greeting_start);
         guest_authorization = server_answer.substring(data_start, common_greeting_start - 1);
         common_greeting = server_answer.substring(common_greeting_start, personal_greeting_start - 1);
         personal_greeting = server_answer.substring(personal_greeting_start, data_end);
-
     }
 
     void parse_greeting_answer() {
-        int data_start = server_answer.indexOf("\r\n\r\n") + 3;
+        int data_start = server_answer.indexOf("\r\n\r\n") + 4;
         int personal_greeting_start = server_answer.indexOf(";", data_start) + 1;
         int data_end = server_answer.indexOf(";", personal_greeting_start);
         common_greeting = server_answer.substring(data_start, personal_greeting_start - 1);
@@ -84,14 +84,15 @@ namespace DB {
         for (int i = 0; i < 8; i++) {
             c += (char) a[i];
         }
-        request_args = "card";
-        request_page = "card=";
+        request_args = "card=";
+        request_page = "card";
         request_args += c;
         build_request();
         String req = request;
+        DebugSerial.println(req);
         EthernetClient client;
         if (client.connect(db_server, 80)) {
-            client.print(request);
+            client.print(req);
             String ans = "";
             while (!client.available()) {}
             while (client.available()) {
@@ -100,12 +101,14 @@ namespace DB {
                 ans += q;
             }
             server_answer = ans;
-            parse_guest_answer();
             DebugSerial.print(server_answer);
+            parse_guest_answer();
             if (guest_authorization == "True")
                 return true;
             else
                 return false;
+        } else {
+          DebugSerial.println("Unable to connect to server!");
         }
         return false;
     }
@@ -202,10 +205,12 @@ namespace manage {
             int value = LockerSerial.read();
             if (124 <= value && value <= 125) {
                 mode = value;
+                DebugSerial.println(mode);
                 position = 0;
                 return;
             }
             if (position > -1) {
+                delay(1);
                 w[position++] = value;
             }
             if (position == 8) {

@@ -325,13 +325,11 @@ namespace handler {
 namespace inside_light {
 	int timer;
 	int status;
-	const long long TIMER_EMPTY = 12000LL;
+	const long long TIMER_EMPTY = 120000LL;
 
 	void update() {
 		int current_status = security::cabinet_status(TIMER_EMPTY);
-		if (current_status != status) {
-			digitalWrite(constant_pins::INSIDE_LIGHT, current_status);
-		}
+		digitalWrite(constant_pins::INSIDE_LIGHT, current_status);
 		status = current_status;
 	}
 }
@@ -368,6 +366,7 @@ void setup() {
 	pinMode(constant_pins::INSIDE_SENSOR_0_1, INPUT);
 	pinMode(constant_pins::INSIDE_SENSOR_1_0, INPUT);
 	pinMode(constant_pins::INSIDE_SENSOR_1_1, INPUT);
+	pinMode(constant_pins::INSIDE_LIGHT, OUTPUT);
 	security::timer = millis();
 	door_bell::timer = millis();
 	inside_light::timer = millis();
