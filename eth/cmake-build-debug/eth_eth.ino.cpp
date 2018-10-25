@@ -9,6 +9,7 @@
 #include <EthernetUdp.h>
 #include <DFPlayer_Mini_Mp3.h>
 #include <QueueList.h>
+#include <FlexiTimer2.h>
 
 #include<SPI.h>
 #include<SD.h>
@@ -19,14 +20,22 @@
 #define DebugSerial Serial
 #define bufferMax 128
 //Server variables
-#line 23 "E:/locker1540-arduino/eth/cmake-build-debug/eth_eth.ino.cpp"
+#line 24 "E:/locker1540-arduino/eth/cmake-build-debug/eth_eth.ino.cpp"
 #include "Arduino.h"
 
 //=== START Forward: E:/locker1540-arduino/eth/eth.ino
+     void clear_db() ;
+     void clear_db() ;
+     void parse_cards_from_file() ;
+     void parse_cards_from_file() ;
+     bool check_card(int a[], int b[]) ;
+     bool check_card(int a[], int b[]) ;
+     bool check_guest(int a[]) ;
+     bool check_guest(int a[]) ;
      void build_request() ;
      void build_request() ;
-     void renameC(int idx1, int idx2) ;
-     void renameC(int idx1, int idx2) ;
+     void get_post_data();
+     void get_post_data();
      void parse_guest_answer() ;
      void parse_guest_answer() ;
      void parse_greeting_answer() ;
@@ -35,20 +44,24 @@
      bool check_guest(int a[]) ;
      void request_greetings(int a[]) ;
      void request_greetings(int a[]) ;
-     void parse_cards_from_file() ;
-     void parse_cards_from_file() ;
+     void write_cards();
+     void write_cards();
+     void local_sync();
+     void local_sync();
      void play_greeting() ;
      void play_greeting() ;
      void process_greetings() ;
      void process_greetings() ;
      void handle_locker() ;
      void handle_locker() ;
+ void interrupt() ;
+ void interrupt() ;
  void setup() ;
  void setup() ;
  void loop() ;
  void loop() ;
 //=== END Forward: E:/locker1540-arduino/eth/eth.ino
-#line 18 "E:/locker1540-arduino/eth/eth.ino"
+#line 19 "E:/locker1540-arduino/eth/eth.ino"
 
 
 String pass = "12345";
@@ -68,6 +81,60 @@ String cardsFileName = "CARDS.txt";
 QueueList<int> greeting_buffer;
 char buffer[bufferMax];
 
+namespace local_db {
+
+    void clear_db() {
+        for (int i = 0; i < 60;i++) {
+            for (int j = 0; j < 8; j++) {
+                q[i][j] = 0;
+            }
+        }
+    }
+
+    void parse_cards_from_file() {
+        int i = 0;
+        int a;
+        File cards = SD.open(cardsFileName);
+        DebugSerial.println("Parsing cards...");
+        if (cards) {
+            while (cards.available()) {
+                for (int f = 0; f < 8; f++) {
+                    a = cards.read();
+                    q[i][f] = a;
+
+                    if (debug) {
+                        DebugSerial.print(q[i][f]);
+                        DebugSerial.print(" ");
+                    }
+                }
+                i++;
+                cards.seek(i * 10);
+                if (debug) DebugSerial.println();
+            }
+            n = i;
+        }
+        cards.close();
+    }
+
+    bool check_card(int a[], int b[]) {
+        for (int i = 0; i < 8; i++) {
+            if (a[i] != b[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    bool check_guest(int a[]) {
+        for (int i = 0; i < 60; i++) {
+            if (check_card(q[i], a)) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+
 
 namespace DB {
     String server_answer = "";
@@ -78,6 +145,7 @@ namespace DB {
     byte db_server[] = {217, 61, 106, 178};
     String personal_greeting = "-1";
     String common_greeting = "-1";
+    String post_data = "";
 
     void build_request() {
         String res = "POST /";
@@ -90,26 +158,26 @@ namespace DB {
 
     }
 
-    void renameC(int idx1, int idx2) {
-        for (size_t i = 0; i < 8; i++) {
-            q[idx1][i] = q[idx2][i];
-        }
+    void get_post_data(){
+        int data_start = server_answer.indexOf("\r\n\r\n") + 4;
+        post_data = server_answer.substring(data_start);
+
     }
 
 
     void parse_guest_answer() {
-        int data_start = server_answer.indexOf("\r\n\r\n") + 3;
+        int data_start = server_answer.indexOf("\r\n\r\n") + 4;
+        guest_authorization = server_answer.substring(data_start, 4);
         int common_greeting_start = server_answer.indexOf(";", data_start) + 1;
         int personal_greeting_start = server_answer.indexOf(";", common_greeting_start) + 1;
         int data_end = server_answer.indexOf(";", personal_greeting_start);
         guest_authorization = server_answer.substring(data_start, common_greeting_start - 1);
         common_greeting = server_answer.substring(common_greeting_start, personal_greeting_start - 1);
         personal_greeting = server_answer.substring(personal_greeting_start, data_end);
-
     }
 
     void parse_greeting_answer() {
-        int data_start = server_answer.indexOf("\r\n\r\n") + 3;
+        int data_start = server_answer.indexOf("\r\n\r\n") + 4;
         int personal_greeting_start = server_answer.indexOf(";", data_start) + 1;
         int data_end = server_answer.indexOf(";", personal_greeting_start);
         common_greeting = server_answer.substring(data_start, personal_greeting_start - 1);
@@ -124,14 +192,15 @@ namespace DB {
         for (int i = 0; i < 8; i++) {
             c += (char) a[i];
         }
-        request_args = "card";
-        request_page = "card=";
+        request_args = "card=";
+        request_page = "card";
         request_args += c;
         build_request();
         String req = request;
+        DebugSerial.println(req);
         EthernetClient client;
         if (client.connect(db_server, 80)) {
-            client.print(request);
+            client.print(req);
             String ans = "";
             while (!client.available()) {}
             while (client.available()) {
@@ -140,14 +209,16 @@ namespace DB {
                 ans += q;
             }
             server_answer = ans;
-            parse_guest_answer();
             DebugSerial.print(server_answer);
+            parse_guest_answer();
             if (guest_authorization == "True")
                 return true;
             else
                 return false;
+        } else {
+          DebugSerial.println("Unable to connect to server!");
         }
-        return false;
+        return local_db::check_guest(a);
     }
 
 
@@ -180,31 +251,56 @@ namespace DB {
         }
     }
 
-
-    void parse_cards_from_file() {
-        int i = 0;
-        int a;
-        File cards = SD.open(cardsFileName);
-        DebugSerial.println("Parsing cards...");
-        if (cards) {
-            while (cards.available()) {
-                for (int f = 0; f < 8; f++) {
-                    a = cards.read();
-                    q[i][f] = a;
-
-                    if (debug) {
-                        DebugSerial.print(q[i][f]);
-                        DebugSerial.print(" ");
-                    }
-                }
-                i++;
-                cards.seek(i * 10);
-                if (debug) DebugSerial.println();
+    void write_cards(){
+        DebugSerial.println("writing local database...");
+        String res = "";
+        SD.remove(cardsFileName);
+        File CardsDB = SD.open(cardsFileName, FILE_WRITE);
+        //DebugSerial.println(res);
+        if (!CardsDB)
+            return;
+        int start = post_data.indexOf(";") + 1, finish = post_data.indexOf(";", start);
+        while (finish != -1){
+            String card = post_data.substring(start,finish);
+            DebugSerial.println(card);
+            for (int i = 0; i < card.length(); i++) {
+                byte q = card[i];
+                CardsDB.write(q);
             }
-            n = i;
+            start = finish + 1;
+            finish = post_data.indexOf(";", start);
         }
-        cards.close();
+        CardsDB.close();
+        local_db::clear_db();
+        local_db::parse_cards_from_file();
     }
+
+    void local_sync(){
+        DebugSerial.println("syncing database...");
+        request_page = "sync";
+        request_args = "";
+        build_request();
+        EthernetClient client;
+        String req = request;
+        server_answer = "";
+        if (client.connect(db_server, 80)) {
+            //DebugSerial.println(req);
+            client.print(req);
+            String ans = "";
+            while (!client.available()) {}
+            while (client.available()) {
+                char q = client.read();
+                //DebugSerial.print(q);
+                ans += q;
+            }
+            server_answer = ans;
+            get_post_data();
+            DebugSerial.print(post_data);
+            write_cards();
+        }
+    }
+
+
 }
 
 
@@ -242,10 +338,12 @@ namespace manage {
             int value = LockerSerial.read();
             if (124 <= value && value <= 125) {
                 mode = value;
+                DebugSerial.println(mode);
                 position = 0;
                 return;
             }
             if (position > -1) {
+                delay(1);
                 w[position++] = value;
             }
             if (position == 8) {
@@ -265,6 +363,10 @@ namespace manage {
     }
 }
 
+void interrupt() {
+    DB::local_sync();
+}
+
 
 void setup() {
     DebugSerial.begin(115200);
@@ -278,7 +380,7 @@ void setup() {
         //return;
     }
     if (debug) DebugSerial.println("card initialized.");
-    DB::parse_cards_from_file();
+    local_db::parse_cards_from_file();
     DebugSerial.print("eth beg");
     Ethernet.begin(mac);
     DebugSerial.print("eth end");
@@ -287,6 +389,8 @@ void setup() {
     DebugSerial.println(Ethernet.localIP());
     manage::position = -1;
     manage::mode = -1;
+    FlexiTimer2::set(300000, interrupt);
+    FlexiTimer2::start();
 }
 
 void loop() {

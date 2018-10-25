@@ -50,6 +50,10 @@ C:/Program Files (x86)/Arduino/libraries/Ethernet/src/EthernetUdp.h
 Ethernet.h
 C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Ethernet.h
 
+C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/FlexiTimer2.h
+avr/interrupt.h
+-
+
 C:/Program Files (x86)/Arduino/libraries/QueueList/QueueList.h
 Arduino.h
 -
@@ -116,6 +120,8 @@ EthernetUdp.h
 DFPlayer_Mini_Mp3.h
 -
 QueueList.h
+-
+FlexiTimer2.h
 -
 SPI.h
 -

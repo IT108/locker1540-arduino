@@ -48,6 +48,9 @@
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/utility"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/utility"/>
@@ -99,6 +102,9 @@
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/utility"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/utility"/>
@@ -150,6 +156,9 @@
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/utility"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/utility"/>
@@ -201,6 +210,9 @@
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/utility"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/utility"/>
@@ -252,6 +264,9 @@
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/utility"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/utility"/>
@@ -303,6 +318,9 @@
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/utility"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/utility"/>
@@ -354,6 +372,9 @@
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/utility"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/utility"/>
@@ -405,6 +426,9 @@
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/utility"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/utility"/>
@@ -456,6 +480,9 @@
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/utility"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/utility"/>
@@ -507,6 +534,9 @@
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/utility"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/utility"/>
@@ -558,6 +588,9 @@
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/utility"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/utility"/>
@@ -609,6 +642,9 @@
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/utility"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/utility"/>
@@ -660,6 +696,9 @@
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/utility"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/utility"/>
@@ -711,6 +750,9 @@
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/utility"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/utility"/>
@@ -772,6 +814,9 @@
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/utility"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/utility"/>
@@ -823,6 +868,9 @@
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/utility"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/utility"/>
@@ -874,6 +922,9 @@
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/utility"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/utility"/>
@@ -925,6 +976,9 @@
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/utility"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/utility"/>
@@ -976,6 +1030,9 @@
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/utility"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/utility"/>
@@ -1027,6 +1084,9 @@
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/utility"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/utility"/>
@@ -1042,6 +1102,114 @@
 				</Compiler>
 				<MakeCommands>
 					<Build command="E:/MinGW/bin/mingw32-make.exe -f &quot;E:/locker1540-arduino/eth/cmake-build-debug/Makefile&quot;  VERBOSE=1 mega_SoftwareSerial/fast"/>
+					<CompileFile command="E:/MinGW/bin/mingw32-make.exe -f &quot;E:/locker1540-arduino/eth/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="E:/MinGW/bin/mingw32-make.exe -f &quot;E:/locker1540-arduino/eth/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="E:/MinGW/bin/mingw32-make.exe -f &quot;E:/locker1540-arduino/eth/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="mega_FlexiTimer2">
+				<Option output="E:/locker1540-arduino/eth/cmake-build-debug/libmega_FlexiTimer2.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="E:/locker1540-arduino/eth/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/Ethernet"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/Ethernet/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/Ethernet/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dhcp"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dhcp/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dhcp/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/w5100"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/w5100/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/w5100/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dns"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dns/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dns/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SPI"/>
+					<Add directory="C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SPI/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SPI/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/DFPlayer_Mini_Mp3"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/DFPlayer_Mini_Mp3/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/DFPlayer_Mini_Mp3/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SoftwareSerial"/>
+					<Add directory="C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SoftwareSerial/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SoftwareSerial/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src/SdFat"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src/SdFat/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src/SdFat/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src/SdFatUtil"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src/SdFatUtil/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src/SdFatUtil/utility"/>
+					<Add directory="c:\program files (x86)\arduino\hardware\tools\avr\bin\../lib/gcc/avr/5.4.0/include"/>
+					<Add directory="c:\program files (x86)\arduino\hardware\tools\avr\bin\../lib/gcc/avr/5.4.0/include-fixed"/>
+					<Add directory="c:\program files (x86)\arduino\hardware\tools\avr\bin\../lib/gcc/avr/5.4.0/../../../../avr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="E:/MinGW/bin/mingw32-make.exe -f &quot;E:/locker1540-arduino/eth/cmake-build-debug/Makefile&quot;  VERBOSE=1 mega_FlexiTimer2"/>
+					<CompileFile command="E:/MinGW/bin/mingw32-make.exe -f &quot;E:/locker1540-arduino/eth/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="E:/MinGW/bin/mingw32-make.exe -f &quot;E:/locker1540-arduino/eth/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="E:/MinGW/bin/mingw32-make.exe -f &quot;E:/locker1540-arduino/eth/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="mega_FlexiTimer2/fast">
+				<Option output="E:/locker1540-arduino/eth/cmake-build-debug/libmega_FlexiTimer2.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="E:/locker1540-arduino/eth/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/Ethernet"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/Ethernet/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/Ethernet/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dhcp"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dhcp/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dhcp/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/w5100"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/w5100/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/w5100/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dns"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dns/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/Ethernet/src/Dns/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SPI"/>
+					<Add directory="C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SPI/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SPI/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/DFPlayer_Mini_Mp3"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/DFPlayer_Mini_Mp3/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/DFPlayer_Mini_Mp3/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SoftwareSerial"/>
+					<Add directory="C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SoftwareSerial/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SoftwareSerial/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src/SdFat"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src/SdFat/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src/SdFat/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src/SdFatUtil"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src/SdFatUtil/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src/SdFatUtil/utility"/>
+					<Add directory="c:\program files (x86)\arduino\hardware\tools\avr\bin\../lib/gcc/avr/5.4.0/include"/>
+					<Add directory="c:\program files (x86)\arduino\hardware\tools\avr\bin\../lib/gcc/avr/5.4.0/include-fixed"/>
+					<Add directory="c:\program files (x86)\arduino\hardware\tools\avr\bin\../lib/gcc/avr/5.4.0/../../../../avr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="E:/MinGW/bin/mingw32-make.exe -f &quot;E:/locker1540-arduino/eth/cmake-build-debug/Makefile&quot;  VERBOSE=1 mega_FlexiTimer2/fast"/>
 					<CompileFile command="E:/MinGW/bin/mingw32-make.exe -f &quot;E:/locker1540-arduino/eth/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="E:/MinGW/bin/mingw32-make.exe -f &quot;E:/locker1540-arduino/eth/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="E:/MinGW/bin/mingw32-make.exe -f &quot;E:/locker1540-arduino/eth/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -1078,6 +1246,9 @@
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/utility"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/utility"/>
@@ -1129,6 +1300,9 @@
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/utility"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/utility"/>
@@ -1180,6 +1354,9 @@
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/utility"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/utility"/>
@@ -1231,6 +1408,9 @@
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/utility"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/utility"/>
@@ -1282,6 +1462,9 @@
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/utility"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/utility"/>
@@ -1333,6 +1516,9 @@
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/QueueList/utility"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/src"/>
+					<Add directory="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/utility"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/src"/>
 					<Add directory="C:/Program Files (x86)/Arduino/libraries/SD/utility"/>
@@ -1630,6 +1816,12 @@
 			<Option target="mega_Dhcp"/>
 			<Option target="mega_Ethernet"/>
 			<Option target="mega_w5100"/>
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/FlexiTimer2.cpp">
+			<Option target="mega_FlexiTimer2"/>
+		</Unit>
+		<Unit filename="C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/FlexiTimer2.h">
+			<Option target="mega_FlexiTimer2"/>
 		</Unit>
 		<Unit filename="C:/Program Files (x86)/Arduino/libraries/QueueList/QueueList.h">
 			<Option target="mega_QueueList"/>

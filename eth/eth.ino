@@ -7,6 +7,7 @@
 #include <EthernetUdp.h>
 #include <DFPlayer_Mini_Mp3.h>
 #include <QueueList.h>
+#include <FlexiTimer2.h>
 
 #include<SPI.h>
 #include<SD.h>
@@ -34,6 +35,60 @@ String cardsFileName = "CARDS.txt";
 QueueList<int> greeting_buffer;
 char buffer[bufferMax];
 
+namespace local_db {
+
+    void clear_db() {
+        for (int i = 0; i < 60;i++) {
+            for (int j = 0; j < 8; j++) {
+                q[i][j] = 0;
+            }
+        }
+    }
+
+    void parse_cards_from_file() {
+        int i = 0;
+        int a;
+        File cards = SD.open(cardsFileName);
+        DebugSerial.println("Parsing cards...");
+        if (cards) {
+            while (cards.available()) {
+                for (int f = 0; f < 8; f++) {
+                    a = cards.read();
+                    q[i][f] = a;
+
+                    if (debug) {
+                        DebugSerial.print(q[i][f]);
+                        DebugSerial.print(" ");
+                    }
+                }
+                i++;
+                cards.seek(i * 10);
+                if (debug) DebugSerial.println();
+            }
+            n = i;
+        }
+        cards.close();
+    }
+
+    bool check_card(int a[], int b[]) {
+        for (int i = 0; i < 8; i++) {
+            if (a[i] != b[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    bool check_guest(int a[]) {
+        for (int i = 0; i < 60; i++) {
+            if (check_card(q[i], a)) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+
 
 namespace DB {
     String server_answer = "";
@@ -44,6 +99,7 @@ namespace DB {
     byte db_server[] = {217, 61, 106, 178};
     String personal_greeting = "-1";
     String common_greeting = "-1";
+    String post_data = "";
 
     void build_request() {
         String res = "POST /";
@@ -53,6 +109,12 @@ namespace DB {
         res += "\r\n\r\n";
         res += request_args;
         request = res;
+
+    }
+
+    void get_post_data(){
+        int data_start = server_answer.indexOf("\r\n\r\n") + 4;
+        post_data = server_answer.substring(data_start);
 
     }
 
@@ -110,7 +172,7 @@ namespace DB {
         } else {
           DebugSerial.println("Unable to connect to server!");
         }
-        return false;
+        return local_db::check_guest(a);
     }
 
 
@@ -143,62 +205,58 @@ namespace DB {
         }
     }
 
+    void write_cards(){
+        DebugSerial.println("writing local database...");
+        String res = "";
+        SD.remove(cardsFileName);
+        File CardsDB = SD.open(cardsFileName, FILE_WRITE);
+        //DebugSerial.println(res);
+        if (!CardsDB)
+            return;
+        int start = post_data.indexOf(";") + 1, finish = post_data.indexOf(";", start);
+        while (finish != -1){
+            String card = post_data.substring(start,finish);
+            DebugSerial.println(card);
+            for (int i = 0; i < card.length(); i++) {
+                byte q = card[i];
+                CardsDB.write(q);
+            }
+            start = finish + 1;
+            finish = post_data.indexOf(";", start);
+        }
+        CardsDB.close();
+        local_db::clear_db();
+        local_db::parse_cards_from_file();
+    }
+
+    void local_sync(){
+        DebugSerial.println("syncing database...");
+        request_page = "sync";
+        request_args = "";
+        build_request();
+        EthernetClient client;
+        String req = request;
+        server_answer = "";
+        if (client.connect(db_server, 80)) {
+            //DebugSerial.println(req);
+            client.print(req);
+            String ans = "";
+            while (!client.available()) {}
+            while (client.available()) {
+                char q = client.read();
+                //DebugSerial.print(q);
+                ans += q;
+            }
+            server_answer = ans;
+            get_post_data();
+            DebugSerial.print(post_data);
+            write_cards();
+        }
+    }
+
 
 }
 
-namespace local_db {
-
-    void clear_db() {
-        for (int i = 0; i < 60;i++) {
-            for (int j = 0; j < 8; j++) {
-                q[i][j] = 0;
-            }
-        }
-    }
-
-    void parse_cards_from_file() {
-        int i = 0;
-        int a;
-        File cards = SD.open(cardsFileName);
-        DebugSerial.println("Parsing cards...");
-        if (cards) {
-            while (cards.available()) {
-                for (int f = 0; f < 8; f++) {
-                    a = cards.read();
-                    q[i][f] = a;
-
-                    if (debug) {
-                        DebugSerial.print(q[i][f]);
-                        DebugSerial.print(" ");
-                    }
-                }
-                i++;
-                cards.seek(i * 10);
-                if (debug) DebugSerial.println();
-            }
-            n = i;
-        }
-        cards.close();
-    }
-
-    bool check_card(int a[], int b[]) {
-        for (int i = 0; i < 8; i++) {
-            if (a[i] != b[i]) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    bool check_guest(int a[]) {
-        for (int i = 0; i < 60; i++) {
-            if (check_card(q[i], a)) {
-                return true;
-            }
-        }
-        return false;
-    }
-}
 
 namespace greeting {
 
@@ -259,6 +317,10 @@ namespace manage {
     }
 }
 
+void interrupt() {
+    DB::local_sync();
+}
+
 
 void setup() {
     DebugSerial.begin(115200);
@@ -272,7 +334,7 @@ void setup() {
         //return;
     }
     if (debug) DebugSerial.println("card initialized.");
-    DB::parse_cards_from_file();
+    local_db::parse_cards_from_file();
     DebugSerial.print("eth beg");
     Ethernet.begin(mac);
     DebugSerial.print("eth end");
@@ -281,6 +343,8 @@ void setup() {
     DebugSerial.println(Ethernet.localIP());
     manage::position = -1;
     manage::mode = -1;
+    FlexiTimer2::set(300000, interrupt);
+    FlexiTimer2::start();
 }
 
 void loop() {

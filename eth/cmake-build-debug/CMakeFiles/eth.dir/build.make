@@ -90,6 +90,7 @@ eth.elf: libmega_Dns.a
 eth.elf: libmega_SoftwareSerial.a
 eth.elf: libmega_DFPlayer_Mini_Mp3.a
 eth.elf: libmega_QueueList.a
+eth.elf: libmega_FlexiTimer2.a
 eth.elf: libmega_SPI.a
 eth.elf: libmega_SD.a
 eth.elf: libmega_SdFat.a

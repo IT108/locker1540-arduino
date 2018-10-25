@@ -302,6 +302,9 @@ mega_Dns_LIB_DEPENDS:STATIC=general;mega_CORE;
 mega_Ethernet_LIB_DEPENDS:STATIC=general;mega_CORE;
 
 //Dependencies for the target
+mega_FlexiTimer2_LIB_DEPENDS:STATIC=general;mega_CORE;
+
+//Dependencies for the target
 mega_QueueList_LIB_DEPENDS:STATIC=general;mega_CORE;
 
 //Dependencies for the target

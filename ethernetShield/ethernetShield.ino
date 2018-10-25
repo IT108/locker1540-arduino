@@ -10,6 +10,7 @@
 #include<SPI.h>
 #include<SD.h>
 #include<Ethernet.h>
+#include<FlexiTimer2.h>
 //Serial defines
 #define LockerSerial Serial3
 #define DebugSerial Serial
@@ -42,7 +43,7 @@ int bufferSize;
 char buffer[bufferMax];
 char post
 //System variables
-const int PIN_DFPLAYER_BUSY = 24; // warning
+int PIN_DFPLAYER_BUSY = 24; // warning
 bool debug = true;
 int q[60][8];
 int w[8];

@@ -253,6 +253,19 @@ mega_SoftwareSerial/fast:
 .PHONY : mega_SoftwareSerial/fast
 
 #=============================================================================
+# Target rules for targets named mega_FlexiTimer2
+
+# Build rule for target.
+mega_FlexiTimer2: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 mega_FlexiTimer2
+.PHONY : mega_FlexiTimer2
+
+# fast build rule for target.
+mega_FlexiTimer2/fast:
+	$(MAKE) -f CMakeFiles\mega_FlexiTimer2.dir\build.make CMakeFiles/mega_FlexiTimer2.dir/build
+.PHONY : mega_FlexiTimer2/fast
+
+#=============================================================================
 # Target rules for targets named mega_SdFat
 
 # Build rule for target.
@@ -1334,6 +1347,33 @@ C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.s:
 	$(MAKE) -f CMakeFiles\mega_w5100.dir\build.make CMakeFiles/mega_w5100.dir/C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.s
 .PHONY : C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.cpp.s
 
+C_/Program_Files_(x86)/Arduino/libraries/FlexiTimer2/FlexiTimer2.obj: C_/Program_Files_(x86)/Arduino/libraries/FlexiTimer2/FlexiTimer2.cpp.obj
+
+.PHONY : C_/Program_Files_(x86)/Arduino/libraries/FlexiTimer2/FlexiTimer2.obj
+
+# target to build an object file
+C_/Program_Files_(x86)/Arduino/libraries/FlexiTimer2/FlexiTimer2.cpp.obj:
+	$(MAKE) -f CMakeFiles\mega_FlexiTimer2.dir\build.make CMakeFiles/mega_FlexiTimer2.dir/C_/Program_Files_(x86)/Arduino/libraries/FlexiTimer2/FlexiTimer2.cpp.obj
+.PHONY : C_/Program_Files_(x86)/Arduino/libraries/FlexiTimer2/FlexiTimer2.cpp.obj
+
+C_/Program_Files_(x86)/Arduino/libraries/FlexiTimer2/FlexiTimer2.i: C_/Program_Files_(x86)/Arduino/libraries/FlexiTimer2/FlexiTimer2.cpp.i
+
+.PHONY : C_/Program_Files_(x86)/Arduino/libraries/FlexiTimer2/FlexiTimer2.i
+
+# target to preprocess a source file
+C_/Program_Files_(x86)/Arduino/libraries/FlexiTimer2/FlexiTimer2.cpp.i:
+	$(MAKE) -f CMakeFiles\mega_FlexiTimer2.dir\build.make CMakeFiles/mega_FlexiTimer2.dir/C_/Program_Files_(x86)/Arduino/libraries/FlexiTimer2/FlexiTimer2.cpp.i
+.PHONY : C_/Program_Files_(x86)/Arduino/libraries/FlexiTimer2/FlexiTimer2.cpp.i
+
+C_/Program_Files_(x86)/Arduino/libraries/FlexiTimer2/FlexiTimer2.s: C_/Program_Files_(x86)/Arduino/libraries/FlexiTimer2/FlexiTimer2.cpp.s
+
+.PHONY : C_/Program_Files_(x86)/Arduino/libraries/FlexiTimer2/FlexiTimer2.s
+
+# target to generate assembly for a file
+C_/Program_Files_(x86)/Arduino/libraries/FlexiTimer2/FlexiTimer2.cpp.s:
+	$(MAKE) -f CMakeFiles\mega_FlexiTimer2.dir\build.make CMakeFiles/mega_FlexiTimer2.dir/C_/Program_Files_(x86)/Arduino/libraries/FlexiTimer2/FlexiTimer2.cpp.s
+.PHONY : C_/Program_Files_(x86)/Arduino/libraries/FlexiTimer2/FlexiTimer2.cpp.s
+
 C_/Program_Files_(x86)/Arduino/libraries/SD/src/File.obj: C_/Program_Files_(x86)/Arduino/libraries/SD/src/File.cpp.obj
 
 .PHONY : C_/Program_Files_(x86)/Arduino/libraries/SD/src/File.obj
@@ -1543,6 +1583,7 @@ help:
 	@echo ... mega_SPI
 	@echo ... mega_DFPlayer_Mini_Mp3
 	@echo ... mega_SoftwareSerial
+	@echo ... mega_FlexiTimer2
 	@echo ... mega_SdFat
 	@echo ... mega_SdFatUtil
 	@echo ... eth
@@ -1655,6 +1696,9 @@ help:
 	@echo ... C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.obj
 	@echo ... C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.i
 	@echo ... C_/Program_Files_(x86)/Arduino/libraries/Ethernet/src/utility/w5100.s
+	@echo ... C_/Program_Files_(x86)/Arduino/libraries/FlexiTimer2/FlexiTimer2.obj
+	@echo ... C_/Program_Files_(x86)/Arduino/libraries/FlexiTimer2/FlexiTimer2.i
+	@echo ... C_/Program_Files_(x86)/Arduino/libraries/FlexiTimer2/FlexiTimer2.s
 	@echo ... C_/Program_Files_(x86)/Arduino/libraries/SD/src/File.obj
 	@echo ... C_/Program_Files_(x86)/Arduino/libraries/SD/src/File.i
 	@echo ... C_/Program_Files_(x86)/Arduino/libraries/SD/src/File.s
