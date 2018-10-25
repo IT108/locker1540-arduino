@@ -42,3 +42,13 @@ def get_common_greet(group):
     else:
         sequence = evening
     return random.choice(sequence)
+
+
+def sync():
+    res = ''
+    resp = constants.DB.query('select card from public.users')
+    for a in resp:
+        res += ';'
+        res += str(a[0])
+    res += ';'
+    return res
