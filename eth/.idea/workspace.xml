@@ -458,6 +458,7 @@
       <item itemvalue="Application.mega_Dhcp" />
       <item itemvalue="Application.mega_Dns" />
       <item itemvalue="Application.mega_Ethernet" />
+      <item itemvalue="Application.mega_FlexiTimer2" />
       <item itemvalue="Application.mega_SD" />
       <item itemvalue="Application.mega_SdFat" />
       <item itemvalue="Application.mega_SdFatUtil" />
@@ -466,7 +467,6 @@
       <item itemvalue="Application.mega_w5100" />
       <item itemvalue="Application.upload" />
       <item itemvalue="Application.mega_QueueList" />
-      <item itemvalue="Application.mega_FlexiTimer2" />
     </list>
   </component>
   <component name="SvnConfiguration">

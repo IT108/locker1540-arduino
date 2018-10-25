@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/FlexiTimer2.cpp
+FlexiTimer2.h
+-
+
+C:/Program Files (x86)/Arduino/libraries/FlexiTimer2/FlexiTimer2.h
+avr/interrupt.h
+-
+
