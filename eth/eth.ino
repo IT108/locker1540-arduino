@@ -36,8 +36,6 @@ String cardsFileName = "CARDS.txt";
 QueueList<int> greeting_buffer;
 char buffer[bufferMax];
 
-void(* resetFunc) (void) = 0;
-
 namespace local_db {
 
     void clear_db() {
@@ -174,6 +172,7 @@ namespace DB {
                 return false;
         } else {
           DebugSerial.println("Unable to connect to server!");
+          need_reset = true;
         }
         need_reset = true;
         return local_db::check_guest(a);
@@ -222,9 +221,10 @@ namespace DB {
         int start = post_data.indexOf(";") + 1, finish = post_data.indexOf(";", start);
         while (finish != -1){
             String card = post_data.substring(start,finish);
-            DebugSerial.println(card);
+            card += "\r\n";
             for (int i = 0; i < card.length(); i++) {
                 byte q = card[i];
+                DebugSerial.print(card[i]);
                 CardsDB.write(q);
             }
             start = finish + 1;
@@ -314,11 +314,15 @@ namespace manage {
                     } else {
                         LockerSerial.print("N");
                     }
-                    if (need_reset) resetFunc();
+                    if (need_reset){ 
+                    need_reset = false;
+                    }
                 } else if (mode == 125) {
                     DB::request_greetings(w);
                     greeting::play_greeting();
-                    if (need_reset) resetFunc();
+                    if (need_reset){ 
+                      need_reset = false;
+                    }
                 }
             }
         }
@@ -351,6 +355,7 @@ void setup() {
     DebugSerial.println(Ethernet.localIP());
     manage::position = -1;
     manage::mode = -1;
+    DB::local_sync();
     FlexiTimer2::set(300000, interrupt);
     FlexiTimer2::start();
 }
