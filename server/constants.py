@@ -1,5 +1,5 @@
 import postgresql
-DBIP = '217.61.106.178'
+DBIP = '176.99.11.114'
 username = 'locker'
 password = 'locker1540'
 DBName = 'locker'
