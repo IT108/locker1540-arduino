@@ -9,10 +9,10 @@ DB = postgresql.open('pq://' + username + ':' + password + '@' + DBIP + ':5432/'
 # ------------------------------------------------DATASETS------------------------------------------------ #
 
 # -------------------------------STUDENTS------------------------------- #
-students_morning = [2, 3, 4, 5]
-students_day = [1, 2, 3, 5]
-students_evening = [2, 3, 5]
+students_morning = [2, 3, 4, 5, 19, 21, 24, 26]
+students_day = [1, 2, 3, 5, 19, 21, 24, 26]
+students_evening = [2, 3, 5, 18, 19, 21, 24, 26]
 # -------------------------------TEACHERS------------------------------- #
-teachers_morning = [2, 4, 5]
-teachers_day = [1, 2, 5]
-teachers_evening = [2, 5]
+teachers_morning = [2, 4, 5, 19, 21]
+teachers_day = [1, 2, 5, 19, 21]
+teachers_evening = [2, 5, 18, 19, 21]

@@ -97,7 +97,7 @@ namespace DB {
     String request = "";
     String request_args = "";
     String request_page = "";
-    byte db_server[] = {217, 61, 106, 178};
+    byte db_server[] = {176, 99, 11, 114};
     String personal_greeting = "-1";
     String common_greeting = "-1";
     String post_data = "";
@@ -166,6 +166,7 @@ namespace DB {
             server_answer = ans;
             DebugSerial.print(server_answer);
             parse_guest_answer();
+            client.stop();
             if (guest_authorization == "True")
                 return true;
             else
@@ -203,6 +204,7 @@ namespace DB {
                 ans += q;
             }
             server_answer = ans;
+            client.stop();
             parse_greeting_answer();
             DebugSerial.print(common_greeting + " " + personal_greeting);
         } else {
