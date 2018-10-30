@@ -36,6 +36,10 @@ String cardsFileName = "CARDS.txt";
 QueueList<int> greeting_buffer;
 char buffer[bufferMax];
 
+void reset(){
+  digitalWrite(7, 0);
+}
+
 namespace local_db {
 
     void clear_db() {
@@ -292,6 +296,9 @@ namespace manage {
 
 
     void handle_locker() {
+        if  (need_reset){
+            LockerSerial.println("!");
+        }
         if (!LockerSerial.available()) {
             position = -1;
             mode = -1;
@@ -316,15 +323,9 @@ namespace manage {
                     } else {
                         LockerSerial.print("N");
                     }
-                    if (need_reset){ 
-                    need_reset = false;
-                    }
                 } else if (mode == 125) {
                     DB::request_greetings(w);
                     greeting::play_greeting();
-                    if (need_reset){ 
-                      need_reset = false;
-                    }
                 }
             }
         }
@@ -339,6 +340,8 @@ void interrupt() {
 void setup() {
     DebugSerial.begin(115200);
     LockerSerial.begin(115200);
+    digitalWrite(7,1);
+    pinMode(7, OUTPUT);
     Serial2.begin(9600);
     mp3_set_serial(Serial2);
     mp3_set_volume(25);

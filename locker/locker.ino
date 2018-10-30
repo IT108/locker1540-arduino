@@ -28,6 +28,8 @@ namespace constant_pins {
 	const int INSIDE_SENSOR_1_1 = 5;
 
 	const int INSIDE_LIGHT = 9;
+
+  const int SERVER_RESET = 30; 
 }
 
 namespace constant_values {
@@ -229,6 +231,11 @@ namespace client {
 				outside_led::red();
 				delay(constant_values::TIMER_RED);
 			}
+     if (ans == 33) {
+        digitalWrite(constant_pins::SERVER_RESET, LOW); 
+     } else {
+        digitalWrite(constant_pins::SERVER_RESET, HIGH); 
+     }
 		}
 	}
 }
@@ -367,6 +374,8 @@ void setup() {
 	pinMode(constant_pins::INSIDE_SENSOR_1_0, INPUT);
 	pinMode(constant_pins::INSIDE_SENSOR_1_1, INPUT);
 	pinMode(constant_pins::INSIDE_LIGHT, OUTPUT);
+  pinMode(constant_pins::SERVER_RESET, OUTPUT);
+  digitalWrite(constant_pins::SERVER_RESET, HIGH);
 	security::timer = millis();
 	door_bell::timer = millis();
 	inside_light::timer = millis();
