@@ -3,15 +3,16 @@ from BL.login import card_login_attempt
 import BL.constants
 import serial.tools.list_ports
 import serial
+import graphic.options
+from graphic.constants import root
+from graphic.constants import card_wait_frame
 
-
-root = Tk()
 root.geometry(str(root.winfo_screenwidth()) + 'x' + str(root.winfo_screenheight()))
 root.attributes("-fullscreen", True)
-mes = StringVar(root, 'Выберите порт')
-label = Label(root, {"textvariable": mes, "justify": 'center'})
-lb = Listbox()
-btn = Button(root, {"text": "Считать карту", 'height': 22, 'width': 50})
+mes = StringVar(card_wait_frame, 'Выберите порт')
+label = Label(card_wait_frame, {"textvariable": mes, "justify": 'center'})
+lb = Listbox(card_wait_frame)
+btn = Button(card_wait_frame, {"text": "Считать карту", 'height': 22, 'width': 50})
 
 
 def listen_card():
@@ -31,6 +32,7 @@ def listen_card():
     root.update()
     card = ser.read(9)
     card = card[1:]
+    card = card.decode('utf-8')
     print(card)
     ser.close()
     btn['text'] = "Аунтификация..."
@@ -39,6 +41,8 @@ def listen_card():
     if not resp:
         btn['text'] = 'Пользователя не существует или ему запрещено изменение базы данных'
         root.update()
+    else:
+        graphic.options.start()
 
 
 btn['command'] = listen_card
@@ -61,8 +65,11 @@ def start():
         lb.insert(END, i)
     lb.bind("<<ListboxSelect>>", on_select_list)
     btn.bind(listen_card)
-    label.pack()
-    lb.pack()
-    btn.pack()
+    card_wait_frame.grid_columnconfigure(0, {'minsize': root.winfo_screenwidth()})
+    lb.grid(row=2, column=0)
+    label.grid(row=1, column=0)
+    btn.grid(row=3, column=0)
+
+    card_wait_frame.grid()
     # label.grid({"row": 1, "column": 1, "sticky": W+E})
     root.mainloop()

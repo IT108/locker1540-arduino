@@ -16,7 +16,7 @@ TOKEN = ""
 OPERATION_KEYS = {'EX': 0, 'AC': 1, 'RC': 2, 'GA': 3, 'GB': 4, 'LA': 5}
 OPERATOR_CARD = ""
 SERIAL_PORT = ''
-DBIP = '217.61.106.178'
+DBIP = '176.99.11.114'
 username = 'locker'
 password = 'locker1540'
 DBName = 'locker'
@@ -24,6 +24,7 @@ try:
     DB = postgresql.open('pq://' + username + ':' + password + '@' + DBIP + ':5432/' + DBName)
 except postgresql.exceptions.ClientCannotConnectError:
     DB = ''
+
 
 class ServerAnswer:
     def __init__(self, code, data='null'):
