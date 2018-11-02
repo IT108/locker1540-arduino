@@ -102,6 +102,7 @@ namespace DB {
     String request_args = "";
     String request_page = "";
     byte db_server[] = {176, 99, 11, 114};
+    String server = "176.99.11.114";
     String personal_greeting = "-1";
     String common_greeting = "-1";
     String post_data = "";
@@ -109,7 +110,9 @@ namespace DB {
     void build_request() {
         String res = "POST /";
         res += request_page;
-        res += " HTTP/1.1\r\nHost: 217.61.106.178\r\nContent-Type: application/x-www-form-urlencoded\r\nContent-Length: ";
+        res += " HTTP/1.1\r\nHost: ";
+        res += server;
+        res += "\r\nContent-Type: application/x-www-form-urlencoded\r\nContent-Length: ";
         res += String(request_args.length());
         res += "\r\n\r\n";
         res += request_args;
@@ -263,6 +266,8 @@ namespace DB {
             get_post_data();
             DebugSerial.print(post_data);
             write_cards();
+        } else {
+          need_reset = true;
         }
     }
 
@@ -279,6 +284,8 @@ namespace greeting {
         if (greeting_number != -1) {
             greeting_buffer.push(greeting_number);
         }
+        DB::personal_greeting = "-1";
+        DB::common_greeting = "-1";
         delay(2000);
     }
 
