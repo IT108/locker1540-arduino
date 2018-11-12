@@ -1,0 +1,27 @@
+что надо купить
+
+Шкаф для хранения системы
+Raspberry Pi для сервера
+ИБП компактный
+
+тезисы - 
+сверху ставим Din, на который крепим автомат, raspberry pi
+внизу ставим большой ups
+По центру ставим еще один din, на который повесим плату
+Надо тянуть один провод ethernet
+
+https://videoglaz.ru/elektromontazhnye-shkafy-i-schity/ruself/ruself-schmp-06-ip31
+
+https://www.moxa.ru/shop/accessories/mounting/dk35a/
+
+https://www.etm.ru/cat/nn/9724561/ х2
+
+http://amperka.ru/collection/bestsellers/product/raspberry-pi-3-model-b-plus
+
+http://lartmaster.ru/goods/Plastikovye-derzhateli-dlya-DIN-rejki
+
+https://www.dns-shop.ru/product/940e53a73bcf3330/ibp-dexp-iec-450va/characteristics/
+
+https://on.pleer.ru/product_219638_Sven_Special_Base_5_Sockets_05m.html?utm_source=adw&utm_content=merchant-msk&utm_medium=cpc&gclid=CjwKCAiA5qTfBRAoEiwAwQy-6RKy8dUfwdPx6pe8hZ7tbh5pnwVX4OzhJbzzPJKgXc0WCzVO1B9UIxoCMAMQAvD_BwE
+
+Вариант 2 http://www.mean-well.ru/store/DRC-60A/

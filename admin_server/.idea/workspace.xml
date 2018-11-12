@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c0bc5843-b605-470a-8f64-a4fb90a61ff1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../eth/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../eth/eth.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../eth/eth.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../server/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="c0bc5843-b605-470a-8f64-a4fb90a61ff1" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,10 +156,11 @@
     <session id="1631473727">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.12" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.16" value="1" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -197,7 +194,6 @@
               <caret line="35" column="35" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
-                <marker date="1541144402665" expanded="true" signature="592:611" ph="..." />
               </folding>
             </state>
           </provider>
@@ -206,7 +202,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-51">
+            <state relative-caret-position="323">
               <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
@@ -223,9 +219,6 @@
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
               <filtering enabled="true" />
-              <column-attributes>
-                <column name="ctid" enabled="false" />
-              </column-attributes>
             </state>
           </provider>
         </entry>
@@ -234,7 +227,7 @@
         <entry file="file://$PROJECT_DIR$/constants.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
@@ -326,7 +319,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -338,6 +330,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -345,7 +338,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="database.data.extractors.current.id" value="Tab-separated (TSV)_id" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/locker1540-server" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -458,7 +451,7 @@
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49867374" visible="true" weight="0.1602951" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49867374" visible="true" weight="0.16230717" />
       <window_info id="Structure" order="1" sideWeight="0.50132626" side_tool="true" weight="0.16923077" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -497,61 +490,20 @@
   <component name="editorHistoryManager">
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/1653efd2-8186-4c4d-8d6b-403fa736a6a5/console.sql" />
     <entry file="das://1653efd2-8186-4c4d-8d6b-403fa736a6a5/database/locker/schema/public/table/users.sql" />
-    <entry file="das://1653efd2-8186-4c4d-8d6b-403fa736a6a5/database/locker/schema/public/table/users" />
-    <entry file="file://$PROJECT_DIR$/constants.py">
+    <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://1653efd2-8186-4c4d-8d6b-403fa736a6a5/database/locker/schema/public/table/users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://1653efd2-8186-4c4d-8d6b-403fa736a6a5/database/locker/schema/public/table/users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://1653efd2-8186-4c4d-8d6b-403fa736a6a5/database/locker/schema/public/table/users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-          <column-attributes>
-            <column name="ctid" enabled="false" />
-          </column-attributes>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://1653efd2-8186-4c4d-8d6b-403fa736a6a5/database/locker/schema/public/table/users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-          <column-attributes>
-            <column name="ctid" enabled="false" />
-          </column-attributes>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://1653efd2-8186-4c4d-8d6b-403fa736a6a5/database/locker/schema/public/table/users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-          <column-attributes>
-            <column name="ctid" enabled="false" />
-          </column-attributes>
+        <state relative-caret-position="306">
+          <caret line="35" column="35" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+            <marker date="1541144402665" expanded="true" signature="592:611" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51">
+        <state relative-caret-position="323">
           <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
@@ -562,14 +514,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.py">
+    <entry file="das://1653efd2-8186-4c4d-8d6b-403fa736a6a5/database/locker/schema/public/table/users">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/constants.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="35" column="35" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-            <marker date="1541144402665" expanded="true" signature="592:611" ph="..." />
-          </folding>
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
