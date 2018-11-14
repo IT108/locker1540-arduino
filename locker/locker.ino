@@ -233,10 +233,10 @@ namespace client {
 			}
      if (ans == 33) {
         digitalWrite(constant_pins::SERVER_RESET, LOW); 
-     } else {
-        digitalWrite(constant_pins::SERVER_RESET, HIGH); 
+        return;
      }
 		}
+   digitalWrite(constant_pins::SERVER_RESET, HIGH); 
 	}
 }
 
