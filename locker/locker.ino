@@ -198,6 +198,7 @@ namespace security {
 }
 
 namespace client {
+  long long reset_time = millis();
 	String make_request(String type, int card[]) {
 		String res = type;
 		for (int i = 0; i < constant_values::CARD_SIZE; i++) {
@@ -233,10 +234,13 @@ namespace client {
 			}
      if (ans == 33) {
         digitalWrite(constant_pins::SERVER_RESET, LOW); 
+        reset_time = millis();
         return;
      }
 		}
-   digitalWrite(constant_pins::SERVER_RESET, HIGH); 
+   if (millis() - reset_time > 5000){
+   digitalWrite(constant_pins::SERVER_RESET, HIGH);
+   } 
 	}
 }
 
