@@ -115,6 +115,14 @@ namespace outside_led {
 		}
 	}
 }
+namespace security {
+    extern long long timer;
+}
+
+namespace inside_light {
+    extern int is_button;
+    extern long long timer;
+}
 
 namespace locker {
 	const int LOCK = 1;
@@ -345,6 +353,7 @@ namespace inside_light {
 	long long timer;
 	int status;
 	int is_button = 0;
+  int f = 0;
 	const long long TIMER_EMPTY = 120000LL;
 	const long long TIMER_WAIT = 300000LL;
 
@@ -382,6 +391,10 @@ namespace inside_light {
 			}
 		}
 		else {
+      if (!f) {
+          f = 1;
+          door_bell::play();
+      }
 			if (status) {
 				light();
 			}
