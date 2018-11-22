@@ -127,7 +127,7 @@ namespace inside_light {
 namespace locker {
 	const int LOCK = 1;
 	const int UNLOCK = 0;
-  long long timer = 0;
+	long long timer = 0;
 	void lock() {
 		digitalWrite(constant_pins::LOCKER, LOCK);
 		timer = millis();
@@ -177,6 +177,7 @@ namespace security {
 			timer = millis();
 		}
 		if (status) {
+			locker::timer = millis();
 			timer = millis();
 		}
 		if (millis() - timer < gap) {
@@ -255,7 +256,7 @@ namespace client {
 	     	}
 		}
 		if (millis() - reset_time > 5000){
-		   digitalWrite(constant_pins::SERVER_RESET, 1);
+			digitalWrite(constant_pins::SERVER_RESET, 1);
 		} 
 	}
 }
@@ -353,15 +354,15 @@ namespace inside_light {
 	long long timer;
 	int status;
 	int is_button = 0;
-  int f = 0;
-  long long button_timer = 0;
+	int f = 0;
+	long long button_timer = 0;
 	const long long TIMER_EMPTY = 120000LL;
 	const long long TIMER_WAIT = 125000LL;
 
 	void check_button() {
 		if (!digitalRead(constant_pins::LIGHT_BUTTON)) {
 			is_button ^= 1;
-       button_timer = millis();
+   			button_timer = millis();
 		}
 	}
 
@@ -377,17 +378,17 @@ namespace inside_light {
 	}
 
 	void update() {
-    long long current_time = millis();
-    if (current_time - button_timer < 1000) {
-        return;
-    }
-    check_button();
-    if (is_button && status == 0) {
-        return;
-    }
+	    long long current_time = millis();
+	    if (current_time - button_timer < 1000) {
+	        return;
+	    }
+	    check_button();
+	    if (is_button && status == 0) {
+	        return;
+	    }
 		if (is_button && status == 1) {
 			unlight();
-      return;
+    		return;
 		}
 		if (current_time - locker::timer < TIMER_WAIT) {
 			if (security::cabinet_status(TIMER_EMPTY)) {
@@ -443,13 +444,13 @@ void setup() {
 	pinMode(constant_pins::INSIDE_LIGHT, OUTPUT);
 	pinMode(constant_pins::SERVER_RESET, OUTPUT);
 	pinMode(constant_pins::LIGHT_BUTTON, INPUT);
-  digitalWrite(constant_pins::LIGHT_BUTTON, 1);
+	digitalWrite(constant_pins::LIGHT_BUTTON, 1);
 	digitalWrite(constant_pins::SERVER_RESET, 1);
 	security::timer = millis();
 	door_bell::timer = millis();
 	inside_light::timer = millis();
-  inside_light::button_timer = millis();
-  locker::timer = millis();
+	inside_light::button_timer = millis();
+	locker::timer = millis();
 	inside_light::status = 0;
 	outside_led::current_red = 255;
 	outside_led::current_green = 0;
