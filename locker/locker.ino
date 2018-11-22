@@ -29,14 +29,16 @@ namespace constant_pins {
 
 	const int INSIDE_LIGHT = 9;
 
-  const int SERVER_RESET = 30; 
+	const int SERVER_RESET = 30; 
+
+	const int LIGHT_BUTTON = 42;
 }
 
 namespace constant_values {
-  const int TIMER_GREEN = 5000;
-  const int TIMER_RED = 2000;
-  const int TIMER_BLUE = 2000;
-  const int CARD_SIZE = 8;
+	const int TIMER_GREEN = 5000;
+	const int TIMER_RED = 2000;
+	const int TIMER_BLUE = 2000;
+	const int CARD_SIZE = 8;
 }
 
 namespace door_bell {
@@ -120,10 +122,16 @@ namespace locker {
 
 	void lock() {
 		digitalWrite(constant_pins::LOCKER, LOCK);
+		security::timer = millis();
+		inside_light::timer = millis();
+		inside_light::is_button = 0;
 	}
 
 	void unlock() {
 		digitalWrite(constant_pins::LOCKER, UNLOCK);
+		security::timer = millis();
+		inside_light::timer = millis();
+		inside_light::is_button = 0;
 	}
 
 	int locker_status() {
@@ -198,7 +206,7 @@ namespace security {
 }
 
 namespace client {
-  long long reset_time = millis();
+	long long reset_time = millis();
 	String make_request(String type, int card[]) {
 		String res = type;
 		for (int i = 0; i < constant_values::CARD_SIZE; i++) {
@@ -232,15 +240,15 @@ namespace client {
 				outside_led::red();
 				delay(constant_values::TIMER_RED);
 			}
-     if (ans == 33) {
-        digitalWrite(constant_pins::SERVER_RESET, LOW); 
-        reset_time = millis();
-        return;
-     }
+	    	if (ans == 33) {
+	        	digitalWrite(constant_pins::SERVER_RESET, 0); 
+	        	reset_time = millis();
+	        	return;
+	     	}
 		}
-   if (millis() - reset_time > 5000){
-   digitalWrite(constant_pins::SERVER_RESET, HIGH);
-   } 
+		if (millis() - reset_time > 5000){
+		   digitalWrite(constant_pins::SERVER_RESET, 1);
+		} 
 	}
 }
 
@@ -334,14 +342,53 @@ namespace handler {
 }
 
 namespace inside_light {
-	int timer;
+	long long timer;
 	int status;
+	int is_button = 0;
 	const long long TIMER_EMPTY = 120000LL;
+	const long long TIMER_WAIT = 300000LL;
+
+	void check_button() {
+		if (digitalRead(constant_pins::LIGHT_BUTTON)) {
+			is_button ^= 1;
+			delay(1000);
+		}
+	}
+
+	void light() {
+		digitalWrite(constant_pins::INSIDE_LIGHT, 1);	
+		status = 1;
+		timer = millis();
+	}
+
+	void unlight() {
+		digitalWrite(constant_pins::INSIDE_LIGHT, 0);
+		status = 0;
+	}
 
 	void update() {
-		int current_status = security::cabinet_status(TIMER_EMPTY);
-		digitalWrite(constant_pins::INSIDE_LIGHT, current_status);
-		status = current_status;
+		check_button();
+		if (is_button) {
+			unlight();
+			return;
+		}
+		long long current_time = millis();
+		if (current_time - security::timer < TIMER_WAIT) {
+			if (security::cabinet_status(TIMER_EMPTY)) {
+				light();
+			}
+			else {
+				unlight();
+			}
+		}
+		else {
+			if (status) {
+				light();
+			}
+			else {
+				unlight();
+			}
+		}
 	}
 }
 
@@ -378,8 +425,9 @@ void setup() {
 	pinMode(constant_pins::INSIDE_SENSOR_1_0, INPUT);
 	pinMode(constant_pins::INSIDE_SENSOR_1_1, INPUT);
 	pinMode(constant_pins::INSIDE_LIGHT, OUTPUT);
-  pinMode(constant_pins::SERVER_RESET, OUTPUT);
-  digitalWrite(constant_pins::SERVER_RESET, HIGH);
+	pinMode(constant_pins::SERVER_RESET, OUTPUT);
+	pinMode(constant_pins::LIGHT_BUTTON, INPUT);
+	digitalWrite(constant_pins::SERVER_RESET, 1);
 	security::timer = millis();
 	door_bell::timer = millis();
 	inside_light::timer = millis();
