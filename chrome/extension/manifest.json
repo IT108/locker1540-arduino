@@ -1,0 +1,21 @@
+{
+  "name": "Getting Started Example",
+  "version": "0.11",
+  "description": "Build an Extension!",
+  "manifest_version": 2,
+  "permissions": [
+    "tabs",
+    "file:///*",
+    "management"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["file:///*"],
+      "js": ["js/action.js"]
+    }
+  ],
+  "background": {
+    "persistent":	false,
+    "scripts": 		["js/background.js"]
+  }
+}
