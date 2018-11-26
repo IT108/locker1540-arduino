@@ -122,14 +122,14 @@ namespace security {
 }
 
 namespace inside_light {
-	extern long long TIMER_EMPTY;
-	extern long long TIMER_GAP;
+	extern const long long TIMER_EMPTY;
+	extern const long long TIMER_GAP;
 }
 
 namespace locker {
 	const int LOCK = 1;
 	const int UNLOCK = 0;
-	int door_status = 0;
+	int door_closed = 0;
 
 	void lock() {
 		digitalWrite(constant_pins::LOCKER, LOCK);
@@ -145,11 +145,11 @@ namespace locker {
 
 	int door_status() {
 		int tmp = digitalRead(constant_pins::DOOR_SENSOR);
-		if (tmp != door_status) {
-			door_status = tmp;
+		if (tmp != door_closed) {
+			door_closed = tmp;
 			security::last_open_timer = millis();
 		}
-		return door_status;
+		return door_closed;
 	}
 }
 
@@ -359,6 +359,7 @@ namespace handler {
 
 namespace inside_light {
 	int is_button = 0;
+  int status = 0;
 	long long button_timer = 0;
 	const long long TIMER_EMPTY = 60000LL;
 	const long long TIMER_GAP = 5000LL;
@@ -372,10 +373,12 @@ namespace inside_light {
 
 	void light() {
 		digitalWrite(constant_pins::INSIDE_LIGHT, 1);	
+	  status = 1;
 	}
 
 	void unlight() {
 		digitalWrite(constant_pins::INSIDE_LIGHT, 0);
+	  status = 0;
 	}
 
 	void update() {
