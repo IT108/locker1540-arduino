@@ -115,31 +115,28 @@ namespace outside_led {
 		}
 	}
 }
+
 namespace security {
-    extern long long timer;
+	extern long long timer;
+	extern long long last_open_timer;
 }
 
 namespace inside_light {
-    extern int is_button;
-    extern long long timer;
+	extern long long TIMER_EMPTY;
+	extern long long TIMER_GAP;
 }
 
 namespace locker {
 	const int LOCK = 1;
 	const int UNLOCK = 0;
-	long long timer = 0;
+	int door_status = 0;
+
 	void lock() {
 		digitalWrite(constant_pins::LOCKER, LOCK);
-		timer = millis();
-		inside_light::timer = millis();
-		inside_light::is_button = 0;
 	}
 
 	void unlock() {
 		digitalWrite(constant_pins::LOCKER, UNLOCK);
-		timer = millis();
-		inside_light::timer = millis();
-		inside_light::is_button = 0;
 	}
 
 	int locker_status() {
@@ -147,7 +144,12 @@ namespace locker {
 	}
 
 	int door_status() {
-		return digitalRead(constant_pins::DOOR_SENSOR);
+		int tmp = digitalRead(constant_pins::DOOR_SENSOR);
+		if (tmp != door_status) {
+			door_status = tmp;
+			security::last_open_timer = millis();
+		}
+		return door_status;
 	}
 }
 
@@ -166,6 +168,7 @@ namespace exit_button {
 
 namespace security {
 	long long timer;
+	long long last_open_timer;
 	const long long TIMER_EMPTY = 60000LL;
 
 	int cabinet_status(long long gap) {
@@ -177,13 +180,17 @@ namespace security {
 			timer = millis();
 		}
 		if (status) {
-			locker::timer = millis();
 			timer = millis();
 		}
 		if (millis() - timer < gap) {
 			return 1;
 		}
 		return 0;
+	}
+
+	bool check_if_inside() {
+		long long cur = millis();
+		return cur < last_open_timer + inside_light::TIMER_EMPTY || timer > last_open_timer + inside_light::TIMER_GAP;
 	}
 
 	void update() {
@@ -351,60 +358,44 @@ namespace handler {
 }
 
 namespace inside_light {
-	long long timer;
-	int status;
 	int is_button = 0;
-	int f = 0;
 	long long button_timer = 0;
-	const long long TIMER_EMPTY = 120000LL;
-	const long long TIMER_WAIT = 125000LL;
+	const long long TIMER_EMPTY = 60000LL;
+	const long long TIMER_GAP = 5000LL;
 
 	void check_button() {
 		if (!digitalRead(constant_pins::LIGHT_BUTTON)) {
 			is_button ^= 1;
-   			button_timer = millis();
+			button_timer = millis();
 		}
 	}
 
 	void light() {
 		digitalWrite(constant_pins::INSIDE_LIGHT, 1);	
-		status = 1;
-		timer = millis();
 	}
 
 	void unlight() {
 		digitalWrite(constant_pins::INSIDE_LIGHT, 0);
-		status = 0;
 	}
 
 	void update() {
-	    long long current_time = millis();
-	    if (current_time - button_timer < 1000) {
-	        return;
-	    }
-	    check_button();
-	    if (is_button && status == 0) {
-	        return;
-	    }
+		long long current_time = millis();
+		if (current_time - button_timer < 1000) {
+			return;
+		}
+		check_button();
+		if (is_button && status == 0) {
+			return;
+		}
 		if (is_button && status == 1) {
 			unlight();
-    		return;
+			return;
 		}
-		if (current_time - locker::timer < TIMER_WAIT) {
-			if (security::cabinet_status(TIMER_EMPTY)) {
-				light();
-			}
-			else {
-				unlight();
-			}
+		if (security::check_if_inside()) {
+			light();
 		}
 		else {
-			if (status) {
-				light();
-			}
-			else {
-				unlight();
-			}
+			unlight();
 		}
 	}
 }
@@ -448,9 +439,8 @@ void setup() {
 	digitalWrite(constant_pins::SERVER_RESET, 1);
 	security::timer = millis();
 	door_bell::timer = millis();
-	inside_light::timer = millis();
 	inside_light::button_timer = millis();
-	locker::timer = millis();
+	security::timer = millis();
 	inside_light::status = 0;
 	outside_led::current_red = 255;
 	outside_led::current_green = 0;
