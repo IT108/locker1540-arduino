@@ -1,7 +1,7 @@
 {
-  "name": "Getting Started Example",
-  "version": "0.11",
-  "description": "Build an Extension!",
+  "name": "Locker1540 extension",
+  "version": "0.2",
+  "description": "Extension for card reader. Works only with Locker1540 app!",
   "manifest_version": 2,
   "permissions": [
     "tabs",
@@ -10,7 +10,7 @@
   ],
   "content_scripts": [
     {
-      "matches": ["file:///*"],
+      "matches": ["http://localhost/*"],
       "js": ["js/action.js"]
     }
   ],

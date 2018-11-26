@@ -4,6 +4,12 @@
 				document.addEventListener("scanner", function(e) { 
 				    document.getElementById('barcode').value = e.detail.barcode;
 				});
+                var data = {
+                    action: 'test', data: {
+                        barcode: 'test;test'
+                    }
+                };
+                window.onload = function () { window.postMessage(data,"*"); }
 			</script>
 		</head>
 		<body>

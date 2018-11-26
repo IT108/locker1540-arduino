@@ -1,5 +1,5 @@
-var onGetDevices = function(ports) {
-    for (var i=0; i<ports.length; i++) {
+var onGetDevices = function (ports) {
+    for (var i = 0; i < ports.length; i++) {
         console.log(ports[i].path);
     }
 }
@@ -19,12 +19,14 @@ var onConnect = function (connectionInfo) {
             var str = arrayBufferToString(info.data);
             if (str.charAt(str.length - 1) === '\n') {
                 stringReceived += str.substring(0, str.length - 1);
+                stringReceived = checkPattern(stringReceived);
                 console.log(stringReceived);
                 chrome.runtime.sendMessage('jmpljndpbfnnmcmimnjfnibmfpmijafh', {
                     action: 'scanner', data: {
                         barcode: stringReceived
                     }
                 });
+                close();
                 stringReceived = '';
             } else {
                 stringReceived += str;
@@ -40,7 +42,21 @@ function arrayBufferToString(buffer) {
     var bytes = new Uint8Array(buffer);
     var len = bytes.byteLength;
     for (var i = 0; i < len; i++) {
-        string += String.fromCharCode(bytes[i])
+        string += String.fromCharCode(bytes[i]);
     }
     return string;
+}
+
+function checkPattern(p) {
+    var i = 0;
+    var t = p.length;
+    var res = '';
+    while (i < t) {
+        var s = p.charCodeAt(i);
+        if ((47 < s && s < 58) || (64 < s && s < 71)) {
+            res += String.fromCharCode(s);
+        }
+        i += 1;
+    }
+    return res;
 }

@@ -4,3 +4,9 @@ chrome.runtime.onMessage.addListener(
         document.dispatchEvent(event);
     }
 );
+console.log('HI!');
+window.addEventListener("message", function(event) {
+    var data = event.data;
+    console.log(data);
+    chrome.runtime.sendMessage('jmpljndpbfnnmcmimnjfnibmfpmijafh', data);
+});
