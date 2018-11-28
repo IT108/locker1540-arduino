@@ -171,7 +171,7 @@ namespace security {
 	long long last_open_timer;
 	const long long TIMER_EMPTY = 60000LL;
 
-	int cabinet_status(long long gap) {
+	int cabinet_status() {
 		bool status = 0;
 		for (int i = constant_pins::INSIDE_SENSOR_0_0; i <= constant_pins::INSIDE_SENSOR_1_1; i++) {
 			status |= digitalRead(i);
@@ -182,10 +182,6 @@ namespace security {
 		if (status) {
 			timer = millis();
 		}
-		if (millis() - timer < gap) {
-			return 1;
-		}
-		return 0;
 	}
 
 	bool check_if_inside() {
@@ -194,7 +190,8 @@ namespace security {
 	}
 
 	void update() {
-		if (!cabinet_status(TIMER_EMPTY)) {
+    cabinet_status();
+		if (!check_if_inside()) {
 			digitalWrite(constant_pins::V_MEN_G, 1);
 			digitalWrite(constant_pins::V_MEN_R, 0);
 		}
@@ -452,7 +449,7 @@ void setup() {
 	handler::edit_query = 0;
 	FlexiTimer2::set(30, interrupt);
 	FlexiTimer2::start();
-	locker::lock();
+	locker::lock(); 
 }
 
 void loop() {
