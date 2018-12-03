@@ -124,6 +124,7 @@ namespace security {
 namespace inside_light {
 	extern const long long TIMER_EMPTY;
 	extern const long long TIMER_GAP;
+ extern int is_button;
 }
 
 namespace locker {
@@ -148,7 +149,8 @@ namespace locker {
 		if (tmp != door_closed) {
 			door_closed = tmp;
 			security::last_open_timer = millis();
-		}
+		  inside_light::is_button = 0;
+    }
 		return door_closed;
 	}
 }
@@ -159,7 +161,6 @@ namespace exit_button {
 		if (status != 0) {
 			locker::unlock();
 			outside_led::green();
-			inside_light::is_button = 0;
 			delay(constant_values::TIMER_GREEN);
 			locker::lock();
 		}
