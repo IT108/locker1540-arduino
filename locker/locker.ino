@@ -159,6 +159,7 @@ namespace exit_button {
 		if (status != 0) {
 			locker::unlock();
 			outside_led::green();
+			inside_light::is_button = 0;
 			delay(constant_values::TIMER_GREEN);
 			locker::lock();
 		}
@@ -190,7 +191,7 @@ namespace security {
 	}
 
 	void update() {
-    cabinet_status();
+		cabinet_status();
 		if (!check_if_inside()) {
 			digitalWrite(constant_pins::V_MEN_G, 1);
 			digitalWrite(constant_pins::V_MEN_R, 0);
@@ -253,11 +254,11 @@ namespace client {
 				outside_led::red();
 				delay(constant_values::TIMER_RED);
 			}
-	    	if (ans == 33) {
-	        	digitalWrite(constant_pins::SERVER_RESET, 0); 
-	        	reset_time = millis();
-	        	return;
-	     	}
+			if (ans == 33) {
+				digitalWrite(constant_pins::SERVER_RESET, 0); 
+				reset_time = millis();
+				return;
+			}
 		}
 		if (millis() - reset_time > 5000){
 			digitalWrite(constant_pins::SERVER_RESET, 1);
@@ -356,7 +357,7 @@ namespace handler {
 
 namespace inside_light {
 	int is_button = 0;
-  int status = 0;
+	int status = 0;
 	long long button_timer = 0;
 	const long long TIMER_EMPTY = 60000LL;
 	const long long TIMER_GAP = 5000LL;
@@ -370,12 +371,12 @@ namespace inside_light {
 
 	void light() {
 		digitalWrite(constant_pins::INSIDE_LIGHT, 1);	
-	  status = 1;
+		status = 1;
 	}
 
 	void unlight() {
 		digitalWrite(constant_pins::INSIDE_LIGHT, 0);
-	  status = 0;
+		status = 0;
 	}
 
 	void update() {
