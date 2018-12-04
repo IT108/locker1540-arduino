@@ -60,3 +60,7 @@ function checkPattern(p) {
     }
     return res;
 }
+
+function getPorts() {
+    
+}
