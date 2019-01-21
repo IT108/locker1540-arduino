@@ -38,6 +38,8 @@ namespace constant_values {
 	const int TIMER_GREEN = 5000;
 	const int TIMER_RED = 2000;
 	const int TIMER_BLUE = 2000;
+  const long long TIMER_LONG = 600000;
+	const int TIMER_RESET = 5000;
 	const int CARD_SIZE = 8;
 }
 
@@ -52,6 +54,9 @@ namespace door_bell {
 	const int DURATIONS[COUNT_NOTES] = {
 		350, 350, 350, 250, 100, 350, 250, 100, 700
 	};
+
+  const int BEEP_FREQUENCE = 1000;
+  const int BEEP_LENGTH = 150;
 
 	void play() {
 		if (millis() < timer) {
@@ -70,7 +75,8 @@ namespace door_bell {
 	}
 
 	void beep() {
-		tone(constant_pins::SOUND_INSIDE, 400, 1000);
+		tone(constant_pins::SOUND_INSIDE, BEEP_FREQUENCE, BEEP_LENGTH);
+    delay(BEEP_LENGTH);
 		noTone(constant_pins::SOUND_INSIDE);
 	}
 }
@@ -79,25 +85,26 @@ namespace outside_led {
 	const int RED[] = {255, 0, 0};
 	const int GREEN[] = {0, 255, 0};
 	const int BLUE[] = {0, 0, 255};
+	const int YELLOW[] = {255, 255, 0};
 	int current_red;
 	int current_green;
 	int current_blue;
 	long long timer = 0;
 
 	void led(int red, int green, int blue) {
+    if (millis() < timer) {
+      return;
+    }
 		analogWrite(constant_pins::OUTSIDE_RED, red);
 		analogWrite(constant_pins::OUTSIDE_GREEN, green);
 		analogWrite(constant_pins::OUTSIDE_BLUE, blue);
 	}
 
-	void add_time(int t) {
-		timer = millis() + t;
+	void add_time(long long t) {
+		timer = max(timer, millis() + t);
 	}
 
 	void led_current() {
-		if (millis() < timer) {
-			return;
-		}
 		led(current_red, current_green, current_blue);
 	}
 
@@ -108,6 +115,10 @@ namespace outside_led {
 	void green() {
 		led(GREEN[0], GREEN[1], GREEN[2]);
 	}
+
+  void yellow() {
+    led(YELLOW[0], YELLOW[1], YELLOW[2]);
+  }
 
 	void blue() {
 		led(BLUE[0], BLUE[1], BLUE[2]);
@@ -168,16 +179,16 @@ namespace locker {
 		return door_closed;
 	}
 
-	void add_time(int add) {
+	void add_time(long long add) {
 		timer = max(timer, millis() + add);
 	}
 
 	void update() {
 		if (millis() < timer) {
-			lock();
+			unlock();
 		}
 		else {
-			unlock();
+			lock();
 		}
 	}
 }
@@ -188,7 +199,9 @@ namespace exit_button {
 	void check() {
 		int current_status = digitalRead(constant_pins::EXIT_BUTTON);
 		if (current_status == 1 && button_status == 0) {
-			locker::add_time(5000);
+			locker::add_time(constant_values::TIMER_GREEN);
+      outside_led::green();
+      outside_led::add_time(constant_values::TIMER_GREEN);
 			timer = millis();
 			door_bell::beep();
 			button_status = 1;
@@ -199,10 +212,18 @@ namespace exit_button {
 			return;
 		}
 		if (current_status == 1 && button_status == 1 && millis() - timer > 5000) {
-			locker::add_time(600000);
+			outside_led::yellow();
+			outside_led::add_time(constant_values::TIMER_LONG);
+			locker::add_time(constant_values::TIMER_LONG);
 			button_status = 2;
 			door_bell::beep();
 		}
+    if (current_status == 1 && button_status == 2 && millis() - timer > 10000) {
+      outside_led::timer = millis();
+      locker::timer = millis();
+      door_bell::beep();
+      button_status = 3;
+    }
 	}
 }
 
@@ -286,12 +307,12 @@ namespace client {
 			int ans = Serial3.read();
 			if (ans == 89) {
 				outside_led::green();
-				outside_led::add_time(5000);
+				outside_led::add_time(constant_values::TIMER_GREEN);
 				locker::add_time(constant_values::TIMER_GREEN);
 			}
 			if (ans == 78) {
 				outside_led::red();
-				outside_led::add_time(3000);
+				outside_led::add_time(constant_values::TIMER_RED);
 			}
 			if (ans == 33) {
 				digitalWrite(constant_pins::SERVER_RESET, 0); 
@@ -299,7 +320,7 @@ namespace client {
 				return;
 			}
 		}
-		if (millis() - reset_time > 5000){
+		if (millis() - reset_time > constant_values::TIMER_RESET){
 			digitalWrite(constant_pins::SERVER_RESET, 1);
 		} 
 	}
@@ -351,10 +372,9 @@ namespace handler {
 			ok = check_card(DEFINED_CARDS[i], card);
 			if (ok) {
 				client::greeting(card);
-				locker::unlock();
+				locker::add_time(constant_values::TIMER_GREEN);
 				outside_led::green();
-				delay(constant_values::TIMER_GREEN);
-				locker::lock();
+        outside_led::add_time(constant_values::TIMER_GREEN);
 				return;
 			}
 		}
