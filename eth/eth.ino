@@ -32,6 +32,7 @@ int n;
 int w2[8];
 bool need_reset = false;
 const int PIN_CHIP_SELECT = 22;
+const int LIGHT_BTN = 8;
 String cardsFileName = "CARDS.txt";
 QueueList<int> greeting_buffer;
 char buffer[bufferMax];
@@ -299,7 +300,8 @@ namespace greeting {
 
 
 namespace manage {
-    int mode, position;
+    int mode, position, light = -1, last_btn = 0;
+    long long timer = millis();
 
 
     void handle_locker() {
@@ -337,6 +339,35 @@ namespace manage {
             }
         }
     }
+
+    void handle_light_button(){
+      if (!digitalRead(LIGHT_BTN)){
+        if (last_btn == 0)
+          timer = millis();
+        last_btn = 1;
+        delay(5);
+      } else {
+        if (last_btn == 1){
+          last_btn = 0;
+          long long now = millis();
+          if (now - timer >= 5000){
+            light = -1;
+            LockerSerial.print("\\");
+            DebugSerial.println("Light status :\\");
+          } else {
+            if (light != 1){
+              light = 1;
+              LockerSerial.print("[");
+              DebugSerial.println("Light status :[");
+            } else {
+              light = 0;
+              LockerSerial.print("]");
+              DebugSerial.println("Light status :]");
+            }
+          }
+        }
+      }
+    }
 }
 
 void interrupt() {
@@ -348,6 +379,8 @@ void setup() {
     DebugSerial.begin(115200);
     LockerSerial.begin(115200);
     digitalWrite(7,1);
+    pinMode(LIGHT_BTN, INPUT);
+    digitalWrite(LIGHT_BTN, 1);
     pinMode(7, OUTPUT);
     Serial2.begin(9600);
     mp3_set_serial(Serial2);
@@ -375,4 +408,5 @@ void setup() {
 void loop() {
     greeting::process_greetings();
     manage::handle_locker();
+    manage::handle_light_button();
 }
