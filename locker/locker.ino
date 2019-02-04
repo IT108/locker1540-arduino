@@ -38,7 +38,9 @@ namespace constant_values {
 	const int TIMER_GREEN = 5000;
 	const int TIMER_RED = 2000;
 	const int TIMER_BLUE = 2000;
-	const long long TIMER_LONG = 600000;
+	const long long TIMER_FIVE_MINUTES = 300000;
+	const long long TIMER_HALF_AN_HOUR = TIMER_FIVE_MINUTES * 6;
+	const long long TIMER_HOUR = TIMER_HALF_AN_HOUR * 2;
 	const int TIMER_RESET = 5000;
 	const int CARD_SIZE = 8;
 }
@@ -195,6 +197,8 @@ namespace locker {
 namespace exit_button {
 	long long timer = 0;
 	int button_status = 0;
+	const long long TIMER_WAIT = 3000;
+
 	void check() {
 		int current_status = digitalRead(constant_pins::EXIT_BUTTON);
 		if (current_status == 1 && button_status == 0) {
@@ -210,18 +214,32 @@ namespace exit_button {
 			button_status = 0;
 			return;
 		}
-		if (current_status == 1 && button_status == 1 && millis() - timer > 5000) {
+		if (current_status == 1 && button_status == 1 && millis() - timer > TIMER_WAIT) {
 			outside_led::yellow();
-			outside_led::add_time(constant_values::TIMER_LONG);
-			locker::add_time(constant_values::TIMER_LONG);
+			outside_led::add_time(constant_values::TIMER_FIVE_MINUTES);
+			locker::add_time(constant_values::TIMER_FIVE_MINUTES);
 			button_status = 2;
 			door_bell::beep();
 		}
-		if (current_status == 1 && button_status == 2 && millis() - timer > 10000) {
+		if (current_status == 1 && button_status == 2 && millis() - timer > 2 * TIMER_WAIT) {
+			outside_led::yellow();
+			outside_led::add_time(constant_values::TIMER_HALF_AN_HOUR);
+			locker::add_time(constant_values::TIMER_HALF_AN_HOUR);
+			button_status = 3;
+			door_bell::beep();
+		}
+		if (current_status == 1 && button_status == 3 && millis() - timer > 3 * TIMER_WAIT) {
+			outside_led::yellow();
+			outside_led::add_time(constant_values::TIMER_HOUR);
+			locker::add_time(constant_values::TIMER_HOUR);
+			button_status = 4;
+			door_bell::beep();
+		}
+		if (current_status == 1 && button_status == 4 && millis() - timer > 4 * TIMER_WAIT) {
 			outside_led::timer = millis();
 			locker::timer = millis();
 			door_bell::beep();
-			button_status = 3;
+			button_status = 5;
 		}
 	}
 }

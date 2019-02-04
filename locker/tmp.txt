@@ -1,0 +1,37 @@
+свет:
+
+1. надо уметь отличать датчики в двух разных кабинетах (is)
+2. отсчитываем время от последнего интересного события (timer)
+3. заведем константную задержку delay, delay_1.
+4. чекать открытую дверь
+5. is_timer - время с последнего включения света
+6. is_lighted - включен ли сейчас свет
+7. button - кнопка
+8. is_button - была ли нажата
+Интересные события - открылась дверь, датчики зафиксировали движение.
+
+во время интересного события мы обновляем timer
+
+if door:
+	is_button = 0
+
+if button:
+	is_button ^= 1
+
+if is:
+	обновляем is_timer
+
+cur - текущее время
+if is_button:
+	unlight()
+	is_lighted = 0 
+elif cur - timer < delay:
+	if cur - is_timer < delay_1:
+		light()
+		is_lighted = 1
+		обновить is_timer
+	else:
+		is_lighted = 0
+		unlight()
+elif is_lighted:
+	light()
