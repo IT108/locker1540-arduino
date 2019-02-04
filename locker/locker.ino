@@ -38,7 +38,7 @@ namespace constant_values {
 	const int TIMER_GREEN = 5000;
 	const int TIMER_RED = 2000;
 	const int TIMER_BLUE = 2000;
-  const long long TIMER_LONG = 600000;
+	const long long TIMER_LONG = 600000;
 	const int TIMER_RESET = 5000;
 	const int CARD_SIZE = 8;
 }
@@ -47,6 +47,8 @@ namespace door_bell {
 	long long timer;
 	const int COUNT_NOTES = 9;
 	const int WAITING_TIME = 5000;
+	const int BEEP_FREQUENCE = 1000;
+	const int BEEP_LENGTH = 150;
 
 	const int FREQUENCES[COUNT_NOTES] = {
 		392, 392, 392, 311, 466, 392, 311, 466, 392
@@ -54,9 +56,6 @@ namespace door_bell {
 	const int DURATIONS[COUNT_NOTES] = {
 		350, 350, 350, 250, 100, 350, 250, 100, 700
 	};
-
-  const int BEEP_FREQUENCE = 1000;
-  const int BEEP_LENGTH = 150;
 
 	void play() {
 		if (millis() < timer) {
@@ -76,7 +75,7 @@ namespace door_bell {
 
 	void beep() {
 		tone(constant_pins::SOUND_INSIDE, BEEP_FREQUENCE, BEEP_LENGTH);
-    delay(BEEP_LENGTH);
+		delay(BEEP_LENGTH);
 		noTone(constant_pins::SOUND_INSIDE);
 	}
 }
@@ -92,9 +91,9 @@ namespace outside_led {
 	long long timer = 0;
 
 	void led(int red, int green, int blue) {
-    if (millis() < timer) {
-      return;
-    }
+		if (millis() < timer) {
+			return;
+		}
 		analogWrite(constant_pins::OUTSIDE_RED, red);
 		analogWrite(constant_pins::OUTSIDE_GREEN, green);
 		analogWrite(constant_pins::OUTSIDE_BLUE, blue);
@@ -116,9 +115,9 @@ namespace outside_led {
 		led(GREEN[0], GREEN[1], GREEN[2]);
 	}
 
-  void yellow() {
-    led(YELLOW[0], YELLOW[1], YELLOW[2]);
-  }
+	void yellow() {
+		led(YELLOW[0], YELLOW[1], YELLOW[2]);
+	}
 
 	void blue() {
 		led(BLUE[0], BLUE[1], BLUE[2]);
@@ -200,8 +199,8 @@ namespace exit_button {
 		int current_status = digitalRead(constant_pins::EXIT_BUTTON);
 		if (current_status == 1 && button_status == 0) {
 			locker::add_time(constant_values::TIMER_GREEN);
-      outside_led::green();
-      outside_led::add_time(constant_values::TIMER_GREEN);
+			outside_led::green();
+			outside_led::add_time(constant_values::TIMER_GREEN);
 			timer = millis();
 			door_bell::beep();
 			button_status = 1;
@@ -218,12 +217,12 @@ namespace exit_button {
 			button_status = 2;
 			door_bell::beep();
 		}
-    if (current_status == 1 && button_status == 2 && millis() - timer > 10000) {
-      outside_led::timer = millis();
-      locker::timer = millis();
-      door_bell::beep();
-      button_status = 3;
-    }
+		if (current_status == 1 && button_status == 2 && millis() - timer > 10000) {
+			outside_led::timer = millis();
+			locker::timer = millis();
+			door_bell::beep();
+			button_status = 3;
+		}
 	}
 }
 
@@ -374,7 +373,7 @@ namespace handler {
 				client::greeting(card);
 				locker::add_time(constant_values::TIMER_GREEN);
 				outside_led::green();
-        outside_led::add_time(constant_values::TIMER_GREEN);
+				outside_led::add_time(constant_values::TIMER_GREEN);
 				return;
 			}
 		}
