@@ -280,55 +280,56 @@ namespace security {
 }
 
 namespace inside_light {
-  bool autom = true;
-  int is_button = 0;
-  int status = 0;
-  long long timer = 0;
-  const long long TIMER_EMPTY = 60000LL;
-  const long long TIMER_GAP = 5000LL;
+	bool automatic_mode = true;
+	int is_button = 0;
+	int status = 0;
+	long long timer = 0;
+	const long long TIMER_EMPTY = 60000LL;
+	const long long TIMER_GAP = 5000LL;
 
-  void check_button() {
-    if (!digitalRead(constant_pins::LIGHT_BUTTON)) {
-      is_button ^= 1;
-      timer = millis();
-    }
-  }
+	void check_button() {
+		if (!digitalRead(constant_pins::LIGHT_BUTTON)) {
+			is_button ^= 1;
+			timer = millis();
+		}
+	}
 
-  void light() {
-    Serial.println("light");
-    digitalWrite(constant_pins::INSIDE_LIGHT, 1); 
-    status = 1;
-  }
+	void light() {
+		if (!automatic_mode) {
+			return;
+		}
+		digitalWrite(constant_pins::INSIDE_LIGHT, 1); 
+		status = 1;
+	}
 
-  void unlight() {
-    Serial.println("unlight");
-    digitalWrite(constant_pins::INSIDE_LIGHT, 0);
-    status = 0;
-  }
+	void unlight() {
+		if (!automatic_mode) {
+			return;
+		}
+		digitalWrite(constant_pins::INSIDE_LIGHT, 0);
+		status = 0;
+	}
 
-  void update() {
-    long long current_time = millis();
-    if (current_time - timer < 1000) {
-      return;
-    }
-    check_button();
-    if (is_button && status == 0) {
-      return;
-    }
-    if (is_button && status == 1) {
-      if (autom)
-        unlight();
-      return;
-    }
-    if (security::check_if_inside()) {
-      if (autom)
-        light();
-    }
-    else {
-      if (autom)
-        unlight();
-    }
-  }
+	void update() {
+		long long current_time = millis();
+		if (current_time - timer < 1000) {
+			return;
+		}
+		check_button();
+		if (is_button && status == 0) {
+			return;
+		}
+		if (is_button && status == 1) {
+			unlight();
+			return;
+		}
+		if (security::check_if_inside()) {
+			light();
+		}
+		else {
+			unlight();
+		}
+	}
 }
 
 namespace client {
@@ -370,22 +371,22 @@ namespace client {
 				reset_time = millis();
 				return;
 			}
-      if (ans == 91) {
-        inside_light::autom = false;
-        inside_light::light();
-      }
-      if (ans == 92) {
-        inside_light::unlight();
-        inside_light::autom = true;
-      }
-      if (ans == 93) {
-        inside_light::autom = false;
-        inside_light::unlight();
-      }
+			if (ans == 91) {
+				inside_light::light();
+				inside_light::automatic_mode = false;
+			}
+			if (ans == 92) {
+				inside_light::automatic_mode = true;
+				inside_light::unlight();
+			}
+			if (ans == 93) {
+				inside_light::unlight();
+				inside_light::automatic_mode = false;
+			}
 		}
 		if (millis() - reset_time > constant_values::TIMER_RESET){
 			digitalWrite(constant_pins::SERVER_RESET, 1);
-		} 
+		}
 	}
 }
 
