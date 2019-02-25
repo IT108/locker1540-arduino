@@ -25,7 +25,7 @@ namespace constant_pins {
 	const int INSIDE_SENSOR_0_0 = 2;
 	const int INSIDE_SENSOR_0_1 = 3;
 	const int INSIDE_SENSOR_1_0 = 4;
-	const int INSIDE_SENSOR_1_1 = 5;
+	const int INIDE_SENSOR_1_1 = 5;
 
 	const int INSIDE_LIGHT = 9;
 
@@ -143,6 +143,7 @@ namespace outside_led {
 
 namespace security {
 	extern long long timer;
+	extern long long cabinet_balance;
 	extern long long last_open_timer;
 }
 
@@ -202,6 +203,7 @@ namespace exit_button {
 	void check() {
 		int current_status = digitalRead(constant_pins::EXIT_BUTTON);
 		if (current_status == 1 && button_status == 0) {
+			security::cabinet_balance--;
 			locker::add_time(constant_values::TIMER_GREEN);
 			outside_led::green();
 			outside_led::add_time(constant_values::TIMER_GREEN);
@@ -248,7 +250,9 @@ namespace exit_button {
 namespace security {
 	long long timer;
 	long long last_open_timer;
+	long long cabinet_balance;
 	const long long TIMER_EMPTY = 60000LL;
+	const long long TIMER_KILL = 30 * TIMER_EMPTY;
 
 	int cabinet_status() {
 		bool status = 0;
@@ -265,6 +269,17 @@ namespace security {
 
 	bool check_if_inside() {
 		long long cur = millis();
+		if (cabinet_balance < 0) {
+			cabinet_balance = 0;
+		}
+		if (cabinet_balance > 0) {
+			if (timer <= last_open_timer + TIMER_KILL) {
+				return 1;			
+			}
+			else {
+				cabinet_balance = 0;
+			}
+		}
 		return cur < last_open_timer + inside_light::TIMER_EMPTY || timer > last_open_timer + inside_light::TIMER_GAP;
 	}
 
@@ -376,6 +391,7 @@ namespace client {
 		if (Serial3.available()) {
 			int ans = Serial3.read();
 			if (ans == 89) {
+				security::cabinet_balance++;
 				outside_led::green();
 				outside_led::add_time(constant_values::TIMER_GREEN);
 				locker::add_time(constant_values::TIMER_GREEN);
