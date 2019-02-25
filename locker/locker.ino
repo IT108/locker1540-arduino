@@ -25,7 +25,7 @@ namespace constant_pins {
 	const int INSIDE_SENSOR_0_0 = 2;
 	const int INSIDE_SENSOR_0_1 = 3;
 	const int INSIDE_SENSOR_1_0 = 4;
-	const int INIDE_SENSOR_1_1 = 5;
+	const int INSIDE_SENSOR_1_1 = 5;
 
 	const int INSIDE_LIGHT = 9;
 
@@ -268,19 +268,19 @@ namespace security {
 	}
 
 	bool check_if_inside() {
-		long long cur = millis();
+		long long current_timer = millis();
 		if (cabinet_balance < 0) {
 			cabinet_balance = 0;
 		}
 		if (cabinet_balance > 0) {
-			if (timer <= last_open_timer + TIMER_KILL) {
-				return 1;			
+			if (current_timer <= timer + TIMER_KILL) {
+				return 1;
 			}
 			else {
 				cabinet_balance = 0;
 			}
 		}
-		return cur < last_open_timer + inside_light::TIMER_EMPTY || timer > last_open_timer + inside_light::TIMER_GAP;
+		return current_timer < last_open_timer + inside_light::TIMER_EMPTY || timer > last_open_timer + inside_light::TIMER_GAP;
 	}
 
 	void update() {
@@ -344,8 +344,8 @@ namespace inside_light {
 	}
 
 	void update() {
-		long long current_time = millis();
-		if (current_time - timer < 1000) {
+		long long current_timer = millis();
+		if (current_timer - timer < 1000) {
 			return;
 		}
 		check_button();
