@@ -272,6 +272,9 @@ namespace security {
 		if (cabinet_balance < 0) {
 			cabinet_balance = 0;
 		}
+		if (timer > last_open_timer + inside_light::TIMER_GAP) {
+			cabinet_balance = max(cabinet_balance, 1);
+		}
 		if (cabinet_balance > 0) {
 			if (current_timer <= timer + TIMER_KILL) {
 				return 1;
