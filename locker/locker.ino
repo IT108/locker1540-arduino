@@ -176,7 +176,6 @@ namespace locker {
 		if (tmp != door_closed) {
 			door_closed = tmp;
 			security::last_open_timer = millis();
-			inside_light::is_button = 0;
 		}
 		return door_closed;
 	}
