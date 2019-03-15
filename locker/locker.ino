@@ -275,7 +275,7 @@ namespace security {
 			cabinet_balance = max(cabinet_balance, 1);
 		}
 		if (cabinet_balance > 0) {
-			if (current_timer <= timer + TIMER_KILL) {
+			if (current_timer <= last_open_timer + TIMER_KILL) {
 				return 1;
 			}
 			else {
@@ -330,17 +330,17 @@ namespace inside_light {
 	}
 
 	void light() {
-		if (!automatic_mode) {
-			return;
-		}
+		// if (!automatic_mode) {
+		// 	return;
+		// }
 		digitalWrite(constant_pins::INSIDE_LIGHT, 1); 
 		status = 1;
 	}
 
 	void unlight() {
-		if (!automatic_mode) {
-			return;
-		}
+		// if (!automatic_mode) {
+		// 	return;
+		// }
 		digitalWrite(constant_pins::INSIDE_LIGHT, 0);
 		status = 0;
 	}
@@ -351,10 +351,7 @@ namespace inside_light {
 			return;
 		}
 		check_button();
-		if (is_button && status == 0) {
-			return;
-		}
-		if (is_button && status == 1) {
+		if (is_button) {
 			unlight();
 			return;
 		}
