@@ -331,17 +331,17 @@ namespace inside_light {
 	}
 
 	void light() {
-		// if (!automatic_mode) {
-		// 	return;
-		// }
+		 if (!automatic_mode) {
+		 	return;
+		 }
 		digitalWrite(constant_pins::INSIDE_LIGHT, 1); 
 		status = 1;
 	}
 
 	void unlight() {
-		// if (!automatic_mode) {
-		// 	return;
-		// }
+		 if (!automatic_mode) {
+		 	return;
+		 }
 		digitalWrite(constant_pins::INSIDE_LIGHT, 0);
 		status = 0;
 	}
@@ -473,6 +473,7 @@ namespace handler {
 				locker::add_time(constant_values::TIMER_GREEN);
 				outside_led::green();
 				outside_led::add_time(constant_values::TIMER_GREEN);
+        security::cabinet_balance++;
 				return;
 			}
 		}
