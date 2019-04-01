@@ -29,9 +29,10 @@ namespace constant_pins {
 
 	const int INSIDE_LIGHT = 9;
 
-	const int SERVER_RESET = 30; 
+	const int SERVER_RESET = 30;
 
 	const int LIGHT_BUTTON = 28;
+
 }
 
 namespace constant_values {
@@ -511,6 +512,29 @@ namespace handler {
 	}
 }
 
+namespace radio {
+
+	long long timer;
+	const long long TIMER_GAP = 3000;
+
+	void send(int x) {
+		if (millis() - timer < TIMER_GAP) {
+			return;
+		}
+		Serial2.print(x);
+		timer = millis();
+	}
+
+	int receive() {
+		if (!Serial2.available()) {
+			return 0;
+		}
+		int x = Serial2.read();
+		return x;
+	}
+
+};
+
 
 
 void interrupt() {
@@ -522,6 +546,7 @@ void interrupt() {
 void setup() {
 	Serial.begin(9600);
 	Serial3.begin(115200);
+	Serial2.begin(9600);
 	
 	pinMode(constant_pins::DOOR_SENSOR, INPUT);
 	pinMode(constant_pins::LOCKER_SENSOR, INPUT);
@@ -561,6 +586,7 @@ void setup() {
 	outside_led::timer = millis();
 	exit_button::timer = millis();
 	locker::timer = millis();
+	radio::timer = millis();
 
 	inside_light::status = 0;
 	outside_led::current_red = 255;
@@ -580,5 +606,6 @@ void loop() {
 	client::receive();
 	door_bell::play();
 	handler::read();
+	radio::send(security::cabinet_balance);
 	delay(2);
 }
