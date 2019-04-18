@@ -252,7 +252,7 @@ namespace security {
 	long long last_open_timer;
 	long long cabinet_balance;
 	const long long TIMER_EMPTY = 60000LL;
-	const long long TIMER_KILL = 30 * TIMER_EMPTY;
+	const long long TIMER_KILL = 30LL * TIMER_EMPTY;
 
 	int cabinet_status() {
 		bool status = 0;
@@ -272,18 +272,13 @@ namespace security {
 		if (cabinet_balance < 0) {
 			cabinet_balance = 0;
 		}
-		if (timer > last_open_timer + inside_light::TIMER_GAP) {
+		if (current_timer < timer + inside_light::TIMER_GAP) {
 			cabinet_balance = max(cabinet_balance, 1);
 		}
-		if (cabinet_balance > 0) {
-			if (current_timer <= last_open_timer + TIMER_KILL) {
-				return 1;
-			}
-			else {
-				cabinet_balance = 0;
-			}
+		if (current_timer > timer + TIMER_KILL) {
+			cabinet_balance = 0;
 		}
-		return current_timer < last_open_timer + inside_light::TIMER_EMPTY || timer > last_open_timer + inside_light::TIMER_GAP;
+		return cabinet_balance > 0;
 	}
 
 	void update() {
