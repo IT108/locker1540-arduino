@@ -1,4 +1,17 @@
 #include <FlexiTimer2.h>
+#include <QueueArray.h>
+
+struct Event {
+	long long timer;
+	int value;
+	Event() {
+		timer = 0;
+		value = 0;
+	}
+	Event(long long a, int b) {
+		timer = a, value = b;
+	}
+};
 
 namespace constant_pins {
 	const int V_MEN_R = 55;
@@ -146,6 +159,8 @@ namespace security {
 	extern long long timer;
 	extern long long cabinet_balance;
 	extern long long last_open_timer;
+	void decrease();
+	void increase();
 }
 
 namespace inside_light {
@@ -203,7 +218,7 @@ namespace exit_button {
 	void check() {
 		int current_status = digitalRead(constant_pins::EXIT_BUTTON);
 		if (current_status == 1 && button_status == 0) {
-			security::cabinet_balance--;
+			security::decrease();
 			locker::add_time(constant_values::TIMER_GREEN);
 			outside_led::green();
 			outside_led::add_time(constant_values::TIMER_GREEN);
@@ -246,13 +261,22 @@ namespace exit_button {
 	}
 }
 
-
 namespace security {
 	long long timer;
 	long long last_open_timer;
 	long long cabinet_balance;
 	const long long TIMER_EMPTY = 60000LL;
 	const long long TIMER_KILL = 30LL * TIMER_EMPTY;
+	const long long TIMER_GAP = 5000LL;
+	QueueArray <Event> queue;
+
+	void decrease() {
+		queue.push(Event(millis() + TIMER_GAP * 2, -1));
+	}
+
+	void increase() {
+		queue.push(Event(millis() + TIMER_GAP * 2, 1));
+	}
 
 	int cabinet_status() {
 		bool status = 0;
@@ -269,14 +293,21 @@ namespace security {
 
 	bool check_if_inside() {
 		long long current_timer = millis();
+		while (queue.count() && queue.front().timer < current_timer) {
+			cabinet_balance += queue.front().value;
+			queue.pop();
+		}
 		if (cabinet_balance < 0) {
 			cabinet_balance = 0;
 		}
-		if (current_timer < timer + inside_light::TIMER_GAP) {
+		if (current_timer < timer + TIMER_GAP) {
 			cabinet_balance = max(cabinet_balance, 1);
 		}
 		if (current_timer > timer + TIMER_KILL) {
 			cabinet_balance = 0;
+			while (queue.count()) {
+				queue.pop();
+			}
 		}
 		return cabinet_balance > 0;
 	}
@@ -326,17 +357,23 @@ namespace inside_light {
 	}
 
 	void light() {
-		 if (!automatic_mode) {
-		 	return;
-		 }
+		if (status == 1) {
+			return;
+		}
+		if (!automatic_mode) {
+			return;
+		}
 		digitalWrite(constant_pins::INSIDE_LIGHT, 1); 
 		status = 1;
 	}
 
 	void unlight() {
-		 if (!automatic_mode) {
-		 	return;
-		 }
+		if (status == 0) {
+			return;
+		}
+		if (!automatic_mode) {
+			return;
+		}
 		digitalWrite(constant_pins::INSIDE_LIGHT, 0);
 		status = 0;
 	}
@@ -386,7 +423,7 @@ namespace client {
 		if (Serial3.available()) {
 			int ans = Serial3.read();
 			if (ans == 89) {
-				security::cabinet_balance++;
+				security::increase();
 				outside_led::green();
 				outside_led::add_time(constant_values::TIMER_GREEN);
 				locker::add_time(constant_values::TIMER_GREEN);
@@ -468,7 +505,7 @@ namespace handler {
 				locker::add_time(constant_values::TIMER_GREEN);
 				outside_led::green();
 				outside_led::add_time(constant_values::TIMER_GREEN);
-        security::cabinet_balance++;
+				security::increase();
 				return;
 			}
 		}
