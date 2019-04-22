@@ -665,9 +665,7 @@ namespace radio {
 		if (millis() - timer < TIMER_GAP) {
 			return;
 		}
-		Serial2.write(x);
-		Serial2.write(' ');
-		Serial2.write(y);
+		Serial2.write(x * 10 + y);
 		Serial2.write('\n');
 		timer = millis();
 	}
