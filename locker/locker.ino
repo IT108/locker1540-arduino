@@ -14,9 +14,9 @@ struct Event {
 };
 
 struct Pin {
-	int pin;
-	int type;
-	int rev;
+	int pin = -1;
+	int type = -1;
+	int rev = 0;
 
 	Pin() {
 		pin = -1;
@@ -26,15 +26,15 @@ struct Pin {
 
 	Pin(int a, int b, int c = 0) {
 		pin = a, type = b;
-		rev = c;
+		// rev = c;
 		set_mode();
+		if (c) {
+			write(1, 'f');
+		}
 	}
 
 	void set_mode() {
 		pinMode(pin, type);
-		if (rev) {
-			write(1);
-		}
 	}
 
 	int read() {
@@ -44,8 +44,8 @@ struct Pin {
 		return digitalRead(pin) ^ rev;
 	}
 
-	void write(int x) {
-		if (type != OUTPUT) {
+	void write(int x, char c = 'x') {
+		if (type != OUTPUT && c != 'f') {
 			return;
 		}
 		return digitalWrite(pin, x);
@@ -252,11 +252,11 @@ namespace locker {
 	}
 
 	int locker_status() {
-		return !LOCKER_SENSOR.read();
+		return LOCKER_SENSOR.read();
 	}
 
 	int door_status() {
-		int tmp = 1 ^ DOOR_SENSOR.read();
+		int tmp = DOOR_SENSOR.read();
 		if (tmp != door_closed) {
 			door_closed = tmp;
 			security::last_open_timer = millis();
@@ -448,7 +448,7 @@ namespace inside_light {
 	const Pin INSIDE_LIGHT(constant_pins::INSIDE_LIGHT, OUTPUT);
 
 	void check_button() {
-		if (LIGHT_BUTTON.read()) {
+		if (!LIGHT_BUTTON.read()) {
 			is_button ^= 1;
 			timer = millis();
 		}
