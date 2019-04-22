@@ -52,6 +52,7 @@ namespace constant_values {
 	const int TIMER_GREEN = 5000;
 	const int TIMER_RED = 2000;
 	const int TIMER_BLUE = 2000;
+	const long long TIMER_MINUTE = 60000;
 	const long long TIMER_FIVE_MINUTES = 300000;
 	const long long TIMER_HALF_AN_HOUR = TIMER_FIVE_MINUTES * 6;
 	const long long TIMER_HOUR = TIMER_HALF_AN_HOUR * 2;
@@ -218,7 +219,12 @@ namespace exit_button {
 	void check() {
 		int current_status = digitalRead(constant_pins::EXIT_BUTTON);
 		if (current_status == 1 && button_status == 0) {
-			security::decrease();
+			if (door_bell::timer + constant_values::TIMER_MINUTE > millis()) {
+				security::increase();
+			}
+			else {
+				security::decrease();
+			}
 			locker::add_time(constant_values::TIMER_GREEN);
 			outside_led::green();
 			outside_led::add_time(constant_values::TIMER_GREEN);
