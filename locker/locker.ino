@@ -13,6 +13,60 @@ struct Event {
 	}
 };
 
+struct Pin {
+	int pin;
+	int type;
+	int rev;
+
+	Pin() {
+		pin = -1;
+		type = -1;
+		rev = 0;
+	}
+
+	Pin(int a, int b, int c = 0) {
+		pin = a, type = b;
+		rev = c;
+		set_mode();
+	}
+
+	void set_mode() {
+		pinMode(pin, type);
+		if (rev) {
+			write(1);
+		}
+	}
+
+	int read() {
+		if (type != INPUT) {
+			return 0;
+		}
+		return digitalRead(pin) ^ rev;
+	}
+
+	void write(int x) {
+		if (type != OUTPUT) {
+			return;
+		}
+		return digitalWrite(pin, x);
+	}
+
+	void analog(int x) {
+		if (type != OUTPUT) {
+			return;
+		}
+		return analogWrite(pin, x);		
+	}
+
+	void tone(int a, int b) {
+		::tone(pin, a, b);
+	}
+
+	void no_tone() {
+		noTone(pin);
+	}
+};
+
 namespace constant_pins {
 	const int V_MEN_R = 55;
 	const int V_MEN_G = 54;
@@ -49,23 +103,28 @@ namespace constant_pins {
 }
 
 namespace constant_values {
-	const int TIMER_GREEN = 5000;
-	const int TIMER_RED = 2000;
-	const int TIMER_BLUE = 2000;
+	const long long TIMER_SECOND = 1000;
+	const long long TIMER_TWO_SECONDS = 2 * TIMER_SECOND;
+	const long long TIMER_THREE_SECONDS = 3 * TIMER_SECOND;
+	const long long TIMER_FIVE_SECONDS = 5 * TIMER_SECOND;
 	const long long TIMER_MINUTE = 60000;
-	const long long TIMER_FIVE_MINUTES = 300000;
-	const long long TIMER_HALF_AN_HOUR = TIMER_FIVE_MINUTES * 6;
-	const long long TIMER_HOUR = TIMER_HALF_AN_HOUR * 2;
-	const int TIMER_RESET = 5000;
+	const long long TIMER_FIVE_MINUTES = 5 * TIMER_MINUTE;
+	const long long TIMER_HALF_AN_HOUR = TIMER_MINUTE * 30;
+	const long long TIMER_HOUR = TIMER_MINUTE * 60;
+	const long long TIMER_GREEN = TIMER_FIVE_SECONDS;
+	const long long TIMER_RED = TIMER_TWO_SECONDS;
+	const long long TIMER_BLUE = TIMER_TWO_SECONDS;
 	const int CARD_SIZE = 8;
 }
 
 namespace door_bell {
 	long long timer;
 	const int COUNT_NOTES = 9;
-	const int WAITING_TIME = 5000;
+	const int WAITING_TIME = constant_values::TIMER_FIVE_SECONDS;
 	const int BEEP_FREQUENCE = 1000;
 	const int BEEP_LENGTH = 150;
+	const Pin OUTSIDE_BUTTON(constant_pins::OUTSIDE_BUTTON, INPUT, 1);
+	const Pin SOUND_INSIDE(constant_pins::SOUND_INSIDE, OUTPUT);
 
 	const int FREQUENCES[COUNT_NOTES] = {
 		392, 392, 392, 311, 466, 392, 311, 466, 392
@@ -79,41 +138,45 @@ namespace door_bell {
 			timer = millis();
 			return;
 		}
-		if (digitalRead(constant_pins::OUTSIDE_BUTTON) || millis() - timer < WAITING_TIME) {
+		if (OUTSIDE_BUTTON.read() || millis() - timer < WAITING_TIME) {
 			return;
 		}
 		for (int i = 0; i < COUNT_NOTES; i++) {
-			tone(constant_pins::SOUND_INSIDE, FREQUENCES[i], DURATIONS[i]);
+			SOUND_INSIDE.tone(FREQUENCES[i], DURATIONS[i]);
 			delay(DURATIONS[i]);
 		}
-		noTone(constant_pins::SOUND_INSIDE);
+		SOUND_INSIDE.no_tone();
 		timer = millis();
 	}
 
 	void beep() {
-		tone(constant_pins::SOUND_INSIDE, BEEP_FREQUENCE, BEEP_LENGTH);
+		SOUND_INSIDE.tone(BEEP_FREQUENCE, BEEP_LENGTH);
 		delay(BEEP_LENGTH);
-		noTone(constant_pins::SOUND_INSIDE);
+		SOUND_INSIDE.no_tone();
 	}
 }
 
 namespace outside_led {
-	const int RED[] = {255, 0, 0};
-	const int GREEN[] = {0, 255, 0};
-	const int BLUE[] = {0, 0, 255};
-	const int YELLOW[] = {255, 255, 0};
-	int current_red;
-	int current_green;
-	int current_blue;
+	const int RED_COLORS[] = {255, 0, 0};
+	const int GREEN_COLORS[] = {0, 255, 0};
+	const int BLUE_COLORS[] = {0, 0, 255};
+	const int YELLOW_COLORS[] = {255, 255, 0};
+	int current_red = 255;
+	int current_green = 0;
+	int current_blue = 0;
 	long long timer = 0;
+
+	const Pin RED(constant_pins::OUTSIDE_RED, OUTPUT);
+	const Pin GREEN(constant_pins::OUTSIDE_GREEN, OUTPUT);
+	const Pin BLUE(constant_pins::OUTSIDE_BLUE, OUTPUT);
 
 	void led(int red, int green, int blue) {
 		if (millis() < timer) {
 			return;
 		}
-		analogWrite(constant_pins::OUTSIDE_RED, red);
-		analogWrite(constant_pins::OUTSIDE_GREEN, green);
-		analogWrite(constant_pins::OUTSIDE_BLUE, blue);
+		RED.analog(red);
+		GREEN.analog(green);
+		BLUE.analog(blue);
 	}
 
 	void add_time(long long t) {
@@ -125,19 +188,19 @@ namespace outside_led {
 	}
 
 	void red() {
-		led(RED[0], RED[1], RED[2]);
+		led(RED_COLORS[0], RED_COLORS[1], RED_COLORS[2]);
 	}
  
 	void green() {
-		led(GREEN[0], GREEN[1], GREEN[2]);
+		led(GREEN_COLORS[0], GREEN_COLORS[1], GREEN_COLORS[2]);
 	}
 
 	void yellow() {
-		led(YELLOW[0], YELLOW[1], YELLOW[2]);
+		led(YELLOW_COLORS[0], YELLOW_COLORS[1], YELLOW_COLORS[2]);
 	}
 
 	void blue() {
-		led(BLUE[0], BLUE[1], BLUE[2]);
+		led(BLUE_COLORS[0], BLUE_COLORS[1], BLUE_COLORS[2]);
 	}
 
 	void recolor() {
@@ -176,20 +239,24 @@ namespace locker {
 	int door_closed = 0;
 	long long timer = 0;
 
+	const Pin LOCKER(constant_pins::LOCKER, OUTPUT);
+	const Pin DOOR_SENSOR(constant_pins::DOOR_SENSOR, INPUT, 1);
+	const Pin LOCKER_SENSOR(constant_pins::LOCKER_SENSOR, INPUT, 1);
+
 	void lock() {
-		digitalWrite(constant_pins::LOCKER, LOCK);
+		LOCKER.write(LOCK);
 	}
 
 	void unlock() {
-		digitalWrite(constant_pins::LOCKER, UNLOCK);
+		LOCKER.write(UNLOCK);
 	}
 
 	int locker_status() {
-		return digitalRead(constant_pins::LOCKER_SENSOR);
+		return !LOCKER_SENSOR.read();
 	}
 
 	int door_status() {
-		int tmp = digitalRead(constant_pins::DOOR_SENSOR);
+		int tmp = 1 ^ DOOR_SENSOR.read();
 		if (tmp != door_closed) {
 			door_closed = tmp;
 			security::last_open_timer = millis();
@@ -214,10 +281,12 @@ namespace locker {
 namespace exit_button {
 	long long timer = 0;
 	int button_status = 0;
-	const long long TIMER_WAIT = 3000;
+	const long long TIMER_WAIT = constant_values::TIMER_THREE_SECONDS;
+
+	const Pin EXIT_BUTTON(constant_pins::EXIT_BUTTON, INPUT);
 
 	void check() {
-		int current_status = digitalRead(constant_pins::EXIT_BUTTON);
+		int current_status = EXIT_BUTTON.read();
 		if (current_status == 1 && button_status == 0) {
 			if (door_bell::timer + constant_values::TIMER_MINUTE > millis()) {
 				security::increase();
@@ -271,10 +340,26 @@ namespace security {
 	long long timer;
 	long long last_open_timer;
 	long long cabinet_balance;
-	const long long TIMER_EMPTY = 60000LL;
-	const long long TIMER_KILL = 30LL * TIMER_EMPTY;
-	const long long TIMER_GAP = 5000LL;
+	const long long TIMER_EMPTY = constant_values::TIMER_MINUTE;
+	const long long TIMER_KILL = constant_values::TIMER_HALF_AN_HOUR;
+	const long long TIMER_GAP = constant_values::TIMER_FIVE_SECONDS;
 	QueueArray <Event> queue;
+
+	const Pin MEN_R(constant_pins::V_MEN_R, OUTPUT);
+	const Pin MEN_G(constant_pins::V_MEN_G, OUTPUT);
+	const Pin DOOR_R(constant_pins::V_DOOR_R, OUTPUT);
+	const Pin DOOR_G(constant_pins::V_DOOR_G, OUTPUT);
+	const Pin LOCKER_R(constant_pins::V_LOCKER_R, OUTPUT);
+	const Pin LOCKER_G(constant_pins::V_LOCKER_G, OUTPUT);
+
+	const int SENSORS_SIZE = 4;
+	const Pin SENSORS[SENSORS_SIZE] = {
+		Pin(constant_pins::INSIDE_SENSOR_0_0, INPUT),
+		Pin(constant_pins::INSIDE_SENSOR_0_1, INPUT),
+		Pin(constant_pins::INSIDE_SENSOR_1_0, INPUT),
+		Pin(constant_pins::INSIDE_SENSOR_1_1, INPUT)
+	};
+
 
 	void decrease() {
 		queue.push(Event(millis() + TIMER_GAP * 2, -1));
@@ -286,8 +371,8 @@ namespace security {
 
 	int cabinet_status() {
 		bool status = 0;
-		for (int i = constant_pins::INSIDE_SENSOR_0_0; i <= constant_pins::INSIDE_SENSOR_1_1; i++) {
-			status |= digitalRead(i);
+		for (int i = 0; i < SENSORS_SIZE; i++) {
+			status |= SENSORS[i].read();
 		}
 		if (timer > millis()) {
 			timer = millis();
@@ -318,31 +403,35 @@ namespace security {
 		return cabinet_balance > 0;
 	}
 
+	void red(Pin R, Pin G) {
+		R.write(1);
+		G.write(0);
+	}
+
+	void green(Pin R, Pin G) {
+		R.write(0);
+		G.write(1);
+	}
+
 	void update() {
 		cabinet_status();
 		if (!check_if_inside()) {
-			digitalWrite(constant_pins::V_MEN_G, 1);
-			digitalWrite(constant_pins::V_MEN_R, 0);
+			green(MEN_R, MEN_G);
 		}
 		else {
-			digitalWrite(constant_pins::V_MEN_G, 0);
-			digitalWrite(constant_pins::V_MEN_R, 1);
+			red(MEN_R, MEN_G);
 		}
 		if (locker::door_status()) {
-			digitalWrite(constant_pins::V_DOOR_G, 1);
-			digitalWrite(constant_pins::V_DOOR_R, 0);
+			green(DOOR_R, DOOR_G);
 		}
 		else {
-			digitalWrite(constant_pins::V_DOOR_G, 0);
-			digitalWrite(constant_pins::V_DOOR_R, 1);
+			red(DOOR_R, DOOR_G);
 		}
 		if (locker::locker_status()) {
-			digitalWrite(constant_pins::V_LOCKER_G, 1);
-			digitalWrite(constant_pins::V_LOCKER_R, 0);
+			green(LOCKER_R, LOCKER_G);
 		}
 		else {
-			digitalWrite(constant_pins::V_LOCKER_G, 0);
-			digitalWrite(constant_pins::V_LOCKER_R, 1);
+			red(LOCKER_R, LOCKER_G);
 		}
 	}
 }
@@ -352,11 +441,14 @@ namespace inside_light {
 	int is_button = 0;
 	int status = 0;
 	long long timer = 0;
-	const long long TIMER_EMPTY = 60000LL;
-	const long long TIMER_GAP = 5000LL;
+	const long long TIMER_EMPTY = constant_values::TIMER_MINUTE;
+	const long long TIMER_GAP = constant_values::TIMER_FIVE_SECONDS;
+
+	const Pin LIGHT_BUTTON(constant_pins::LIGHT_BUTTON, INPUT, 1);
+	const Pin INSIDE_LIGHT(constant_pins::INSIDE_LIGHT, OUTPUT);
 
 	void check_button() {
-		if (!digitalRead(constant_pins::LIGHT_BUTTON)) {
+		if (LIGHT_BUTTON.read()) {
 			is_button ^= 1;
 			timer = millis();
 		}
@@ -369,7 +461,7 @@ namespace inside_light {
 		if (!automatic_mode) {
 			return;
 		}
-		digitalWrite(constant_pins::INSIDE_LIGHT, 1); 
+		INSIDE_LIGHT.write(1);
 		status = 1;
 	}
 
@@ -380,13 +472,13 @@ namespace inside_light {
 		if (!automatic_mode) {
 			return;
 		}
-		digitalWrite(constant_pins::INSIDE_LIGHT, 0);
+		INSIDE_LIGHT.write(0);
 		status = 0;
 	}
 
 	void update() {
 		long long current_timer = millis();
-		if (current_timer - timer < 1000) {
+		if (current_timer - timer < constant_values::TIMER_SECOND) {
 			return;
 		}
 		check_button();
@@ -405,6 +497,19 @@ namespace inside_light {
 
 namespace client {
 	long long reset_time = millis();
+	const Pin SERVER_RESET(constant_pins::SERVER_RESET, OUTPUT, 1);
+	const String GREETING = "}";
+	const String EDIT = "~";
+	const String CHECK = "|";
+
+	const int RESPONSE_OPEN = 89;
+	const int RESPONSE_CLOSE = 78;
+	const int RESPONSE_RESET = 33;
+	const int RESPONSE_LIGHT_ON = 91;
+	const int RESPONSE_LIGHT_AUTO = 92;
+	const int RESPONSE_LIGHT_OFF = 93;
+
+
 	String make_request(String type, int card[]) {
 		String res = type;
 		for (int i = 0; i < constant_values::CARD_SIZE; i++) {
@@ -414,50 +519,50 @@ namespace client {
 	}
 
 	void greeting(int card[]) {
-		Serial3.print(make_request("}", card));
+		Serial3.print(make_request(GREETING, card));
 	}
 
 	void edit(int card[]) {
-		Serial3.print(make_request("~", card));
+		Serial3.print(make_request(EDIT, card));
 	}
 
 	void check(int card[]) {
-		Serial3.print(make_request("|", card));
+		Serial3.print(make_request(CHECK, card));
 	}
 
 	void receive() {
 		if (Serial3.available()) {
 			int ans = Serial3.read();
-			if (ans == 89) {
+			if (ans == RESPONSE_OPEN) {
 				security::increase();
 				outside_led::green();
 				outside_led::add_time(constant_values::TIMER_GREEN);
 				locker::add_time(constant_values::TIMER_GREEN);
 			}
-			if (ans == 78) {
+			if (ans == RESPONSE_CLOSE) {
 				outside_led::red();
 				outside_led::add_time(constant_values::TIMER_RED);
 			}
-			if (ans == 33) {
+			if (ans == RESPONSE_RESET) {
 				digitalWrite(constant_pins::SERVER_RESET, 0); 
 				reset_time = millis();
 				return;
 			}
-			if (ans == 91) {
+			if (ans == RESPONSE_LIGHT_ON) {
 				inside_light::light();
 				inside_light::automatic_mode = false;
 			}
-			if (ans == 92) {
+			if (ans == RESPONSE_LIGHT_AUTO) {
 				inside_light::automatic_mode = true;
 				inside_light::unlight();
 			}
-			if (ans == 93) {
+			if (ans == RESPONSE_LIGHT_OFF) {
 				inside_light::unlight();
 				inside_light::automatic_mode = false;
 			}
 		}
-		if (millis() - reset_time > constant_values::TIMER_RESET){
-			digitalWrite(constant_pins::SERVER_RESET, 1);
+		if (millis() - reset_time > constant_values::TIMER_FIVE_SECONDS){
+			SERVER_RESET.write(1);
 		}
 	}
 }
@@ -479,9 +584,9 @@ namespace handler {
 		{68, 57, 52, 49, 69, 51, 52, 57}   // Filippov
 	};
 
-	int position;
+	int position = 0;
 	int buffer[CARD_SIZE];
-	bool edit_query;
+	bool edit_query = 0;
 
 
 	bool check_card(int a[], int b[]) {
@@ -556,11 +661,14 @@ namespace radio {
 	long long timer;
 	const long long TIMER_GAP = 3000;
 
-	void send(int x) {
+	void send(char x, char y) {
 		if (millis() - timer < TIMER_GAP) {
 			return;
 		}
-		Serial2.print(x);
+		Serial2.write(x);
+		Serial2.write(' ');
+		Serial2.write(y);
+		Serial2.write('\n');
 		timer = millis();
 	}
 
@@ -586,36 +694,7 @@ void setup() {
 	Serial.begin(9600);
 	Serial3.begin(115200);
 	Serial2.begin(9600);
-	
-	pinMode(constant_pins::DOOR_SENSOR, INPUT);
-	pinMode(constant_pins::LOCKER_SENSOR, INPUT);
-	digitalWrite(constant_pins::DOOR_SENSOR, 1);
-	digitalWrite(constant_pins::LOCKER_SENSOR, 1);
-	pinMode(constant_pins::EXIT_BUTTON, INPUT);
-	pinMode(constant_pins::LOCKER, OUTPUT);
-	pinMode(constant_pins::OUTSIDE_RED, OUTPUT);
-	pinMode(constant_pins::OUTSIDE_GREEN, OUTPUT);
-	pinMode(constant_pins::OUTSIDE_BLUE, OUTPUT);
 	pinMode(13, OUTPUT);
-	pinMode(constant_pins::V_MEN_G,OUTPUT);
-	pinMode(constant_pins::V_MEN_R,OUTPUT);
-	pinMode(constant_pins::V_DOOR_G,OUTPUT);
-	pinMode(constant_pins::V_DOOR_R,OUTPUT);
-	pinMode(constant_pins::V_LOCKER_G,OUTPUT);
-	pinMode(constant_pins::V_LOCKER_R,OUTPUT);
-	pinMode(constant_pins::OUTSIDE_BUTTON, INPUT);
-	digitalWrite(constant_pins::OUTSIDE_BUTTON, 1);
-	pinMode(constant_pins::SOUND_OUTSIDE,OUTPUT);
-	pinMode(constant_pins::SOUND_INSIDE,OUTPUT);
-	pinMode(constant_pins::INSIDE_SENSOR_0_0, INPUT);
-	pinMode(constant_pins::INSIDE_SENSOR_0_1, INPUT);
-	pinMode(constant_pins::INSIDE_SENSOR_1_0, INPUT);
-	pinMode(constant_pins::INSIDE_SENSOR_1_1, INPUT);
-	pinMode(constant_pins::INSIDE_LIGHT, OUTPUT);
-	pinMode(constant_pins::SERVER_RESET, OUTPUT);
-	pinMode(constant_pins::LIGHT_BUTTON, INPUT);
-	digitalWrite(constant_pins::LIGHT_BUTTON, 1);
-	digitalWrite(constant_pins::SERVER_RESET, 1);
 	
 	security::timer = millis();
 	door_bell::timer = millis();
@@ -626,13 +705,6 @@ void setup() {
 	exit_button::timer = millis();
 	locker::timer = millis();
 	radio::timer = millis();
-
-	inside_light::status = 0;
-	outside_led::current_red = 255;
-	outside_led::current_green = 0;
-	outside_led::current_blue = 0;
-	handler::position = 0;
-	handler::edit_query = 0;
 	FlexiTimer2::set(20, interrupt);
 	FlexiTimer2::start();
 	locker::lock(); 
@@ -645,7 +717,7 @@ void loop() {
 	client::receive();
 	door_bell::play();
 	handler::read();
-	radio::send(security::cabinet_balance);
+	radio::send(0, security::cabinet_balance);
 	delay(2);
 }
 
@@ -665,12 +737,12 @@ void loop() {
 ::::::::^-=====.^:.*%:^* :::::::::::\%*%:::^%^::::*::: ::.=+^:::::::::::::::::::-:+*^:\+%===*^::::::::
 ::::::%=====\:::*-:::.-::::::::::*:^^=^:::: .:::\:%%.%==*=::^:::::::::::::::::%%%= %=*^::%===== ::::::
 ::::^+%+=*^:::\:::::::::::::::::^^:::^:::::::::::::::::::::::::::::::::::::::::::::::::::::: ====\::::
-:::-%==::::::::::::::=========:::::::::::::::::===========::::::::::::=================:::%^^^.===*^::
+:::-%==::::::::::::::==========::::::::::::::::===========::::::::::::=================:::%^^^.===*^::
 ::*===%::::^+^:::::===============:::::::: .:::===============::: ::::=================::^-:::::*===^:
 ::==+^::::::::::::=================::::::::: ::======:::=======:::\*::=================:::-\::::::===:
-%===%:::::\:::::=====::::::::=======::::::+%:::======::::======:::^+^::::::=======::::::::^*:::::^*==:
-+==*::::::. :::======:::::::::======::::::*%:::===============::::^+^::::::=======:::::::^:*^:::::-==:
-+==+::::::. :::======:::::::::======:::\ :*%:::============::::::::=:::::::=======::::::::==^:::::-==:
+%===%:::::\:::::======:::::::=======::::::+%:::======::::======:::^+^::::::=======::::::::^*:::::^*==:
++==*::::::. ::::=====:::::::::======::::::*%:::===============::::^+^::::::=======:::::::^:*^:::::-==:
++==+::::::. ::::=====:::::::::======:::\ :*%:::============::::::::=:::::::=======::::::::==^:::::-==:
 ^==%\:::::%*::::======:::::::=======:::::*+%:::======:=====:::::::^+:::::::=======::::::::==.::::^+==:
 :-==+^:::::-\::::=================:::::::-- :::=====:::======:::::\::::::::=======::::::::%%:::::*==+:
 :::===\:::::*\::::.==============:::::: :::::::======:::======:::::%:::::::=======::::::::.%:-%^+==+^:
