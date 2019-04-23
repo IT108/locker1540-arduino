@@ -26,7 +26,7 @@ struct Pin {
 
 	Pin(int a, int b, int c = 0) {
 		pin = a, type = b;
-		// rev = c;
+		rev = c;
 		set_mode();
 		if (c) {
 			write(1, 'f');
@@ -67,6 +67,45 @@ struct Pin {
 	}
 };
 
+struct Timer {
+	long long value;
+	int need_to_check;
+
+	Timer() {}
+	Timer(int x = 0) {
+		need_to_check = x;
+		value = millis();
+	}
+
+	void set(long long x) {
+		value = x;
+	}
+
+	void update() {
+		value = millis();
+	}
+
+	void check() {
+		if (value > millis()) {
+			update();
+		}
+	}
+
+	long long get() {
+		if (need_to_check) {
+			check();
+		}
+		return value;
+	}
+
+	long long diff(long long x = -1) {
+		if (x == -1) {
+			x = millis();
+		}
+		return abs(value - x);
+	}
+};
+
 namespace constant_pins {
 	const int V_MEN_R = 55;
 	const int V_MEN_G = 54;
@@ -99,32 +138,31 @@ namespace constant_pins {
 	const int SERVER_RESET = 30;
 
 	const int LIGHT_BUTTON = 28;
-
 }
 
 namespace constant_values {
-	const long long TIMER_SECOND = 1000;
-	const long long TIMER_TWO_SECONDS = 2 * TIMER_SECOND;
-	const long long TIMER_THREE_SECONDS = 3 * TIMER_SECOND;
-	const long long TIMER_FIVE_SECONDS = 5 * TIMER_SECOND;
-	const long long TIMER_MINUTE = 60000;
-	const long long TIMER_FIVE_MINUTES = 5 * TIMER_MINUTE;
-	const long long TIMER_HALF_AN_HOUR = TIMER_MINUTE * 30;
-	const long long TIMER_HOUR = TIMER_MINUTE * 60;
-	const long long TIMER_GREEN = TIMER_FIVE_SECONDS;
-	const long long TIMER_RED = TIMER_TWO_SECONDS;
-	const long long TIMER_BLUE = TIMER_TWO_SECONDS;
+	const long long DELAY_SECOND = 1000;
+	const long long DELAY_TWO_SECONDS = 2 * DELAY_SECOND;
+	const long long DELAY_THREE_SECONDS = 3 * DELAY_SECOND;
+	const long long DELAY_FIVE_SECONDS = 5 * DELAY_SECOND;
+	const long long DELAY_MINUTE = 60000;
+	const long long DELAY_FIVE_MINUTES = 5 * DELAY_MINUTE;
+	const long long DELAY_HALF_AN_HOUR = DELAY_MINUTE * 30;
+	const long long DELAY_HOUR = DELAY_MINUTE * 60;
+	const long long DELAY_GREEN = DELAY_FIVE_SECONDS;
+	const long long DELAY_RED = DELAY_TWO_SECONDS;
+	const long long DELAY_BLUE = DELAY_TWO_SECONDS;
 	const int CARD_SIZE = 8;
 }
 
 namespace door_bell {
-	long long timer;
 	const int COUNT_NOTES = 9;
-	const int WAITING_TIME = constant_values::TIMER_FIVE_SECONDS;
+	const int WAITING_DELAY = constant_values::DELAY_FIVE_SECONDS;
 	const int BEEP_FREQUENCE = 1000;
 	const int BEEP_LENGTH = 150;
 	const Pin OUTSIDE_BUTTON(constant_pins::OUTSIDE_BUTTON, INPUT, 1);
 	const Pin SOUND_INSIDE(constant_pins::SOUND_INSIDE, OUTPUT);
+	const Timer TIMER(0);
 
 	const int FREQUENCES[COUNT_NOTES] = {
 		392, 392, 392, 311, 466, 392, 311, 466, 392
@@ -134,11 +172,8 @@ namespace door_bell {
 	};
 
 	void play() {
-		if (millis() < timer) {
-			timer = millis();
-			return;
-		}
-		if (OUTSIDE_BUTTON.read() || millis() - timer < WAITING_TIME) {
+		TIMER.check();
+		if (!OUTSIDE_BUTTON.read() || TIMER.diff() < WAITING_DELAY) {
 			return;
 		}
 		for (int i = 0; i < COUNT_NOTES; i++) {
@@ -146,7 +181,7 @@ namespace door_bell {
 			delay(DURATIONS[i]);
 		}
 		SOUND_INSIDE.no_tone();
-		timer = millis();
+		TIMER.update();
 	}
 
 	void beep() {
@@ -164,14 +199,13 @@ namespace outside_led {
 	int current_red = 255;
 	int current_green = 0;
 	int current_blue = 0;
-	long long timer = 0;
-
+	const Timer TIMER(0);
 	const Pin RED(constant_pins::OUTSIDE_RED, OUTPUT);
 	const Pin GREEN(constant_pins::OUTSIDE_GREEN, OUTPUT);
 	const Pin BLUE(constant_pins::OUTSIDE_BLUE, OUTPUT);
 
 	void led(int red, int green, int blue) {
-		if (millis() < timer) {
+		if (millis() < TIMER.get()) {
 			return;
 		}
 		RED.analog(red);
@@ -180,7 +214,7 @@ namespace outside_led {
 	}
 
 	void add_time(long long t) {
-		timer = max(timer, millis() + t);
+		TIMER.set(max(TIMER.get(), millis() + t));
 	}
 
 	void led_current() {
@@ -220,16 +254,16 @@ namespace outside_led {
 }
 
 namespace security {
-	extern long long timer;
+	extern const Timer TIMER;
+	extern const Timer LAST_OPEN_TIMER;
 	extern long long cabinet_balance;
-	extern long long last_open_timer;
 	void decrease();
 	void increase();
 }
 
 namespace inside_light {
-	extern const long long TIMER_EMPTY;
-	extern const long long TIMER_GAP;
+	extern const long long DELAY_EMPTY;
+	extern const long long DELAY_GAP;
 	extern int is_button;
 }
 
@@ -237,7 +271,7 @@ namespace locker {
 	const int LOCK = 1;
 	const int UNLOCK = 0;
 	int door_closed = 0;
-	long long timer = 0;
+	const Timer TIMER(0);
 
 	const Pin LOCKER(constant_pins::LOCKER, OUTPUT);
 	const Pin DOOR_SENSOR(constant_pins::DOOR_SENSOR, INPUT, 1);
@@ -251,25 +285,25 @@ namespace locker {
 		LOCKER.write(UNLOCK);
 	}
 
-	int locker_status() {
-		return LOCKER_SENSOR.read();
+	int locker_status() { // 1 for locker not working
+		return !LOCKER_SENSOR.read();
 	}
 
-	int door_status() {
-		int tmp = DOOR_SENSOR.read();
+	int door_status() { // 1 for closed door
+		int tmp = 1 ^ DOOR_SENSOR.read();
 		if (tmp != door_closed) {
 			door_closed = tmp;
-			security::last_open_timer = millis();
+			security::LAST_OPEN_TIMER.update();
 		}
 		return door_closed;
 	}
 
 	void add_time(long long add) {
-		timer = max(timer, millis() + add);
+		TIMER.set(max(TIMER.get(), millis() + add));
 	}
 
 	void update() {
-		if (millis() < timer) {
+		if (millis() < TIMER.get()) {
 			unlock();
 		}
 		else {
@@ -279,57 +313,58 @@ namespace locker {
 }
 
 namespace exit_button {
-	long long timer = 0;
+	const Timer TIMER(0);
 	int button_status = 0;
-	const long long TIMER_WAIT = constant_values::TIMER_THREE_SECONDS;
+	const long long DELAY_WAIT = constant_values::DELAY_THREE_SECONDS;
 
 	const Pin EXIT_BUTTON(constant_pins::EXIT_BUTTON, INPUT);
 
 	void check() {
 		int current_status = EXIT_BUTTON.read();
 		if (current_status == 1 && button_status == 0) {
-			if (door_bell::timer + constant_values::TIMER_MINUTE > millis()) {
+			if (door_bell::TIMER.diff() < constant_values::DELAY_MINUTE) {
 				security::increase();
 			}
 			else {
 				security::decrease();
 			}
-			locker::add_time(constant_values::TIMER_GREEN);
+			locker::add_time(constant_values::DELAY_GREEN);
 			outside_led::green();
-			outside_led::add_time(constant_values::TIMER_GREEN);
-			timer = millis();
+			outside_led::add_time(constant_values::DELAY_GREEN);
+			TIMER.update();
 			door_bell::beep();
 			button_status = 1;
 			return;
 		}
-		if (current_status == 0 && millis() - timer > 100) {
+		if (current_status == 0 && TIMER.diff() > 100) {
 			button_status = 0;
 			return;
 		}
-		if (current_status == 1 && button_status == 1 && millis() - timer > TIMER_WAIT) {
+		if (current_status == 1 && button_status == 1 && TIMER.diff() > DELAY_WAIT) {
+			security::increase();
 			outside_led::yellow();
-			outside_led::add_time(constant_values::TIMER_FIVE_MINUTES);
-			locker::add_time(constant_values::TIMER_FIVE_MINUTES);
+			outside_led::add_time(constant_values::DELAY_FIVE_MINUTES);
+			locker::add_time(constant_values::DELAY_FIVE_MINUTES);
 			button_status = 2;
 			door_bell::beep();
 		}
-		if (current_status == 1 && button_status == 2 && millis() - timer > 2 * TIMER_WAIT) {
+		if (current_status == 1 && button_status == 2 && TIMER.diff() > 2 * DELAY_WAIT) {
 			outside_led::yellow();
-			outside_led::add_time(constant_values::TIMER_HALF_AN_HOUR);
-			locker::add_time(constant_values::TIMER_HALF_AN_HOUR);
+			outside_led::add_time(constant_values::DELAY_HALF_AN_HOUR);
+			locker::add_time(constant_values::DELAY_HALF_AN_HOUR);
 			button_status = 3;
 			door_bell::beep();
 		}
-		if (current_status == 1 && button_status == 3 && millis() - timer > 3 * TIMER_WAIT) {
+		if (current_status == 1 && button_status == 3 && TIMER.diff() > 3 * DELAY_WAIT) {
 			outside_led::yellow();
-			outside_led::add_time(constant_values::TIMER_HOUR);
-			locker::add_time(constant_values::TIMER_HOUR);
+			outside_led::add_time(constant_values::DELAY_HOUR);
+			locker::add_time(constant_values::DELAY_HOUR);
 			button_status = 4;
 			door_bell::beep();
 		}
-		if (current_status == 1 && button_status == 4 && millis() - timer > 4 * TIMER_WAIT) {
-			outside_led::timer = millis();
-			locker::timer = millis();
+		if (current_status == 1 && button_status == 4 && TIMER.get() > 4 * DELAY_WAIT) {
+			outside_led::TIMER.update();
+			locker::TIMER.update();
 			door_bell::beep();
 			button_status = 5;
 		}
@@ -337,12 +372,12 @@ namespace exit_button {
 }
 
 namespace security {
-	long long timer;
-	long long last_open_timer;
 	long long cabinet_balance;
-	const long long TIMER_EMPTY = constant_values::TIMER_MINUTE;
-	const long long TIMER_KILL = constant_values::TIMER_HALF_AN_HOUR;
-	const long long TIMER_GAP = constant_values::TIMER_FIVE_SECONDS;
+	const Timer TIMER(0);
+	const Timer LAST_OPEN_TIMER(0);
+	const long long DELAY_EMPTY = constant_values::DELAY_MINUTE;
+	const long long DELAY_KILL = constant_values::DELAY_HALF_AN_HOUR;
+	const long long DELAY_GAP = constant_values::DELAY_FIVE_SECONDS;
 	QueueArray <Event> queue;
 
 	const Pin MEN_R(constant_pins::V_MEN_R, OUTPUT);
@@ -362,11 +397,11 @@ namespace security {
 
 
 	void decrease() {
-		queue.push(Event(millis() + TIMER_GAP * 2, -1));
+		queue.push(Event(millis() + DELAY_GAP * 2, -1));
 	}
 
 	void increase() {
-		queue.push(Event(millis() + TIMER_GAP * 2, 1));
+		cabinet_balance++;
 	}
 
 	int cabinet_status() {
@@ -374,27 +409,25 @@ namespace security {
 		for (int i = 0; i < SENSORS_SIZE; i++) {
 			status |= SENSORS[i].read();
 		}
-		if (timer > millis()) {
-			timer = millis();
-		}
+		TIMER.check();
 		if (status) {
-			timer = millis();
+			TIMER.update();
 		}
 	}
 
 	bool check_if_inside() {
-		long long current_timer = millis();
-		while (queue.count() && queue.front().timer < current_timer) {
+		Timer current_timer(0);
+		while (queue.count() && queue.front().timer < current_timer.get()) {
 			cabinet_balance += queue.front().value;
 			queue.pop();
 		}
 		if (cabinet_balance < 0) {
 			cabinet_balance = 0;
 		}
-		if (current_timer < timer + TIMER_GAP) {
+		if (TIMER.diff() < DELAY_GAP) {
 			cabinet_balance = max(cabinet_balance, 1);
 		}
-		if (current_timer > timer + TIMER_KILL) {
+		if (TIMER.diff() >  DELAY_KILL) {
 			cabinet_balance = 0;
 			while (queue.count()) {
 				queue.pop();
@@ -440,17 +473,17 @@ namespace inside_light {
 	bool automatic_mode = true;
 	int is_button = 0;
 	int status = 0;
-	long long timer = 0;
-	const long long TIMER_EMPTY = constant_values::TIMER_MINUTE;
-	const long long TIMER_GAP = constant_values::TIMER_FIVE_SECONDS;
+	const Timer TIMER(0);
+	const long long DELAY_EMPTY = constant_values::DELAY_MINUTE;
+	const long long DELAY_GAP = constant_values::DELAY_FIVE_SECONDS;
 
 	const Pin LIGHT_BUTTON(constant_pins::LIGHT_BUTTON, INPUT, 1);
 	const Pin INSIDE_LIGHT(constant_pins::INSIDE_LIGHT, OUTPUT);
 
 	void check_button() {
-		if (!LIGHT_BUTTON.read()) {
+		if (LIGHT_BUTTON.read()) {
 			is_button ^= 1;
-			timer = millis();
+			TIMER.update();
 		}
 	}
 
@@ -477,8 +510,7 @@ namespace inside_light {
 	}
 
 	void update() {
-		long long current_timer = millis();
-		if (current_timer - timer < constant_values::TIMER_SECOND) {
+		if (TIMER.diff() < constant_values::DELAY_SECOND) {
 			return;
 		}
 		check_button();
@@ -496,7 +528,7 @@ namespace inside_light {
 }
 
 namespace client {
-	long long reset_time = millis();
+	const Timer RESET_TIMER(0);
 	const Pin SERVER_RESET(constant_pins::SERVER_RESET, OUTPUT, 1);
 	const String GREETING = "}";
 	const String EDIT = "~";
@@ -536,16 +568,16 @@ namespace client {
 			if (ans == RESPONSE_OPEN) {
 				security::increase();
 				outside_led::green();
-				outside_led::add_time(constant_values::TIMER_GREEN);
-				locker::add_time(constant_values::TIMER_GREEN);
+				outside_led::add_time(constant_values::DELAY_GREEN);
+				locker::add_time(constant_values::DELAY_GREEN);
 			}
 			if (ans == RESPONSE_CLOSE) {
 				outside_led::red();
-				outside_led::add_time(constant_values::TIMER_RED);
+				outside_led::add_time(constant_values::DELAY_RED);
 			}
 			if (ans == RESPONSE_RESET) {
 				digitalWrite(constant_pins::SERVER_RESET, 0); 
-				reset_time = millis();
+				RESET_TIMER.update();
 				return;
 			}
 			if (ans == RESPONSE_LIGHT_ON) {
@@ -561,7 +593,7 @@ namespace client {
 				inside_light::automatic_mode = false;
 			}
 		}
-		if (millis() - reset_time > constant_values::TIMER_FIVE_SECONDS){
+		if (RESET_TIMER.diff() > constant_values::DELAY_FIVE_SECONDS){
 			SERVER_RESET.write(1);
 		}
 	}
@@ -613,9 +645,9 @@ namespace handler {
 			ok = check_card(DEFINED_CARDS[i], card);
 			if (ok) {
 				client::greeting(card);
-				locker::add_time(constant_values::TIMER_GREEN);
+				locker::add_time(constant_values::DELAY_GREEN);
 				outside_led::green();
-				outside_led::add_time(constant_values::TIMER_GREEN);
+				outside_led::add_time(constant_values::DELAY_GREEN);
 				security::increase();
 				return;
 			}
@@ -627,7 +659,7 @@ namespace handler {
 		if (check_card(card, MASTER_CARD)) {
 			edit_query = true;
 			outside_led::blue();
-			delay(constant_values::TIMER_BLUE);	
+			delay(constant_values::DELAY_BLUE);	
 		}
 		else {
 			if (edit_query) {
@@ -658,16 +690,16 @@ namespace handler {
 
 namespace radio {
 
-	long long timer;
-	const long long TIMER_GAP = 3000;
+	const Timer TIMER(0);
+	const long long DELAY_GAP = constant_values::DELAY_THREE_SECONDS;
 
 	void send(char x, char y) {
-		if (millis() - timer < TIMER_GAP) {
+		if (TIMER.diff() < DELAY_GAP) {
 			return;
 		}
 		Serial2.write(x * 10 + y);
 		Serial2.write('\n');
-		timer = millis();
+		TIMER.update();
 	}
 
 	int receive() {
@@ -690,19 +722,9 @@ void interrupt() {
 
 void setup() {
 	Serial.begin(9600);
-	Serial3.begin(115200);
 	Serial2.begin(9600);
+	Serial3.begin(115200);
 	pinMode(13, OUTPUT);
-	
-	security::timer = millis();
-	door_bell::timer = millis();
-	inside_light::timer = millis();
-	security::last_open_timer = millis();
-	security::timer = millis();
-	outside_led::timer = millis();
-	exit_button::timer = millis();
-	locker::timer = millis();
-	radio::timer = millis();
 	FlexiTimer2::set(20, interrupt);
 	FlexiTimer2::start();
 	locker::lock(); 
