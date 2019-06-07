@@ -104,6 +104,10 @@ struct Timer {
 		}
 		return abs(value - x);
 	}
+
+	bool already_past() {
+		return value < millis();
+	}
 };
 
 namespace constant_pins {
@@ -205,7 +209,7 @@ namespace outside_led {
 	const Pin BLUE(constant_pins::OUTSIDE_BLUE, OUTPUT);
 
 	void led(int red, int green, int blue) {
-		if (millis() < TIMER.get()) {
+		if (!TIMER.already_past()) {
 			return;
 		}
 		RED.analog(red);
@@ -303,11 +307,11 @@ namespace locker {
 	}
 
 	void update() {
-		if (millis() < TIMER.get()) {
-			unlock();
+		if (TIMER.already_past()) {
+			lock();
 		}
 		else {
-			lock();
+			unlock();
 		}
 	}
 }
@@ -427,7 +431,7 @@ namespace security {
 		if (TIMER.diff() < DELAY_GAP) {
 			cabinet_balance = max(cabinet_balance, 1);
 		}
-		if (TIMER.diff() >  DELAY_KILL) {
+		if (TIMER.diff() > DELAY_KILL) {
 			cabinet_balance = 0;
 			while (queue.count()) {
 				queue.pop();
@@ -576,7 +580,7 @@ namespace client {
 				outside_led::add_time(constant_values::DELAY_RED);
 			}
 			if (ans == RESPONSE_RESET) {
-				digitalWrite(constant_pins::SERVER_RESET, 0); 
+				SERVER_RESET.write(0);
 				RESET_TIMER.update();
 				return;
 			}
