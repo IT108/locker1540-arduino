@@ -111,22 +111,22 @@ struct Timer {
 };
 
 namespace constant_pins {
-	const int V_MEN_R = 55;
-	const int V_MEN_G = 54;
-	const int V_DOOR_R = 56;
-	const int V_DOOR_G = 57;
-	const int V_LOCKER_R = 58;
-	const int V_LOCKER_G = 59;
+	const int V_MEN_R = 29;
+	const int V_MEN_G = 27;
+	const int V_DOOR_R = 31;
+	const int V_DOOR_G = 33;
+	const int V_LOCKER_R = 35;
+	const int V_LOCKER_G = 37;
 
-	const int OUTSIDE_BUTTON = 31;
-	const int OUTSIDE_RED = 44;
-	const int OUTSIDE_GREEN = 45;
-	const int OUTSIDE_BLUE = 46;
+	const int OUTSIDE_BUTTON = 45;
+	const int OUTSIDE_RED = 51;
+	const int OUTSIDE_GREEN = 49;
+	const int OUTSIDE_BLUE = 47;
 
-	const int LOCKER = 12;
+	const int LOCKER = 23;
 
-	const int SOUND_OUTSIDE = 10;
-	const int SOUND_INSIDE = 11;
+	const int SOUND_OUTSIDE = 43;
+	const int SOUND_INSIDE = 9;
 
 	const int DOOR_SENSOR = 6;
 	const int LOCKER_SENSOR = 7;
@@ -137,11 +137,11 @@ namespace constant_pins {
 	const int INSIDE_SENSOR_1_0 = 4;
 	const int INSIDE_SENSOR_1_1 = 5;
 
-	const int INSIDE_LIGHT = 9;
+	const int INSIDE_LIGHT = 36;
 
 	const int SERVER_RESET = 30;
 
-	const int LIGHT_BUTTON = 28;
+	const int LIGHT_BUTTON = 11;
 }
 
 namespace constant_values {
@@ -321,7 +321,7 @@ namespace exit_button {
 	int button_status = 0;
 	const long long DELAY_WAIT = constant_values::DELAY_THREE_SECONDS;
 
-	const Pin EXIT_BUTTON(constant_pins::EXIT_BUTTON, INPUT);
+	const Pin EXIT_BUTTON(constant_pins::EXIT_BUTTON, INPUT, 1);
 
 	void check() {
 		int current_status = EXIT_BUTTON.read();
@@ -677,8 +677,8 @@ namespace handler {
 	}
 
 	void read() {
-		int value = Serial.read();
-		if (!Serial.available()) {
+		int value = Serial1.read();
+		if (!Serial1.available()) {
 			position = 0;
 			return;
 		}
@@ -726,7 +726,8 @@ void interrupt() {
 
 void setup() {
 	Serial.begin(9600);
-	Serial2.begin(9600);
+  Serial1.begin(9600);
+  Serial2.begin(9600);
 	Serial3.begin(115200);
 	pinMode(13, OUTPUT);
 	FlexiTimer2::set(20, interrupt);
