@@ -534,9 +534,8 @@ namespace inside_light {
 namespace client {
 	const Timer RESET_TIMER(0);
 	const Pin SERVER_RESET(constant_pins::SERVER_RESET, OUTPUT, 1);
-	const String GREETING = "}";
-	const String EDIT = "~";
-	const String CHECK = "|";
+	const String GREETING = "play_greet";
+	const String CHECK = "check_card";
 
 	const int RESPONSE_OPEN = 89;
 	const int RESPONSE_CLOSE = 78;
@@ -546,29 +545,27 @@ namespace client {
 	const int RESPONSE_LIGHT_OFF = 93;
 
 
-	String make_request(String type, int card[]) {
-		String res = type;
+	String make_request(String operation, int card[]) {
+		String res = "[" + operation + "]";
+		res += "card:";
 		for (int i = 0; i < constant_values::CARD_SIZE; i++) {
 			res += (char)card[i];
 		}
+		res += "\r\n";
 		return res;
 	}
 
 	void greeting(int card[]) {
-		Serial3.print(make_request(GREETING, card));
-	}
-
-	void edit(int card[]) {
-		Serial3.print(make_request(EDIT, card));
+		Serial.print(make_request(GREETING, card));
 	}
 
 	void check(int card[]) {
-		Serial3.print(make_request(CHECK, card));
+		Serial.print(make_request(CHECK, card));
 	}
 
 	void receive() {
-		if (Serial3.available()) {
-			int ans = Serial3.read();
+		if (Serial.available()) {
+			int ans = Serial.read();
 			if (ans == RESPONSE_OPEN) {
 				security::increase();
 				outside_led::green();
@@ -622,8 +619,6 @@ namespace handler {
 
 	int position = 0;
 	int buffer[CARD_SIZE];
-	bool edit_query = 0;
-
 
 	bool check_card(int a[], int b[]) {
 		for (int i = 0; i < constant_values::CARD_SIZE; i++) {
@@ -659,23 +654,6 @@ namespace handler {
 		client::check(card);
 	}
 
-	void handle(int card[]) {
-		if (check_card(card, MASTER_CARD)) {
-			edit_query = true;
-			outside_led::blue();
-			delay(constant_values::DELAY_BLUE);	
-		}
-		else {
-			if (edit_query) {
-				client::edit(card);
-				edit_query = false;
-			}
-			else {
-				handle_card(card);
-			}
-		}
-	}
-
 	void read() {
 		int value = Serial1.read();
 		if (!Serial1.available()) {
@@ -685,7 +663,7 @@ namespace handler {
 		if (is_valid(value)) {
 			buffer[position++] = value;
 			if (position == constant_values::CARD_SIZE) {
-				handle(handler::buffer);
+				handle_card(handler::buffer);
 				position = 0;
 			}
 		}
@@ -726,9 +704,8 @@ void interrupt() {
 
 void setup() {
 	Serial.begin(9600);
-  Serial1.begin(9600);
-  Serial2.begin(9600);
-	Serial3.begin(115200);
+    Serial1.begin(9600);
+    Serial2.begin(9600);
 	pinMode(13, OUTPUT);
 	FlexiTimer2::set(20, interrupt);
 	FlexiTimer2::start();
