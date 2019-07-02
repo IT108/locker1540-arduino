@@ -118,12 +118,12 @@ namespace constant_pins {
 	const int V_LOCKER_R = 35;
 	const int V_LOCKER_G = 37;
 
-	const int OUTSIDE_BUTTON = 45;
-	const int OUTSIDE_RED = 51;
-	const int OUTSIDE_GREEN = 49;
-	const int OUTSIDE_BLUE = 47;
+	const int OUTSIDE_BUTTON = 53;
+	const int OUTSIDE_RED = 44;
+	const int OUTSIDE_GREEN = 45;
+	const int OUTSIDE_BLUE = 46;
 
-	const int LOCKER = 23;
+	const int LOCKER = 25;
 
 	const int SOUND_OUTSIDE = 43;
 	const int SOUND_INSIDE = 9;
@@ -137,7 +137,7 @@ namespace constant_pins {
 	const int INSIDE_SENSOR_1_0 = 4;
 	const int INSIDE_SENSOR_1_1 = 5;
 
-	const int INSIDE_LIGHT = 36;
+	const int INSIDE_LIGHT = 34;
 
 	const int SERVER_RESET = 30;
 
