@@ -317,12 +317,13 @@ namespace locker {
 namespace exit_button {
 	const Timer TIMER(0);
 	int button_status = 0;
+	int current_status = 0;
 	const long long DELAY_WAIT = constant_values::DELAY_THREE_SECONDS;
 
 	const Pin EXIT_BUTTON(constant_pins::EXIT_BUTTON, INPUT, 1);
 
 	void check() {
-		int current_status = EXIT_BUTTON.read();
+		current_status = EXIT_BUTTON.read();
 		if (current_status == 1 && button_status == 0) {
 			if (door_bell::TIMER.diff() < constant_values::DELAY_MINUTE) {
 				security::increase();
@@ -364,7 +365,7 @@ namespace exit_button {
 			button_status = 4;
 			door_bell::beep();
 		}
-		if (current_status == 1 && button_status == 4 && TIMER.get() > 4 * DELAY_WAIT) {
+		if (current_status == 1 && button_status == 4 && TIMER.diff() > 4 * DELAY_WAIT) {
 			outside_led::TIMER.update();
 			locker::TIMER.update();
 			door_bell::beep();
@@ -688,57 +689,81 @@ namespace radio {
 namespace logger {
 	const Timer TIMER(0);
 	
+	void space() {
+		Serial.print(' ');
+	}
+
+	void enter() {
+		Serial.println();
+	}
+
 	void led() {
 		Serial.print("led R G B is_online");
+		space();
 		Serial.print(outside_led::current_red);
+		space();
 		Serial.print(outside_led::current_green);
+		space();
 		Serial.print(outside_led::current_blue);
+		space();
 		Serial.print(outside_led::TIMER.already_past());
-		Serial.println();
+		enter();
 	}
 
 	void sensors() {
 		Serial.print("Inside sensors 1 2 3 4 cabinet_balance");
+		space();
 		for (int i = 0; i < 4; i++) {
 			Serial.print(security::SENSORS[i].read());
+			space();
 		}
 		Serial.print((int)security::cabinet_balance);
-		Serial.println();
+		enter();
 	}
 
 	void security() {
 		Serial.print("Security persons locker door");
+		space();
 		Serial.print(!security::check_if_inside());
+		space();
 		Serial.print(locker::locker_status());
+		space();
 		Serial.print(locker::door_status());
-		Serial.println();
+		enter();
 	}
 
 	void light() {
 		Serial.print("Light status button");
+		space();
 		Serial.print(inside_light::status);
+		space();
 		Serial.print(inside_light::is_button);
-		Serial.println();
+		enter();
 	}
 
 	void card() {
 		Serial.print("New card come");
+		space();
 		for (int i = 0; i < handler::CARD_SIZE; i++) {
 			Serial.print((char)handler::buffer[i]);
 		}
-		Serial.println();
+		enter();
 	}
 
 	void exit_button() {
-		Serial.print("Exit_button status");
+		Serial.print("Exit_button status current");
+		space();
 		Serial.print(exit_button::button_status);
-		Serial.println();
+		space();
+		Serial.print(exit_button::current_status);
+		enter();
 	}
 
 	void locker() {
 		Serial.print("locker status");
+		space();
 		Serial.print(locker::locker_status());
-		Serial.println();
+		enter();
 	}
 
 	void update() {
