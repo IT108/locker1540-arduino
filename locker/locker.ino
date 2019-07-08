@@ -632,7 +632,7 @@ namespace handler {
 
 	void handle_card(int card[]) {
 		bool ok = false;
-		logger::card():
+		logger::card();
 		for (int i = 0; i < LOCAL_DB_SIZE; i++) {
 			ok = check_card(DEFINED_CARDS[i], card);
 			if (ok) {
@@ -702,13 +702,13 @@ namespace logger {
 		for (int i = 0; i < 4; i++) {
 			Serial.print(security::SENSORS[i].read());
 		}
-		Serial.print(security::cabinet_balance);
+		Serial.print((int)security::cabinet_balance);
 		Serial.println();
 	}
 
 	void security() {
 		Serial.print("Security persons locker door");
-		Serial.print(!check_if_inside());
+		Serial.print(!security::check_if_inside());
 		Serial.print(locker::locker_status());
 		Serial.print(locker::door_status());
 		Serial.println();
@@ -742,11 +742,11 @@ namespace logger {
 	}
 
 	void update() {
-		if (!TIMER,already_past()) {
+		if (!TIMER.already_past()) {
 			return;
 		}
 		TIMER.set(millis() + constant_values::DELAY_THREE_SECONDS);
-		Serial.println("============== DEBUG OUTPUT ===========")
+		Serial.println("============== DEBUG OUTPUT ===========");
 		led();
 		sensors();
 		security();
@@ -762,6 +762,7 @@ void interrupt() {
 	security::update();
 	inside_light::update();
 	locker::update();
+	logger::update();
 }
 
 void setup() {
