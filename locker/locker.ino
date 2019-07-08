@@ -139,8 +139,6 @@ namespace constant_pins {
 
 	const int INSIDE_LIGHT = 34;
 
-	const int SERVER_RESET = 30;
-
 	const int LIGHT_BUTTON = 11;
 }
 
@@ -532,8 +530,6 @@ namespace inside_light {
 }
 
 namespace client {
-	const Timer RESET_TIMER(0);
-	const Pin SERVER_RESET(constant_pins::SERVER_RESET, OUTPUT, 1);
 	const String GREETING = "play_greet";
 	const String CHECK = "check_card";
 
@@ -576,11 +572,6 @@ namespace client {
 				outside_led::red();
 				outside_led::add_time(constant_values::DELAY_RED);
 			}
-			if (ans == RESPONSE_RESET) {
-				SERVER_RESET.write(0);
-				RESET_TIMER.update();
-				return;
-			}
 			if (ans == RESPONSE_LIGHT_ON) {
 				inside_light::light();
 				inside_light::automatic_mode = false;
@@ -594,10 +585,11 @@ namespace client {
 				inside_light::automatic_mode = false;
 			}
 		}
-		if (RESET_TIMER.diff() > constant_values::DELAY_FIVE_SECONDS){
-			SERVER_RESET.write(1);
-		}
 	}
+}
+
+namespace logger {
+	void card();
 }
 
 namespace handler {
@@ -640,6 +632,7 @@ namespace handler {
 
 	void handle_card(int card[]) {
 		bool ok = false;
+		logger::card():
 		for (int i = 0; i < LOCAL_DB_SIZE; i++) {
 			ok = check_card(DEFINED_CARDS[i], card);
 			if (ok) {
@@ -671,7 +664,6 @@ namespace handler {
 }
 
 namespace radio {
-
 	const Timer TIMER(0);
 	const long long DELAY_GAP = constant_values::DELAY_THREE_SECONDS;
 
@@ -691,8 +683,78 @@ namespace radio {
 		int x = Serial2.read();
 		return x;
 	}
-
 };
+
+namespace logger {
+	const Timer TIMER(0);
+	
+	void led() {
+		Serial.print("led R G B is_online");
+		Serial.print(outside_led::current_red);
+		Serial.print(outside_led::current_green);
+		Serial.print(outside_led::current_blue);
+		Serial.print(outside_led::TIMER.already_past());
+		Serial.println();
+	}
+
+	void sensors() {
+		Serial.print("Inside sensors 1 2 3 4 cabinet_balance");
+		for (int i = 0; i < 4; i++) {
+			Serial.print(security::SENSORS[i].read());
+		}
+		Serial.print(security::cabinet_balance);
+		Serial.println();
+	}
+
+	void security() {
+		Serial.print("Security persons locker door");
+		Serial.print(!check_if_inside());
+		Serial.print(locker::locker_status());
+		Serial.print(locker::door_status());
+		Serial.println();
+	}
+
+	void light() {
+		Serial.print("Light status button");
+		Serial.print(inside_light::status);
+		Serial.print(inside_light::is_button);
+		Serial.println();
+	}
+
+	void card() {
+		Serial.print("New card come");
+		for (int i = 0; i < handler::CARD_SIZE; i++) {
+			Serial.print((char)handler::buffer[i]);
+		}
+		Serial.println();
+	}
+
+	void exit_button() {
+		Serial.print("Exit_button status");
+		Serial.print(exit_button::button_status);
+		Serial.println();
+	}
+
+	void locker() {
+		Serial.print("locker status");
+		Serial.print(locker::locker_status());
+		Serial.println();
+	}
+
+	void update() {
+		if (!TIMER,already_past()) {
+			return;
+		}
+		TIMER.set(millis() + constant_values::DELAY_THREE_SECONDS);
+		Serial.println("============== DEBUG OUTPUT ===========")
+		led();
+		sensors();
+		security();
+		light();
+		exit_button();
+		locker();
+	}
+}
 
 
 
