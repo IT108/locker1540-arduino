@@ -26,9 +26,11 @@ struct Pin {
 
 	Pin(int a, int b, int c = 0) {
 		pin = a, type = b;
-		rev = c;
-		set_mode();
 		if (c) {
+			rev = 1;
+		}
+		set_mode();
+		if (c == 1) {
 			write(1, 'f');
 		}
 	}
@@ -130,16 +132,19 @@ namespace constant_pins {
 
 	const int DOOR_SENSOR = 6;
 	const int LOCKER_SENSOR = 7;
-	const int EXIT_BUTTON = 8;
+	const int EXIT_BUTTON = A0;
 
 	const int INSIDE_SENSOR_0_0 = 2;
 	const int INSIDE_SENSOR_0_1 = 3;
 	const int INSIDE_SENSOR_1_0 = 4;
 	const int INSIDE_SENSOR_1_1 = 5;
-
-	const int INSIDE_LIGHT = 34;
-
 	const int LIGHT_BUTTON = 11;
+
+	const int RELAY_0 = 36;
+	const int RELAY_1 = 34;
+	const int RELAY_2 = 32;
+	const int RELAY_3 = 30;
+
 }
 
 namespace constant_values {
@@ -369,7 +374,7 @@ namespace exit_button {
 			outside_led::TIMER.update();
 			locker::TIMER.update();
 			door_bell::beep();
-			button_status = 5;
+			button_status = 0;
 		}
 	}
 }
@@ -480,8 +485,14 @@ namespace inside_light {
 	const long long DELAY_EMPTY = constant_values::DELAY_MINUTE;
 	const long long DELAY_GAP = constant_values::DELAY_FIVE_SECONDS;
 
-	const Pin LIGHT_BUTTON(constant_pins::LIGHT_BUTTON, INPUT, 1);
-	const Pin INSIDE_LIGHT(constant_pins::INSIDE_LIGHT, OUTPUT);
+	const Pin LIGHT_BUTTON(constant_pins::LIGHT_BUTTON, INPUT, 2);
+	const Pin EMPTY_RELAYS[] = {
+		Pin(constant_pins::RELAY_0, OUTPUT),
+		Pin(constant_pins::RELAY_1, OUTPUT),
+		Pin(constant_pins::RELAY_2, OUTPUT),
+		Pin(constant_pins::RELAY_3, OUTPUT),
+	};
+	const Pin INSIDE_LIGHT = EMPTY_RELAYS[1];
 
 	void check_button() {
 		if (LIGHT_BUTTON.read()) {
@@ -737,7 +748,7 @@ namespace logger {
 		space();
 		Serial.print(inside_light::status);
 		space();
-		Serial.print(inside_light::is_button);
+		Serial.print(inside_light::LIGHT_BUTTON.read());
 		enter();
 	}
 
@@ -755,7 +766,7 @@ namespace logger {
 		space();
 		Serial.print(exit_button::button_status);
 		space();
-		Serial.print(exit_button::current_status);
+		Serial.print(exit_button::EXIT_BUTTON.read());
 		enter();
 	}
 
