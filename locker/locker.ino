@@ -138,7 +138,7 @@ namespace constant_pins {
 	const int INSIDE_SENSOR_0_1 = 3;
 	const int INSIDE_SENSOR_1_0 = 4;
 	const int INSIDE_SENSOR_1_1 = 5;
-	const int LIGHT_BUTTON = 11;
+	const int LIGHT_BUTTON = A1;
 
 	const int RELAY_0 = 36;
 	const int RELAY_1 = 34;
@@ -485,7 +485,7 @@ namespace inside_light {
 	const long long DELAY_EMPTY = constant_values::DELAY_MINUTE;
 	const long long DELAY_GAP = constant_values::DELAY_FIVE_SECONDS;
 
-	const Pin LIGHT_BUTTON(constant_pins::LIGHT_BUTTON, INPUT, 2);
+	const Pin LIGHT_BUTTON(constant_pins::LIGHT_BUTTON, INPUT, 1);
 	const Pin EMPTY_RELAYS[] = {
 		Pin(constant_pins::RELAY_0, OUTPUT),
 		Pin(constant_pins::RELAY_1, OUTPUT),
