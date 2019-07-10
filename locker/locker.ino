@@ -541,16 +541,21 @@ namespace inside_light {
 	}
 }
 
+namespace logger {
+	void card();
+	void send_status();
+}
+
 namespace client {
 	const String GREETING = "play_greet";
 	const String CHECK = "check_card";
 
 	const int RESPONSE_OPEN = 89;
 	const int RESPONSE_CLOSE = 78;
-	const int RESPONSE_RESET = 33;
 	const int RESPONSE_LIGHT_ON = 91;
 	const int RESPONSE_LIGHT_AUTO = 92;
 	const int RESPONSE_LIGHT_OFF = 93;
+	const int RESPONSE_STATUS = 83;
 
 
 	String make_request(String operation, int card[]) {
@@ -596,13 +601,13 @@ namespace client {
 				inside_light::unlight();
 				inside_light::automatic_mode = false;
 			}
+			if (ans == RESPONSE_STATUS) {
+				logger::send_status();
+			}
 		}
 	}
 }
 
-namespace logger {
-	void card();
-}
 
 namespace handler {
 	const int CARD_SIZE = 8;
@@ -698,98 +703,85 @@ namespace radio {
 };
 
 namespace logger {
+	const String STATUS_KEY = "status";
+	const String LOG_KEY = "log";
 	const Timer TIMER(0);
-	
-	void space() {
-		Serial.print(' ');
+
+	String build_param(String key, String value) {
+		return key + ":" + value + ",";
 	}
 
-	void enter() {
-		Serial.println();
+	String led() {
+		String res = "";
+		res += build_param("led_R", (String) outside_led::current_red);
+		res += build_param("led_G", (String) outside_led::current_green);
+		res += build_param("led_B", (String) outside_led::current_blue);
+		res += build_param("led_is_ionline", (String) outside_led::TIMER.already_past());
+		return res;
 	}
 
-	void led() {
-		Serial.print("led R G B is_online");
-		space();
-		Serial.print(outside_led::current_red);
-		space();
-		Serial.print(outside_led::current_green);
-		space();
-		Serial.print(outside_led::current_blue);
-		space();
-		Serial.print(outside_led::TIMER.already_past());
-		enter();
-	}
-
-	void sensors() {
-		Serial.print("Inside sensors 1 2 3 4 cabinet_balance");
-		space();
+	String sensors() {
+		String res = "";
 		for (int i = 0; i < 4; i++) {
-			Serial.print(security::SENSORS[i].read());
-			space();
+			res += build_param("sensor_" + (String) i, security::SENSORS[i].read());
 		}
-		Serial.print((int)security::cabinet_balance);
-		enter();
+		res += build_param("sensor_balance", (String) (int) security::cabinet_balance);
+		return res;
 	}
 
-	void security() {
-		Serial.print("Security persons locker door");
-		space();
-		Serial.print(!security::check_if_inside());
-		space();
-		Serial.print(locker::locker_status());
-		space();
-		Serial.print(locker::door_status());
-		enter();
+	String security() {
+		String res = "";
+		res += build_param("security_persons", (String) !security::check_if_inside());
+		res += build_param("security_locker", (String) locker::locker_status());
+		res += build_param("security_door", (String) locker::door_status());
+		return res;
 	}
 
-	void light() {
-		Serial.print("Light status button");
-		space();
-		Serial.print(inside_light::status);
-		space();
-		Serial.print(inside_light::LIGHT_BUTTON.read());
-		enter();
+	String light() {
+		String res = "";
+		res += build_param("light_status", (String) inside_light::status);
+		res += build_param("light_button", (String) inside_light::LIGHT_BUTTON.read());
+		return res;
+	}
+
+	String exit_button() {
+		String res = "";
+		res += build_param("exit_button_status", (String) exit_button::button_status);
+		res += build_param("exit_button_current", (String) exit_button::EXIT_BUTTON.read());
+		return res;
+	}
+
+	String locker() {
+		String res = "";
+		res += build_param("locker_status", (String) locker::locker_status());
+		return res;
+	}
+
+	void make_request(String operation, String data){
+		String res = "[" + operation + "]" + data + "\r\n";
+		Serial.print(res);
 	}
 
 	void card() {
-		Serial.print("New card come");
-		space();
+		String res = "";
 		for (int i = 0; i < handler::CARD_SIZE; i++) {
-			Serial.print((char)handler::buffer[i]);
+			res += (char) handler::buffer[i];
 		}
-		enter();
+		res = build_param("card", res);
+		make_request("log", res);
+	}
+	
+	void send_status() {
+		String params = "";
+		params += led();
+		params += sensors();
+		params += security();
+		params += light();
+		params += exit_button();
+		params += locker();
+		make_request("status", params);
 	}
 
-	void exit_button() {
-		Serial.print("Exit_button status current");
-		space();
-		Serial.print(exit_button::button_status);
-		space();
-		Serial.print(exit_button::EXIT_BUTTON.read());
-		enter();
-	}
-
-	void locker() {
-		Serial.print("locker status");
-		space();
-		Serial.print(locker::locker_status());
-		enter();
-	}
-
-	void update() {
-		if (!TIMER.already_past()) {
-			return;
-		}
-		TIMER.set(millis() + constant_values::DELAY_THREE_SECONDS);
-		Serial.println("============== DEBUG OUTPUT ===========");
-		led();
-		sensors();
-		security();
-		light();
-		exit_button();
-		locker();
-	}
 }
 
 
@@ -798,8 +790,7 @@ void interrupt() {
 	security::update();
 	inside_light::update();
 	locker::update();
-	logger::update();
-}
+	}
 
 void setup() {
 	Serial.begin(9600);
