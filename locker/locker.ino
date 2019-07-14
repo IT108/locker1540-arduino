@@ -790,12 +790,12 @@ void interrupt() {
 	security::update();
 	inside_light::update();
 	locker::update();
-	}
+}
 
 void setup() {
 	Serial.begin(9600);
-    Serial1.begin(9600);
-    Serial2.begin(9600);
+	Serial1.begin(9600);
+	Serial2.begin(9600);
 	pinMode(13, OUTPUT);
 	FlexiTimer2::set(20, interrupt);
 	FlexiTimer2::start();
