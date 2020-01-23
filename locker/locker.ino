@@ -125,7 +125,7 @@ namespace constant_pins {
 	const int OUTSIDE_GREEN = 45;
 	const int OUTSIDE_BLUE = 46;
 
-	const int LOCKER = 25;
+	const int LOCKER = 23;
 
 	const int SOUND_OUTSIDE = 43;
 	const int SOUND_INSIDE = 9;
@@ -723,7 +723,7 @@ namespace logger {
 	String sensors() {
 		String res = "";
 		for (int i = 0; i < 4; i++) {
-			res += build_param("sensor_" + (String) i, security::SENSORS[i].read());
+			res += build_param("sensor_" + String(i), (String) security::SENSORS[i].read());
 		}
 		res += build_param("sensor_balance", (String) (int) security::cabinet_balance);
 		return res;
