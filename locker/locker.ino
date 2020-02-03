@@ -726,7 +726,7 @@ namespace logger {
 	String sensors() {
 		String res = "";
 		for (int i = 0; i < 4; i++) {
-			res += build_param("sensor_", "kek");
+			res += build_param("sensor_" + (String) i, (String) (int) security::SENSORS[i].read());
 		}
 		res += build_param("sensor_balance", (String) (int) security::cabinet_balance);
 		return res;
