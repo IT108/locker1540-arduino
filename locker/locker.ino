@@ -125,7 +125,7 @@ namespace constant_pins {
 	const int OUTSIDE_GREEN = 45;
 	const int OUTSIDE_BLUE = 46;
 
-	const int LOCKER = 25;
+	const int LOCKER = 36;
 
 	const int SOUND_OUTSIDE = 43;
 	const int SOUND_INSIDE = 9;
@@ -623,9 +623,12 @@ namespace handler {
 		{66, 66, 57, 53, 65, 53, 66, 54},  // Vahta
 		{69, 54, 57, 55, 49, 69, 70, 57},  // Paramonov
 		{68, 57, 53, 52, 48, 57, 52, 57},  // Amelichev
-		{68, 57, 52, 49, 69, 51, 52, 57}   // Filippov
+		{68, 57, 52, 49, 69, 51, 52, 57},   // Filippov
+		{}
 	};
 
+	// 0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F
+	// 48 49 50 51 52 53 54 55 56 57 65 66 67 68 69 70
 	int position = 0;
 	int buffer[CARD_SIZE];
 
@@ -723,7 +726,7 @@ namespace logger {
 	String sensors() {
 		String res = "";
 		for (int i = 0; i < 4; i++) {
-			res += build_param("sensor_" + (String) i, security::SENSORS[i].read());
+			res += build_param("sensor_", "kek");
 		}
 		res += build_param("sensor_balance", (String) (int) security::cabinet_balance);
 		return res;
